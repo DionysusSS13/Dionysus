@@ -56,6 +56,11 @@
 
 	if(href_list["ready"])
 		var/tready = text2num(href_list["ready"])
+
+		if((tready == PLAYER_READY_TO_OBSERVE) && isnull(usr?.client?.holder))
+			to_chat(span_notice("Only admins may observe."))
+			return
+
 		//Avoid updating ready if we're after PREGAME (they should use latejoin instead)
 		//This is likely not an actual issue but I don't have time to prove that this
 		//no longer is required
@@ -292,7 +297,8 @@
 		<div class='flexColumn' style='justify-content: center;align-items: center;width:100%;font-size: 16px;'>
 	"}
 
-	if(SSticker.current_state > GAME_STATE_PREGAME)
+	var/is_admin = !isnull(usr?.client?.holder)
+	if(is_admin && (SSticker.current_state > GAME_STATE_PREGAME))
 		output += {"
 			<div class='flexRow' style='justify-content: center;align-items: center;width:100%;margin-top: 4px;'>
 				<div class='flexItem'>[button_element(src, "Join Game", "late_join=1")]</div>
@@ -303,9 +309,9 @@
 	else
 		switch(parent.ready)
 			if(PLAYER_NOT_READY)
-				output += "<div>\[ [LINKIFY_READY("Ready", PLAYER_READY_TO_PLAY)] | <span class='linkOn'>Not Ready</span> | [LINKIFY_READY("Observe", PLAYER_READY_TO_OBSERVE)] \]</div>"
+				output += "<div>\[ [LINKIFY_READY("Ready", PLAYER_READY_TO_PLAY)] | <span class='linkOn'>Not Ready</span>[is_admin ? " | [LINKIFY_READY("Observe", PLAYER_READY_TO_OBSERVE)] \]" : ""]</div>"
 			if(PLAYER_READY_TO_PLAY)
-				output += "<div>\[ <span class='linkOn'>Ready</span> | [LINKIFY_READY("Not Ready", PLAYER_NOT_READY)] | [LINKIFY_READY("Observe", PLAYER_READY_TO_OBSERVE)] \]</div>"
+				output += "<div>\[ <span class='linkOn'>Ready</span> | [LINKIFY_READY("Not Ready", PLAYER_NOT_READY)][is_admin ? " | [LINKIFY_READY("Observe", PLAYER_READY_TO_OBSERVE)] \]" : ""]</div>"
 			if(PLAYER_READY_TO_OBSERVE)
 				output += "<div>\[ [LINKIFY_READY("Ready", PLAYER_READY_TO_PLAY)] | [LINKIFY_READY("Not Ready", PLAYER_NOT_READY)] | <span class='linkOn'>Observe</span> \]</div>"
 		output += "</div>"

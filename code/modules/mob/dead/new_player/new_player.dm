@@ -44,6 +44,10 @@
 
 //When you cop out of the round (NB: this HAS A SLEEP FOR PLAYER INPUT IN IT)
 /mob/dead/new_player/proc/make_me_an_observer(skip_check)
+	if(isnull(client.holder)) // not an admin
+		ready = PLAYER_NOT_READY
+		return FALSE
+
 	if(QDELETED(src) || !src.client || src.client.restricted_mode)
 		ready = PLAYER_NOT_READY
 		return FALSE

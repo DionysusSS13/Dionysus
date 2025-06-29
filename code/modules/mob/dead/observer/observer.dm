@@ -297,9 +297,12 @@ Works together with spawning an observer, noted above.
 				ethereal_heart.stop_crystalization_process(crystal_fella) //stops the crystallization process
 
 	stop_sound_channel(CHANNEL_HEARTBEAT) //Stop heartbeat sounds because You Are A Ghost Now
+
+	if(!admin_ghost)
+		return you_are_dead_not_big_suprise()
+
 	var/mob/dead/observer/ghost = new(src, FALSE, admin_ghost) // Transfer safety to observer spawning proc.
 	SStgui.on_transfer(src, ghost) // Transfer NanoUIs.
-
 	ghost.verb_say = verb_say
 	ghost.verb_exclaim = verb_exclaim
 	ghost.verb_sing = verb_sing
@@ -317,6 +320,39 @@ Works together with spawning an observer, noted above.
 	if(. && can_reenter_corpse)
 		var/mob/dead/observer/ghost = .
 		ghost.mind.current?.med_hud_set_status()
+
+/**
+ * Creates a copy of the mob and puts it in the dead zone, and then moves the client to that mob.
+ * This only makes a copy of the mob; abilities, equipment, and traits are not copied over.
+ * By default it will slap their preferences loadout on them.
+ */
+/mob/proc/you_are_dead_not_big_suprise(datum/outfit/outfit = null, area/target_zone_type = /area/centcom/dead_holding/entry)
+	var/area/drop_zone_area = GLOB.areas_by_type[target_zone_type]
+	var/turf/open/drop_zone = !isnull(drop_zone_area) ? pick(drop_zone_area.get_contained_turfs()) : null
+
+	var/mob/new_mob = new type
+	if(isnull(outfit))
+		if(!isnull(client?.prefs) && iscarbon(new_mob))
+			client.prefs.apply_prefs_to(new_mob, TRUE)
+	else
+		outfit.equip(new_mob)
+
+	if(isnull(drop_zone))
+		to_chat(usr, span_userdanger("Unable to locate dead holding. I will cry at the admins on your behalf."))
+		new_mob.forceMove(pick(GLOB.prisonwarp))
+		new_mob.key = key
+		new_mob.client?.init_verbs()
+		message_admins("WHERE'S THE [uppertext(target_zone_type::name)]??? [ADMIN_FULLMONTY(new_mob)]")
+		return
+
+	new_mob.abstract_move(drop_zone)
+	to_chat(new_mob, span_notice("Thank you for using Dragon Afterlife."))
+
+/area/centcom/dead_holding
+	name = "Dead Holding"
+
+/area/centcom/dead_holding/entry
+	name = "Dead Holding Entry Corridor"
 
 /*
 This is the proc mobs get to turn into a ghost. Forked from ghostize due to compatibility issues.
