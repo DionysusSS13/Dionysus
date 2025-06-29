@@ -1416,3 +1416,28 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 /// This grabs the DPI of the user per their skin
 /client/proc/acquire_dpi()
 	window_scaling = text2num(winget(src, null, "dpi"))
+
+/// Handles fullscreen on the client.
+/client/verb/toggle_fullscreen()
+	set name = "Toggle Fullscreen"
+	set category = "OOC"
+
+	fullscreen = !fullscreen
+
+	if(fullscreen)
+		winset(usr, "mainwindow", "titlebar=false")
+		winset(usr, "mainwindow", "can-resize=false")
+		winset(usr, "mainwindow", "is-maximized=false")  // Ensures the window doesn't get stretched oddly.
+		winset(usr, "mainwindow", "is-maximized=true")
+		winset(usr, "mainwindow", "is-fullscreen=true")
+		winset(usr, "mainwindow", "menu=")				 // Top-Menu bar [DISABLED]
+	else
+		winset(usr, "mainwindow", "titlebar=true")
+		winset(usr, "mainwindow", "can-resize=true")
+		winset(usr, "mainwindow", "is-fullscreen=false") // Order matters. Fullscreen [OFF] -> Maximize [TRUE]
+		winset(usr, "mainwindow", "is-maximized=true")
+		winset(usr, "mainwindow", "menu=menu")
+
+	var/fullscreen_state = fullscreen ? "on" : "off"
+	to_chat(usr, "Toggled fullscreen [fullscreen_state].")
+	fit_viewport()
