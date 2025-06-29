@@ -318,15 +318,11 @@ GLOBAL_LIST_INIT(rarity_loot, list(//rare: really good items
 
 ))
 
-
-
 GLOBAL_LIST_INIT(oddity_loot, list(//oddity: strange or crazy items
 		/obj/effect/rune/teleport = 1,
 		/obj/item/clothing/head/helmet/abductor = 1,
 		/obj/item/clothing/shoes/jackboots/fast = 1,
 		/obj/item/clothing/suit/armor/reactive/table = 1,
-		/obj/item/dice/d20/fate/stealth/cursed = 1, //Only rolls 1
-		/obj/item/dice/d20/fate/stealth/one_use = 1, //Looks like a d20, keep the d20 in the uncommon pool.
 		/obj/item/shadowcloak = 1,
 		/obj/item/spear/grey_tide = 1,
 		list(//music

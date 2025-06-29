@@ -154,18 +154,6 @@ ALLOW_AI_MULTICAM
 ## Uncomment to prevent the peacekeeper cyborg model from being chosen
 #DISABLE_PEACEBORG
 
-## AWAY MISSIONS ###
-
-## Uncomment to load one of the missions from awaymissionconfig.txt or away_missions/ at roundstart.
-#ROUNDSTART_AWAY
-
-## How long the delay is before the Away Mission gate opens. Default is half an hour.
-## 600 is one minute.
-GATEWAY_DELAY 18000
-
-## The probability of the gateway mission being a config one
-CONFIG_GATEWAY_CHANCE 0
-
 ## ACCESS ###
 
 ## If the number of players ready at round starts exceeds this threshold, JOBS_HAVE_MINIMAL_ACCESS will automatically be enabled. Otherwise, it will be disabled.

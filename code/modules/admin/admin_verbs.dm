@@ -109,7 +109,6 @@ GLOBAL_LIST_INIT(admin_verbs_fun, list(
 	/client/proc/polymorph_all,
 	/client/proc/show_tip,
 	/client/proc/smite,
-	/client/proc/admin_away,
 	/client/proc/add_mob_ability,
 	/client/proc/set_title_music,
 	/client/proc/restore_ghost_character,

@@ -4443,17 +4443,17 @@
 /obj/effect/turf_decal/bot_white/right,
 /obj/structure/cable/smart_cable/color/yellow,
 /turf/open/floor/iron/dark,
-/area/command/gateway)
+/area/command)
 "aoB" = (
 /obj/machinery/light/directional/north,
 /obj/effect/turf_decal/bot_white,
 /obj/structure/cable/smart_cable/color/yellow,
 /turf/open/floor/iron/dark,
-/area/command/gateway)
+/area/command)
 "aoC" = (
 /obj/effect/turf_decal/bot_white/left,
 /turf/open/floor/iron/dark,
-/area/command/gateway)
+/area/command)
 "aoH" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -4741,12 +4741,11 @@
 "apq" = (
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark,
-/area/command/gateway)
+/area/command)
 "apr" = (
-/obj/machinery/gateway/centerstation,
 /obj/structure/cable/smart_cable/color/yellow,
 /turf/open/floor/iron/dark,
-/area/command/gateway)
+/area/command)
 "apt" = (
 /obj/structure/chair{
 	dir = 4
@@ -5120,17 +5119,14 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
-/area/command/gateway)
+/area/command)
 "aqS" = (
-/obj/machinery/door/window{
-	name = "Gateway Chamber";
-	req_access_txt = "62"
-	},
+/obj/machinery/door/window,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
 /turf/open/floor/iron/dark,
-/area/command/gateway)
+/area/command)
 "aqT" = (
 /obj/effect/spawner/random/entertainment/arcade,
 /obj/effect/turf_decal/tile/blue{
@@ -5478,13 +5474,10 @@
 /turf/open/floor/iron/dark,
 /area/ai_monitored/command/nuke_storage)
 "arX" = (
-/obj/machinery/camera/directional/west{
-	c_tag = "Gateway"
-	},
+/obj/machinery/camera/directional/west,
 /obj/structure/sign/warning/biohazard{
 	pixel_x = -32
 	},
-/obj/machinery/computer/gateway_control,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
@@ -5492,7 +5485,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron,
-/area/command/gateway)
+/area/command)
 "arY" = (
 /obj/structure/closet/crate/internals,
 /obj/item/clothing/suit/hazardvest{
@@ -5522,7 +5515,7 @@
 /obj/item/flashlight,
 /obj/structure/cable/smart_cable/color/yellow,
 /turf/open/floor/iron,
-/area/command/gateway)
+/area/command)
 "asa" = (
 /obj/structure/table,
 /obj/item/radio/off{
@@ -5544,7 +5537,7 @@
 /obj/item/paper/pamphlet,
 /obj/machinery/newscaster/directional/north,
 /turf/open/floor/iron,
-/area/command/gateway)
+/area/command)
 "asc" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access_txt = "12"
@@ -5817,15 +5810,15 @@
 	dir = 4
 	},
 /turf/open/floor/iron,
-/area/command/gateway)
+/area/command)
 "atb" = (
 /turf/open/floor/iron,
-/area/command/gateway)
+/area/command)
 "atc" = (
 /obj/effect/landmark/event_spawn,
 /obj/machinery/holopad,
 /turf/open/floor/iron,
-/area/command/gateway)
+/area/command)
 "atd" = (
 /obj/structure/closet/l3closet/scientist,
 /obj/effect/turf_decal/stripes/line{
@@ -5833,7 +5826,7 @@
 	},
 /obj/machinery/airalarm/directional/east,
 /turf/open/floor/iron/dark,
-/area/command/gateway)
+/area/command)
 "atf" = (
 /obj/machinery/atmospherics/pipe/smart/simple/dark/visible{
 	dir = 4
@@ -6213,8 +6206,7 @@
 /area/ai_monitored/command/nuke_storage)
 "auf" = (
 /obj/machinery/requests_console/directional/west{
-	department = "Gateway";
-	name = "Gateway Requests Console"
+	name = "Requests Console"
 	},
 /obj/structure/cable/smart_cable/color/yellow,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -6224,14 +6216,13 @@
 	dir = 4
 	},
 /turf/open/floor/iron,
-/area/command/gateway)
+/area/command)
 "aug" = (
 /obj/machinery/button/door{
 	id = "stationawaygate";
-	name = "Gateway Access Shutter Control";
+	name = "Access Shutter Control";
 	pixel_x = -1;
-	pixel_y = -24;
-	req_access_txt = "62"
+	pixel_y = -24
 	},
 /obj/effect/turf_decal/stripes/corner,
 /obj/structure/cable/smart_cable/color/yellow,
@@ -6239,12 +6230,12 @@
 	dir = 8
 	},
 /turf/open/floor/iron,
-/area/command/gateway)
+/area/command)
 "auh" = (
 /obj/effect/turf_decal/stripes/line,
 /obj/structure/cable/smart_cable/color/yellow,
 /turf/open/floor/iron,
-/area/command/gateway)
+/area/command)
 "aui" = (
 /obj/machinery/light/directional/east,
 /obj/structure/closet/secure_closet/exile,
@@ -6254,7 +6245,7 @@
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable/smart_cable/color/yellow,
 /turf/open/floor/iron/dark,
-/area/command/gateway)
+/area/command)
 "auk" = (
 /obj/machinery/door/airlock{
 	name = "Laundry Room"
@@ -6534,10 +6525,8 @@
 /area/ai_monitored/command/nuke_storage)
 "ava" = (
 /obj/machinery/door/airlock/command{
-	name = "Gateway Access";
-	req_access_txt = "62"
+	name = "Access"
 	},
-/obj/effect/landmark/navigate_destination/gateway,
 /obj/machinery/door/firedoor,
 /obj/structure/cable/smart_cable/color/yellow,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -6547,18 +6536,18 @@
 	dir = 4
 	},
 /turf/open/floor/iron,
-/area/command/gateway)
+/area/command)
 "avb" = (
 /obj/machinery/door/poddoor/shutters{
 	id = "stationawaygate";
-	name = "Gateway Access Shutters"
+	name = "Access Shutters"
 	},
 /turf/open/floor/iron,
-/area/command/gateway)
+/area/command)
 "avc" = (
 /obj/structure/sign/warning/securearea,
 /turf/closed/wall/r_wall,
-/area/command/gateway)
+/area/command)
 "avd" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/door/poddoor/shutters/preopen{
@@ -15612,7 +15601,7 @@
 /obj/effect/turf_decal/bot_white/left,
 /obj/structure/cable/smart_cable/color/yellow,
 /turf/open/floor/iron/dark,
-/area/command/gateway)
+/area/command)
 "bcL" = (
 /obj/item/toy/plush/lizard_plushie,
 /turf/open/floor/plating,
@@ -33062,7 +33051,7 @@
 /area/hallway/secondary/entry)
 "cBU" = (
 /turf/closed/wall/r_wall,
-/area/command/gateway)
+/area/command)
 "cCc" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 5
@@ -33547,7 +33536,7 @@
 	},
 /obj/structure/cable/smart_cable/color/yellow,
 /turf/open/floor/iron,
-/area/command/gateway)
+/area/command)
 "ddT" = (
 /obj/effect/mapping_helpers/paint_wall/medical,
 /turf/closed/wall,
@@ -38653,7 +38642,7 @@
 /obj/effect/turf_decal/bot_white/right,
 /obj/item/radio/intercom/directional/east,
 /turf/open/floor/iron/dark,
-/area/command/gateway)
+/area/command)
 "hPN" = (
 /obj/structure/table/glass,
 /obj/machinery/button/door{
@@ -41959,7 +41948,7 @@
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable/smart_cable/color/yellow,
 /turf/open/floor/plating,
-/area/command/gateway)
+/area/command)
 "ldb" = (
 /obj/structure/table/glass,
 /obj/effect/turf_decal/tile/green,
@@ -42469,7 +42458,7 @@
 	},
 /obj/structure/cable/smart_cable/color/yellow,
 /turf/open/floor/iron/dark,
-/area/command/gateway)
+/area/command)
 "lDw" = (
 /obj/structure/flora/grass/jungle,
 /mob/living/carbon/human/species/monkey,
@@ -46087,7 +46076,7 @@
 /obj/effect/turf_decal/bot_white,
 /obj/structure/cable/smart_cable/color/yellow,
 /turf/open/floor/iron/dark,
-/area/command/gateway)
+/area/command)
 "oSI" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/trimline/red/filled/line,

@@ -21,21 +21,6 @@
 		ACCESS_SYNDICATE, \
 	)
 
-/// Away missions/gateway/space ruins.
-/datum/access_group/away_station
-	name = "Away (Station)"
-	access = list( \
-		ACCESS_AWAY_GENERAL, \
-		ACCESS_AWAY_MAINT, \
-		ACCESS_AWAY_MED, \
-		ACCESS_AWAY_SEC, \
-		ACCESS_AWAY_ENGINE, \
-		ACCESS_AWAY_GENERIC1, \
-		ACCESS_AWAY_GENERIC2, \
-		ACCESS_AWAY_GENERIC3, \
-		ACCESS_AWAY_GENERIC4, \
-	)
-
 /// Internal Cult access that prevents non-cult from using their doors.
 /datum/access_group/cult
 	name = "Bloodcult"

@@ -102,7 +102,7 @@
 /area/command/heads_quarters/rd : /area/station/command/heads_quarters/rd
 
 /area/command/teleporter : /area/station/command/teleporter
-/area/command/gateway : /area/station/command/gateway
+/area/command : /area/station/command
 
 /area/commons : /area/station/commons
 /area/commons/dorms : /area/station/commons/dorms

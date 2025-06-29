@@ -560,9 +560,3 @@
 		to_chat(src, span_notice("You move down."))
 
 	return FALSE
-
-/mob/abstract_move(atom/destination)
-	var/turf/new_turf = get_turf(destination)
-	if(new_turf && (istype(new_turf, /turf/cordon) || is_secret_level(new_turf.z)) && !client?.holder)
-		return
-	return ..()

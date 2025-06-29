@@ -227,7 +227,6 @@
 		/obj/machinery/field/generator = FALSE,
 		/obj/machinery/field/containment = FALSE,
 		/obj/machinery/camera = FALSE,
-		/obj/machinery/gateway = FALSE,
 		/mob/living/simple_animal = FALSE,
 		/obj/structure/disposalpipe = FALSE,
 		/obj/structure/disposaloutlet = FALSE,

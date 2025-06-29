@@ -3294,7 +3294,7 @@
 	icon_state = "12"
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "biv" = (
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/yellow/opposingcorners,
@@ -6747,7 +6747,7 @@
 	icon_state = "12"
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "ctN" = (
 /obj/structure/chair/sofa/bench/left{
 	dir = 1
@@ -7901,7 +7901,7 @@
 "cOf" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
-/area/station/command/gateway)
+/area/station/command)
 "cOk" = (
 /obj/effect/spawner/random/trash/graffiti{
 	pixel_x = 32
@@ -8378,7 +8378,7 @@
 /area/station/security/prison/rec)
 "cZs" = (
 /turf/closed/wall/prepainted/daedalus,
-/area/station/command/gateway)
+/area/station/command)
 "cZt" = (
 /obj/structure/extinguisher_cabinet/directional/east,
 /obj/machinery/camera/directional/east{
@@ -12499,7 +12499,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "ezT" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -13231,7 +13231,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "eNe" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock{
@@ -14681,7 +14681,7 @@
 	icon_state = "2"
 	},
 /turf/open/floor/iron/dark,
-/area/station/command/gateway)
+/area/station/command)
 "fnS" = (
 /obj/effect/turf_decal/bot,
 /turf/open/floor/engine,
@@ -18086,7 +18086,7 @@
 	dir = 8
 	},
 /obj/machinery/button/door/directional/south{
-	name = "Gateway Shutter Control";
+	name = "Shutter Control";
 	pixel_y = -34;
 	id = "gateshutter";
 	req_access_txt = "19"
@@ -20076,7 +20076,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "hue" = (
 /obj/structure/disposalpipe/junction{
 	dir = 1
@@ -22992,11 +22992,11 @@
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/poddoor/shutters/window{
-	name = "Gateway Access Shutter";
+	name = "Access Shutter";
 	id = "gateshutter"
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "izR" = (
 /obj/structure/table/glass,
 /obj/machinery/light_switch/directional/east,
@@ -23581,12 +23581,10 @@
 /area/station/medical/medbay/aft)
 "iLM" = (
 /obj/machinery/airalarm/directional/east,
-/obj/machinery/camera/directional/east{
-	c_tag = "Gateway - Access"
-	},
+/obj/machinery/camera/directional/east,
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "iLU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -24551,7 +24549,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "jfr" = (
 /obj/effect/spawner/structure/window/reinforced/prepainted/daedalus,
 /obj/machinery/door/poddoor/preopen{
@@ -24614,7 +24612,7 @@
 	icon_state = "10"
 	},
 /turf/open/floor/plating,
-/area/station/command/gateway)
+/area/station/command)
 "jfR" = (
 /obj/structure/bookcase,
 /turf/open/floor/wood,
@@ -24932,12 +24930,11 @@
 /obj/effect/turf_decal/bot{
 	dir = 1
 	},
-/obj/item/paper/pamphlet/gateway,
 /obj/structure/cable/yellow{
 	icon_state = "5"
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "jlS" = (
 /obj/structure/table,
 /obj/item/folder/red{
@@ -26498,7 +26495,7 @@
 "jRm" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "jRw" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -26945,7 +26942,7 @@
 /obj/effect/turf_decal/bot_white/right,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
-/area/station/command/gateway)
+/area/station/command)
 "jYa" = (
 /obj/machinery/atmospherics/pipe/smart/simple/scrubbers/visible,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -28342,7 +28339,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "kyd" = (
 /obj/effect/turf_decal/tile/blue/half/contrasted,
 /obj/effect/turf_decal/siding/red,
@@ -30747,7 +30744,7 @@
 	icon_state = "5"
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "lrn" = (
 /obj/machinery/iv_drip,
 /obj/effect/turf_decal/tile/green/half/contrasted{
@@ -31557,15 +31554,13 @@
 /area/station/security/prison/workout)
 "lHB" = (
 /obj/structure/bed/roller,
-/obj/machinery/camera/directional/west{
-	c_tag = "Gateway - Atrium"
-	},
+/obj/machinery/camera/directional/west,
 /obj/effect/turf_decal/bot{
 	dir = 1
 	},
 /obj/machinery/vending/wallmed/directional/west,
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "lHH" = (
 /obj/effect/spawner/structure/window/reinforced/plasma/prepainted/daedalus,
 /obj/machinery/atmospherics/pipe/smart/simple/cyan/visible{
@@ -32003,7 +31998,7 @@
 	icon_state = "3"
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "lPu" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/monitored/mix_output{
 	dir = 1
@@ -34295,7 +34290,7 @@
 	icon_state = "3"
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "mJk" = (
 /obj/item/storage/box/matches{
 	pixel_x = -2;
@@ -34404,9 +34399,8 @@
 /turf/closed/wall/prepainted/daedalus,
 /area/station/engineering/atmos)
 "mKx" = (
-/obj/machinery/gateway/centerstation,
 /turf/open/floor/iron/dark,
-/area/station/command/gateway)
+/area/station/command)
 "mKC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -36790,7 +36784,7 @@
 	icon_state = "3"
 	},
 /turf/open/floor/iron/dark,
-/area/station/command/gateway)
+/area/station/command)
 "nDl" = (
 /obj/machinery/door/morgue{
 	name = "Private Study";
@@ -37306,7 +37300,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "nLN" = (
 /obj/structure/cable/yellow{
 	icon_state = "3"
@@ -40855,7 +40849,7 @@
 	icon_state = "12"
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "pcU" = (
 /obj/structure/table,
 /obj/item/folder/yellow{
@@ -42810,9 +42804,7 @@
 /area/station/maintenance/aft/greater)
 "pSW" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/command{
-	name = "Gateway Atrium"
-	},
+/obj/machinery/door/airlock/command,
 /obj/effect/turf_decal/delivery,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -42821,7 +42813,7 @@
 	},
 /obj/effect/mapping_helpers/airlock/access/all/command/teleporter,
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "pTc" = (
 /obj/effect/turf_decal/box/red/corners,
 /obj/effect/turf_decal/box/red/corners{
@@ -44960,7 +44952,7 @@
 /area/station/service/janitor)
 "qGj" = (
 /turf/closed/wall/r_wall/prepainted/daedalus,
-/area/station/command/gateway)
+/area/station/command)
 "qGm" = (
 /obj/structure/disposalpipe/segment{
 	dir = 10
@@ -45766,7 +45758,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "qYo" = (
 /obj/machinery/atmospherics/pipe/smart/simple/supply/visible{
 	dir = 10
@@ -45998,7 +45990,7 @@
 	icon_state = "1"
 	},
 /turf/open/floor/plating,
-/area/station/command/gateway)
+/area/station/command)
 "rcu" = (
 /obj/machinery/door/window/left/directional/west{
 	name = "Bridge Deliveries";
@@ -46833,7 +46825,7 @@
 /obj/machinery/light/directional/east,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
-/area/station/command/gateway)
+/area/station/command)
 "rrD" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/decal/cleanable/dirt,
@@ -46934,7 +46926,7 @@
 	icon_state = "5"
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "rub" = (
 /obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/sheet/iron/fifty,
@@ -47126,7 +47118,7 @@
 "rxE" = (
 /obj/structure/sign/warning/securearea,
 /turf/closed/wall/r_wall/prepainted/daedalus,
-/area/station/command/gateway)
+/area/station/command)
 "rxF" = (
 /obj/structure/window/reinforced/spawner/north,
 /obj/structure/window/reinforced/spawner,
@@ -47238,7 +47230,7 @@
 	dir = 1
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "rzY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold/cyan/visible{
 	dir = 1
@@ -47587,7 +47579,7 @@
 /obj/effect/turf_decal/bot_white/left,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
-/area/station/command/gateway)
+/area/station/command)
 "rGM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/dark/visible,
 /obj/machinery/atmospherics/components/binary/dp_vent_pump/high_volume/incinerator_atmos{
@@ -49057,7 +49049,7 @@
 	},
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "sgJ" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
@@ -50189,7 +50181,7 @@
 	icon_state = "12"
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "sCK" = (
 /obj/structure/cable/yellow{
 	icon_state = "3"
@@ -51151,7 +51143,7 @@
 	icon_state = "2"
 	},
 /turf/open/floor/plating,
-/area/station/command/gateway)
+/area/station/command)
 "sUf" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
 	name = "N2 to Airmix";
@@ -52222,7 +52214,7 @@
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
-/area/station/command/gateway)
+/area/station/command)
 "toR" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
@@ -53222,9 +53214,7 @@
 /area/station/engineering/main)
 "tKt" = (
 /obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/public/glass{
-	name = "Gateway Chamber"
-	},
+/obj/machinery/door/airlock/public/glass,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable/yellow{
 	icon_state = "12"
@@ -53236,7 +53226,7 @@
 	icon_state = "6"
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "tKv" = (
 /obj/structure/rack,
 /obj/item/reagent_containers/glass/bucket,
@@ -53537,7 +53527,6 @@
 /obj/structure/table/wood,
 /obj/item/book/manual/wiki/security_space_law,
 /obj/machinery/light/small/directional/west,
-/obj/item/paper/fluff/gateway,
 /obj/item/coin/plasma,
 /obj/item/melee/chainofcommand,
 /obj/machinery/power/apc/auto_name/directional/west,
@@ -53692,7 +53681,7 @@
 	icon_state = "12"
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "tTt" = (
 /obj/structure/closet/secure_closet/personal/patient,
 /obj/effect/turf_decal/tile/blue/anticorner/contrasted{
@@ -53983,7 +53972,7 @@
 	dir = 4
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "tZm" = (
 /turf/closed/wall/r_wall/prepainted/daedalus,
 /area/station/command/corporate_showroom)
@@ -56794,7 +56783,7 @@
 	icon_state = "9"
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "vaB" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/transit_tube/junction/flipped{
@@ -57873,9 +57862,7 @@
 /turf/open/floor/iron/dark,
 /area/station/science/robotics/lab)
 "vtq" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Gateway Maintenance"
-	},
+/obj/machinery/door/airlock/maintenance,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable/yellow{
 	icon_state = "12"
@@ -58124,12 +58111,12 @@
 	dir = 1
 	},
 /obj/machinery/button/door/directional/south{
-	name = "Gateway Shutter Control";
+	name = "Shutter Control";
 	id = "gateshutter";
 	req_access_txt = "19"
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "vAC" = (
 /obj/structure/sign/warning/vacuum/external,
 /turf/closed/wall/r_wall/prepainted/daedalus,
@@ -58775,7 +58762,7 @@
 	},
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "vNx" = (
 /obj/effect/turf_decal/tile/green/half/contrasted{
 	dir = 4
@@ -59166,7 +59153,7 @@
 	dir = 4
 	},
 /obj/machinery/button/door/directional/north{
-	name = "Gateway Shutter Control";
+	name = "Shutter Control";
 	id = "gateshutter";
 	req_access_txt = "19"
 	},
@@ -59278,7 +59265,7 @@
 	dir = 5
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "vWr" = (
 /turf/open/floor/iron,
 /area/station/engineering/storage/mech)
@@ -61693,7 +61680,7 @@
 	icon_state = "8"
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "wPI" = (
 /obj/machinery/firealarm/directional/east,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -62780,7 +62767,7 @@
 /obj/effect/turf_decal/bot_white,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/floor/iron/dark,
-/area/station/command/gateway)
+/area/station/command)
 "xkw" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -63112,7 +63099,7 @@
 	icon_state = "4"
 	},
 /turf/open/floor/plating,
-/area/station/command/gateway)
+/area/station/command)
 "xpO" = (
 /obj/structure/cable/yellow{
 	icon_state = "5"
@@ -63754,11 +63741,8 @@
 /obj/effect/turf_decal/bot{
 	dir = 1
 	},
-/obj/machinery/computer/gateway_control{
-	dir = 8
-	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "xBB" = (
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/iron/dark,
@@ -64769,13 +64753,12 @@
 /turf/open/floor/plating,
 /area/station/maintenance/starboard/greater)
 "xXf" = (
-/obj/structure/closet/secure_closet/exile,
 /obj/structure/extinguisher_cabinet/directional/west,
 /obj/effect/turf_decal/bot{
 	dir = 1
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "xXl" = (
 /obj/machinery/navbeacon{
 	location = "8-Central-to-Aft";
@@ -65144,7 +65127,7 @@
 	icon_state = "12"
 	},
 /turf/open/floor/iron,
-/area/station/command/gateway)
+/area/station/command)
 "yeI" = (
 /obj/machinery/camera/autoname/directional/north{
 	network = list("ss13","prison","isolation")

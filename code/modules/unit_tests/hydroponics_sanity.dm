@@ -35,7 +35,6 @@
 			continue
 
 		var/datum/plant/plant_datum = new path
-		var/species= plant_datum.species
 		var/icon_file = plant_datum.growing_icon
 
 		if(isnull(plant_datum.growing_icon))

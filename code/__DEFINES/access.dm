@@ -16,7 +16,7 @@
 #define ACCESS_AI_UPLOAD 16
 #define ACCESS_TELEPORTER 17
 #define ACCESS_EVA 18
-/// Bridge, EVA storage windoors, gateway shutters, AI integrity restorer, comms console
+/// Bridge, EVA storage windoors, AI integrity restorer, comms console
 #define ACCESS_FACTION_LEADER 19
 #define ACCESS_CAPTAIN 20
 #define ACCESS_ALL_PERSONAL_LOCKERS 21
@@ -47,7 +47,6 @@
 #define ACCESS_KEYCARD_AUTH 60
 /// Has access to the satellite and secure tech storage.
 #define ACCESS_SECURE_ENGINEERING 61
-#define ACCESS_GATEWAY 62
 /// For releasing minerals from the ORM
 #define ACCESS_MINERAL_STOREROOM 64
 /// Weapon authorization for secbots

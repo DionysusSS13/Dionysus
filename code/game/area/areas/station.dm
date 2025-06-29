@@ -424,11 +424,6 @@
 	icon_state = "teleporter"
 	ambience_index = AMBIENCE_ENGI
 
-/area/station/command/gateway
-	name = "\improper Gateway"
-	icon_state = "gateway"
-	ambience_index = AMBIENCE_ENGI
-
 //Commons
 
 /area/station/commons

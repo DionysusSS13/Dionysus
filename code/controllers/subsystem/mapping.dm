@@ -95,10 +95,6 @@ SUBSYSTEM_DEF(mapping)
 		++space_levels_so_far
 		empty_space = add_new_zlevel("Empty Area [space_levels_so_far]", list(ZTRAIT_LINKAGE = CROSSLINKED))
 
-	// Pick a random away mission.
-	if(CONFIG_GET(flag/roundstart_away))
-		createRandomZlevel(prob(CONFIG_GET(number/config_gateway_chance)))
-
 	loading_ruins = TRUE
 	setup_ruins()
 	loading_ruins = FALSE
@@ -563,50 +559,6 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 
 		holodeck_templates[holo_template.template_id] = holo_template
 
-//Manual loading of away missions.
-/client/proc/admin_away()
-	set name = "Load Away Mission"
-	set category = "Admin.Events"
-
-	if(!holder ||!check_rights(R_FUN))
-		return
-
-
-	if(!GLOB.the_gateway)
-		if(tgui_alert(usr, "There's no home gateway on the station. You sure you want to continue ?", "Uh oh", list("Yes", "No")) != "Yes")
-			return
-
-	var/list/possible_options = GLOB.potentialRandomZlevels + "Custom"
-	var/away_name
-	var/datum/space_level/away_level
-	var/secret = FALSE
-	if(tgui_alert(usr, "Do you want your mission secret? (This will prevent ghosts from looking at your map in any way other than through a living player's eyes.)", "Are you $$$ekret?", list("Yes", "No")) == "Yes")
-		secret = TRUE
-	var/answer = input("What kind?","Away") as null|anything in possible_options
-	switch(answer)
-		if("Custom")
-			var/mapfile = input("Pick file:", "File") as null|file
-			if(!mapfile)
-				return
-			away_name = "[mapfile] custom"
-			to_chat(usr,span_notice("Loading [away_name]..."))
-			var/datum/map_template/template = new(mapfile, "Away Mission")
-			away_level = template.load_new_z(secret)
-		else
-			if(answer in GLOB.potentialRandomZlevels)
-				away_name = answer
-				to_chat(usr,span_notice("Loading [away_name]..."))
-				var/datum/map_template/template = new(away_name, "Away Mission")
-				away_level = template.load_new_z(secret)
-			else
-				return
-
-	message_admins("Admin [key_name_admin(usr)] has loaded [away_name] away mission.")
-	log_admin("Admin [key_name(usr)] has loaded [away_name] away mission.")
-	if(!away_level)
-		message_admins("Loading [away_name] failed!")
-		return
-
 /// Adds a new reservation z level. A bit of space that can be handed out on request
 /// Of note, reservations default to transit turfs, to make their most common use, shuttles, faster
 /datum/controller/subsystem/mapping/proc/add_reservation_zlevel(for_shuttles)
@@ -702,3 +654,43 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 		isolated_ruins_z = add_new_zlevel("Isolated Ruins/Reserved", list(ZTRAIT_RESERVED = TRUE, ZTRAIT_ISOLATED_RUINS = TRUE))
 		initialize_reserved_level(isolated_ruins_z.z_value)
 	return isolated_ruins_z.z_value
+
+/proc/generateMapList(filename)
+	. = list()
+	filename = "[global.config.directory]/[SANITIZE_FILENAME(filename)]"
+	var/list/Lines = world.file2list(filename)
+
+	if(!Lines.len)
+		return
+	for (var/t in Lines)
+		if (!t)
+			continue
+
+		t = trim(t)
+		if (length(t) == 0)
+			continue
+		else if (t[1] == "#")
+			continue
+
+		var/pos = findtext(t, " ")
+		var/name = null
+
+		if (pos)
+			name = lowertext(copytext(t, 1, pos))
+
+		else
+			name = lowertext(t)
+
+		if (!name)
+			continue
+
+		. += t
+
+/proc/generateConfigMapList(directory)
+	var/list/config_maps = list()
+	var/list/maps = flist(directory)
+	for(var/map_file in maps)
+		if(!findtext(map_file, ".dmm"))
+			continue
+		config_maps += (directory + map_file)
+	return config_maps

@@ -109,6 +109,11 @@ GLOBAL_LIST_INIT(orion_events, generate_orion_events())
 	//spaceport junk
 	spaceport_raided = FALSE
 
+/obj/item/paper/pamphlet/violent_video_games
+	name = "pamphlet - \'Violent Video Games and You\'"
+	desc = "A pamphlet encouraging the reader to maintain a balanced lifestyle and take care of their mental health, while still enjoying video games in a healthy way. You probably don't need this..."
+	info = "They don't make you kill people. There, we said it. Now get back to work!"
+
 /obj/machinery/computer/arcade/orion_trail/proc/report_player(mob/gamer)
 	if(gamers[gamer] == ORION_GAMER_GIVE_UP)
 		return // enough harassing them

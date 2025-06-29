@@ -303,7 +303,7 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 /datum/antagonist/wizard/academy
 	name = "Academy Teacher"
 	show_in_antagpanel = FALSE
-	outfit_type = /datum/outfit/wizard/academy
+	outfit_type = /datum/outfit/wizard
 	move_to_lair = FALSE
 
 /datum/antagonist/wizard/academy/equip_wizard()
@@ -318,9 +318,6 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 	missile.Grant(living_current)
 	var/datum/action/cooldown/spell/pointed/projectile/fireball/fireball = new(owner)
 	fireball.Grant(living_current)
-
-	var/obj/item/implant/exile/exiled = new /obj/item/implant/exile(living_current)
-	exiled.implant(living_current, body_zone = BODY_ZONE_CHEST)
 
 /datum/antagonist/wizard/academy/create_objectives()
 	var/datum/objective/new_objective = new("Protect Wizard Academy from the intruders")

@@ -86,19 +86,6 @@
 			return player_mind.current.stat != DEAD
 	return FALSE
 
-/**
- * Exiled check
- *
- * Checks if the current body of the mind has an exile implant and is currently in
- * an away mission. Returns FALSE if any of those conditions aren't met.
- */
-/proc/considered_exiled(datum/mind/player_mind)
-	if(!ishuman(player_mind?.current))
-		return FALSE
-	for(var/obj/item/implant/implant_check in player_mind.current.implants)
-		if(istype(implant_check, /obj/item/implant/exile && player_mind.current.onAwayMission()))
-			return TRUE
-
 ///Checks if a player is considered AFK
 /proc/considered_afk(datum/mind/player_mind)
 	return !player_mind || !player_mind.current || !player_mind.current.client || player_mind.current.client.is_afk()

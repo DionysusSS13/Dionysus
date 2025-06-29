@@ -488,9 +488,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/start/new_player)
 /obj/effect/landmark/navigate_destination/teleporter
 	location = "Teleporter"
 
-/obj/effect/landmark/navigate_destination/gateway
-	location = "Gateway"
-
 /obj/effect/landmark/navigate_destination/eva
 	location = "EVA Storage"
 

@@ -258,16 +258,6 @@
 
 /datum/config_entry/flag/roundstart_away //Will random away mission be loaded.
 
-/datum/config_entry/number/gateway_delay //How long the gateway takes before it activates. Default is half an hour. Only matters if roundstart_away is enabled.
-	default = 18000
-	integer = FALSE
-	min_val = 0
-
-/datum/config_entry/number/config_gateway_chance
-	integer = FALSE
-	min_val = 0
-	max_val = 100
-
 /datum/config_entry/flag/near_death_experience //If carbons can hear ghosts when unconscious and very close to death
 
 /datum/config_entry/flag/silent_ai
