@@ -16,16 +16,16 @@ $include pariah/pariah_config.txt
 # There are various options which are hard-locked for security reasons.
 
 ## Server name: This appears at the top of the screen in-game and in the BYOND hub. Uncomment and replace 'tgstation' with the name of your choice.
-SERVERNAME Daedalus Dock
+SERVERNAME Dionysus
 
 ## Server SQL name: This is the name used to identify the server to the SQL DB, distinct from SERVERNAME as it must be at most 32 characters.
-SERVERSQLNAME daedalusdock
+SERVERSQLNAME dionysus
 
 ## Station name: The name of the station as it is referred to in-game. If commented out, the game will generate a random name instead.
-STATIONNAME Daedalus Outpost
+STATIONNAME Insert Default Name Here
 
 ## Community slug for AffectedArc's Web Map
-#WEBMAP_COMMUNITY DaedalusDock
+#WEBMAP_COMMUNITY dionysus
 
 ## Hub subtitle: A line of text inserted under the server name. Should be no greater than 40 characters.
 HUB_SUBTITLE Now with custom lighting!
@@ -262,16 +262,16 @@ CHECK_RANDOMIZER
 # SERVER ss13.example.com:2506
 
 ## forum address
-# FORUMURL https://daedalus13.net/
+# FORUMURL https://nohello.com/
 
 ## Wiki address
-# WIKIURL https://daedalus13.net/
+# WIKIURL https://nohello.com/
 
 ## Rules address
-# RULESURL https://daedalus13.net/
+# RULESURL https://nohello.com/
 
 ## Github address
-GITHUBURL https://github.com/DaedalusDock/Gameserver
+GITHUBURL https://github.com/DionysusSS13/Dionysus
 
 ## Discord bot command prefix, if the discord bot is used
 # DISCORDBOTCOMMANDPREFIX ?

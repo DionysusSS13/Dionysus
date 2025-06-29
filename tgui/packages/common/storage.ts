@@ -16,8 +16,8 @@ type StorageImplementation =
   | typeof IMPL_INDEXED_DB;
 
 const INDEXED_DB_VERSION = 2;
-const INDEXED_DB_NAME = 'tgui-daedalus';
-const INDEXED_DB_STORE_NAME = 'daedalus-storage-v1';
+const INDEXED_DB_NAME = 'tgui-dionysus';
+const INDEXED_DB_STORE_NAME = 'dionysus-storage-v1';
 
 const READ_ONLY = 'readonly';
 const READ_WRITE = 'readwrite';

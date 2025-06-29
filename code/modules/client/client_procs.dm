@@ -684,14 +684,14 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 									[discord_prefix]verify [discord_otp]
 								</code>
 								<hr/>
-								discord.daedalus13.net (We are unable to embed this link for security reasons.)
+								!!TODO!! (We are unable to embed this link for security reasons.)
 								<br>
 							"},
 							"window=discordauth;can_close=0;can_resize=0;can_minimize=0",
 						)
 						to_chat_immediate(src, span_boldnotice("Your One-Time-Password is: [discord_otp]"))
 						to_chat_immediate(src, span_userdanger("DO NOT SHARE THIS OTP WITH ANYONE"))
-						to_chat_immediate(src, span_notice("To link your Discord account, head to the Discord Server (discord.daedalus13.net) and paste the following message:<hr/><code>[discord_prefix]verify [discord_otp]</code><hr/>\n"))
+						to_chat_immediate(src, span_notice("To link your Discord account, head to the Discord Server (!!TODO!!) and paste the following message:<hr/><code>[discord_prefix]verify [discord_otp]</code><hr/>\n"))
 						return TRUE
 					else
 						restricted_mode = TRUE

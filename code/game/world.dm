@@ -323,7 +323,7 @@ GLOBAL_VAR(restart_counter)
 		var/hub_subtitle = CONFIG_GET(string/hub_subtitle)
 		if(server_name)
 			new_status += "<b>[server_name]\]</b>"
-			new_status += " — (<a href=\"https://discord.daedalus13.net\">Discord</a>)<br>"
+			new_status += " — (<a href=\"!!TODO!!\">Discord</a>)<br>"
 		if(hub_subtitle)
 			new_status += "<i>[hub_subtitle]</i><br>"
 

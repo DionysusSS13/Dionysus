@@ -6,7 +6,7 @@
 #ISSUE_KEY github_pat_EXAMPLE
 
 ##Github API 'slug' for issue reporting, format owner/repo
-ISSUE_SLUG daedalusdock/daedalusdock
+ISSUE_SLUG dionysusss13/dionysus
 
 ## World address and port for server receiving cross server messages
 ## Use '+' to denote spaces in ServerName
