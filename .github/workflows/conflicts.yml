@@ -16,5 +16,5 @@ jobs:
         uses: eps1lon/actions-label-merge-conflict@1df065ebe6e3310545d4f4c4e862e43bdca146f0
         with:
           dirtyLabel: "Merge Conflict"
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          repoToken: "${{ secrets.DD_BOT_PAT }}"
           commentOnDirty: "This pull request conflicts with the merge target."
