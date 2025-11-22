@@ -43,24 +43,32 @@ SUBSYSTEM_DEF(media)
 	cache_tracks()
 	return ..()
 
+/// Returns all of the non-directory files in a directory, including sub directories.
+/datum/controller/subsystem/media/proc/walk_directory(directory)
+	. = list()
+	for(var/file in flist(directory))
+		if(copytext_char(file, -1) == "/")
+			. += .("[directory][file]")
+			continue
+
+		. += "[directory][file]"
+
 /datum/controller/subsystem/media/proc/setup_tracks()
 //Reset warnings to clear any past runs.
 	invalid_jsons_exist = FALSE
 	errored_files = null
 
-	//I'm not even going to bother supporting the existing jukebox shit. Jsons are easier.
-	var/basedir = "[global.config.directory]/media/jsons/"
 	//Fetch
-	for(var/json_record in flist(basedir))
+	for(var/file_path in walk_directory("[global.config.directory]/media/jsons/"))
 		//Decode
-		var/list/json_data = decode_or_null(basedir,json_record)
+		var/list/json_data = try_decode(file_path)
 
 		if(json_data == MEDIA_LOAD_FAILED)
 			continue //We returned successfully, with a bad record that is already logged
 
 		if(!json_data)
 			//We did NOT return successfully, Log a very general error ourselves.
-			log_load_fail(json_record,list("ERR_FATAL","JSON Record failed to load, Unknown error! Check the runtime log!"))
+			log_load_fail(file_path,list("ERR_FATAL","JSON Record failed to load, Unknown error! Check the runtime log!"))
 			continue
 
 		//Skip the example file.
@@ -77,7 +85,7 @@ SUBSYSTEM_DEF(media)
 
 		//Failed Validation?
 		if(tag_error)
-			log_load_fail(json_record,tag_error)
+			log_load_fail(file_path, tag_error)
 			continue //Skip the track.
 
 		//JSON is fully validated. Wrap it in the datum and add it to the lists.
@@ -89,7 +97,8 @@ SUBSYSTEM_DEF(media)
 			json_data["map"],
 			json_data["rare"],
 			json_data["duration"],
-			json_record
+			file_path,
+			file_extension,
 		)
 
 		all_tracks += media_datum
@@ -108,14 +117,14 @@ SUBSYSTEM_DEF(media)
 
 /// Quarantine proc for json decoding, Has handling code for most reasonable issues with file structure, and can safely die.
 /// Returns -1/MEDIA_LOAD_FAILED on error, a list on success, and null on suicide.
-/datum/controller/subsystem/media/proc/decode_or_null(basedir,json_record)
+/datum/controller/subsystem/media/proc/try_decode(file_path)
 	PRIVATE_PROC(TRUE)
-	var/file_contents = rustg_file_read("[basedir][json_record]")
+	var/file_contents = rustg_file_read(file_path)
 	if(!length(file_contents))
-		log_load_fail(json_record,list("ERR_FATAL","File is empty."))
+		log_load_fail(file_path,list("ERR_FATAL","File is empty."))
 		return MEDIA_LOAD_FAILED
 	if(!rustg_json_is_valid(file_contents))
-		log_load_fail(json_record,list("ERR_FATAL","JSON content is invalid!"))
+		log_load_fail(file_path,list("ERR_FATAL","JSON content is invalid!"))
 		return MEDIA_LOAD_FAILED
 	return json_decode(file_contents)
 
@@ -178,7 +187,7 @@ SUBSYSTEM_DEF(media)
 				if(!json_data["duration"])
 					return list(MEDIA_TAG_JUKEBOX, "Jukebox tracks MUST have a valid duration.")
 
-/datum/controller/subsystem/media/proc/get_track_pool(media_tag)
+/datum/controller/subsystem/media/proc/get_track_pool(media_tag) as /list
 	var/list/pool = tracks_by_tag[media_tag]
 	return LAZYCOPY(pool)
 
