@@ -1,0 +1,12 @@
+#comment Repaths subtypes and some commonly used properties of apc to apc helpers. You really should change it if you have other apc's that this or else it might break everything.
+
+#comment /obj/machinery/power/apc/@SUBTYPES{pixel_y = 25} : /obj/machinery/power/apc/auto_name/directional/north{@OLD;pixel_y=@SKIP;dir=@SKIP}
+#comment /obj/machinery/power/apc/@SUBTYPES{pixel_y = -25} : /obj/machinery/power/apc/auto_name/directional/south{@OLD;pixel_y=@SKIP;dir=@SKIP}
+#comment /obj/machinery/power/apc/@SUBTYPES{pixel_x = 25} : /obj/machinery/power/apc/auto_name/directional/east{@OLD;pixel_x=@SKIP;dir=@SKIP}
+#comment /obj/machinery/power/apc/@SUBTYPES{pixel_x = -25} : /obj/machinery/power/apc/auto_name/directional/west{@OLD;pixel_x=@SKIP;dir=@SKIP}
+
+
+/obj/machinery/power/apc/@SUBTYPES{dir = 1} : /obj/machinery/power/apc/@SUBTYPES/directional/north{@OLD;pixel_y=@SKIP;pixel_x=@SKIP;dir=@SKIP}
+/obj/machinery/power/apc/@SUBTYPES{dir = 2} : /obj/machinery/power/apc/@SUBTYPES/directional/south{@OLD;pixel_y=@SKIP;pixel_x=@SKIP;dir=@SKIP}
+/obj/machinery/power/apc/@SUBTYPES{dir = 4} : /obj/machinery/power/apc/@SUBTYPES/directional/east{@OLD;pixel_y=@SKIP;pixel_x=@SKIP;dir=@SKIP}
+/obj/machinery/power/apc/@SUBTYPES{dir = 8} : /obj/machinery/power/apc/@SUBTYPES/directional/west{@OLD;pixel_y=@SKIP;pixel_x=@SKIP;dir=@SKIP}

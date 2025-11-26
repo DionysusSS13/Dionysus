@@ -3068,11 +3068,9 @@
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/sbc_starfury)
 "jf" = (
-/obj/machinery/power/apc/syndicate{
+/obj/machinery/power/apc/syndicate/directional/north{
 	cell_type = /obj/item/stock_parts/cell/high;
-	dir = 1;
-	name = "Syndicate Battlecruiser APC";
-	pixel_y = 25
+	name = "Syndicate Battlecruiser APC"
 	},
 /obj/structure/cable/smart_cable/color/yellow,
 /obj/structure/overfloor_catwalk/iron_dark,

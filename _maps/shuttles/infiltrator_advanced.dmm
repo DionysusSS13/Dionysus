@@ -333,12 +333,10 @@
 	name = "tactical chair"
 	},
 /obj/effect/turf_decal/bot,
-/obj/machinery/power/apc/syndicate{
+/obj/machinery/power/apc/syndicate/directional/east{
 	aidisabled = 1;
 	area = "/area/shuttle/syndicate/airlock";
-	dir = 4;
-	name = "Infiltrator Airlock APC";
-	pixel_x = 25
+	name = "Infiltrator Airlock APC"
 	},
 /obj/structure/cable/smart_cable/color/yellow,
 /turf/open/floor/mineral/plastitanium,
@@ -404,12 +402,10 @@
 	pixel_x = -6;
 	pixel_y = -2
 	},
-/obj/machinery/power/apc/syndicate{
+/obj/machinery/power/apc/syndicate/directional/north{
 	aidisabled = 1;
 	area = "/area/shuttle/syndicate/hallway";
-	dir = 1;
-	name = "Infiltrator APC";
-	pixel_y = 25
+	name = "Infiltrator APC"
 	},
 /obj/machinery/airalarm/syndicate{
 	dir = 4;
@@ -871,12 +867,10 @@
 /obj/machinery/suit_storage_unit/syndicate,
 /obj/effect/turf_decal/box,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/power/apc/syndicate{
+/obj/machinery/power/apc/syndicate/directional/north{
 	aidisabled = 1;
 	area = "/area/shuttle/syndicate/eva";
-	dir = 1;
-	name = "Infiltrator E.V.A APC";
-	pixel_y = 25
+	name = "Infiltrator E.V.A APC"
 	},
 /obj/structure/cable/smart_cable/color/yellow,
 /turf/open/floor/pod/dark,
@@ -1736,12 +1730,10 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/delivery,
-/obj/machinery/power/apc/syndicate{
+/obj/machinery/power/apc/syndicate/directional/west{
 	aidisabled = 1;
 	area = "/area/shuttle/syndicate/medical";
-	dir = 8;
-	name = "Infiltrator Medical APC";
-	pixel_x = -25
+	name = "Infiltrator Medical APC"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/smart_cable/color/yellow,
@@ -1800,12 +1792,10 @@
 /obj/item/flashlight/seclite,
 /obj/item/flashlight/seclite,
 /obj/item/extinguisher/mini,
-/obj/machinery/power/apc/syndicate{
+/obj/machinery/power/apc/syndicate/directional/east{
 	aidisabled = 1;
 	area = "/area/shuttle/syndicate/armory";
-	dir = 4;
-	name = "Infiltrator Armory APC";
-	pixel_x = 25
+	name = "Infiltrator Armory APC"
 	},
 /obj/structure/cable/smart_cable/color/yellow,
 /turf/open/floor/pod/dark,

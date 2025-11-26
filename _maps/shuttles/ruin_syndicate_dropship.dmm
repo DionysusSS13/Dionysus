@@ -75,10 +75,8 @@
 "hF" = (
 /obj/structure/chair/comfy/shuttle,
 /obj/machinery/light/small/directional/west,
-/obj/machinery/power/apc/syndicate{
-	dir = 8;
-	name = "Syndicate Drop Ship APC";
-	pixel_x = -25
+/obj/machinery/power/apc/syndicate/directional/west{
+	name = "Syndicate Drop Ship APC"
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/smart_cable/color/yellow,
