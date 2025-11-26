@@ -1,6 +1,6 @@
-TYPEINFO_DEF(/obj/item/taperecorder)
-	default_materials = list(/datum/material/iron=60, /datum/material/glass=30)
-
+// TYPEINFO_DEF(/obj/item/taperecorder)
+// 	default_materials = list(/datum/material/iron=60, /datum/material/glass=30)
+// ^ Dependent on https://github.com/DaedalusDock/daedalusdock/pull/1356
 /obj/item/taperecorder
 	name = "\improper Fony Strideman R03"
 	desc = "A device that can record and play magnetic tapes."
