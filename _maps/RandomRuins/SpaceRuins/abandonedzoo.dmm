@@ -471,12 +471,10 @@
 /obj/structure/rack,
 /obj/effect/spawner/random/maintenance,
 /obj/structure/cable/smart_cable/color/yellow,
-/obj/machinery/power/apc/unlocked{
-	dir = 8;
+/obj/machinery/power/apc/unlocked/directional/west{
 	environ = 0;
 	lighting = 0;
-	name = "Worn-out APC";
-	pixel_x = -25
+	name = "Worn-out APC"
 	},
 /obj/item/melee/baton/security/cattleprod,
 /turf/open/floor/iron/dark/side,
