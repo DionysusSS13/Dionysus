@@ -226,32 +226,6 @@ TYPEINFO_DEF(/obj/item/tape)
 	if(prob(50))
 		desc_song_otherside = "*unintelligible*"
 
-/obj/item/tape/music/white
-	name = "cassette \"Ghost Gurlz\""
-	icon_state = "tape_white"
-
-	media_tag = MEDIA_TAG_WHITEWOMEN
-	random_songs = TRUE
-
-/obj/item/tape/music/red
-	name = "cassette \"RED PRIDE\""
-	desc = "A magnetic tape so blisteringly RED it strains your eyes."
-	icon_state = "tape_red"
-
-	media_tag = MEDIA_TAG_IS12
-
-/obj/item/tape/music/red/Initialize(mapload)
-	. = ..()
-	name = pick("cassette \"RED PRIDE\"", "cassette \"GREAT LEADER MIX\"", "cassette \"ITALIAN HATE SESH\"")
-
-/obj/item/tape/music/carmen
-	name = "cassette \"Carmen Miranda's Ghost\""
-	desc = "An all-time classic album of space-wives' tales."
-	icon_state = "tape_blue"
-
-	media_tag = MEDIA_TAG_CARMEN_MIRANDA
-	random_songs = TRUE
-
 /obj/item/tape/dyed
 	icon_state = "greyscale"
 

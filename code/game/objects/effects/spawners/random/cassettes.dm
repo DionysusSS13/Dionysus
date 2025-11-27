@@ -7,7 +7,5 @@
 	spawn_random_offset = TRUE
 
 	loot = list(
-		/obj/item/tape/music/carmen = 4,
-		/obj/item/tape/music/red = 1,
-		/obj/item/tape/music/white = 1,
+		/obj/item/tape/random,
 	)
