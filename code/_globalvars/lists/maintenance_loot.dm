@@ -158,10 +158,7 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		) = 100,
 
 	list( //cassettes
-		/obj/item/tape/music/carmen = 10,
-		/obj/item/tape/music/red = 5,
-		/obj/item/tape/music/white = 5,
-		/obj/item/tape/rats = 1,
+		/obj/item/tape/random,
 		) = 20,
 	))
 
@@ -322,11 +319,6 @@ GLOBAL_LIST_INIT(rarity_loot, list(//rare: really good items
 		/obj/item/disk/nuclear/fake = 1,
 		/obj/item/skillchip/brainwashing = 1,
 		) = 100,
-
-	list(//rare cassette shit
-		/obj/item/storage/box/carmen = 1,
-	) = 10,
-
 ))
 
 
