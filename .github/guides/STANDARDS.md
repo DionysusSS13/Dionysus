@@ -83,7 +83,7 @@ var/path_type = "/obj/item/baseball_bat"
 
 ### No duplicated code (Don't repeat yourself)
 
-Copying code from one place to another may be suitable for small, short-time projects, but /tg/station is a long-term project and highly discourages this.
+Copying code from one place to another may be suitable for small, short-time projects, but Dionysus is a long-term project and highly discourages this.
 
 Instead you can use object orientation, or simply placing repeated code in a function, to obey this specification easily.
 
