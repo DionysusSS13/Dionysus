@@ -70,6 +70,14 @@
 	if(!burn_stuff(null, delta_time))
 		return PROCESS_KILL
 
+/turf/open/lava/Initialize(mapload)
+	. = ..()
+	RegisterSignal(src, COMSIG_TURF_CHANGE, PROC_REF(onturf_change))
+
+/turf/open/lava/proc/onturf_change()
+	SIGNAL_HANDLER
+	STOP_PROCESSING(SSobj, src)
+
 /turf/open/lava/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
 	switch(the_rcd.mode)
 		if(RCD_FLOORWALL)
