@@ -77,6 +77,7 @@
 /turf/open/lava/proc/onturf_change()
 	SIGNAL_HANDLER
 	STOP_PROCESSING(SSobj, src)
+	UNREGISTER_SIGNAL(src, COMSIG_TURF_CHANGE)
 
 /turf/open/lava/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
 	switch(the_rcd.mode)
