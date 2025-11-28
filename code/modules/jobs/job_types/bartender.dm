@@ -1,7 +1,7 @@
 /datum/job/bartender
-	title = JOB_BARTENDER
+	title = JOB_LOUNGE_STEWARD
 	description = "Serve booze, mix drinks, keep the crew drunk."
-	department_head = list(JOB_HEAD_OF_PERSONNEL)
+	department_head = list(JOB_DIRECTOR_OF_PORT_SERVICES)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
@@ -34,7 +34,7 @@
 	rpg_title = "Tavernkeeper"
 
 /datum/outfit/job/bartender
-	name = "Bartender"
+	name = "Lounge Steward"
 	jobtype = /datum/job/bartender
 
 	id_template = /datum/access_template/job/bartender

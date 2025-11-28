@@ -294,7 +294,7 @@
 	default = "https://daedalus13.net/"
 
 /datum/config_entry/string/githuburl
-	default = "https://github.com/DaedalusDock/Gameserver"
+	default = "https://github.com/DionysusSS13/Dionysus"
 
 /datum/config_entry/string/discordbotcommandprefix
 	default = "?"
@@ -670,4 +670,4 @@
 
 /// Unique slug for the webmap
 /datum/config_entry/string/webmap_community
-	default = "DaedalusDock"
+	default = "DionysusSS13"

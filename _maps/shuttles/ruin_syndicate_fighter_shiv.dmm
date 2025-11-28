@@ -58,10 +58,8 @@
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/caravan/syndicate1)
 "vK" = (
-/obj/machinery/power/apc/highcap/ten_k{
-	dir = 8;
+/obj/machinery/power/apc/highcap/ten_k/directional/west{
 	name = "Syndicate Fighter APC";
-	pixel_x = -25;
 	req_access_txt = "150"
 	},
 /obj/machinery/computer/security{

@@ -1,5 +1,5 @@
 /datum/job/captain
-	title = JOB_CAPTAIN
+	title = JOB_PORT_AUTHORITY
 	description = "The middle-man between the big man at home and the station's inhabitants. Ensure that quotas are met and the population is \
 	compliant."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD|DEADMIN_POSITION_SECURITY
@@ -55,7 +55,7 @@
 	return "[title] [captain.real_name] will be overseeing operations today."
 
 /datum/outfit/job/captain
-	name = JOB_CAPTAIN
+	name = JOB_PORT_AUTHORITY
 	jobtype = /datum/job/captain
 	allow_jumpskirt = FALSE
 

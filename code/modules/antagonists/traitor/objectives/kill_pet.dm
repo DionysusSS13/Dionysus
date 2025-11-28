@@ -17,12 +17,12 @@
 
 	/// Possible heads mapped to their pet type. Can be a list of possible pets
 	var/list/possible_heads = list(
-		JOB_HEAD_OF_PERSONNEL = list(
+		JOB_DIRECTOR_OF_PORT_SERVICES = list(
 			/mob/living/simple_animal/pet/dog/corgi/ian,
 			/mob/living/simple_animal/pet/dog/corgi/puppy/ian
 		),
-		JOB_CAPTAIN = /mob/living/simple_animal/pet/fox/renault,
-		JOB_AUGUR = /mob/living/simple_animal/pet/cat/runtime,
+		JOB_PORT_AUTHORITY = /mob/living/simple_animal/pet/fox/renault,
+		JOB_DIRECTOR_OF_MEDICAE_SERVICES = /mob/living/simple_animal/pet/cat/runtime,
 		JOB_CHIEF_ENGINEER = /mob/living/simple_animal/parrot/poly,
 	)
 	/// The head that we are targetting
@@ -44,11 +44,11 @@
 
 	limited_to_department_head = FALSE
 	possible_heads = list(
-		JOB_SECURITY_MARSHAL = list(
+		JOB_PORT_MARSHAL = list(
 			/mob/living/simple_animal/hostile/carp/lia,
 			/mob/living/simple_animal/hostile/retaliate/bat/sgt_araneus
 		),
-		JOB_WARDEN = list(
+		JOB_BRIG_LIEUTENANT = list(
 			/mob/living/simple_animal/pet/dog/pug/mcgriff
 		)
 	)

@@ -107,8 +107,8 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 // START LANDMARKS FOLLOW. Don't change the names unless
 // you are refactoring shitty landmark code.
 /obj/effect/landmark/start/assistant
-	name = JOB_ASSISTANT
-	icon_state = JOB_ASSISTANT //icon_state is case sensitive. why are all of these capitalized? because fuck you that's why
+	name = JOB_CIVILLIAN
+	icon_state = JOB_CIVILLIAN //icon_state is case sensitive. why are all of these capitalized? because fuck you that's why
 
 /obj/effect/landmark/start/assistant/override
 	high_priority = TRUE
@@ -127,8 +127,8 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = JOB_DECKHAND
 
 /obj/effect/landmark/start/bartender
-	name = JOB_BARTENDER
-	icon_state = JOB_BARTENDER
+	name = JOB_LOUNGE_STEWARD
+	icon_state = JOB_LOUNGE_STEWARD
 
 /obj/effect/landmark/start/clown
 	name = JOB_CLOWN
@@ -143,73 +143,73 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 	icon_state = JOB_ATMOSPHERIC_TECHNICIAN
 
 /obj/effect/landmark/start/cook
-	name = JOB_COOK
-	icon_state = JOB_COOK
+	name = JOB_CULINARY_VENDOR
+	icon_state = JOB_CULINARY_VENDOR
 
 /obj/effect/landmark/start/shaft_miner
 	name = JOB_PROSPECTOR
 	icon_state = JOB_PROSPECTOR
 
 /obj/effect/landmark/start/security_officer
-	name = JOB_SECURITY_OFFICER
-	icon_state = JOB_SECURITY_OFFICER
+	name = JOB_SECURITY_LIASON
+	icon_state = JOB_SECURITY_LIASON
 
 /obj/effect/landmark/start/botanist
 	name = JOB_BOTANIST
 	icon_state = JOB_BOTANIST
 
 /obj/effect/landmark/start/head_of_security
-	name = JOB_SECURITY_MARSHAL
-	icon_state = JOB_SECURITY_MARSHAL
+	name = JOB_PORT_MARSHAL
+	icon_state = JOB_PORT_MARSHAL
 
 /obj/effect/landmark/start/captain
-	name = JOB_CAPTAIN
-	icon_state = JOB_CAPTAIN
+	name = JOB_PORT_AUTHORITY
+	icon_state = JOB_PORT_AUTHORITY
 
 /obj/effect/landmark/start/detective
-	name = JOB_DETECTIVE
-	icon_state = JOB_DETECTIVE
+	name = JOB_COMPLIANCE_AUDITOR
+	icon_state = JOB_COMPLIANCE_AUDITOR
 
 /obj/effect/landmark/start/warden
-	name = JOB_WARDEN
-	icon_state = JOB_WARDEN
+	name = JOB_BRIG_LIEUTENANT
+	icon_state = JOB_BRIG_LIEUTENANT
 
 /obj/effect/landmark/start/chief_engineer
 	name = JOB_CHIEF_ENGINEER
 	icon_state = JOB_CHIEF_ENGINEER
 
 /obj/effect/landmark/start/head_of_personnel
-	name = JOB_HEAD_OF_PERSONNEL
-	icon_state = JOB_HEAD_OF_PERSONNEL
+	name = JOB_DIRECTOR_OF_PORT_SERVICES
+	icon_state = JOB_DIRECTOR_OF_PORT_SERVICES
 
 /obj/effect/landmark/start/librarian
 	name = JOB_ARCHIVIST
 	icon_state = JOB_ARCHIVIST
 
 /obj/effect/landmark/start/lawyer
-	name = JOB_LAWYER
-	icon_state = JOB_LAWYER
+	name = JOB_CIVIL_REPRESENTATIVE
+	icon_state = JOB_CIVIL_REPRESENTATIVE
 
 /obj/effect/landmark/start/station_engineer
 	name = JOB_STATION_ENGINEER
 	icon_state = JOB_STATION_ENGINEER
 
 /obj/effect/landmark/start/medical_doctor
-	name = JOB_ACOLYTE
-	icon_state = JOB_ACOLYTE
+	name = JOB_MEDICAE_TECHNICIAN
+	icon_state = JOB_MEDICAE_TECHNICIAN
 
 /obj/effect/landmark/start/paramedic
 	name = JOB_PARAMEDIC
 	icon_state = JOB_PARAMEDIC
 
 /obj/effect/landmark/start/chemist
-	name = JOB_CHEMIST
-	icon_state = JOB_CHEMIST
+	name = JOB_PHARMACOLOGIST
+	icon_state = JOB_PHARMACOLOGIST
 
 
 /obj/effect/landmark/start/chief_medical_officer
-	name = JOB_AUGUR
-	icon_state = JOB_AUGUR
+	name = JOB_DIRECTOR_OF_MEDICAE_SERVICES
+	icon_state = JOB_DIRECTOR_OF_MEDICAE_SERVICES
 
 /obj/effect/landmark/start/virologist
 	name = JOB_VIROLOGIST

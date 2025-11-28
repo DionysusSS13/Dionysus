@@ -6,19 +6,19 @@
 	var/list/templates = list()
 
 /datum/access_group_manager/captain
-	job_title = JOB_CAPTAIN
+	job_title = JOB_PORT_AUTHORITY
 	access_groups = list(/datum/access_group/station/management)
 
 /datum/access_group_manager/hop
-	job_title = JOB_HEAD_OF_PERSONNEL
+	job_title = JOB_DIRECTOR_OF_PORT_SERVICES
 	access_groups = list(/datum/access_group/station/independent_areas)
 
 /datum/access_group_manager/security
-	job_title = JOB_SECURITY_MARSHAL
+	job_title = JOB_PORT_MARSHAL
 	access_groups = list(/datum/access_group/station/security)
 
 /datum/access_group_manager/medical
-	job_title = JOB_AUGUR
+	job_title = JOB_DIRECTOR_OF_MEDICAE_SERVICES
 	access_groups = list(/datum/access_group/station/medical)
 
 /datum/access_group_manager/engineering

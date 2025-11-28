@@ -4,7 +4,7 @@ GLOBAL_DATUM(colored_assistant, /datum/colored_assistant)
 Assistant
 */
 /datum/job/assistant
-	title = JOB_ASSISTANT
+	title = JOB_CIVILLIAN
 	description = "The everyman, an essential component to station life."
 	faction = FACTION_STATION
 	total_positions = 5
@@ -46,7 +46,7 @@ Assistant
 	rpg_title = "Lout"
 
 /datum/outfit/job/assistant
-	name = JOB_ASSISTANT
+	name = JOB_CIVILLIAN
 	jobtype = /datum/job/assistant
 	id_template = /datum/access_template/job/assistant
 

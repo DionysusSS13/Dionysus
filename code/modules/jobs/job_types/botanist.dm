@@ -1,7 +1,7 @@
 /datum/job/botanist
 	title = JOB_BOTANIST
 	description = "Grow plants for the cook, for medicine, and for recreation."
-	department_head = list(JOB_HEAD_OF_PERSONNEL)
+	department_head = list(JOB_DIRECTOR_OF_PORT_SERVICES)
 	faction = FACTION_STATION
 	total_positions = 3
 	spawn_positions = 2

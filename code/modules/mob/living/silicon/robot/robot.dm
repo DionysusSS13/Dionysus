@@ -371,12 +371,12 @@
 		add_overlay(head_overlay)
 	update_fire()
 
-/mob/living/silicon/robot/proc/self_destruct(mob/usr)
+/mob/living/silicon/robot/proc/self_destruct(mob/source)
 	var/turf/groundzero = get_turf(src)
-	message_admins(span_notice("[ADMIN_LOOKUPFLW(usr)] detonated [key_name_admin(src, client)] at [ADMIN_VERBOSEJMP(groundzero)]!"))
-	log_game("[key_name(usr)] detonated [key_name(src)]!")
-	log_combat(usr, src, "detonated cyborg")
-	log_silicon("CYBORG: [key_name(src)] has been detonated by [key_name(usr)].")
+	message_admins(span_notice("[ADMIN_LOOKUPFLW(source)] detonated [key_name_admin(src, client)] at [ADMIN_VERBOSEJMP(groundzero)]!"))
+	log_game("[key_name(source)] detonated [key_name(src)]!")
+	log_combat(source, src, "detonated cyborg")
+	log_silicon("CYBORG: [key_name(src)] has been detonated by [key_name(source)].")
 	if(connected_ai)
 		to_chat(connected_ai, "<br><br>[span_alert("ALERT - Cyborg detonation detected: [name]")]<br>")
 

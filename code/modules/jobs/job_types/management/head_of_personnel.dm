@@ -1,7 +1,7 @@
 /datum/job/head_of_personnel
-	title = JOB_HEAD_OF_PERSONNEL
+	title = JOB_DIRECTOR_OF_PORT_SERVICES
 	description = "The Superintendent's right hand, and Management's workhorse. Completes tasks on behalf of the Superintendent."
-	department_head = list(JOB_CAPTAIN)
+	department_head = list(JOB_PORT_AUTHORITY)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
@@ -47,7 +47,7 @@
 
 
 /datum/outfit/job/hop
-	name = JOB_HEAD_OF_PERSONNEL
+	name = JOB_DIRECTOR_OF_PORT_SERVICES
 	jobtype = /datum/job/head_of_personnel
 
 	id = /obj/item/card/id/advanced/silver

@@ -1,5 +1,5 @@
 /datum/job/augur
-	title = JOB_AUGUR
+	title = JOB_DIRECTOR_OF_MEDICAE_SERVICES
 
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	head_announce = list(RADIO_CHANNEL_MEDICAL)
@@ -64,7 +64,7 @@
 	spawned.AddComponent(/datum/component/clothing_lover, list(/obj/item/clothing/mask/utopia/augur), "aether_maskless", /datum/mood_event/aether_maskless/augur, ITEM_SLOT_MASK)
 
 /datum/outfit/job/cmo
-	name = JOB_AUGUR
+	name = JOB_DIRECTOR_OF_MEDICAE_SERVICES
 	jobtype = /datum/job/augur
 
 	id = /obj/item/card/id/advanced/silver
@@ -96,7 +96,7 @@
 	astype(H.w_uniform.GetComponent(/datum/component/hooded), /datum/component/hooded)?.try_equip_hood(H.w_uniform, H)
 
 /datum/outfit/job/cmo/mod
-	name = JOB_AUGUR + " (MODsuit)"
+	name = JOB_DIRECTOR_OF_MEDICAE_SERVICES + " (MODsuit)"
 
 	suit_store = /obj/item/tank/internals/oxygen
 	back = /obj/item/mod/control/pre_equipped/rescue

@@ -1,7 +1,7 @@
 /datum/job/cook
-	title = JOB_COOK
+	title = JOB_CULINARY_VENDOR
 	description = "Serve food, cook meat, keep the crew fed."
-	department_head = list(JOB_HEAD_OF_PERSONNEL)
+	department_head = list(JOB_DIRECTOR_OF_PORT_SERVICES)
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 1
@@ -50,7 +50,7 @@
 	if(!length(job_changes))
 		return
 
-	var/list/cook_changes = job_changes[JOB_COOK]
+	var/list/cook_changes = job_changes[JOB_CULINARY_VENDOR]
 
 	if(!length(cook_changes))
 		return
@@ -84,7 +84,7 @@
 	)
 
 /datum/outfit/job/cook
-	name = "Cook"
+	name = "Culinary Vendor"
 	jobtype = /datum/job/cook
 
 	id_template = /datum/access_template/job/cook

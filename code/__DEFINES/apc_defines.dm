@@ -17,6 +17,7 @@
 // APC visuals
 /// Pixel offset of the APC from the floor turf
 #define APC_PIXEL_OFFSET 22
+#define APC_SOUTH_PIXEL_OFFSET 24
 
 // APC charging status:
 /// The APC is not charging.

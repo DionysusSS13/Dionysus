@@ -39,19 +39,19 @@
 	var/list/stolen_valor = list()
 
 	var/static/list/officers_titles = list(
-		JOB_CAPTAIN,
-		JOB_HEAD_OF_PERSONNEL,
-		JOB_SECURITY_MARSHAL,
+		JOB_PORT_AUTHORITY,
+		JOB_DIRECTOR_OF_PORT_SERVICES,
+		JOB_PORT_MARSHAL,
 	)
 	var/static/list/command_titles = list(
-		JOB_CAPTAIN = "Cpt.",
-		JOB_HEAD_OF_PERSONNEL = "Lt.",
+		JOB_PORT_AUTHORITY = "Cpt.",
+		JOB_DIRECTOR_OF_PORT_SERVICES = "Lt.",
 	)
 	var/static/list/security_titles = list(
-		JOB_SECURITY_MARSHAL = "Maj.",
-		JOB_WARDEN = "Sgt.",
-		JOB_DETECTIVE = "Det.",
-		JOB_SECURITY_OFFICER = "Officer",
+		JOB_PORT_MARSHAL = "Maj.",
+		JOB_BRIG_LIEUTENANT = "Sgt.",
+		JOB_COMPLIANCE_AUDITOR = "Det.",
+		JOB_SECURITY_LIASON = "Officer",
 	)
 	var/static/list/engineering_titles = list(
 		JOB_CHIEF_ENGINEER = "Chief Engineer",
@@ -59,12 +59,12 @@
 		JOB_ATMOSPHERIC_TECHNICIAN = "Technician",
 	)
 	var/static/list/medical_titles = list(
-		JOB_AUGUR = "C.M.O.",
-		JOB_ACOLYTE = "M.D.",
-		JOB_CHEMIST = "Pharm.D.",
+		JOB_DIRECTOR_OF_MEDICAE_SERVICES = "C.M.O.",
+		JOB_MEDICAE_TECHNICIAN = "M.D.",
+		JOB_PHARMACOLOGIST = "Pharm.D.",
 	)
 	var/static/list/legal_titles = list(
-		JOB_LAWYER = "Esq.",
+		JOB_CIVIL_REPRESENTATIVE = "Esq.",
 	)
 
 	///What ranks are prefixes to the name.
@@ -258,7 +258,7 @@
 
 		if(target && path.len == 0 && (get_dist(src,target) > 1))
 			set_mode(BOT_PATHING)
-			path = jps_path_to(src, target, max_distance=30, mintargetdist=1, access = access_card?.GetAccess())
+			path = jps_path_to(src, target, max_steps=30, mintargetdist=1, access = access_card?.GetAccess())
 			set_mode(BOT_MOVING)
 			if(length(path) == 0)
 				add_to_ignore(target)

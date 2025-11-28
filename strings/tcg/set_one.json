@@ -78,11 +78,11 @@
 			"rarity": "common"
 		},
 		{
-			"id": "bartender",
-			"name": "Bartender",
+			"id": "Lounge Steward",
+			"name": "Lounge Steward",
 			"desc": "Prior to the introduction of on-station psychologists, the Bartender served to alleviate many employees' woes and fears. Remember, always drink responsibly.",
 			"rules": "",
-			"icon_state": "bartender",
+			"icon_state": "Lounge Steward",
 			"power": "3",
 			"resolve": "2",
 			"faction": "Service",
@@ -162,11 +162,11 @@
 			"rarity": "common"
 		},
 		{
-			"id": "chemist",
-			"name": "Chemist",
+			"id": "Pharmacologist",
+			"name": "Pharmacologist",
 			"desc": "Chemists are encouraged to not set up illicit methamphetamine factories on the company's dime.",
 			"rules": "Tap this card: flip a coin. If heads: a friendly Medical {$Faction} card gains 0/+2. If tails, an opponents creature of your choice gains +2/0.",
-			"icon_state": "chemist",
+			"icon_state": "Pharmacologist",
 			"power": "0",
 			"resolve": "3",
 			"faction": "Medical",
@@ -961,7 +961,7 @@
 		},
 		{
 			"id": "sec_officer",
-			"name": "Security Officer",
+			"name": "Security Liason",
 			"desc": "Nanotrasen would like to remind all employees to support their station security team; remember, the boys in red keep you safe!",
 			"rules": "{$Squad Tactics}",
 			"icon_state": "sec",

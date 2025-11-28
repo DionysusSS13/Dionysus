@@ -16,6 +16,7 @@ Replacement syntax example:
     /mob/living{resize = @ANY} : /mob/living{@OLD; resize = @SKIP}
 Syntax for subtypes also exist, to update a path's type but maintain subtypes:
     /obj/structure/closet/crate/@SUBTYPES : /obj/structure/new_box/@SUBTYPES {@OLD}
+	You may also use @SUBTYPES anywhere inside the new path. Useful for mass appending new subtypes and replacing base types at the same time.
 New paths properties:
     @DELETE - if used as new path name the old path will be deleted
     @OLD - if used as property name copies all modified properties from original path to this one
@@ -107,9 +108,8 @@ def update_path(dmm_data, replacement_string, verbose=False):
                 if verbose:
                     print("Deleting match : {0}".format(match.group(0)))
                 return [None]
-            elif new_path.endswith("/@SUBTYPES"):
-                path_start = new_path[:-len("/@SUBTYPES")]
-                out = path_start + match.group('subtype')
+            elif "/@SUBTYPES" in new_path:
+                out = new_path.replace("/@SUBTYPES", match.group('subtype'))
             else:
                 out = new_path
 

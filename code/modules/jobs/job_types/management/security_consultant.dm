@@ -1,7 +1,7 @@
 // /datum/job/security_consultant
 // 	title = JOB_SECURITY_CONSULTANT
 // 	description = "Handles relationships with Mars Executive Outcomes. Acts as a guard for Management."
-// 	department_head = list(JOB_CAPTAIN)
+// 	department_head = list(JOB_PORT_AUTHORITY)
 // 	faction = FACTION_STATION
 // 	total_positions = 1
 // 	spawn_positions = 1

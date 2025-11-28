@@ -1,8 +1,8 @@
 /datum/preferences/proc/migrate_med_sec_fancy_job_titles()
 	var/list/migrate_jobs = list(
-		"Head of Security" = JOB_SECURITY_MARSHAL,
-		"Detective" = JOB_DETECTIVE,
-		"Medical Doctor" = JOB_ACOLYTE,
+		"Head of Security" = JOB_PORT_MARSHAL,
+		"Detective" = JOB_COMPLIANCE_AUDITOR,
+		"Medical Doctor" = JOB_MEDICAE_TECHNICIAN,
 		"Curator" = JOB_ARCHIVIST,
 		"Cargo Technician" = JOB_DECKHAND,
 	)

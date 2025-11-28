@@ -109,8 +109,8 @@ DEFINE_INTERACTABLE(/obj/machinery/power/apc)
 	var/obj/machinery/computer/apc_control/remote_control = null
 	///Represents a signel source of power alarms for this apc
 	var/datum/alarm_handler/alarm_manager
-	/// Offsets the object by APC_PIXEL_OFFSET (defined in apc_defines.dm) pixels in the direction we want it placed in. This allows the APC to be embedded in a wall, yet still inside an area (like mapping).
-	var/offset_old
+	/// Set to be truthy if mappers try anything funny with APCs.
+	var/apc_mad
 
 GLOBAL_REAL_VAR(default_apc_armor) = list(BLUNT = 20, PUNCTURE = 20, SLASH = 0, LASER = 10, ENERGY = 100, BOMB = 30, BIO = 100, FIRE = 90, ACID = 50)
 
@@ -136,17 +136,22 @@ GLOBAL_REAL_VAR(default_apc_armor) = list(BLUNT = 20, PUNCTURE = 20, SLASH = 0, 
 
 	switch(dir)
 		if(NORTH)
-			offset_old = pixel_y
-			pixel_y = APC_PIXEL_OFFSET
+			if (pixel_y != APC_PIXEL_OFFSET || pixel_z != 0)
+				pixel_y = APC_PIXEL_OFFSET
+				pixel_x = 0
+				apc_mad = "has a wrong pixel offset! Use the directional helpers!"
 		if(SOUTH)
-			offset_old = pixel_y
-			pixel_y = -APC_PIXEL_OFFSET
+			if (pixel_y != -APC_SOUTH_PIXEL_OFFSET || pixel_x != 0)
+				pixel_y = -APC_SOUTH_PIXEL_OFFSET
+				apc_mad = "has a wrong pixel offset! Use the directional helpers!"
 		if(EAST)
-			offset_old = pixel_x
-			pixel_x = APC_PIXEL_OFFSET
+			if (pixel_x != APC_PIXEL_OFFSET || pixel_y != 0)
+				pixel_y = APC_PIXEL_OFFSET
+				apc_mad = "has a wrong pixel offset! Use the directional helpers!"
 		if(WEST)
-			offset_old = pixel_x
-			pixel_x = -APC_PIXEL_OFFSET
+			if (pixel_x != -APC_PIXEL_OFFSET || pixel_y != 0)
+				pixel_y = -APC_PIXEL_OFFSET
+				apc_mad = "has a wrong pixel offset! Use the directional helpers!"
 
 /obj/machinery/power/apc/Initialize(mapload)
 	. = ..()
@@ -188,8 +193,8 @@ GLOBAL_REAL_VAR(default_apc_armor) = list(BLUNT = 20, PUNCTURE = 20, SLASH = 0, 
 	addtimer(CALLBACK(src, PROC_REF(update)), 5)
 
 	///This is how we test to ensure that mappers use the directional subtypes of APCs, rather than use the parent and pixel-shift it themselves.
-	if(abs(offset_old) != APC_PIXEL_OFFSET)
-		log_mapping("APC: ([src]) at [AREACOORD(src)] with dir ([dir] | [uppertext(dir2text(dir))]) has pixel_[dir & (WEST|EAST) ? "x" : "y"] value [offset_old] - should be [dir & (SOUTH|EAST) ? "-" : ""][APC_PIXEL_OFFSET]. Use the directional/ helpers!")
+	if(apc_mad)
+		log_mapping("APC: ([src]) at [AREACOORD(src)] [apc_mad]")
 
 /obj/machinery/power/apc/Destroy()
 	UNSET_TRACKING(__TYPE__)

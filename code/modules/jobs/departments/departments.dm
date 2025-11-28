@@ -48,7 +48,7 @@
 	is_not_real_department = TRUE
 
 /datum/job_department/command
-	department_name = DEPARTMENT_MANAGEMENT
+	department_name = DEPARTMENT_PORT_AUTHORITY
 	department_bitflags = DEPARTMENT_BITFLAG_MANAGEMENT
 	department_head = /datum/job/captain
 	department_experience_type = EXP_TYPE_COMMAND
@@ -81,7 +81,7 @@
 	budget_id = ACCOUNT_ENG
 
 /datum/job_department/medical
-	department_name = DEPARTMENT_MEDICAL
+	department_name = DEPARTMENT_MEDICAE
 	department_bitflags = DEPARTMENT_BITFLAG_MEDICAL
 	department_head = /datum/job/augur
 	department_experience_type = EXP_TYPE_MEDICAL
@@ -93,7 +93,7 @@
 	budget_id = ACCOUNT_MED
 
 /datum/job_department/cargo
-	department_name = DEPARTMENT_CARGO
+	department_name = DEPARTMENT_REQUISITIONS
 	department_bitflags = DEPARTMENT_BITFLAG_CARGO
 	department_head = /datum/job/quartermaster
 	department_experience_type = EXP_TYPE_SUPPLY

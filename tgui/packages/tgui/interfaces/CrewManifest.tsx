@@ -82,7 +82,7 @@ const ManifestDepartment = (props: ManifestDepartmentProps) => {
                 </Tooltip>
               )}
               {!!crewMember.is_captain && (
-                <Tooltip content="Superintendent" position="bottom">
+                <Tooltip content="Port Authority" position="bottom">
                   <Icon
                     className={classes([
                       'CrewManifest__Icon',

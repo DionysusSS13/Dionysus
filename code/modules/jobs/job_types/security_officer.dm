@@ -1,9 +1,9 @@
 /datum/job/security_officer
-	title = JOB_SECURITY_OFFICER
+	title = JOB_SECURITY_LIASON
 	description = "Protect company assets, follow the Standard Operating \
 		Procedure, eat donuts."
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
-	department_head = list(JOB_SECURITY_MARSHAL)
+	department_head = list(JOB_PORT_MARSHAL)
 	faction = FACTION_STATION
 	total_positions = 5 //Handled in /datum/controller/occupations/proc/setup_officer_positions()
 	spawn_positions = 5 //Handled in /datum/controller/occupations/proc/setup_officer_positions()
@@ -47,7 +47,7 @@
 	job_flags = JOB_ANNOUNCE_ARRIVAL | JOB_CREW_MANIFEST | JOB_EQUIP_RANK | JOB_CREW_MEMBER | JOB_NEW_PLAYER_JOINABLE | JOB_REOPEN_ON_ROUNDSTART_LOSS | JOB_ASSIGN_QUIRKS | JOB_CAN_BE_INTERN
 
 /datum/outfit/job/security
-	name = "Security Officer"
+	name = "Security Liason"
 	jobtype = /datum/job/security_officer
 
 	id_template = /datum/access_template/job/security_officer

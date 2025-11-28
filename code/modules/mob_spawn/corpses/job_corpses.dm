@@ -41,7 +41,7 @@
 	outfit = /datum/outfit/job/miner/equipped
 
 /obj/effect/mob_spawn/corpse/human/assistant
-	name = JOB_ASSISTANT
+	name = JOB_CIVILLIAN
 	outfit = /datum/outfit/job/assistant
 	icon_state = "corpsegreytider"
 

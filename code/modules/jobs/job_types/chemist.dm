@@ -1,5 +1,5 @@
 /datum/job/chemist
-	title = JOB_CHEMIST
+	title = JOB_PHARMACOLOGIST
 	description = "Supply the doctors with chemicals, make medicine, as well as \
 		less likable substances in the comfort of a fully reinforced room."
 	department_head = list("Medical Director")
@@ -41,7 +41,7 @@
 
 
 /datum/outfit/job/chemist
-	name = "Chemist"
+	name = "Pharmacologist"
 	jobtype = /datum/job/chemist
 
 	id_template = /datum/access_template/job/chemist

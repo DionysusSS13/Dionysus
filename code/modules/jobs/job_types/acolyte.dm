@@ -1,6 +1,6 @@
 /datum/job/acolyte
-	title = JOB_ACOLYTE
-	department_head = list(JOB_AUGUR)
+	title = JOB_MEDICAE_TECHNICIAN
+	department_head = list(JOB_DIRECTOR_OF_MEDICAE_SERVICES)
 	faction = FACTION_STATION
 	total_positions = 5
 	spawn_positions = 3
@@ -53,7 +53,7 @@
 		spawned.AddComponent(/datum/component/clothing_lover, list(/obj/item/clothing/mask/utopia), "aether_maskless", /datum/mood_event/aether_maskless, ITEM_SLOT_MASK)
 
 /datum/outfit/job/doctor
-	name = JOB_ACOLYTE
+	name = JOB_MEDICAE_TECHNICIAN
 	jobtype = /datum/job/acolyte
 
 	id_template = /datum/access_template/job/medical_doctor
@@ -79,7 +79,7 @@
 	astype(H.w_uniform.GetComponent(/datum/component/hooded), /datum/component/hooded)?.try_equip_hood(H.w_uniform, H)
 
 /datum/outfit/job/doctor/mod
-	name = JOB_ACOLYTE + " (MODsuit)"
+	name = JOB_MEDICAE_TECHNICIAN + " (MODsuit)"
 
 	suit_store = /obj/item/tank/internals/oxygen
 	back = /obj/item/mod/control/pre_equipped/medical

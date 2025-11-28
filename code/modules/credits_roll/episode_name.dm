@@ -212,7 +212,7 @@
 			theme = "syndie"
 		if(H.stat == CONSCIOUS && H.mind && H.mind.assigned_role.title)
 			switch(H.mind.assigned_role.title)
-				if(JOB_COOK)
+				if(JOB_CULINARY_VENDOR)
 					var/chance = 250
 					if(H.is_wearing_item_of_type(/obj/item/clothing/head/chefhat))
 						chance += 500
@@ -234,7 +234,7 @@
 							chance += 250
 						episode_names += new /datum/episode_name/rare("[pick("COME HELL OR HIGH HONKER", "THE LAST LAUGH")]", "The Clown was the only survivor in the shuttle.", chance)
 						theme = "clown"
-				if(JOB_DETECTIVE)
+				if(JOB_COMPLIANCE_AUDITOR)
 					var/chance = 250
 					if(H.is_wearing_item_of_type(/obj/item/storage/belt/holster/shoulder))
 						chance += 1000
@@ -261,7 +261,7 @@
 					/*if(H.is_wearing_item_of_type(/obj/item/clothing/under/suit_jacket/red))
 						chance += 500*/
 					episode_names += new /datum/episode_name/rare("COOKING THE BOOKS", "The Librarian was the only survivor in the shuttle.", chance)
-				if(JOB_CHEMIST)
+				if(JOB_PHARMACOLOGIST)
 					var/chance = 1000
 					if(H.is_wearing_item_of_type(/obj/item/clothing/suit/toggle/labcoat/chemist))
 						chance += 500

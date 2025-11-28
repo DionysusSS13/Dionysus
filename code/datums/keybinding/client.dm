@@ -44,3 +44,14 @@
 		return
 	user.mob.button_pressed_F12()
 	return TRUE
+
+/datum/keybinding/client/toggle_fullscreen
+	hotkey_keys = list("F11")
+	name = "Toggle Fullscreen"
+	full_name = "Fullscreen"
+	description = "Toggle between windowed fullscreen and windowed"
+	keybind_signal = COMSIG_KB_CLIENT_TOGGLE_FULLSCREEN
+
+/datum/keybinding/client/toggle_fullscreen/down(client/C)
+	. = ..()
+	C.toggle_fullscreen()

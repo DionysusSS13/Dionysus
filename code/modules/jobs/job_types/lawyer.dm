@@ -1,8 +1,8 @@
 /datum/job/lawyer
-	title = JOB_LAWYER
+	title = JOB_CIVIL_REPRESENTATIVE
 	description = "Advocate for prisoners, create law-binding contracts, \
 		ensure Security is following protocol and Space Law."
-	department_head = list(JOB_HEAD_OF_PERSONNEL)
+	department_head = list(JOB_DIRECTOR_OF_PORT_SERVICES)
 	faction = FACTION_STATION
 	total_positions = 2
 	spawn_positions = 2
@@ -40,7 +40,7 @@
 
 
 /datum/outfit/job/lawyer
-	name = "Lawyer"
+	name = "Civil Representative"
 	jobtype = /datum/job/lawyer
 
 	id_template = /datum/access_template/job/lawyer

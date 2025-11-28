@@ -70,7 +70,7 @@
 	return TRUE
 
 /datum/access_template/job/assistant
-	assignment = JOB_ASSISTANT
+	assignment = JOB_CIVILLIAN
 	template_state = "trim_assistant"
 	sechud_icon_state = SECHUD_ASSISTANT
 	extra_access = list(ACCESS_MAINT_TUNNELS)
@@ -102,12 +102,12 @@
 	datacore_record_key = DATACORE_RECORDS_DAEDALUS
 
 /datum/access_template/job/bartender
-	assignment = JOB_BARTENDER
+	assignment = JOB_LOUNGE_STEWARD
 	template_state = "trim_bartender"
 	sechud_icon_state = SECHUD_BARTENDER
 	extra_access = list(ACCESS_HYDROPONICS, ACCESS_KITCHEN)
 	minimal_access = list(ACCESS_BAR, ACCESS_MINERAL_STOREROOM, ACCESS_THEATRE, ACCESS_WEAPONS, ACCESS_SERVICE)
-	config_job = "bartender"
+	config_job = "Lounge Steward"
 	template_access = list(ACCESS_CAPTAIN, ACCESS_DELEGATE, ACCESS_CHANGE_IDS)
 	job = /datum/job/bartender
 
@@ -122,7 +122,7 @@
 	job = /datum/job/botanist
 
 /datum/access_template/job/captain
-	assignment = JOB_CAPTAIN
+	assignment = JOB_PORT_AUTHORITY
 	intern_alt_name = "Subintendant"
 	template_state = "trim_captain"
 	sechud_icon_state = SECHUD_CAPTAIN
@@ -157,11 +157,11 @@
 	job = /datum/job/chaplain
 
 /datum/access_template/job/chemist
-	assignment = JOB_CHEMIST
+	assignment = JOB_PHARMACOLOGIST
 	template_state = "trim_chemist"
 	sechud_icon_state = SECHUD_CHEMIST
 	minimal_access = list(ACCESS_PHARMACY, ACCESS_MECH_MEDICAL, ACCESS_MEDICAL, ACCESS_MINERAL_STOREROOM, ACCESS_PHARMACY)
-	config_job = "chemist"
+	config_job = "Pharmacologist"
 	template_access = list(ACCESS_CMO, ACCESS_CHANGE_IDS)
 	job = /datum/job/chemist
 	datacore_record_key = DATACORE_RECORDS_AETHER
@@ -181,7 +181,7 @@
 	datacore_record_key = DATACORE_RECORDS_DAEDALUS
 
 /datum/access_template/job/chief_medical_officer
-	assignment = JOB_AUGUR
+	assignment = JOB_DIRECTOR_OF_MEDICAE_SERVICES
 	intern_alt_name = "Registered Augur"
 	template_state = "trim_chiefmedicalofficer"
 	sechud_icon_state = SECHUD_CHIEF_MEDICAL_OFFICER
@@ -207,12 +207,12 @@
 	job = /datum/job/clown
 
 /datum/access_template/job/cook
-	assignment = JOB_COOK
+	assignment = JOB_CULINARY_VENDOR
 	template_state = "trim_cook"
 	sechud_icon_state = SECHUD_COOK
 	extra_access = list(ACCESS_BAR, ACCESS_HYDROPONICS)
 	minimal_access = list(ACCESS_KITCHEN, ACCESS_MINERAL_STOREROOM, ACCESS_SERVICE)
-	config_job = "cook"
+	config_job = "Culinary Vendor"
 	template_access = list(ACCESS_CAPTAIN, ACCESS_DELEGATE, ACCESS_CHANGE_IDS)
 	job = /datum/job/cook
 
@@ -231,7 +231,7 @@
 	job = /datum/job/curator
 
 /datum/access_template/job/detective
-	assignment = JOB_DETECTIVE
+	assignment = JOB_COMPLIANCE_AUDITOR
 	template_state = "trim_detective"
 	sechud_icon_state = SECHUD_DETECTIVE
 	extra_access = list()
@@ -256,8 +256,8 @@
 		access |= list(ACCESS_MAINT_TUNNELS)
 
 /datum/access_template/job/head_of_personnel
-	assignment = JOB_HEAD_OF_PERSONNEL
-	intern_alt_name = JOB_HEAD_OF_PERSONNEL + "-in-Training"
+	assignment = JOB_DIRECTOR_OF_PORT_SERVICES
+	intern_alt_name = JOB_DIRECTOR_OF_PORT_SERVICES + "-in-Training"
 	template_state = "trim_headofpersonnel"
 	sechud_icon_state = SECHUD_HEAD_OF_PERSONNEL
 	extra_access = list()
@@ -272,8 +272,8 @@
 	job = /datum/job/head_of_personnel
 
 /datum/access_template/job/head_of_security
-	assignment = JOB_SECURITY_MARSHAL
-	intern_alt_name = JOB_SECURITY_MARSHAL + "-in-Training"
+	assignment = JOB_PORT_MARSHAL
+	intern_alt_name = JOB_PORT_MARSHAL + "-in-Training"
 	template_state = "trim_headofsecurity"
 	sechud_icon_state = SECHUD_HEAD_OF_SECURITY
 	extra_access = list(ACCESS_TELEPORTER)
@@ -307,17 +307,17 @@
 	job = /datum/job/janitor
 
 /datum/access_template/job/lawyer
-	assignment = JOB_LAWYER
+	assignment = JOB_CIVIL_REPRESENTATIVE
 	template_state = "trim_lawyer"
 	sechud_icon_state = SECHUD_LAWYER
 	extra_access = list()
 	minimal_access = list(ACCESS_COURT, ACCESS_LAWYER, ACCESS_SERVICE)
-	config_job = "lawyer"
+	config_job = "Civil Representative"
 	template_access = list(ACCESS_CAPTAIN, ACCESS_DELEGATE, ACCESS_HOS, ACCESS_CHANGE_IDS)
 	job = /datum/job/lawyer
 
 /datum/access_template/job/medical_doctor
-	assignment = JOB_ACOLYTE
+	assignment = JOB_MEDICAE_TECHNICIAN
 	template_state = "trim_medicaldoctor"
 	sechud_icon_state = SECHUD_MEDICAL_DOCTOR
 	extra_access = list(ACCESS_ROBOTICS)
@@ -410,7 +410,7 @@
 
 /// Sec officers have departmental variants. They each have their own trims with bonus departmental accesses.
 /datum/access_template/job/security_officer
-	assignment = JOB_SECURITY_OFFICER
+	assignment = JOB_SECURITY_LIASON
 	template_state = "trim_securityofficer"
 	sechud_icon_state = SECHUD_SECURITY_OFFICER
 	extra_access = list(ACCESS_FORENSICS, ACCESS_MAINT_TUNNELS)
@@ -475,7 +475,7 @@
 	datacore_record_key = DATACORE_RECORDS_AETHER
 
 /datum/access_template/job/warden
-	assignment = JOB_WARDEN
+	assignment = JOB_BRIG_LIEUTENANT
 	template_state = "trim_warden"
 	sechud_icon_state = SECHUD_WARDEN
 	extra_access = list(ACCESS_FORENSICS, ACCESS_MAINT_TUNNELS)

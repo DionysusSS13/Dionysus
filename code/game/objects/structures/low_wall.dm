@@ -1,7 +1,11 @@
+TYPEINFO_DEF(/obj/structure/low_wall)
+	default_armor = list(BLUNT = 20, PUNCTURE = 0, SLASH = 90, LASER = 0, ENERGY = 0, BOMB = 25, BIO = 100, FIRE = 80, ACID = 100)
+
 /obj/structure/low_wall
 	name = "low wall"
 	desc = "A low wall, with space to mount windows or grilles on top of it."
 	icon = 'icons/obj/smooth_structures/low_wall.dmi'
+	var/icon/shine = 'icons/obj/smooth_structures/low_wall_shine.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
 	color = "#57575c" //To display in mapping softwares
@@ -15,7 +19,6 @@
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_LOW_WALL
 	canSmoothWith = SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_LOW_WALL + SMOOTH_GROUP_WALLS
-	armor = list(BLUNT = 20, PUNCTURE = 0, SLASH = 90, LASER = 0, ENERGY = 0, BOMB = 25, BIO = 100, FIRE = 80, ACID = 100)
 
 	/// Material used in construction
 	var/plating_material = /datum/material/iron

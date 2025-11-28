@@ -16,14 +16,14 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 	var/change_position_cooldown = 30
 	///Jobs blacklisted from having their slots edited.
 	var/static/list/blacklisted = list(
-		JOB_CAPTAIN,
-		JOB_HEAD_OF_PERSONNEL,
-		JOB_SECURITY_MARSHAL,
+		JOB_PORT_AUTHORITY,
+		JOB_DIRECTOR_OF_PORT_SERVICES,
+		JOB_PORT_MARSHAL,
 		JOB_CHIEF_ENGINEER,
-		JOB_AUGUR,
+		JOB_DIRECTOR_OF_MEDICAE_SERVICES,
 		JOB_AI,
 		JOB_CYBORG,
-		JOB_ASSISTANT,
+		JOB_CIVILLIAN,
 	)
 
 	//The scaling factor of max total positions in relation to the total amount of people on board the station in %

@@ -1,0 +1,4 @@
+author: "gonenoculer5"
+delete-after: True
+changes:
+  - rscadd: "Revised existing job titles to represent new ones; marked jobs that will be removed for removal"

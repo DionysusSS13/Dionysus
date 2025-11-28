@@ -260,10 +260,8 @@
 /area/awaymission/bmpship/aft)
 "lx" = (
 /obj/structure/cable/smart_cable/color/yellow,
-/obj/machinery/power/apc/unlocked{
-	dir = 1;
-	environ = 0;
-	pixel_y = 25
+/obj/machinery/power/apc/unlocked/directional/north{
+	environ = 0
 	},
 /turf/open/floor/iron/airless,
 /area/awaymission/bmpship/midship)

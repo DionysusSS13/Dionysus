@@ -1,5 +1,5 @@
 /datum/job/detective
-	title = JOB_DETECTIVE
+	title = JOB_COMPLIANCE_AUDITOR
 	description = "Investigate crimes. Solve crimes. Cover up crimes."
 	faction = FACTION_STATION
 	total_positions = 1
@@ -55,7 +55,7 @@
 	spawning.Sleeping(10 SECONDS)
 
 /datum/outfit/job/detective
-	name = JOB_DETECTIVE
+	name = JOB_COMPLIANCE_AUDITOR
 	jobtype = /datum/job/detective
 
 	id_template = /datum/access_template/job/detective

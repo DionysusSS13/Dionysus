@@ -39,7 +39,7 @@
 		return null
 
 	var/list/dream_pool
-	if(mind?.assigned_role?.title == JOB_DETECTIVE)
+	if(mind?.assigned_role?.title == JOB_COMPLIANCE_AUDITOR)
 		dream_pool = GLOB.dream_controller.get_dreams(DREAM_CLASS_DETECTIVE).Copy()
 
 	else if(has_status_effect(/datum/status_effect/grouped/king_in_yellow))

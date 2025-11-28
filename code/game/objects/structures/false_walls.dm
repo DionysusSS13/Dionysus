@@ -8,6 +8,8 @@
 	icon = 'icons/turf/walls/solid_wall.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
+	var/icon/false_wall_icon = 'icons/turf/walls/false_walls.dmi'
+	var/false_wall_base_icon_state = "wall"
 	color = "#57575c" //To display in mapping softwares
 	layer = LOW_OBJ_LAYER
 	density = TRUE
@@ -99,10 +101,22 @@
 		QUEUE_SMOOTH(src)
 
 /obj/structure/falsewall/update_icon_state()
+	if (!density || opening)
+		icon = false_wall_icon
+	else
+		var/datum/material/plating_mat_ref = GET_MATERIAL_REF(plating_material)
+
+		if(reinf_material)
+			icon = plating_mat_ref.reinforced_wall_icon
+			material_color = plating_mat_ref.wall_color
+		else
+			icon = plating_mat_ref.wall_icon
+			material_color = plating_mat_ref.wall_color
+
 	if(opening)
-		icon_state = "fwall_[density ? "opening" : "closing"]"
+		icon_state = "[false_wall_base_icon_state]-[density ? "opening" : "closing"]"
 		return ..()
-	icon_state = density ? "[base_icon_state]-[smoothing_junction]" : "fwall_open"
+	icon_state = density ? "[base_icon_state]-[smoothing_junction]" : "[false_wall_base_icon_state]-open"
 	return ..()
 
 /// Partially copypasted from /turf/closed/wall
@@ -270,6 +284,7 @@
 	name = "reinforced wall"
 	desc = "A huge chunk of reinforced metal used to separate rooms."
 	icon = 'icons/turf/walls/solid_wall_reinforced.dmi'
+	false_wall_base_icon_state = "reinforced_wall"
 	reinf_material = /datum/material/alloy/plasteel
 
 /obj/structure/falsewall/reinforced/examine_status(mob/user)
@@ -288,6 +303,7 @@
 /obj/structure/falsewall/uranium
 	name = "uranium wall"
 	desc = "A wall with uranium plating. This is probably a bad idea."
+	false_wall_base_icon_state = "uranium_wall"
 	plating_material = /datum/material/uranium
 	var/active = null
 	var/last_event = 0
@@ -324,27 +340,32 @@
 /obj/structure/falsewall/gold
 	name = "gold wall"
 	desc = "A wall with gold plating. Swag!"
+	false_wall_base_icon_state = "gold_wall"
 	plating_material = /datum/material/gold
 
 /obj/structure/falsewall/silver
 	name = "silver wall"
 	desc = "A wall with silver plating. Shiny."
+	false_wall_base_icon_state = "silver_wall"
 	plating_material = /datum/material/silver
 
 /obj/structure/falsewall/diamond
 	name = "diamond wall"
 	desc = "A wall with diamond plating. You monster."
+	false_wall_base_icon_state = "diamond_wall"
 	plating_material = /datum/material/diamond
 	max_integrity = 800
 
 /obj/structure/falsewall/plasma
 	name = "plasma wall"
 	desc = "A wall with plasma plating. This is definitely a bad idea."
+	false_wall_base_icon_state = "plasma_wall"
 	plating_material = /datum/material/plasma
 
 /obj/structure/falsewall/bananium
 	name = "bananium wall"
 	desc = "A wall with bananium plating. Honk!"
+	false_wall_base_icon_state = "bananium_wall"
 	plating_material = /datum/material/bananium
 
 
@@ -352,30 +373,32 @@
 	name = "sandstone wall"
 	desc = "A wall with sandstone plating. Rough."
 	icon = 'icons/turf/walls/stone_wall.dmi'
+	false_wall_base_icon_state = "sandstone_wall"
 	plating_material = /datum/material/sandstone
 
 /obj/structure/falsewall/wood
 	name = "wooden wall"
 	desc = "A wall with wooden plating. Stiff."
 	icon = 'icons/turf/walls/wood_wall.dmi'
-	icon_state = "wood_wall-0"
-	base_icon_state = "wood_wall"
+	false_wall_base_icon_state = "wood_wall"
 	plating_material = /datum/material/wood
 
 /obj/structure/falsewall/iron
 	name = "rough iron wall"
 	desc = "A wall with rough metal plating."
-	base_icon_state = "iron_wall"
+	false_wall_base_icon_state = "iron_wall"
 
 /obj/structure/falsewall/abductor
 	name = "alien wall"
 	desc = "A wall with alien alloy plating."
+	false_wall_base_icon_state = "abductor_wall"
 	plating_material = /datum/material/alloy/alien
 
 /obj/structure/falsewall/titanium
 	name = "wall"
 	desc = "A light-weight titanium wall used in shuttles."
 	icon = 'icons/turf/walls/metal_wall.dmi'
+	false_wall_base_icon_state = "titanium_wall"
 	plating_material = /datum/material/titanium
 	smoothing_groups = SMOOTH_GROUP_WALLS
 	canSmoothWith = SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_LOW_WALL + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
@@ -384,6 +407,7 @@
 	name = "wall"
 	desc = "An evil wall of plasma and titanium."
 	icon = 'icons/turf/walls/metal_wall.dmi'
+	false_wall_base_icon_state = "plastitanium_wall"
 	plating_material = /datum/material/alloy/plastitanium
 	smoothing_groups = SMOOTH_GROUP_WALLS
 	canSmoothWith = SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS

@@ -28,49 +28,49 @@
  */
 
 //No department
-#define JOB_ASSISTANT "Civilian"
-#define JOB_PRISONER "Prisoner"
+#define JOB_CIVILLIAN "Civilian"
+#define JOB_PRISONER "Prisoner" //Pending Removal
 //Command
-#define JOB_CAPTAIN "Superintendent"
-#define JOB_HEAD_OF_PERSONNEL "Delegate"
+#define JOB_PORT_AUTHORITY "Port Authority"
+#define JOB_DIRECTOR_OF_PORT_SERVICES "Director of Port Services"
 #define JOB_SECURITY_CONSULTANT "Security Consultant"
 //Silicon
-#define JOB_AI "AI"
-#define JOB_CYBORG "Cyborg"
-#define JOB_PERSONAL_AI "Personal AI"
+#define JOB_AI "AI" //Pending rework
+#define JOB_CYBORG "Cyborg" //Pending rework
+#define JOB_PERSONAL_AI "Personal AI" //Removed?
 //Security
-#define JOB_SECURITY_MARSHAL "Security Marshal"
-#define JOB_WARDEN "Brig Lieutenant"
-#define JOB_DETECTIVE "Private Investigator"
-#define JOB_SECURITY_OFFICER "Security Officer"
-#define JOB_SECURITY_OFFICER_MEDICAL "Security Officer (Medical)"
-#define JOB_SECURITY_OFFICER_ENGINEERING "Security Officer (Engineering)"
-#define JOB_SECURITY_OFFICER_SCIENCE "Security Officer (Science)"
-#define JOB_SECURITY_OFFICER_SUPPLY "Security Officer (Cargo)"
+#define JOB_PORT_MARSHAL "Port Marshal"
+#define JOB_BRIG_LIEUTENANT "Brig Lieutenant"
+#define JOB_COMPLIANCE_AUDITOR "Compliance Auditor"
+#define JOB_SECURITY_LIASON "Security Liason"
+#define JOB_SECURITY_LIASON_MEDICAE "Security Liason (Medicae)"
+#define JOB_SECURITY_LIASON_ENGINEERING "Security Liason (Engineering)"
+#define JOB_SECURITY_OFFICER_SCIENCE "Security Officer (Science)" //Removed
+#define JOB_SECURITY_LIASON_REQUISITIONS "Security Liason (Requisitions)"
 //Engineering
 #define JOB_CHIEF_ENGINEER "Chief Engineer"
 #define JOB_STATION_ENGINEER "Station Engineer"
-#define JOB_ATMOSPHERIC_TECHNICIAN "Atmospheric Technician"
+#define JOB_ATMOSPHERIC_TECHNICIAN "Atmospheric Technician" //Removed
 //Medical
-#define JOB_AUGUR "Augur"
-#define JOB_ACOLYTE "Acolyte"
-#define JOB_PARAMEDIC "Paramedic"
-#define JOB_CHEMIST "Chemist"
-#define JOB_VIROLOGIST "Virologist"
+#define JOB_DIRECTOR_OF_MEDICAE_SERVICES "Director of Medicae Services"
+#define JOB_MEDICAE_TECHNICIAN "Medicae Technician"
+#define JOB_PARAMEDIC "Paramedic" //Removed
+#define JOB_PHARMACOLOGIST "Pharmacologist"
+#define JOB_VIROLOGIST "Virologist" //Removed
 //Supply
 #define JOB_QUARTERMASTER "Quartermaster"
 #define JOB_DECKHAND "Deckhand"
-#define JOB_PROSPECTOR "Prospector"
+#define JOB_PROSPECTOR "Prospector" //Removed
 //Service
-#define JOB_BARTENDER "Bartender"
+#define JOB_LOUNGE_STEWARD "Lounge Steward"
 #define JOB_BOTANIST "Botanist"
-#define JOB_COOK "Cook"
+#define JOB_CULINARY_VENDOR "Culinary Vendor"
 #define JOB_JANITOR "Janitor"
-#define JOB_CLOWN "Clown"
+#define JOB_CLOWN "Clown" //Removed
 #define JOB_ARCHIVIST "Archivist"
-#define JOB_LAWYER "Lawyer"
-#define JOB_CHAPLAIN "Chaplain"
-#define JOB_PSYCHOLOGIST "Psychologist"
+#define JOB_CIVIL_REPRESENTATIVE "Civil Representative"
+#define JOB_CHAPLAIN "Chaplain" //Considering removal.
+#define JOB_PSYCHOLOGIST "Psychologist" //Removed
 //ERTs
 #define JOB_ERT_DEATHSQUAD "Death Commando"
 #define JOB_ERT_COMMANDER "Emergency Response Team Commander"
@@ -96,26 +96,26 @@
 
 #define DEPARTMENT_UNASSIGNED "No department assigned"
 
-#define DEPARTMENT_BITFLAG_SECURITY (1<<0)
-#define DEPARTMENT_SECURITY "Mars Private Security"
+#define DEPARTMENT_BITFLAG_SECURITY (1<<0) //Company names pending if TODO_DEPT
+#define DEPARTMENT_SECURITY "TODO_SECURITY"
 #define DEPARTMENT_BITFLAG_MANAGEMENT (1<<1)
-#define DEPARTMENT_MANAGEMENT "Management"
+#define DEPARTMENT_PORT_AUTHORITY "Port Authority"
 #define DEPARTMENT_BITFLAG_SERVICE (1<<2)
 #define DEPARTMENT_SERVICE "Independant"
 #define DEPARTMENT_BITFLAG_CARGO (1<<3)
-#define DEPARTMENT_CARGO "Hermes Galactic Freight"
+#define DEPARTMENT_REQUISITIONS "TODO_REQUISITIONS"
 #define DEPARTMENT_BITFLAG_ENGINEERING (1<<4)
-#define DEPARTMENT_ENGINEERING "Daedalus Industries"
-#define DEPARTMENT_BITFLAG_SCIENCE (1<<5)
+#define DEPARTMENT_ENGINEERING "TODO_ENGI"
+#define DEPARTMENT_BITFLAG_SCIENCE (1<<5) //Removed
 #define DEPARTMENT_SCIENCE "Science"
 #define DEPARTMENT_BITFLAG_MEDICAL (1<<6)
-#define DEPARTMENT_MEDICAL "Aether Association"
+#define DEPARTMENT_MEDICAE "Medicae Services"
 #define DEPARTMENT_BITFLAG_SILICON (1<<7)
 #define DEPARTMENT_SILICON "Silicon"
 #define DEPARTMENT_BITFLAG_ASSISTANT (1<<8)
 #define DEPARTMENT_ASSISTANT "Civilian"
 #define DEPARTMENT_BITFLAG_CAPTAIN (1<<9)
-#define DEPARTMENT_CAPTAIN "Captain"
+#define DEPARTMENT_CAPTAIN "Captain" //Is this even still in use?
 #define DEPARTMENT_BITFLAG_COMPANY_LEADER (1<<10)
 #define DEPARTMENT_COMPANY_LEADER "Company Leader"
 

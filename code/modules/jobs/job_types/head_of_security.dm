@@ -1,8 +1,8 @@
 /datum/job/head_of_security
-	title = JOB_SECURITY_MARSHAL
+	title = JOB_PORT_MARSHAL
 	description = "Coordinate security personnel, ensure Management's needs are met."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD|DEADMIN_POSITION_SECURITY
-	department_head = list(JOB_CAPTAIN)
+	department_head = list(JOB_PORT_AUTHORITY)
 	head_announce = list(RADIO_CHANNEL_SECURITY)
 	faction = FACTION_STATION
 	total_positions = 1
@@ -63,7 +63,7 @@
 	popup.open(FALSE)
 
 /datum/outfit/job/hos
-	name = JOB_SECURITY_MARSHAL
+	name = JOB_PORT_MARSHAL
 	jobtype = /datum/job/head_of_security
 
 	id = /obj/item/card/id/advanced/silver

@@ -1,13 +1,13 @@
 /datum/antagonist_selector/heretic
 	restricted_jobs = list(JOB_CYBORG, JOB_AI)
 	protected_jobs = list(
-		JOB_SECURITY_OFFICER,
-		JOB_WARDEN,
-		JOB_HEAD_OF_PERSONNEL,
-		JOB_SECURITY_MARSHAL,
-		JOB_CAPTAIN,
+		JOB_SECURITY_LIASON,
+		JOB_BRIG_LIEUTENANT,
+		JOB_DIRECTOR_OF_PORT_SERVICES,
+		JOB_PORT_MARSHAL,
+		JOB_PORT_AUTHORITY,
 		JOB_CHIEF_ENGINEER,
-		JOB_AUGUR
+		JOB_DIRECTOR_OF_MEDICAE_SERVICES
 	)
 
 	antag_datum = /datum/antagonist/heretic

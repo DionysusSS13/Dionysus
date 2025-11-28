@@ -20,10 +20,10 @@
 	progression_maximum = 30 MINUTES
 
 	var/list/applicable_heads = list(
-		JOB_AUGUR = /area/station/command/heads_quarters/cmo,
+		JOB_DIRECTOR_OF_MEDICAE_SERVICES = /area/station/command/heads_quarters/cmo,
 		JOB_CHIEF_ENGINEER = /area/station/command/heads_quarters/ce,
-		JOB_HEAD_OF_PERSONNEL = /area/station/command/heads_quarters/hop,
-		JOB_CAPTAIN = /area/station/command/heads_quarters/captain, // For head roles so that they can still get this objective.
+		JOB_DIRECTOR_OF_PORT_SERVICES = /area/station/command/heads_quarters/hop,
+		JOB_PORT_AUTHORITY = /area/station/command/heads_quarters/captain, // For head roles so that they can still get this objective.
 	)
 	var/datum/job/target_office
 	var/requires_head_as_supervisor = TRUE
@@ -34,7 +34,7 @@
 	progression_minimum = 10 MINUTES
 	progression_maximum = 40 MINUTES
 	applicable_heads = list(
-		JOB_CAPTAIN = /area/station/command/heads_quarters/captain,
+		JOB_PORT_AUTHORITY = /area/station/command/heads_quarters/captain,
 	)
 	progression_reward = list(5 MINUTES, 10 MINUTES)
 	telecrystal_reward = list(1, 2)
@@ -44,7 +44,7 @@
 	progression_minimum = 20 MINUTES
 	progression_maximum = 60 MINUTES
 	applicable_heads = list(
-		JOB_SECURITY_MARSHAL = /area/station/command/heads_quarters/hos,
+		JOB_PORT_MARSHAL = /area/station/command/heads_quarters/hos,
 	)
 	progression_reward = list(10 MINUTES, 15 MINUTES)
 	telecrystal_reward = list(2, 3)

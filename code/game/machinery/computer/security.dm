@@ -996,8 +996,8 @@ Age: [active1.fields[DATACORE_AGE]]<BR>"}
 							temp += "</ul>"
 					if("rank")
 						var/list/L = list(
-							JOB_CAPTAIN,
-							JOB_HEAD_OF_PERSONNEL,
+							JOB_PORT_AUTHORITY,
+							JOB_DIRECTOR_OF_PORT_SERVICES,
 							JOB_AI,
 							JOB_CENTCOM,
 						)

@@ -186,12 +186,12 @@
 	antag_flag = ROLE_SLEEPER_AGENT
 	antag_flag_override = ROLE_TRAITOR
 	protected_roles = list(
-		JOB_CAPTAIN,
-		JOB_HEAD_OF_PERSONNEL,
-		JOB_SECURITY_MARSHAL,
+		JOB_PORT_AUTHORITY,
+		JOB_DIRECTOR_OF_PORT_SERVICES,
+		JOB_PORT_MARSHAL,
 		JOB_PRISONER,
-		JOB_SECURITY_OFFICER,
-		JOB_WARDEN,
+		JOB_SECURITY_LIASON,
+		JOB_BRIG_LIEUTENANT,
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -263,17 +263,17 @@
 	antag_flag = ROLE_FAMILY_HEAD_ASPIRANT
 	antag_flag_override = ROLE_FAMILIES
 	protected_roles = list(
-		JOB_HEAD_OF_PERSONNEL,
+		JOB_DIRECTOR_OF_PORT_SERVICES,
 		JOB_PRISONER,
 	)
 	restricted_roles = list(
 		JOB_AI,
 		JOB_CYBORG,
-		JOB_CAPTAIN,
-		JOB_DETECTIVE,
-		JOB_SECURITY_MARSHAL,
-		JOB_SECURITY_OFFICER,
-		JOB_WARDEN,
+		JOB_PORT_AUTHORITY,
+		JOB_COMPLIANCE_AUDITOR,
+		JOB_PORT_MARSHAL,
+		JOB_SECURITY_LIASON,
+		JOB_BRIG_LIEUTENANT,
 	)
 	required_candidates = 3
 	weight = 2
@@ -338,11 +338,11 @@
 	antag_flag = ROLE_MALF_MIDROUND
 	antag_flag_override = ROLE_MALF
 	enemy_roles = list(
-		JOB_CHEMIST,
+		JOB_PHARMACOLOGIST,
 		JOB_CHIEF_ENGINEER,
-		JOB_SECURITY_MARSHAL,
-		JOB_SECURITY_OFFICER,
-		JOB_WARDEN,
+		JOB_PORT_MARSHAL,
+		JOB_SECURITY_LIASON,
+		JOB_BRIG_LIEUTENANT,
 	)
 	exclusive_roles = list(JOB_AI)
 	required_enemies = list(4,4,4,4,4,4,2,2,2,0)
@@ -396,10 +396,10 @@
 	antag_flag = ROLE_WIZARD_MIDROUND
 	antag_flag_override = ROLE_WIZARD
 	enemy_roles = list(
-		JOB_CAPTAIN,
-		JOB_DETECTIVE,
-		JOB_SECURITY_MARSHAL,
-		JOB_SECURITY_OFFICER,
+		JOB_PORT_AUTHORITY,
+		JOB_COMPLIANCE_AUDITOR,
+		JOB_PORT_MARSHAL,
+		JOB_SECURITY_LIASON,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -435,10 +435,10 @@
 	enemy_roles = list(
 		JOB_AI,
 		JOB_CYBORG,
-		JOB_CAPTAIN,
-		JOB_DETECTIVE,
-		JOB_SECURITY_MARSHAL,
-		JOB_SECURITY_OFFICER,
+		JOB_PORT_AUTHORITY,
+		JOB_COMPLIANCE_AUDITOR,
+		JOB_PORT_MARSHAL,
+		JOB_SECURITY_LIASON,
 	)
 	required_enemies = list(3,3,3,3,3,2,1,1,0,0)
 	required_candidates = 5
@@ -482,10 +482,10 @@
 	antag_datum = /datum/antagonist/blob
 	antag_flag = ROLE_BLOB
 	enemy_roles = list(
-		JOB_CAPTAIN,
-		JOB_DETECTIVE,
-		JOB_SECURITY_MARSHAL,
-		JOB_SECURITY_OFFICER,
+		JOB_PORT_AUTHORITY,
+		JOB_COMPLIANCE_AUDITOR,
+		JOB_PORT_MARSHAL,
+		JOB_SECURITY_LIASON,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -505,12 +505,12 @@
 	antag_flag = ROLE_BLOB_INFECTION
 	antag_flag_override = ROLE_BLOB
 	protected_roles = list(
-		JOB_CAPTAIN,
-		JOB_DETECTIVE,
-		JOB_SECURITY_MARSHAL,
+		JOB_PORT_AUTHORITY,
+		JOB_COMPLIANCE_AUDITOR,
+		JOB_PORT_MARSHAL,
 		JOB_PRISONER,
-		JOB_SECURITY_OFFICER,
-		JOB_WARDEN,
+		JOB_SECURITY_LIASON,
+		JOB_BRIG_LIEUTENANT,
 	)
 	restricted_roles = list(
 		JOB_AI,
@@ -518,10 +518,10 @@
 		ROLE_POSITRONIC_BRAIN,
 	)
 	enemy_roles = list(
-		JOB_CAPTAIN,
-		JOB_DETECTIVE,
-		JOB_SECURITY_MARSHAL,
-		JOB_SECURITY_OFFICER,
+		JOB_PORT_AUTHORITY,
+		JOB_COMPLIANCE_AUDITOR,
+		JOB_PORT_MARSHAL,
+		JOB_SECURITY_LIASON,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -561,10 +561,10 @@
 	antag_datum = /datum/antagonist/xeno
 	antag_flag = ROLE_ALIEN
 	enemy_roles = list(
-		JOB_CAPTAIN,
-		JOB_DETECTIVE,
-		JOB_SECURITY_MARSHAL,
-		JOB_SECURITY_OFFICER,
+		JOB_PORT_AUTHORITY,
+		JOB_COMPLIANCE_AUDITOR,
+		JOB_PORT_MARSHAL,
+		JOB_SECURITY_LIASON,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -613,10 +613,10 @@
 	antag_flag = ROLE_NIGHTMARE
 	antag_flag_override = ROLE_ALIEN
 	enemy_roles = list(
-		JOB_CAPTAIN,
-		JOB_DETECTIVE,
-		JOB_SECURITY_MARSHAL,
-		JOB_SECURITY_OFFICER,
+		JOB_PORT_AUTHORITY,
+		JOB_COMPLIANCE_AUDITOR,
+		JOB_PORT_MARSHAL,
+		JOB_SECURITY_LIASON,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -664,10 +664,10 @@
 	antag_flag = ROLE_SPACE_DRAGON
 	antag_flag_override = ROLE_SPACE_DRAGON
 	enemy_roles = list(
-		JOB_CAPTAIN,
-		JOB_DETECTIVE,
-		JOB_SECURITY_MARSHAL,
-		JOB_SECURITY_OFFICER,
+		JOB_PORT_AUTHORITY,
+		JOB_COMPLIANCE_AUDITOR,
+		JOB_PORT_MARSHAL,
+		JOB_SECURITY_LIASON,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -713,10 +713,10 @@
 	antag_datum = /datum/antagonist/abductor
 	antag_flag = ROLE_ABDUCTOR
 	enemy_roles = list(
-		JOB_CAPTAIN,
-		JOB_DETECTIVE,
-		JOB_SECURITY_MARSHAL,
-		JOB_SECURITY_OFFICER,
+		JOB_PORT_AUTHORITY,
+		JOB_COMPLIANCE_AUDITOR,
+		JOB_PORT_MARSHAL,
+		JOB_SECURITY_LIASON,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 2
@@ -751,10 +751,10 @@
 	antag_datum = /datum/antagonist/revenant
 	antag_flag = ROLE_REVENANT
 	enemy_roles = list(
-		JOB_CAPTAIN,
-		JOB_DETECTIVE,
-		JOB_SECURITY_MARSHAL,
-		JOB_SECURITY_OFFICER,
+		JOB_PORT_AUTHORITY,
+		JOB_COMPLIANCE_AUDITOR,
+		JOB_PORT_MARSHAL,
+		JOB_SECURITY_LIASON,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1
@@ -807,10 +807,10 @@
 		ROLE_POSITRONIC_BRAIN,
 	)
 	enemy_roles = list(
-		JOB_CAPTAIN,
-		JOB_DETECTIVE,
-		JOB_SECURITY_MARSHAL,
-		JOB_SECURITY_OFFICER,
+		JOB_PORT_AUTHORITY,
+		JOB_COMPLIANCE_AUDITOR,
+		JOB_PORT_MARSHAL,
+		JOB_SECURITY_LIASON,
 	)
 	required_enemies = list(2,2,1,1,1,1,1,0,0,0)
 	required_candidates = 1

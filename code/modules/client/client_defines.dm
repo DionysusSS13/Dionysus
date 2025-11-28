@@ -204,6 +204,8 @@
 	var/list/recent_examines
 	///Our object window datum. It stores info about and handles behavior for the object tab
 	var/datum/object_window_info/obj_window
+	/// The current fullscreen state for /client/toggle_fullscreen()
+	var/fullscreen = FALSE
 
 	var/list/parallax_layers
 	var/list/parallax_layers_cached

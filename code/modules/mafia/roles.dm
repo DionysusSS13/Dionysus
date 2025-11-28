@@ -1,5 +1,5 @@
 /datum/mafia_role
-	var/name = JOB_ASSISTANT
+	var/name = JOB_CIVILLIAN
 	var/desc = "You are a crewmember without any special abilities."
 	var/win_condition = "kill all mafia and solo killing roles."
 	var/team = MAFIA_TEAM_TOWN
@@ -341,7 +341,7 @@
 		current_protected = null
 
 /datum/mafia_role/officer
-	name = "Security Officer"
+	name = "Security Liason"
 	desc = "You can protect a single person each night. If they are attacked, you will retaliate, killing yourself and the attacker."
 	revealed_outfit = /datum/outfit/mafia/security
 	revealed_icon = "securityofficer"

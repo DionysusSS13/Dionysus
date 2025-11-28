@@ -81,7 +81,7 @@ GLOBAL_LIST_EMPTY(dead_players_during_shift)
 			continue
 
 		var/job = viewer.mind?.assigned_role?.title
-		if(job == JOB_ACOLYTE || job == JOB_AUGUR)
+		if(job == JOB_MEDICAE_TECHNICIAN || job == JOB_DIRECTOR_OF_MEDICAE_SERVICES)
 			viewer.client.give_award(/datum/award/achievement/jobs/hes_dead_jim, viewer)
 
 /mob/living/carbon/human/proc/makeSkeleton()

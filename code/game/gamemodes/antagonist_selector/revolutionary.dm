@@ -1,21 +1,21 @@
 /datum/antagonist_selector/revolutionary
 	//Atleast 1 of any head.
 	required_jobs = list(
-		list(JOB_CAPTAIN = 1),
-		list(JOB_HEAD_OF_PERSONNEL = 1),
-		list(JOB_SECURITY_MARSHAL = 1),
+		list(JOB_PORT_AUTHORITY = 1),
+		list(JOB_DIRECTOR_OF_PORT_SERVICES = 1),
+		list(JOB_PORT_MARSHAL = 1),
 		list(JOB_CHIEF_ENGINEER = 1),
-		list(JOB_AUGUR = 1),
+		list(JOB_DIRECTOR_OF_MEDICAE_SERVICES = 1),
 		list(JOB_RESEARCH_DIRECTOR = 1)
 	)
 
 	restricted_jobs = list(
-		JOB_CAPTAIN,
-		JOB_HEAD_OF_PERSONNEL,
+		JOB_PORT_AUTHORITY,
+		JOB_DIRECTOR_OF_PORT_SERVICES,
 		JOB_AI,
 		JOB_CYBORG,
-		JOB_SECURITY_OFFICER,
-		JOB_WARDEN,
+		JOB_SECURITY_LIASON,
+		JOB_BRIG_LIEUTENANT,
 	)
 
 	antag_flag = ROLE_REV_HEAD

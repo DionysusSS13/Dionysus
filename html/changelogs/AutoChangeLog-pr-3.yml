@@ -1,0 +1,4 @@
+author: Spaghetti-bit
+delete-after: true
+changes:
+  - rscadd: Ported fullscreen mode, default keybind is F11.

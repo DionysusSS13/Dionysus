@@ -684,14 +684,14 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 									[discord_prefix]verify [discord_otp]
 								</code>
 								<hr/>
-								discord.daedalus13.net (We are unable to embed this link for security reasons.)
+								!!TODO!! (We are unable to embed this link for security reasons.)
 								<br>
 							"},
 							"window=discordauth;can_close=0;can_resize=0;can_minimize=0",
 						)
 						to_chat_immediate(src, span_boldnotice("Your One-Time-Password is: [discord_otp]"))
 						to_chat_immediate(src, span_userdanger("DO NOT SHARE THIS OTP WITH ANYONE"))
-						to_chat_immediate(src, span_notice("To link your Discord account, head to the Discord Server (discord.daedalus13.net) and paste the following message:<hr/><code>[discord_prefix]verify [discord_otp]</code><hr/>\n"))
+						to_chat_immediate(src, span_notice("To link your Discord account, head to the Discord Server (!!TODO!!) and paste the following message:<hr/><code>[discord_prefix]verify [discord_otp]</code><hr/>\n"))
 						return TRUE
 					else
 						restricted_mode = TRUE
@@ -1416,3 +1416,28 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 /// This grabs the DPI of the user per their skin
 /client/proc/acquire_dpi()
 	window_scaling = text2num(winget(src, null, "dpi"))
+
+/// Handles fullscreen on the client.
+/client/verb/toggle_fullscreen()
+	set name = "Toggle Fullscreen"
+	set category = "OOC"
+
+	fullscreen = !fullscreen
+
+	if(fullscreen)
+		winset(usr, "mainwindow", "titlebar=false")
+		winset(usr, "mainwindow", "can-resize=false")
+		winset(usr, "mainwindow", "is-maximized=false")  // Ensures the window doesn't get stretched oddly.
+		winset(usr, "mainwindow", "is-maximized=true")
+		winset(usr, "mainwindow", "is-fullscreen=true")
+		winset(usr, "mainwindow", "menu=")				 // Top-Menu bar [DISABLED]
+	else
+		winset(usr, "mainwindow", "titlebar=true")
+		winset(usr, "mainwindow", "can-resize=true")
+		winset(usr, "mainwindow", "is-fullscreen=false") // Order matters. Fullscreen [OFF] -> Maximize [TRUE]
+		winset(usr, "mainwindow", "is-maximized=true")
+		winset(usr, "mainwindow", "menu=menu")
+
+	var/fullscreen_state = fullscreen ? "on" : "off"
+	to_chat(usr, "Toggled fullscreen [fullscreen_state].")
+	fit_viewport()

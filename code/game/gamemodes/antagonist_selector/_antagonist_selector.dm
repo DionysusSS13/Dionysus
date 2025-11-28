@@ -38,7 +38,7 @@
 		restricted_jobs += protected_jobs
 
 	if(CONFIG_GET(flag/protect_assistant_from_antagonist))
-		restricted_jobs += JOB_ASSISTANT
+		restricted_jobs += JOB_CIVILLIAN
 
 	// Strip out antag bans/people without this antag as a pref
 	candidates = trim_candidates(player_pool)

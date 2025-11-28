@@ -2,7 +2,7 @@
 	title = JOB_CHAPLAIN
 	description = "Hold services and funerals, cremate people, preach your \
 		religion, protect the crew against cults."
-	department_head = list(JOB_HEAD_OF_PERSONNEL)
+	department_head = list(JOB_DIRECTOR_OF_PORT_SERVICES)
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1

@@ -25,7 +25,7 @@
 	cost = 2
 	limited_stock = 1
 	item = /obj/item/devices/bureaucratic_error_remote
-	restricted_roles = list(JOB_HEAD_OF_PERSONNEL, JOB_QUARTERMASTER)
+	restricted_roles = list(JOB_DIRECTOR_OF_PORT_SERVICES, JOB_QUARTERMASTER)
 
 /datum/uplink_item/role_restricted/clumsinessinjector //clown ops can buy this too, but it's in the pointless badassery section for them
 	name = "Clumsiness Injector"
@@ -40,7 +40,7 @@
 	desc = "A tattered old jumpsuit that will provide absolutely no benefit to you."
 	item = /obj/item/clothing/under/color/grey/ancient
 	cost = 20
-	restricted_roles = list(JOB_ASSISTANT)
+	restricted_roles = list(JOB_CIVILLIAN)
 	surplus = 0
 
 /datum/uplink_item/role_restricted/oldtoolboxclean
@@ -48,7 +48,7 @@
 	desc = "An iconic toolbox design notorious with Assistants everywhere, this design was especially made to become more robust the more telecrystals it has inside it! Tools and insulated gloves included."
 	item = /obj/item/storage/toolbox/mechanical/old/clean
 	cost = 2
-	restricted_roles = list(JOB_ASSISTANT)
+	restricted_roles = list(JOB_CIVILLIAN)
 	surplus = 0
 
 // Low progression cost
@@ -59,7 +59,7 @@
 	progression_minimum = 10 MINUTES
 	item = /obj/item/mmi/syndie
 	cost = 2
-	restricted_roles = list(JOB_ACOLYTE, JOB_AUGUR)
+	restricted_roles = list(JOB_MEDICAE_TECHNICIAN, JOB_DIRECTOR_OF_MEDICAE_SERVICES)
 	surplus = 0
 
 /datum/uplink_item/role_restricted/explosive_hot_potato
@@ -70,7 +70,7 @@
 	item = /obj/item/hot_potato/syndicate
 	cost = 4
 	surplus = 0
-	restricted_roles = list(JOB_COOK, JOB_BOTANIST, JOB_CLOWN)
+	restricted_roles = list(JOB_CULINARY_VENDOR, JOB_BOTANIST, JOB_CLOWN)
 
 /datum/uplink_item/role_restricted/ez_clean_bundle
 	name = "EZ Clean Grenade Bundle"
@@ -106,7 +106,7 @@
 	progression_minimum = 15 MINUTES
 	item = /obj/item/gun/magic/hook
 	cost = 11
-	restricted_roles = list(JOB_COOK)
+	restricted_roles = list(JOB_CULINARY_VENDOR)
 
 /datum/uplink_item/role_restricted/turretbox
 	name = "Disposable Sentry Gun"
@@ -149,7 +149,7 @@
 	progression_minimum = 30 MINUTES
 	item = /obj/item/gun/chem
 	cost = 12
-	restricted_roles = list(JOB_CHEMIST, JOB_AUGUR, JOB_BOTANIST)
+	restricted_roles = list(JOB_PHARMACOLOGIST, JOB_DIRECTOR_OF_MEDICAE_SERVICES, JOB_BOTANIST)
 
 /datum/uplink_item/role_restricted/pie_cannon
 	name = "Banana Cream Pie Cannon"
