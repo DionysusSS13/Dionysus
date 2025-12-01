@@ -1,0 +1,43 @@
+name: Complete Feature Request
+description: Create a feature request for an idea that you have a solid idea for.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # **Please read the following guidelines. Follow all instructions or else your feature request is subject to closure.**
+        Include as much detail as possible. Document any possible interactions/knock on effects your feature might have, and explain how it'd fit in to the codebase.
+        Do **not** create feature requests for idea-building purposes. This is **ONLY** for **complete** ideas with a solid foundation and idea behind them.
+        Simple requests may bypass using the document link field, but larger features are **required** to provide extra information that might not format nicely in an issue.
+  - type: input
+    id: document-link
+    attributes:
+      label: "Document Link:"
+      description: |
+        A link to a document (if any) for your suggestion.
+      placeholder: |
+        "https://hackmd.io/mycooluser/mycooldocument"
+    validations:
+      required: false
+  - type: input
+    id: summary
+    attributes:
+      label: "Suggestion Summary:"
+      description: |
+        Briefly explain your feature in a sentence or two.
+      placeholder: |
+        "I want the shuttle to fling people instead of gibbing them."
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "Suggestion Details:"
+      description: |
+        Describe the steps to reproduce the issue in detail. Include any relevant information, such as the map, round type, and any other factors that may be relevant.
+        If it is a runtime-related error, please include the runtime here as that is pertient information. Issues are not for oddities introduced by admin varedits, ensure these occur in normal circumstances.
+      placeholder: |
+        "- The shuttle will still land and kill people instantly."
+        "- It will instead fling them out and away from the shuttle."
+        "- This will make medbay's life easier, and remove another reason why someone might leave the game."
+    validations:
+      required: true
