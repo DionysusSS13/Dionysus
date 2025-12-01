@@ -37,10 +37,10 @@ Do not use tabs/spaces for indentation in the middle of a code line. Not only is
 * Operators that should be separated by spaces
 	* Boolean and logic operators like &&, || <, >, ==, etc (but not !)
 	* Bitwise AND &
+	* Bitwise OR |
 	* Argument separator operators like , (and ; when used in a forloop)
 	* Assignment operators like = or += or the like
 * Operators that should not be separated by spaces
-	* Bitwise OR |
 	* Access operators like . and :
 	* Parentheses ()
 	* logical not !
