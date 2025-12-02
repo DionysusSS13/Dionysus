@@ -32,17 +32,19 @@ Dionysus doesn't have a list of goals and features to add; we instead allow free
 
 If you want to contribute the first thing you'll need to do is [download the repo and set up your own branch](guides/DOWNLOADING.md).
 
-TG has a [list of guides on their wiki](http://www.tgstation13.org/wiki/Guides#Development_and_Contribution_Guides) that will help you get started contributing to Dionysus with Git and Dream Maker. For beginners, it is recommended you work on small projects like bugfixes at first. If you need help learning to program in BYOND, check out this [repository of resources](http://www.byond.com/developer/articles/resources).
+TG has a [list of guides on their wiki](http://tgstation13.org/wiki/Guides#Development_and_Contribution_Guides) that will help you get started contributing to Dionysus. For beginners, it is recommended you work on small projects like bugfixes at first. If you need help learning to program in BYOND, check out this [repository of resources](http://www.byond.com/developer/articles/resources).
 
 There is an open list of approachable issues for [your inspiration here](https://github.com/DionysusSS13/Dionysus/issues?q=is%3Aopen+is%3Aissue+label%3A%22Good+First+Issue%22).
 
-You can of course, as always, ask for help on the Discord channels or the forums. We're just here to have fun and help out, so please don't expect professional support.
+You can of course, as always, ask for help on the Discord channels. We're just here to have fun and help out, so please don't expect professional support.
 
 ## Meet the Team
 
 ### Headcoder
 
 The Headcoder is responsible for controlling, adding, and removing maintainers from the project. In addition to filling the role of a normal maintainer, they have sole authority on who becomes a maintainer, as well as who remains a maintainer and who does not.
+
+They may also step in to resolve disputes on code quality, and generally have the final say on PRs.
 
 ### Maintainers
 
@@ -65,27 +67,6 @@ These are the few directives we have for project maintainers.
 These are not steadfast rules as maintainers are expected to use their best judgement when operating.
 
 Our team is entirely voluntary, as such we extend our thanks to maintainers, issue managers, and contributors alike for helping keep the project alive.
-
-</details>
-
-### Issue Managers
-
-Issue Managers help out the project by labelling bug reports and PRs and closing bug reports which are duplicates or are no longer applicable.
-
-<details>
-<summary>What You Can and Can't Do as an Issue Manager</summary>
-
-This should help you understand what you can and can't do with your newfound github permissions.
-
-Things you **CAN** do:
-
-- Label issues appropriately
-- Close issues when appropriate
-- Label PRs, unless you are goofball.
-
-Things you **CAN'T** do:
-
-- [Close PRs](https://imgur.com/w2RqpX8.png): Only maintainers are allowed to close PRs. Do not hit that button.
 
 </details>
 
