@@ -52,6 +52,8 @@ Maintainers are quality control. If a proposed pull request doesn't meet the fol
 
 Maintainers can revert your changes if they feel they are not worth maintaining or if they did not live up to the quality specifications.
 
+There are also sub-roles for some maintainers, like spritetainer and loretainer, which, as their name suggests, are only expected to be responsible for managing sprite changes and lore changes.
+
 <details>
 <summary>Maintainer Guidelines</summary>
 
@@ -66,7 +68,7 @@ These are the few directives we have for project maintainers.
 
 These are not steadfast rules as maintainers are expected to use their best judgement when operating.
 
-Our team is entirely voluntary, as such we extend our thanks to maintainers, issue managers, and contributors alike for helping keep the project alive.
+Our team is entirely voluntary, as such we extend our thanks to maintainers, and contributors alike for helping keep the project alive.
 
 </details>
 
@@ -124,7 +126,7 @@ There is no strict process when it comes to merging pull requests. Pull requests
 
 ## Porting features/sprites/sounds/tools from other codebases
 
-If you are porting features/tools from other codebases, you must give them credit where it's due. Typically, crediting them in your pull request and the changelog is the recommended way of doing it. Take note of what license they use though, porting stuff from AGPLv3 and GPLv3 codebases are allowed.
+If you are porting features/tools from other codebases, you must give them credit where it's due. Typically, crediting them in your pull request and the changelog is the recommended way of doing it. Take note of what license they use though. Porting stuff from AGPLv3 and GPLv3 codebases (bay/TG codebases) are allowed.
 
 Regarding sprites & sounds, you must credit the artist and possibly the codebase. All /tg/station assets including icons and sound are under a [Creative Commons 3.0 BY-SA license](https://creativecommons.org/licenses/by-sa/3.0/) unless otherwise indicated. However if you are porting assets from GoonStation or usually any assets under the [Creative Commons 3.0 BY-NC-SA license](https://creativecommons.org/licenses/by-nc-sa/3.0/) are to go into the 'goon' folder of the /tg/station codebase.
 

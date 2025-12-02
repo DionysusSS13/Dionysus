@@ -6,7 +6,7 @@
 
 1. Install github desktop, or an equivalent client, and link your github account. Github desktop is recommended unless you're planning on cherrypicking commits, in which case, something that can handle multiple remotes (repositories) seamlessly like smartgit (or god forbid, gitkraken) is recommended.
 
-2. Copy the repo URL https://github.com/DionysusSS13/Dionysus, open your git client's clone menu, and paste it in. This will take a while, so go play a game or read up on some of the [other documentation](./) while you wait.
+2. Go to our repo https://github.com/DionysusSS13/Dionysus and press `fork` in the top right. Once it's done, open your git client's clone menu, and paste in the URL to your freshly forked repo. This will take a while, so go play a game or read up on some of the [other documentation](./) while you wait.
 
 ## Do not clone the repo into a folder with cloud storage (onedrive) enabled. IT WILL NOT WORK AND WILL CLOG UP YOUR BANDWIDTH.
 
