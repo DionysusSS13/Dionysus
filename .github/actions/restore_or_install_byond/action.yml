@@ -6,11 +6,9 @@ inputs:
   major:
     description: "The major BYOND version to install. Defaults to the BYOND_MAJOR specified in `dependencies.sh`."
     required: false
-    type: string
   minor:
     description: "The minor BYOND version to install. Defaults to the BYOND_MINOR specified in `dependencies.sh`."
     required: false
-    type: string
 
 runs:
   using: composite
