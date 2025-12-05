@@ -142,7 +142,6 @@ export const IconCutterTarget = new Juke.Target({
     "icons/**/*.png",
     `icons/**/*${CUTTER_SUFFIX}`,
     `cutter_templates/**/*${CUTTER_SUFFIX}`,
-    cutter_path,
   ],
   outputs: ({ get }) => {
     if (get(ForceRecutParameter)) return [];
@@ -166,7 +165,6 @@ export const DionysusIconCutterTarget = new Juke.Target({
     "dionysus_icons/**/*.png",
     `dionysus_icons/**/*${CUTTER_SUFFIX}`,
     `cutter_templates/**/*${CUTTER_SUFFIX}`,
-    cutter_path,
   ],
   outputs: ({ get }) => {
     if (get(ForceRecutParameter)) return [];

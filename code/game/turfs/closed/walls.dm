@@ -111,6 +111,8 @@ GLOBAL_REAL_VAR(wall_overlays_cache) = list()
 
 /// Most of this code is pasted within /obj/structure/falsewall. Be mindful of this
 /turf/closed/wall/update_overlays()
+	icon = null
+	var/static/icon/wall_icon = 'icons/turf/walls/bimmer_walls.dmi'
 	var/plating_color = wall_paint || material_color
 	var/stripe_color = stripe_paint || wall_paint || material_color
 
@@ -139,6 +141,9 @@ GLOBAL_REAL_VAR(wall_overlays_cache) = list()
 			//Updating the unmanaged wall overlays (unmanaged for optimisations)
 			overlays.len = 0
 			var/list/new_overlays = list()
+
+			var/image/wall_image = image(wall_icon, icon_state)
+			new_overlays += wall_image
 
 			if(stripe_icon)
 				var/image/smoothed_stripe = image(stripe_icon, icon_state)
