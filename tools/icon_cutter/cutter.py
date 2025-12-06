@@ -22,7 +22,7 @@ if not os.path.exists(sys.argv[2]):
 
 bad_tomls = []
 
-def find_toml_files(path: str, is_templates = False, tomls: list or dict = None):
+def find_toml_files(path: str, is_templates = False, tomls: list | dict = None):
     if tomls is None:
         if is_templates:
             tomls = {}
