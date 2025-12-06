@@ -1,2 +1,0 @@
-output_name = "wall"
-template = "bitmask/dionysus_32x64.toml"
