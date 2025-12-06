@@ -40,7 +40,7 @@ def find_toml_files(path: str, is_templates = False, tomls: list | dict = None):
             continue
         if is_templates:
             with open(rel_file, "rb") as r_file:
-                tomls[rel_file[20:]] = tomllib.load(r_file)
+                tomls[rel_file[17 + (3 if rel_file[:3] == "../" else 0):]] = tomllib.load(r_file)
         else:
             tomls.append(rel_file)
     return tomls

@@ -40,16 +40,6 @@ const dependencies = fs
     return acc;
   }, {});
 
-// Canonical path for the cutter exe at this moment
-const getCutterPath = () => {
-  const ver = dependencies.CUTTER_VERSION;
-  const suffix = process.platform === "win32" ? ".exe" : "";
-  const file_ver = ver.split(".").join("-");
-  return `tools/icon_cutter/cache/hypnagogic${file_ver}${suffix}`;
-};
-
-const cutter_path = getCutterPath();
-
 export const DefineParameter = new Juke.Parameter({
   type: "string[]",
   alias: "D",
@@ -81,63 +71,8 @@ export const NoWarningParameter = new Juke.Parameter({
   alias: "NW",
 });
 
-export const CutterTarget = new Juke.Target({
-  onlyWhen: () => {
-    const files = Juke.glob(cutter_path);
-    return files.length == 0;
-  },
-  executes: async () => {
-    const repo = dependencies.CUTTER_REPO;
-    const ver = dependencies.CUTTER_VERSION;
-    const suffix = process.platform === "win32" ? ".exe" : "";
-    const download_from = `https://github.com/${repo}/releases/download/${ver}/hypnagogic${suffix}`;
-    await download_file(download_from, cutter_path);
-    if (process.platform !== "win32") {
-      await Juke.exec("chmod", ["+x", cutter_path]);
-    }
-  },
-});
-
-async function download_file(url, file) {
-  return new Promise((resolve, reject) => {
-    let file_stream = fs.createWriteStream(file);
-    https
-      .get(url, function (response) {
-        if (response.statusCode === 302) {
-          file_stream.close();
-          download_file(response.headers.location, file).then((value) =>
-            resolve(),
-          );
-          return;
-        }
-        if (response.statusCode !== 200) {
-          Juke.logger.error(
-            `Failed to download ${url}: Status ${response.statusCode}`,
-          );
-          file_stream.close();
-          reject();
-          return;
-        }
-        response.pipe(file_stream);
-
-        // after download completed close filestream
-        file_stream.on("finish", () => {
-          file_stream.close();
-          resolve();
-        });
-      })
-      .on("error", (err) => {
-        file_stream.close();
-        Juke.rm(download_into);
-        Juke.logger.error(`Failed to download ${url}: ${err.message}`);
-        reject();
-      });
-  });
-}
-
 export const IconCutterTarget = new Juke.Target({
   parameters: [ForceRecutParameter],
-  dependsOn: () => [CutterTarget],
   inputs: [
     "icons/**/*.png",
     `icons/**/*${CUTTER_SUFFIX}`,
@@ -149,9 +84,9 @@ export const IconCutterTarget = new Juke.Target({
     return folders.map((file) => file.replace(`${CUTTER_SUFFIX}`, ".dmi"));
   },
   executes: async () => {
-    await Juke.exec(cutter_path, [
-      "--dont-wait",
-      "--templates",
+    await Juke.exec("tools/bootstrap/python", [
+      "-m",
+      "icon_cutter.cutter",
       "cutter_templates",
       "icons",
     ]);
@@ -160,7 +95,6 @@ export const IconCutterTarget = new Juke.Target({
 
 export const DionysusIconCutterTarget = new Juke.Target({
   parameters: [ForceRecutParameter],
-  dependsOn: () => [CutterTarget],
   inputs: [
     "dionysus_icons/**/*.png",
     `dionysus_icons/**/*${CUTTER_SUFFIX}`,
@@ -172,10 +106,10 @@ export const DionysusIconCutterTarget = new Juke.Target({
     return folders.map((file) => file.replace(`${CUTTER_SUFFIX}`, ".dmi"));
   },
   executes: async () => {
-    await Juke.exec(cutter_path, [
-      "--dont-wait",
-      "--templates",
-      "cutter_templates",
+    await Juke.exec("tools/bootstrap/python", [
+      "-m",
+      "icon_cutter.cutter",
+      "cutter_templates", // WHY ARE YOU RELATIVE??? HUH???
       "dionysus_icons",
     ]);
   },
