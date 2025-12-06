@@ -1,7 +1,12 @@
 import os
 import os.path
 import sys
-import cutter_image
+import tomllib
+from datetime import datetime
+
+from . import cutter_image
+
+time = datetime.now()
 
 if len(sys.argv) < 3:
     print("cutter.py <templates> <image root>")
@@ -17,9 +22,12 @@ if not os.path.exists(sys.argv[2]):
 
 bad_tomls = []
 
-def find_toml_files(path: str, is_templates = False, tomls: [] = None):
+def find_toml_files(path: str, is_templates = False, tomls: list or dict = None):
     if tomls is None:
-        tomls = []
+        if is_templates:
+            tomls = {}
+        else:
+            tomls = []
     global bad_tomls
     for file in os.listdir(path):
         rel_file = path + "/" + file
@@ -29,6 +37,9 @@ def find_toml_files(path: str, is_templates = False, tomls: [] = None):
             continue
         if not is_templates and not os.path.exists(rel_file[:-5]):
             bad_tomls.append(rel_file)
+        if is_templates:
+            with open(rel_file, "rb") as r_file:
+                tomls[rel_file[20:]] = tomllib.load(r_file)
         else:
             tomls.append(rel_file)
     return tomls
@@ -36,8 +47,13 @@ def find_toml_files(path: str, is_templates = False, tomls: [] = None):
 templates = find_toml_files(sys.argv[1], True)
 icon_tomls = find_toml_files(sys.argv[2])
 
-cutter_image.cut("", {})
+for toml in icon_tomls:
+    cutter_image.cut(toml, templates)
 
-print(templates.__len__())
-print(icon_tomls.__len__())
-print(bad_tomls.__len__())
+print("Took approx " + str(datetime.now() - time))
+print("Found " + str(len(templates)) + " templates.")
+print("Found " + str(len(icon_tomls)) + " icon tomls.")
+if len(bad_tomls):
+    print("Found " + str(len(bad_tomls)) + " bad toml" + ("" if len(bad_tomls) == 1 else "s") + ". Is the toml named right?")
+    for toml in bad_tomls:
+        print("- " + toml[3:])

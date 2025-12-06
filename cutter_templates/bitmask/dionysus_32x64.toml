@@ -7,7 +7,6 @@ smooth_diagonally = true
 
 # Take as input a set of 32x32 blocks
 [icon_size]
-columns = 5
 x = 32
 y = 32
 
@@ -19,7 +18,7 @@ y = 0
 # And at the same width/height too
 [output_icon_size]
 x = 32
-y = 64
+y = 32
 
 # This defines where in our list of blocks we draw each "direction" from
 # no connections, east/west, north/south, and north/south/east/west

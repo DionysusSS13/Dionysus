@@ -1,4 +1,4 @@
-template = "bitmask/cardinal_32x32"
+template = "bitmask/cardinal_32x32.toml"
 
 # We're diagonal
 smooth_diagonally = true

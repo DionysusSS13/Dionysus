@@ -1,4 +1,4 @@
-from dirs import *
+from tools.icon_cutter.dirs import *
 
 CONVEX = "convex" # Four sides
 CONCAVE = "concave" # Pyramid
@@ -11,7 +11,7 @@ SHAPES = {
     CONCAVE: NORTH | SOUTH | EAST | WEST,
     VERTICAL: NORTH | SOUTH,
     HORIZONTAL: EAST | WEST,
-    FLAT: NORTH | SOUTH | EAST | WEST | NORTHEAST | SOUTHEAST | SOUTHWEST | NORTHWEST,
+    FLAT: NORTHEAST | SOUTHEAST | SOUTHWEST | NORTHWEST,
 }
 
 # I cba figuring out the best way to iterate this
