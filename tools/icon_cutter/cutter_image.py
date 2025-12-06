@@ -1,9 +1,6 @@
-import os.path
 from copy import deepcopy
-from datetime import datetime
 
 from PIL import Image, PngImagePlugin
-import pathlib
 import tomllib
 import math
 
@@ -19,7 +16,7 @@ def process_templates(toml: dict, templates):
         template = deepcopy(templates[toml["template"]])
         toml.pop("template")
         for key, value in toml.items():
-            if isinstance(value, dict) and isinstance(template[key], dict):
+            if isinstance(value, dict) and isinstance(template.get(key), dict):
                 for key1, value1 in toml[key].items():
                     template[key][key1] = value[key1]
             else:
@@ -81,7 +78,6 @@ def cut(toml_path: str, templates: dict):
             for current_slice in slices:
                 connections = fingerprint(current_slice, cutter_shapes.SHAPES[pos_name])
                 cut_pos = tuple(sum(x) for x in zip(slices[current_slice], offset)) # lazy way to add two tuples together
-                # png_image.paste(Image.new("RGBA", (slices[current_slice][2] - slices[current_slice][0], slices[current_slice][3] - slices[current_slice][1]), ImageColor.getcolor("rgb(" + str(color) + ", " + str(color) + ", " + str(color) + ")", "RGB")), cut_pos)
                 corners[str(current_slice)][connections] = png_image.crop(cut_pos)
                 color = round(color / 0.95)
 
@@ -89,7 +85,7 @@ def cut(toml_path: str, templates: dict):
 
     dmi_icons = dmi_icons | stray_icons
 
-    make_dmi(dmi_icons, output_size)
+    make_dmi(img_path[:-4] + ".dmi", dmi_icons, output_size)
 
 def do_icon(image: Image.Image, connections: int, corners: dict, slices: dict):
     for corner_name, connection_to_corner in corners.items():
@@ -112,10 +108,11 @@ def fingerprint(current_slice: int, relevant_connections: int):
         return (NORTH | WEST | NORTHWEST) & relevant_connections
     raise "Oh shit oh fuck"
 
-def make_dmi(dmi_icons: dict, icon_size):
+def make_dmi(file, dmi_icons: dict, icon_size):
     columns = 7 # Most efficient in most cases + can't be fucked
     rows = math.ceil(len(dmi_icons) / columns)
     dmi_icons = list(dmi_icons.items()) # Not the best but idgaf
+    # Never fucking trust the parser to handle multiline strings sensibly. Yes, indenting this "properly" breaks it. Don't do it.
     dmi_str = f"""# BEGIN DMI
 version = 4.0
 	width = {str(icon_size[0])}
@@ -136,4 +133,4 @@ version = 4.0
 
     png_info = PngImagePlugin.PngInfo()
     png_info.add_text("Description", dmi_str, zip=True)
-    image.save("../test.dmi", "png", pnginfo=png_info)
+    image.save(file, "png", pnginfo=png_info)

@@ -37,6 +37,7 @@ def find_toml_files(path: str, is_templates = False, tomls: list or dict = None)
             continue
         if not is_templates and not os.path.exists(rel_file[:-5]):
             bad_tomls.append(rel_file)
+            continue
         if is_templates:
             with open(rel_file, "rb") as r_file:
                 tomls[rel_file[20:]] = tomllib.load(r_file)
