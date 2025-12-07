@@ -11,13 +11,14 @@ from tools.icon_cutter.dirs import *
 BITMASK_SLICE = "BitmaskSlice"
 SMOOTH_DIAGONALLY = "smooth_diagonally"
 
+# This is kinda fugly but
 def process_templates(toml: dict, templates):
     if toml.get("template") is not None:
         template = deepcopy(templates[toml["template"]])
         toml.pop("template")
         for key, value in toml.items():
             if isinstance(value, dict) and isinstance(template.get(key), dict):
-                for key1, value1 in toml[key].items():
+                for key1, _ in toml[key].items():
                     template[key][key1] = value[key1]
             else:
                 template[key] = value
@@ -76,7 +77,7 @@ def cut(toml_path: str, templates: dict):
                 continue
             offset = (x * size[0], y * size[1], x * size[0], y * size[1])
             for current_slice in slices:
-                connections = fingerprint(current_slice, cutter_shapes.SHAPES[pos_name])
+                connections = fingerprint_corner(current_slice, cutter_shapes.SHAPES[pos_name])
                 cut_pos = tuple(sum(x) for x in zip(slices[current_slice], offset)) # lazy way to add two tuples together
                 corners[str(current_slice)][connections] = png_image.crop(cut_pos)
                 color = round(color / 0.95)
@@ -97,7 +98,7 @@ def do_icon(image: Image.Image, connections: int, corners: dict, slices: dict):
 
     return image
 
-def fingerprint(current_slice: int, relevant_connections: int):
+def fingerprint_corner(current_slice: int, relevant_connections: int):
     if current_slice == NORTHEAST:
         return (NORTH | EAST | NORTHEAST) & relevant_connections
     if current_slice == SOUTHEAST:

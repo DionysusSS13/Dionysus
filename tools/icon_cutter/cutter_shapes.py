@@ -7,7 +7,7 @@ HORIZONTAL = "horizontal"
 FLAT = "flat" # Eight sides
 
 SHAPES = {
-    CONVEX: 0,
+    CONVEX: NONE,
     CONCAVE: NORTH | SOUTH | EAST | WEST,
     VERTICAL: NORTH | SOUTH,
     HORIZONTAL: EAST | WEST,

@@ -21,6 +21,8 @@ You can find more information about it in hypnagogic's repository, found [here](
 
 DioCutter only supports bitmask slice, and doesn't support animation, prefabs and map icons, though all these are planned to be supported.
 
+We do however handle the positions block a little differently. Any unknown keys (anything that isn't the 4-5 expected values) are just added as additional icon states, mostly to keep code far more simple.
+
 ## How does it work?
 
 Anytime you build the game, CBT will check and see if any of the files that the cutter cares about have been modified
