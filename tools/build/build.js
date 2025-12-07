@@ -100,6 +100,7 @@ export const DionysusIconCutterTarget = new Juke.Target({
     `dionysus_icons/**/*${CUTTER_SUFFIX}`,
     `cutter_templates/**/*${CUTTER_SUFFIX}`,
   ],
+  dependsOn: [IconCutterTarget], // Race condition bullshit
   outputs: ({ get }) => {
     if (get(ForceRecutParameter)) return [];
     const folders = [...Juke.glob(`dionysus_icons/**/*${CUTTER_SUFFIX}`)];
