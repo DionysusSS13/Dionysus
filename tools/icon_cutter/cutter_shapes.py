@@ -1,4 +1,4 @@
-from tools.icon_cutter.dirs import *
+from .dirs import *
 
 CONVEX = "convex" # Four sides
 CONCAVE = "concave" # Pyramid

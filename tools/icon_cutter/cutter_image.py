@@ -4,7 +4,7 @@ from PIL import Image, PngImagePlugin
 import tomllib
 import math
 
-import tools.icon_cutter.cutter_shapes as cutter_shapes
+from . import cutter_shapes
 
 from tools.icon_cutter.dirs import *
 
