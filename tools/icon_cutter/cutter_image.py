@@ -6,7 +6,7 @@ import math
 
 from . import cutter_shapes
 
-from tools.icon_cutter.dirs import *
+from .dirs import *
 
 BITMASK_SLICE = "BitmaskSlice"
 SMOOTH_DIAGONALLY = "smooth_diagonally"
