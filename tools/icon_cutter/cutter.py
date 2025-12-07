@@ -57,4 +57,4 @@ print("Found " + str(len(icon_tomls)) + " icon tomls.")
 if len(bad_tomls):
     print("Found " + str(len(bad_tomls)) + " bad toml" + ("" if len(bad_tomls) == 1 else "s") + ". Is the toml named right?")
     for toml in bad_tomls:
-        print("- " + toml[3:])
+        print("- " + (toml[3:] if toml.startswith("../") else toml))

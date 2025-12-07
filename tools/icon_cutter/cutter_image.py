@@ -44,7 +44,7 @@ def cut(toml_path: str, templates: dict):
 
     png_image: Image.Image = Image.open(img_path, "r")
 
-    output_name = toml["output_name"] + "_"
+    output_name = toml["output_name"] + "-"
     center = (toml["cut_pos"]["x"], toml["cut_pos"]["y"])
     size = (toml["icon_size"]["x"], toml["icon_size"]["y"])
     output_size = (toml["output_icon_size"]["x"], toml["output_icon_size"]["y"])
