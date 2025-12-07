@@ -1,3 +1,4 @@
+# Our wall format, easier for visualising the wall north extension.
 mode = "BitmaskSlice"
 
 # Don't try and put directions in our icon states
