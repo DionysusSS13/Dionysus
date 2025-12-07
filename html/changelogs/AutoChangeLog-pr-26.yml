@@ -1,0 +1,4 @@
+author: RimiNosha
+delete-after: true
+changes:
+  - bugfix: Clients no longer crash when going to a corner of the map.
