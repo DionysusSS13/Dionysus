@@ -71,6 +71,8 @@ export const NoWarningParameter = new Juke.Parameter({
   alias: "NW",
 });
 
+const pythonPath = `tools/bootstrap/python${process.platform === "win32" ? ".bat" : ""}`
+
 export const IconCutterTarget = new Juke.Target({
   parameters: [ForceRecutParameter],
   inputs: [
@@ -84,7 +86,7 @@ export const IconCutterTarget = new Juke.Target({
     return folders.map((file) => file.replace(`${CUTTER_SUFFIX}`, ".dmi"));
   },
   executes: async () => {
-    await Juke.exec("tools/bootstrap/python", [
+    await Juke.exec(pythonPath, [
       "-m",
       "icon_cutter.cutter",
       "cutter_templates",
@@ -107,7 +109,7 @@ export const DionysusIconCutterTarget = new Juke.Target({
     return folders.map((file) => file.replace(`${CUTTER_SUFFIX}`, ".dmi"));
   },
   executes: async () => {
-    await Juke.exec("tools/bootstrap/python", [
+    await Juke.exec(pythonPath, [
       "-m",
       "icon_cutter.cutter",
       "cutter_templates", // WHY ARE YOU RELATIVE??? HUH???
