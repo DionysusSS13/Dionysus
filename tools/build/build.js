@@ -86,22 +86,12 @@ export const IconCutterTarget = new Juke.Target({
     return folders.map((file) => file.replace(`${CUTTER_SUFFIX}`, ".dmi"));
   },
   executes: async () => {
-    if (process.platform === "win32") {
-      await Juke.exec("start.exe", [
-        pythonPath,
-        "-m",
-        "icon_cutter.cutter",
-        "cutter_templates",
-        "icons",
-      ]);
-    } else {
-      await Juke.exec(pythonPath, [
-        "-m",
-        "icon_cutter.cutter",
-        "cutter_templates",
-        "icons",
-      ]);
-    }
+    await Juke.exec(pythonPath, [
+      "-m",
+      "icon_cutter.cutter",
+      "cutter_templates",
+      "icons",
+    ], { shell: true });
   },
 });
 
@@ -124,7 +114,7 @@ export const DionysusIconCutterTarget = new Juke.Target({
       "icon_cutter.cutter",
       "cutter_templates", // WHY ARE YOU RELATIVE??? HUH???
       "dionysus_icons",
-    ]);
+    ], { shell: true });
   },
 });
 
