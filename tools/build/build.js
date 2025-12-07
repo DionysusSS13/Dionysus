@@ -71,7 +71,7 @@ export const NoWarningParameter = new Juke.Parameter({
   alias: "NW",
 });
 
-const pythonPath = `tools/bootstrap/python${process.platform === "win32" ? ".bat" : ""}`
+const pythonPath = `tools/bootstrap/python${process.platform === "win32" ? ".bat" : ""}`;
 
 export const IconCutterTarget = new Juke.Target({
   parameters: [ForceRecutParameter],
@@ -86,12 +86,22 @@ export const IconCutterTarget = new Juke.Target({
     return folders.map((file) => file.replace(`${CUTTER_SUFFIX}`, ".dmi"));
   },
   executes: async () => {
-    await Juke.exec(pythonPath, [
-      "-m",
-      "icon_cutter.cutter",
-      "cutter_templates",
-      "icons",
-    ]);
+    if (process.platform === "win32") {
+      await Juke.exec("start.exe", [
+        pythonPath,
+        "-m",
+        "icon_cutter.cutter",
+        "cutter_templates",
+        "icons",
+      ]);
+    } else {
+      await Juke.exec(pythonPath, [
+        "-m",
+        "icon_cutter.cutter",
+        "cutter_templates",
+        "icons",
+      ]);
+    }
   },
 });
 
