@@ -17,10 +17,4 @@ export NODE_VERSION_LTS=22.16.0
 export SPACEMAN_DMM_VERSION=suite-1.10
 
 # Python version for mapmerge and other tools
-export PYTHON_VERSION=3.9.0
-
-#hypnagogic repo
-export CUTTER_REPO=actioninja/hypnagogic
-
-#hypnagogic git tag
-export CUTTER_VERSION=v3.0.1
+export PYTHON_VERSION=3.14.2
