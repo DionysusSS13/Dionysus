@@ -17,4 +17,4 @@ export NODE_VERSION_LTS=22.16.0
 export SPACEMAN_DMM_VERSION=suite-1.10
 
 # Python version for mapmerge and other tools
-export PYTHON_VERSION=3.14.2
+export PYTHON_VERSION=3.12
