@@ -515,7 +515,7 @@ SUBSYSTEM_DEF(timer)
 /datum/timedevent/proc/bucketJoin()
 #if defined(TIMER_DEBUG)
 	// Generate debug-friendly list for timer, more complex but also more expensive
-	timer_info = list(
+	timer_info = alist(
 		1 = id,
 		2 = timeToRun,
 		3 = wait,
@@ -530,7 +530,7 @@ SUBSYSTEM_DEF(timer)
 	)
 #else
 	// Generate a debuggable name for the timer, simpler but wayyyy cheaper, string generation is a bitch and this saves a LOT of time
-	timer_info = list(
+	timer_info = alist(
 		1 = id,
 		2 = timeToRun,
 		3 = wait,
