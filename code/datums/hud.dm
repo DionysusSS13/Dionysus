@@ -163,6 +163,9 @@ GLOBAL_LIST_INIT(huds, alist(
 /datum/atom_hud/proc/add_atom_to_hud(atom/new_hud_atom)
 	if(!new_hud_atom)
 		return FALSE
+	if(QDELETED(new_hud_atom))
+		stack_trace("[__PROC__] was passed a qdeleted atom!")
+		return FALSE
 
 	LAZYDISTINCTADD(new_hud_atom.in_atom_huds, src)
 
