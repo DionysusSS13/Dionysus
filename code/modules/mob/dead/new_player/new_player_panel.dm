@@ -62,12 +62,6 @@
 		if(SSticker.current_state <= GAME_STATE_PREGAME)
 			parent.ready = tready
 
-		//if it's post initialisation and they're trying to observe we do the needful
-		if(SSticker.current_state >= GAME_STATE_SETTING_UP && tready == PLAYER_READY_TO_OBSERVE)
-			parent.ready = tready
-			parent.make_me_an_observer()
-			return
-
 		update()
 		return
 
@@ -92,6 +86,10 @@
 			to_chat(usr, span_boldwarning("The round is either not ready, or has already finished..."))
 			return
 		LateChoices()
+		return
+	
+	if(href_list["observe"])
+		parent.admin_observe()
 		return
 
 	if(href_list["SelectedJob"])
@@ -248,8 +246,6 @@
 				status = "<div>>Status: Not Ready</div>"
 			if(PLAYER_READY_TO_PLAY)
 				status = "<div>>Status: Ready</div>"
-			if(PLAYER_READY_TO_OBSERVE)
-				status = "<div>>Status: Ready (Observe)</div>"
 			else
 				status = "<div>>Status: Not Ready</div>"
 
@@ -287,27 +283,32 @@
 	return jointext(output, "")
 
 /datum/new_player_panel/proc/join_or_ready()
+	var/is_admin = !isnull(parent?.client?.holder)
 	var/list/output = list()
 	output += {"
 		<div class='flexColumn' style='justify-content: center;align-items: center;width:100%;font-size: 16px;'>
 	"}
 
+
+	if(is_admin)
+		output += {"
+			<div class='flexRow' style='justify-content: center;align-items: center;width:100%;margin-top: 4px;'>
+				<div class='flexItem'>[button_element(src, "Observe - Admin", "observe=1")]</div>
+			</div>
+		"}
 	if(SSticker.current_state > GAME_STATE_PREGAME)
 		output += {"
 			<div class='flexRow' style='justify-content: center;align-items: center;width:100%;margin-top: 4px;'>
 				<div class='flexItem'>[button_element(src, "Join Game", "late_join=1")]</div>
-				<div class='flexItem'>[LINKIFY_READY("Observe", PLAYER_READY_TO_OBSERVE)]</div>
 			</div>
 		"}
 		output += "<div class='flexItem' style='margin-top: 8px'>[button_element(src, "View Station Manifests", "manifest=1")]</div>"
 	else
 		switch(parent.ready)
 			if(PLAYER_NOT_READY)
-				output += "<div>\[ [LINKIFY_READY("Ready", PLAYER_READY_TO_PLAY)] | <span class='linkOn'>Not Ready</span> | [LINKIFY_READY("Observe", PLAYER_READY_TO_OBSERVE)] \]</div>"
+				output += "<div>\[ [LINKIFY_READY("Ready", PLAYER_READY_TO_PLAY)] | <span class='linkOn'>Not Ready</span>\]</div>"
 			if(PLAYER_READY_TO_PLAY)
-				output += "<div>\[ <span class='linkOn'>Ready</span> | [LINKIFY_READY("Not Ready", PLAYER_NOT_READY)] | [LINKIFY_READY("Observe", PLAYER_READY_TO_OBSERVE)] \]</div>"
-			if(PLAYER_READY_TO_OBSERVE)
-				output += "<div>\[ [LINKIFY_READY("Ready", PLAYER_READY_TO_PLAY)] | [LINKIFY_READY("Not Ready", PLAYER_NOT_READY)] | <span class='linkOn'>Observe</span> \]</div>"
+				output += "<div>\[ <span class='linkOn'>Ready</span> | [LINKIFY_READY("Not Ready", PLAYER_NOT_READY)]\]</div>"
 		output += "</div>"
 
 	output += "</div>"

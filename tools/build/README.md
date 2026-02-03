@@ -23,6 +23,8 @@ tools/build/build --help
 
 ## Dependencies
 
+- On Windows, make sure you have powershell 7 installed. You can check this by ensuring `C:/Program Files/PowerShell/7` exists.
+  - You can use `winget install --id Microsoft.PowerShell --source winget` to install it if you don't have it.
 - On Windows, `build.bat` will automatically install a private (vendored) copy of Node.
 - On Linux, install Node using your package manager or from <https://nodejs.org/en/download/>.
 - On Linux, unless using tgs4 or later you will need to compile rust-g on the server and obtain a .so file, for instructions see https://github.com/tgstation/rust-g

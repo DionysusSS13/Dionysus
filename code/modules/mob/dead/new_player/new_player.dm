@@ -43,22 +43,8 @@
 		npp.open()
 
 //When you cop out of the round (NB: this HAS A SLEEP FOR PLAYER INPUT IN IT)
-/mob/dead/new_player/proc/make_me_an_observer(skip_check)
-	if(QDELETED(src) || !src.client || src.client.restricted_mode)
-		ready = PLAYER_NOT_READY
-		return FALSE
-
-	var/less_input_message
-	if(SSlag_switch.measures[DISABLE_DEAD_KEYLOOP])
-		less_input_message = " - Notice: Observer freelook is currently disabled."
-
-	var/this_is_like_playing_right
-	if(!skip_check)
-		// Don't convert this to tgui please, it's way too important
-		this_is_like_playing_right = alert(usr, "Are you sure you wish to observe? You will not be able to play this round![less_input_message]", "Observe", "Yes", "No")
-
-	if(QDELETED(src) || !src.client || (!skip_check && (this_is_like_playing_right != "Yes")))
-		ready = PLAYER_NOT_READY
+/mob/dead/new_player/proc/make_admin_observer()
+	if(QDELETED(src) || !src.client)
 		src << browse(null, "window=playersetup") //closes the player setup window
 		npp?.open()
 		return FALSE
@@ -72,7 +58,7 @@
 	if (O)
 		observer.forceMove(O.loc)
 	else
-		to_chat(src, span_notice("Teleporting failed. Ahelp an admin please"))
+		to_chat(src, span_notice("Teleporting failed."))
 		stack_trace("There's no freaking observer landmark available on this map or you're making observers before the map is initialised")
 	observer.PossessByPlayer(key)
 	observer.client = client
@@ -338,13 +324,10 @@
 	add_verb(client, /client/verb/fix_tgui_panel, bypass_restricted = TRUE)
 
 //Small verb that allows +DEBUG admins to bypass the observer prep lock
-/mob/dead/new_player/verb/immediate_observe()
-	set desc = "Bypass all safety checks and observe immediately (+DEBUG)"
-	if(!check_rights(R_DEBUG))
+/mob/dead/new_player/proc/admin_observe()
+	if(!check_rights(NONE))
 		return
-	//This is bypassing a LOT of safety checks, so we're just going to send this immediately.
-	to_chat_immediate(usr, span_userdanger("Bypassing all safety checks and spawning you in immediately.\nDon't complain on the repo if this breaks shit!"))
-	make_me_an_observer(1)
+	make_admin_observer()
 
 /mob/dead/new_player/get_status_tab_items()
 	. = ..()

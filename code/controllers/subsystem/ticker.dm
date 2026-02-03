@@ -154,7 +154,7 @@ SUBSYSTEM_DEF(ticker)
 			var/list/players = list()
 
 			for(var/mob/dead/new_player/player as anything in GLOB.new_player_list)
-				if(player.ready == PLAYER_READY_TO_PLAY || player.ready == PLAYER_READY_TO_OBSERVE)
+				if(player.ready == PLAYER_READY_TO_PLAY)
 					++totalPlayersReady
 					if(player.client?.holder)
 						++total_admins_ready
@@ -173,10 +173,6 @@ SUBSYSTEM_DEF(ticker)
 						continue
 
 					var/display = player.client?.holder?.fakekey || ckey
-					if(player.ready == PLAYER_READY_TO_OBSERVE)
-						player_ready_data += "* [display] as Observer"
-						continue
-
 					var/datum/job/J = prefs.get_highest_priority_job()
 					if(!J)
 						player_ready_data += "* [display] forgot to pick a job!"
@@ -363,9 +359,6 @@ SUBSYSTEM_DEF(ticker)
 			continue
 
 		switch(player.ready)
-			if(PLAYER_READY_TO_OBSERVE)
-				player.make_me_an_observer(TRUE)
-
 			if(PLAYER_READY_TO_PLAY)
 				GLOB.joined_player_list += player.ckey
 				var/atom/spawn_loc = player.mind.assigned_role.get_roundstart_spawn_point()
