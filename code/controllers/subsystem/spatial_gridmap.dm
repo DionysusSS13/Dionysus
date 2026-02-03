@@ -245,20 +245,17 @@ SUBSYSTEM_DEF(spatial_grid)
 
 	. = list()
 
-	//technically THIS list only contains lists, but inside those lists are grid cell datums and we can go without a SINGLE var init if we do this
-	var/list/datum/spatial_grid_cell/grid_level = grids_by_z_level[center_turf.z]
+	var/list/list/datum/spatial_grid_cell/grid_level = grids_by_z_level[center_turf.z]
 
 	switch(type)
 		if(SPATIAL_GRID_CONTENTS_TYPE_CLIENTS)
 			for(var/row in BOUNDING_BOX_MIN(center_y) to BOUNDING_BOX_MAX(center_y, cells_on_y_axis))
 				for(var/x_index in BOUNDING_BOX_MIN(center_x) to BOUNDING_BOX_MAX(center_x, cells_on_x_axis))
-
 					. += grid_level[row][x_index].client_contents
 
 		if(SPATIAL_GRID_CONTENTS_TYPE_HEARING)
 			for(var/row in BOUNDING_BOX_MIN(center_y) to BOUNDING_BOX_MAX(center_y, cells_on_y_axis))
 				for(var/x_index in BOUNDING_BOX_MIN(center_x) to BOUNDING_BOX_MAX(center_x, cells_on_x_axis))
-
 					. += grid_level[row][x_index].hearing_contents
 
 		if(SPATIAL_GRID_CONTENTS_TYPE_ATMOS)
