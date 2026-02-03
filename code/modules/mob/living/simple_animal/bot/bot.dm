@@ -1060,42 +1060,43 @@ Pass a positive integer as an argument to override a bot's default speed.
 	var/list/path_images = active_hud_list[DIAG_PATH_HUD]
 
 	path_images.Cut()
-	if(length(newpath))
-		var/mutable_appearance/path_image = new /mutable_appearance()
-		path_image.icon = path_image_icon
-		path_image.icon_state = path_image_icon_state
-		path_image.layer = BOT_PATH_LAYER
-		path_image.appearance_flags = RESET_COLOR|RESET_TRANSFORM
-		path_image.color = path_image_color
-		for(var/i in 1 to newpath.len)
-			var/turf/T = newpath[i]
-			if(T == loc) //don't bother putting an image if it's where we already exist.
-				continue
-			var/direction = get_dir(src, T)
-			if(i > 1)
-				var/turf/prevT = path[i - 1]
-				var/image/prevI = path[prevT]
-				direction = get_dir(prevT, T)
-				if(i > 2 && prevI)
-					var/turf/prevprevT = path[i - 2]
-					var/prevDir = get_dir(prevprevT, prevT)
-					var/mixDir = direction|prevDir
-					if(ISDIAGONALDIR(mixDir))
-						prevI.dir = mixDir
-						if(prevDir & (NORTH|SOUTH))
-							var/matrix/ntransform = matrix()
-							ntransform.Turn(90)
-							if((mixDir == NORTHWEST) || (mixDir == SOUTHEAST))
-								ntransform.Scale(-1, 1)
-							else
-								ntransform.Scale(1, -1)
-							prevI.transform = ntransform
+	if(!length(newpath))
+		return
+	var/mutable_appearance/path_image = new /mutable_appearance()
+	path_image.icon = path_image_icon
+	path_image.icon_state = path_image_icon_state
+	path_image.layer = BOT_PATH_LAYER
+	path_image.appearance_flags = RESET_COLOR|RESET_TRANSFORM
+	path_image.color = path_image_color
+	for(var/i in 1 to newpath.len)
+		var/turf/T = newpath[i]
+		if(T == loc) //don't bother putting an image if it's where we already exist.
+			continue
+		var/direction = get_dir(src, T)
+		if(i > 1)
+			var/turf/prevT = path[i - 1]
+			var/image/prevI = path[prevT]
+			direction = get_dir(prevT, T)
+			if(i > 2 && prevI)
+				var/turf/prevprevT = path[i - 2]
+				var/prevDir = get_dir(prevprevT, prevT)
+				var/mixDir = direction|prevDir
+				if(ISDIAGONALDIR(mixDir))
+					prevI.dir = mixDir
+					if(prevDir & (NORTH|SOUTH))
+						var/matrix/ntransform = matrix()
+						ntransform.Turn(90)
+						if((mixDir == NORTHWEST) || (mixDir == SOUTHEAST))
+							ntransform.Scale(-1, 1)
+						else
+							ntransform.Scale(1, -1)
+						prevI.transform = ntransform
 
-			path_image.dir = direction
-			var/image/I = image(loc = T)
-			I.appearance = path_image
-			path[T] = I
-			path_images += I
+		path_image.dir = direction
+		var/image/I = image(loc = T)
+		I.appearance = path_image
+		path[T] = I
+		path_images += I
 
 	for(var/datum/atom_hud/hud as anything in path_huds_watching_me)
 		hud.add_atom_to_hud(src)
