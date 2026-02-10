@@ -81,7 +81,7 @@ output_hash = {}
 files = []
 if platform.system() == "Windows":
     for folder in whitelisted_folders:
-        files += glob.glob(f"{path_to_us}\..\\..\\" + folder + "\\**\*.toml", recursive = True)
+        files += glob.glob(f"{path_to_us}\\..\\..\\" + folder + "\\**\\*.toml", recursive = True)
 else:
     for folder in whitelisted_folders:
         files += glob.glob(f"{path_to_us}/../../" + folder + "/**/*.toml", recursive = True)
@@ -107,7 +107,7 @@ if len(output_hash) == 0:
 
 # Execute cutter
 if platform.system() == "Windows":
-    subprocess.run(f"{path_to_us}\..\\build\\build.bat --force-recut --ci icon-cutter")
+    subprocess.run(f"{path_to_us}\\..\\build\\build.bat --force-recut --ci icon-cutter")
 else:
     subprocess.run(f"{path_to_us}/../build/build --force-recut --ci icon-cutter", shell = True)
 
