@@ -100,9 +100,9 @@ for cutter_template in files:
 
     output_hash[output_name] = get_file_hash(output_name)
 
-# Sanity check
-if len(output_hash) == 0:
-    print(f"::error output_hash dict was empty. Something has gone wrong")
+# Sanity check (dionysus icons is an icon staging folder, so can be empty)
+if len(output_hash) == 0 and folder != "dionysus_icons":
+    print(f"::error output_hash dict for folder {folder} was empty. Something has gone wrong")
     sys.exit(1)
 
 # Execute cutter
