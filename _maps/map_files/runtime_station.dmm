@@ -2,8 +2,16 @@
 "a" = (
 /turf/open/space/basic,
 /area/space)
+"e" = (
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron,
+/area/centcom/central_command_areas)
 "f" = (
 /turf/closed/constructed_wall/bronze,
+/area/centcom/central_command_areas)
+"h" = (
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron,
 /area/centcom/central_command_areas)
 "k" = (
 /turf/closed/constructed_wall/wood_oak,
@@ -22,6 +30,14 @@
 /area/centcom/central_command_areas)
 "v" = (
 /turf/open/floor/light,
+/area/centcom/central_command_areas)
+"w" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/light,
+/area/centcom/central_command_areas)
+"x" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron,
 /area/centcom/central_command_areas)
 "y" = (
 /turf/closed/constructed_wall/shielded,
@@ -71,6 +87,10 @@
 /area/centcom/central_command_areas)
 "S" = (
 /turf/closed/constructed_wall/wood_mahogany,
+/area/centcom/central_command_areas)
+"T" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron,
 /area/centcom/central_command_areas)
 "V" = (
 /obj/effect/landmark/start,
@@ -141,16 +161,16 @@ a
 a
 k
 s
-s
-s
-s
+T
+T
+h
 n
 H
 H
 X
 s
-s
-s
+T
+T
 s
 f
 "}
@@ -174,18 +194,18 @@ a
 a
 a
 L
-s
+x
 V
 s
 s
 v
+w
+w
 v
-v
-v
 s
 s
 s
-s
+h
 r
 "}
 (4,1,1) = {"
@@ -208,7 +228,7 @@ a
 a
 a
 L
-s
+x
 G
 s
 s
@@ -219,7 +239,7 @@ v
 s
 s
 s
-s
+h
 r
 "}
 (5,1,1) = {"
@@ -243,16 +263,16 @@ a
 a
 k
 s
-s
-s
-s
+e
+e
+h
 B
 v
 v
 K
 s
-s
-s
+e
+e
 s
 y
 "}
@@ -349,8 +369,8 @@ I
 Y
 Z
 M
-s
-s
+e
+e
 s
 Z
 a
