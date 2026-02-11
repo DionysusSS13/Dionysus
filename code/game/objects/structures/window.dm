@@ -733,15 +733,6 @@ TYPEINFO_DEF(/obj/structure/window/reinforced/plasma)
 		'icons/construction/wall/glass_reinforced/wall/wall_0.dmi',
 	)
 
-#ifdef UNIT_TESTS
-/obj/structure/window/reinforced/fulltile/Initialize(mapload)
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/structure/window/reinforced/fulltile/LateInitialize()
-	var/obj/structure/grillen/grille = locate() in get_turf(src)
-	if(!grille && SSmapping.config.run_mapping_tests)
-		stack_trace("No grille found for [src]([type]) at [loc_name(src)]")
-#endif
 
 /obj/structure/window/reinforced/fulltile/unanchored
 	anchored = FALSE
