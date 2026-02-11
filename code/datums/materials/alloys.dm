@@ -50,20 +50,20 @@
 		'icons/construction/wall/plasteel/wall/wall_0.dmi',
 	)
 	wall_icons_trim_top = list(
-		'icons/construction/wall/plasteel/trim/trim_top_5.dmi',
-		'icons/construction/wall/plasteel/trim/trim_top_4.dmi',
-		'icons/construction/wall/plasteel/trim/trim_top_3.dmi',
-		'icons/construction/wall/plasteel/trim/trim_top_2.dmI',
-		'icons/construction/wall/plasteel/trim/trim_top_1.dmi',
-		'icons/construction/wall/plasteel/trim/trim_top_0.dmi',
+		'icons/construction/wall/plasteel/trim_top/trim_top_5.dmi',
+		'icons/construction/wall/plasteel/trim_top/trim_top_4.dmi',
+		'icons/construction/wall/plasteel/trim_top/trim_top_3.dmi',
+		'icons/construction/wall/plasteel/trim_top/trim_top_2.dmI',
+		'icons/construction/wall/plasteel/trim_top/trim_top_1.dmi',
+		'icons/construction/wall/plasteel/trim_top/trim_top_0.dmi',
 	)
 	wall_icons_trim_bottom = list(
-		'icons/construction/wall/plasteel/trim/trim_bottom_5.dmi',
-		'icons/construction/wall/plasteel/trim/trim_bottom_4.dmi',
-		'icons/construction/wall/plasteel/trim/trim_bottom_3.dmi',
-		'icons/construction/wall/plasteel/trim/trim_bottom_2.dmI',
-		'icons/construction/wall/plasteel/trim/trim_bottom_1.dmi',
-		'icons/construction/wall/plasteel/trim/trim_bottom_0.dmi',
+		'icons/construction/wall/plasteel/trim_bottom/trim_bottom_5.dmi',
+		'icons/construction/wall/plasteel/trim_bottom/trim_bottom_4.dmi',
+		'icons/construction/wall/plasteel/trim_bottom/trim_bottom_3.dmi',
+		'icons/construction/wall/plasteel/trim_bottom/trim_bottom_2.dmI',
+		'icons/construction/wall/plasteel/trim_bottom/trim_bottom_1.dmi',
+		'icons/construction/wall/plasteel/trim_bottom/trim_bottom_0.dmi',
 	)
 
 /datum/material/alloy/plasteel/on_applied_obj(obj/item/target_item, amount, material_flags)

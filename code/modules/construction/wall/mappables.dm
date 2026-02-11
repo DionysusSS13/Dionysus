@@ -47,7 +47,7 @@
 /turf/closed/constructed_wall/stellar
 	name = "stellar wall"
 	material_plating = /datum/material/centcomnium
-	icon = 'icons/construction/wall/stellar/wall/wall_0.dmi'
+	icon = 'icons/construction/wall/centcom/wall/wall_0.dmi'
 	icon_state = "wall-0"
 
 /turf/closed/constructed_wall/titanium

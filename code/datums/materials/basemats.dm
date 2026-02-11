@@ -19,20 +19,20 @@
 		'icons/construction/wall/iron/wall/wall_0.dmi',
 	)
 	wall_icons_trim_top = list(
-		'icons/construction/wall/iron/trim/trim_top_5.dmi',
-		'icons/construction/wall/iron/trim/trim_top_4.dmi',
-		'icons/construction/wall/iron/trim/trim_top_3.dmi',
-		'icons/construction/wall/iron/trim/trim_top_2.dmi',
-		'icons/construction/wall/iron/trim/trim_top_1.dmi',
-		'icons/construction/wall/iron/trim/trim_top_0.dmi',
+		'icons/construction/wall/iron/trim_top/trim_top_5.dmi',
+		'icons/construction/wall/iron/trim_top/trim_top_4.dmi',
+		'icons/construction/wall/iron/trim_top/trim_top_3.dmi',
+		'icons/construction/wall/iron/trim_top/trim_top_2.dmi',
+		'icons/construction/wall/iron/trim_top/trim_top_1.dmi',
+		'icons/construction/wall/iron/trim_top/trim_top_0.dmi',
 	)
 	wall_icons_trim_bottom = list(
-		'icons/construction/wall/iron/trim/trim_bottom_5.dmi',
-		'icons/construction/wall/iron/trim/trim_bottom_4.dmi',
-		'icons/construction/wall/iron/trim/trim_bottom_3.dmi',
-		'icons/construction/wall/iron/trim/trim_bottom_2.dmi',
-		'icons/construction/wall/iron/trim/trim_bottom_1.dmi',
-		'icons/construction/wall/iron/trim/trim_bottom_0.dmi',
+		'icons/construction/wall/iron/trim_bottom/trim_bottom_5.dmi',
+		'icons/construction/wall/iron/trim_bottom/trim_bottom_4.dmi',
+		'icons/construction/wall/iron/trim_bottom/trim_bottom_3.dmi',
+		'icons/construction/wall/iron/trim_bottom/trim_bottom_2.dmi',
+		'icons/construction/wall/iron/trim_bottom/trim_bottom_1.dmi',
+		'icons/construction/wall/iron/trim_bottom/trim_bottom_0.dmi',
 	)
 
 /datum/material/steel/on_accidental_mat_consumption(mob/living/carbon/victim, obj/item/source_item)
@@ -83,20 +83,20 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 		'icons/construction/wall/silver/wall/wall_0.dmi',
 	)
 	wall_icons_trim_top = list(
-		'icons/construction/wall/silver/trim/trim_top_5.dmi',
-		'icons/construction/wall/silver/trim/trim_top_4.dmi',
-		'icons/construction/wall/silver/trim/trim_top_3.dmi',
-		'icons/construction/wall/silver/trim/trim_top_2.dmi',
-		'icons/construction/wall/silver/trim/trim_top_1.dmi',
-		'icons/construction/wall/silver/trim/trim_top_0.dmi',
+		'icons/construction/wall/silver/trim_top/trim_top_5.dmi',
+		'icons/construction/wall/silver/trim_top/trim_top_4.dmi',
+		'icons/construction/wall/silver/trim_top/trim_top_3.dmi',
+		'icons/construction/wall/silver/trim_top/trim_top_2.dmi',
+		'icons/construction/wall/silver/trim_top/trim_top_1.dmi',
+		'icons/construction/wall/silver/trim_top/trim_top_0.dmi',
 	)
 	wall_icons_trim_bottom = list(
-		'icons/construction/wall/silver/trim/trim_bottom_5.dmi',
-		'icons/construction/wall/silver/trim/trim_bottom_4.dmi',
-		'icons/construction/wall/silver/trim/trim_bottom_3.dmi',
-		'icons/construction/wall/silver/trim/trim_bottom_2.dmi',
-		'icons/construction/wall/silver/trim/trim_bottom_1.dmi',
-		'icons/construction/wall/silver/trim/trim_bottom_0.dmi',
+		'icons/construction/wall/silver/trim_bottom/trim_bottom_5.dmi',
+		'icons/construction/wall/silver/trim_bottom/trim_bottom_4.dmi',
+		'icons/construction/wall/silver/trim_bottom/trim_bottom_3.dmi',
+		'icons/construction/wall/silver/trim_bottom/trim_bottom_2.dmi',
+		'icons/construction/wall/silver/trim_bottom/trim_bottom_1.dmi',
+		'icons/construction/wall/silver/trim_bottom/trim_bottom_0.dmi',
 	)
 
 /datum/material/silver/on_accidental_mat_consumption(mob/living/carbon/victim, obj/item/source_item)
@@ -264,20 +264,20 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 		'icons/construction/wall/titanium/wall/wall_0.dmi',
 	)
 	wall_icons_trim_top = list(
-		'icons/construction/wall/titanium/trim/trim_top_5.dmi',
-		'icons/construction/wall/titanium/trim/trim_top_4.dmi',
-		'icons/construction/wall/titanium/trim/trim_top_3.dmi',
-		'icons/construction/wall/titanium/trim/trim_top_2.dmi',
-		'icons/construction/wall/titanium/trim/trim_top_1.dmi',
-		'icons/construction/wall/titanium/trim/trim_top_0.dmi',
+		'icons/construction/wall/titanium/trim_top/trim_top_5.dmi',
+		'icons/construction/wall/titanium/trim_top/trim_top_4.dmi',
+		'icons/construction/wall/titanium/trim_top/trim_top_3.dmi',
+		'icons/construction/wall/titanium/trim_top/trim_top_2.dmi',
+		'icons/construction/wall/titanium/trim_top/trim_top_1.dmi',
+		'icons/construction/wall/titanium/trim_top/trim_top_0.dmi',
 	)
 	wall_icons_trim_bottom = list(
-		'icons/construction/wall/titanium/trim/trim_bottom_5.dmi',
-		'icons/construction/wall/titanium/trim/trim_bottom_4.dmi',
-		'icons/construction/wall/titanium/trim/trim_bottom_3.dmi',
-		'icons/construction/wall/titanium/trim/trim_bottom_2.dmi',
-		'icons/construction/wall/titanium/trim/trim_bottom_1.dmi',
-		'icons/construction/wall/titanium/trim/trim_bottom_0.dmi',
+		'icons/construction/wall/titanium/trim_bottom/trim_bottom_5.dmi',
+		'icons/construction/wall/titanium/trim_bottom/trim_bottom_4.dmi',
+		'icons/construction/wall/titanium/trim_bottom/trim_bottom_3.dmi',
+		'icons/construction/wall/titanium/trim_bottom/trim_bottom_2.dmi',
+		'icons/construction/wall/titanium/trim_bottom/trim_bottom_1.dmi',
+		'icons/construction/wall/titanium/trim_bottom/trim_bottom_0.dmi',
 	)
 
 /datum/material/titanium/on_accidental_mat_consumption(mob/living/carbon/victim, obj/item/source_item)
@@ -346,20 +346,20 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 		'icons/construction/wall/wood_oak/wall/wall_0.dmi',
 	)
 	wall_icons_trim_top = list(
-		'icons/construction/wall/wood_oak/trim/trim_top_5.dmi',
-		'icons/construction/wall/wood_oak/trim/trim_top_4.dmi',
-		'icons/construction/wall/wood_oak/trim/trim_top_3.dmi',
-		'icons/construction/wall/wood_oak/trim/trim_top_2.dmi',
-		'icons/construction/wall/wood_oak/trim/trim_top_1.dmi',
-		'icons/construction/wall/wood_oak/trim/trim_top_0.dmi',
+		'icons/construction/wall/wood_oak/trim_top/trim_top_5.dmi',
+		'icons/construction/wall/wood_oak/trim_top/trim_top_4.dmi',
+		'icons/construction/wall/wood_oak/trim_top/trim_top_3.dmi',
+		'icons/construction/wall/wood_oak/trim_top/trim_top_2.dmi',
+		'icons/construction/wall/wood_oak/trim_top/trim_top_1.dmi',
+		'icons/construction/wall/wood_oak/trim_top/trim_top_0.dmi',
 	)
 	wall_icons_trim_bottom = list(
-		'icons/construction/wall/wood_oak/trim/trim_bottom_5.dmi',
-		'icons/construction/wall/wood_oak/trim/trim_bottom_4.dmi',
-		'icons/construction/wall/wood_oak/trim/trim_bottom_3.dmi',
-		'icons/construction/wall/wood_oak/trim/trim_bottom_2.dmi',
-		'icons/construction/wall/wood_oak/trim/trim_bottom_1.dmi',
-		'icons/construction/wall/wood_oak/trim/trim_bottom_0.dmi',
+		'icons/construction/wall/wood_oak/trim_bottom/trim_bottom_5.dmi',
+		'icons/construction/wall/wood_oak/trim_bottom/trim_bottom_4.dmi',
+		'icons/construction/wall/wood_oak/trim_bottom/trim_bottom_3.dmi',
+		'icons/construction/wall/wood_oak/trim_bottom/trim_bottom_2.dmi',
+		'icons/construction/wall/wood_oak/trim_bottom/trim_bottom_1.dmi',
+		'icons/construction/wall/wood_oak/trim_bottom/trim_bottom_0.dmi',
 	)
 
 /datum/material/wood/dark_oak
@@ -374,20 +374,20 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 		'icons/construction/wall/wood_dark_oak/wall/wall_0.dmi',
 	)
 	wall_icons_trim_top = list(
-		'icons/construction/wall/wood_dark_oak/trim/trim_top_5.dmi',
-		'icons/construction/wall/wood_dark_oak/trim/trim_top_4.dmi',
-		'icons/construction/wall/wood_dark_oak/trim/trim_top_3.dmi',
-		'icons/construction/wall/wood_dark_oak/trim/trim_top_2.dmi',
-		'icons/construction/wall/wood_dark_oak/trim/trim_top_1.dmi',
-		'icons/construction/wall/wood_dark_oak/trim/trim_top_0.dmi',
+		'icons/construction/wall/wood_dark_oak/trim_top/trim_top_5.dmi',
+		'icons/construction/wall/wood_dark_oak/trim_top/trim_top_4.dmi',
+		'icons/construction/wall/wood_dark_oak/trim_top/trim_top_3.dmi',
+		'icons/construction/wall/wood_dark_oak/trim_top/trim_top_2.dmi',
+		'icons/construction/wall/wood_dark_oak/trim_top/trim_top_1.dmi',
+		'icons/construction/wall/wood_dark_oak/trim_top/trim_top_0.dmi',
 	)
 	wall_icons_trim_bottom = list(
-		'icons/construction/wall/wood_dark_oak/trim/trim_bottom_5.dmi',
-		'icons/construction/wall/wood_dark_oak/trim/trim_bottom_4.dmi',
-		'icons/construction/wall/wood_dark_oak/trim/trim_bottom_3.dmi',
-		'icons/construction/wall/wood_dark_oak/trim/trim_bottom_2.dmi',
-		'icons/construction/wall/wood_dark_oak/trim/trim_bottom_1.dmi',
-		'icons/construction/wall/wood_dark_oak/trim/trim_bottom_0.dmi',
+		'icons/construction/wall/wood_dark_oak/trim_bottom/trim_bottom_5.dmi',
+		'icons/construction/wall/wood_dark_oak/trim_bottom/trim_bottom_4.dmi',
+		'icons/construction/wall/wood_dark_oak/trim_bottom/trim_bottom_3.dmi',
+		'icons/construction/wall/wood_dark_oak/trim_bottom/trim_bottom_2.dmi',
+		'icons/construction/wall/wood_dark_oak/trim_bottom/trim_bottom_1.dmi',
+		'icons/construction/wall/wood_dark_oak/trim_bottom/trim_bottom_0.dmi',
 	)
 
 /datum/material/wood/mahogany
@@ -402,20 +402,20 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 		'icons/construction/wall/wood_mahogany/wall/wall_0.dmi',
 	)
 	wall_icons_trim_top = list(
-		'icons/construction/wall/wood_mahogany/trim/trim_top_5.dmi',
-		'icons/construction/wall/wood_mahogany/trim/trim_top_4.dmi',
-		'icons/construction/wall/wood_mahogany/trim/trim_top_3.dmi',
-		'icons/construction/wall/wood_mahogany/trim/trim_top_2.dmi',
-		'icons/construction/wall/wood_mahogany/trim/trim_top_1.dmi',
-		'icons/construction/wall/wood_mahogany/trim/trim_top_0.dmi',
+		'icons/construction/wall/wood_mahogany/trim_top/trim_top_5.dmi',
+		'icons/construction/wall/wood_mahogany/trim_top/trim_top_4.dmi',
+		'icons/construction/wall/wood_mahogany/trim_top/trim_top_3.dmi',
+		'icons/construction/wall/wood_mahogany/trim_top/trim_top_2.dmi',
+		'icons/construction/wall/wood_mahogany/trim_top/trim_top_1.dmi',
+		'icons/construction/wall/wood_mahogany/trim_top/trim_top_0.dmi',
 	)
 	wall_icons_trim_bottom = list(
-		'icons/construction/wall/wood_mahogany/trim/trim_bottom_5.dmi',
-		'icons/construction/wall/wood_mahogany/trim/trim_bottom_4.dmi',
-		'icons/construction/wall/wood_mahogany/trim/trim_bottom_3.dmi',
-		'icons/construction/wall/wood_mahogany/trim/trim_bottom_2.dmi',
-		'icons/construction/wall/wood_mahogany/trim/trim_bottom_1.dmi',
-		'icons/construction/wall/wood_mahogany/trim/trim_bottom_0.dmi',
+		'icons/construction/wall/wood_mahogany/trim_bottom/trim_bottom_5.dmi',
+		'icons/construction/wall/wood_mahogany/trim_bottom/trim_bottom_4.dmi',
+		'icons/construction/wall/wood_mahogany/trim_bottom/trim_bottom_3.dmi',
+		'icons/construction/wall/wood_mahogany/trim_bottom/trim_bottom_2.dmi',
+		'icons/construction/wall/wood_mahogany/trim_bottom/trim_bottom_1.dmi',
+		'icons/construction/wall/wood_mahogany/trim_bottom/trim_bottom_0.dmi',
 	)
 
 /datum/material/wood/cherry
@@ -430,20 +430,20 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 		'icons/construction/wall/wood_cherry/wall/wall_0.dmi',
 	)
 	wall_icons_trim_top = list(
-		'icons/construction/wall/wood_cherry/trim/trim_top_5.dmi',
-		'icons/construction/wall/wood_cherry/trim/trim_top_4.dmi',
-		'icons/construction/wall/wood_cherry/trim/trim_top_3.dmi',
-		'icons/construction/wall/wood_cherry/trim/trim_top_2.dmi',
-		'icons/construction/wall/wood_cherry/trim/trim_top_1.dmi',
-		'icons/construction/wall/wood_cherry/trim/trim_top_0.dmi',
+		'icons/construction/wall/wood_cherry/trim_top/trim_top_5.dmi',
+		'icons/construction/wall/wood_cherry/trim_top/trim_top_4.dmi',
+		'icons/construction/wall/wood_cherry/trim_top/trim_top_3.dmi',
+		'icons/construction/wall/wood_cherry/trim_top/trim_top_2.dmi',
+		'icons/construction/wall/wood_cherry/trim_top/trim_top_1.dmi',
+		'icons/construction/wall/wood_cherry/trim_top/trim_top_0.dmi',
 	)
 	wall_icons_trim_bottom = list(
-		'icons/construction/wall/wood_cherry/trim/trim_bottom_5.dmi',
-		'icons/construction/wall/wood_cherry/trim/trim_bottom_4.dmi',
-		'icons/construction/wall/wood_cherry/trim/trim_bottom_3.dmi',
-		'icons/construction/wall/wood_cherry/trim/trim_bottom_2.dmi',
-		'icons/construction/wall/wood_cherry/trim/trim_bottom_1.dmi',
-		'icons/construction/wall/wood_cherry/trim/trim_bottom_0.dmi',
+		'icons/construction/wall/wood_cherry/trim_bottom/trim_bottom_5.dmi',
+		'icons/construction/wall/wood_cherry/trim_bottom/trim_bottom_4.dmi',
+		'icons/construction/wall/wood_cherry/trim_bottom/trim_bottom_3.dmi',
+		'icons/construction/wall/wood_cherry/trim_bottom/trim_bottom_2.dmi',
+		'icons/construction/wall/wood_cherry/trim_bottom/trim_bottom_1.dmi',
+		'icons/construction/wall/wood_cherry/trim_bottom/trim_bottom_0.dmi',
 	)
 
 /datum/material/wood/teak
@@ -458,20 +458,20 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 		'icons/construction/wall/wood_teak/wall/wall_0.dmi',
 	)
 	wall_icons_trim_top = list(
-		'icons/construction/wall/wood_teak/trim/trim_top_5.dmi',
-		'icons/construction/wall/wood_teak/trim/trim_top_4.dmi',
-		'icons/construction/wall/wood_teak/trim/trim_top_3.dmi',
-		'icons/construction/wall/wood_teak/trim/trim_top_2.dmi',
-		'icons/construction/wall/wood_teak/trim/trim_top_1.dmi',
-		'icons/construction/wall/wood_teak/trim/trim_top_0.dmi',
+		'icons/construction/wall/wood_teak/trim_top/trim_top_5.dmi',
+		'icons/construction/wall/wood_teak/trim_top/trim_top_4.dmi',
+		'icons/construction/wall/wood_teak/trim_top/trim_top_3.dmi',
+		'icons/construction/wall/wood_teak/trim_top/trim_top_2.dmi',
+		'icons/construction/wall/wood_teak/trim_top/trim_top_1.dmi',
+		'icons/construction/wall/wood_teak/trim_top/trim_top_0.dmi',
 	)
 	wall_icons_trim_bottom = list(
-		'icons/construction/wall/wood_teak/trim/trim_bottom_5.dmi',
-		'icons/construction/wall/wood_teak/trim/trim_bottom_4.dmi',
-		'icons/construction/wall/wood_teak/trim/trim_bottom_3.dmi',
-		'icons/construction/wall/wood_teak/trim/trim_bottom_2.dmi',
-		'icons/construction/wall/wood_teak/trim/trim_bottom_1.dmi',
-		'icons/construction/wall/wood_teak/trim/trim_bottom_0.dmi',
+		'icons/construction/wall/wood_teak/trim_bottom/trim_bottom_5.dmi',
+		'icons/construction/wall/wood_teak/trim_bottom/trim_bottom_4.dmi',
+		'icons/construction/wall/wood_teak/trim_bottom/trim_bottom_3.dmi',
+		'icons/construction/wall/wood_teak/trim_bottom/trim_bottom_2.dmi',
+		'icons/construction/wall/wood_teak/trim_bottom/trim_bottom_1.dmi',
+		'icons/construction/wall/wood_teak/trim_bottom/trim_bottom_0.dmi',
 	)
 
 /datum/material/wood/on_applied_obj(obj/source, amount, material_flags)
@@ -628,7 +628,7 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	beauty_modifier = 0.5
 	wall_name = "stellar"
 	wall_icons = list(
-		'icons/construction/wall/stellar/wall/wall_0.dmi',
+		'icons/construction/wall/centcom/wall/wall_0.dmi',
 	)
 
 /datum/material/lead
@@ -711,20 +711,20 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 		'icons/construction/wall/bronze/wall/wall_0.dmi',
 	)
 	wall_icons_trim_top = list(
-		'icons/construction/wall/bronze/trim/trim_top_5.dmi',
-		'icons/construction/wall/bronze/trim/trim_top_4.dmi',
-		'icons/construction/wall/bronze/trim/trim_top_3.dmi',
-		'icons/construction/wall/bronze/trim/trim_top_2.dmi',
-		'icons/construction/wall/bronze/trim/trim_top_1.dmi',
-		'icons/construction/wall/bronze/trim/trim_top_0.dmi',
+		'icons/construction/wall/bronze/trim_top/trim_top_5.dmi',
+		'icons/construction/wall/bronze/trim_top/trim_top_4.dmi',
+		'icons/construction/wall/bronze/trim_top/trim_top_3.dmi',
+		'icons/construction/wall/bronze/trim_top/trim_top_2.dmi',
+		'icons/construction/wall/bronze/trim_top/trim_top_1.dmi',
+		'icons/construction/wall/bronze/trim_top/trim_top_0.dmi',
 	)
 	wall_icons_trim_bottom = list(
-		'icons/construction/wall/bronze/trim/trim_bottom_5.dmi',
-		'icons/construction/wall/bronze/trim/trim_bottom_4.dmi',
-		'icons/construction/wall/bronze/trim/trim_bottom_3.dmi',
-		'icons/construction/wall/bronze/trim/trim_bottom_2.dmi',
-		'icons/construction/wall/bronze/trim/trim_bottom_1.dmi',
-		'icons/construction/wall/bronze/trim/trim_bottom_0.dmi',
+		'icons/construction/wall/bronze/trim_bottom/trim_bottom_5.dmi',
+		'icons/construction/wall/bronze/trim_bottom/trim_bottom_4.dmi',
+		'icons/construction/wall/bronze/trim_bottom/trim_bottom_3.dmi',
+		'icons/construction/wall/bronze/trim_bottom/trim_bottom_2.dmi',
+		'icons/construction/wall/bronze/trim_bottom/trim_bottom_1.dmi',
+		'icons/construction/wall/bronze/trim_bottom/trim_bottom_0.dmi',
 	)
 
 /datum/material/paper

@@ -8,7 +8,7 @@
 /obj/structure/girder
 	name = "girder frame"
 	desc = "A frame for a wall girder."
-	icon = 'icons/construction/wall/girder/girder_0.dmi'
+	icon = 'icons/construction/wall/girder/wall/wall_0.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
 	density = FALSE
@@ -41,25 +41,26 @@
 /obj/structure/girder/update_icon(updates)
 	. = ..()
 	var/static/list/icon/girder_icons = list(
-		'icons/construction/wall/girder/girder_0.dmi',
-		'icons/construction/wall/girder/girder_1.dmi',
-		'icons/construction/wall/girder/girder_2.dmi',
+		'icons/construction/wall/girder/wall/wall_0.dmi',
+		'icons/construction/wall/girder/wall/wall_1.dmi',
+		'icons/construction/wall/girder/wall/wall_2.dmi',
 	)
 	var/static/list/icon/reinforced_icons = list(
-		'icons/construction/wall/girder/reinforced_0.dmi',
-		'icons/construction/wall/girder/reinforced_1.dmi',
-		'icons/construction/wall/girder/reinforced_2.dmi',
+		'icons/construction/wall/girder_reinforced/wall/wall_0.dmi',
+		'icons/construction/wall/girder_reinforced/wall/wall_1.dmi',
+		'icons/construction/wall/girder_reinforced/wall/wall_2.dmi',
 	)
 	var/integrity_pct = atom_integrity / max_integrity
 	var/wanted_state = MAP(integrity_pct, 0, 1, 0, 2)
 	if(material_reinforcement)
 		icon = reinforced_icons[wanted_state]
-	else if(material_plating)
+		// icon_state should be set by smoothing
+	else if (material_plating)
 		icon = girder_icons[wanted_state]
+		// icon_state should be set by smoothing
 	else
 		icon = 'icons/construction/wall/girder/base.dmi'
 		icon_state = "base"
-
 
 /obj/structure/girder/examine(mob/user)
 	. = ..()

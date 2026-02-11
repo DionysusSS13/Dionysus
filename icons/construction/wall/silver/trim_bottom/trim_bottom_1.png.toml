@@ -1,0 +1,2 @@
+output_name = "trim"
+template = "bitmask/dionysus_32x32.toml"
