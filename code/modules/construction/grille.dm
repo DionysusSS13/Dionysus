@@ -2,8 +2,8 @@
 	base_icon_state = "grille"
 	name = "grille"
 	desc = "A metal grille."
-	icon = 'icons/construction/grille.dmi'
-	icon_state = "grille-0"
+	icon = 'icons/construction/wall/grille/wall/wall_0.dmi'
+	icon_state = "wall-0"
 	density = TRUE
 	anchored = FALSE
 	smoothing_groups = SMOOTH_GROUP_GRILLE
@@ -23,6 +23,21 @@
 	lose_atmos_sensitivity()
 	return ..()
 
+/obj/structure/grillen/update_icon(updates)
+	. = ..()
+	var/static/list/icon/grille_icons = list(
+		'icons/construction/wall/grille/wall/wall_0.dmi',
+		'icons/construction/wall/grille/wall/wall_1.dmi',
+		'icons/construction/wall/grille/wall/wall_2.dmi',
+		'icons/construction/wall/grille/wall/wall_3.dmi',
+		'icons/construction/wall/grille/wall/wall_4.dmi',
+		'icons/construction/wall/grille/wall/wall_5.dmi',
+	)
+	var/integrity_pct = atom_integrity / max_integrity
+	var/wanted_state = MAP(integrity_pct, 0, 1, 0, 5)
+	icon = grille_icons[wanted_state]
+	return ..()
+
 /obj/structure/grillen/proc/smoothing_start()
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_OBJ
 	QUEUE_SMOOTH(src)
@@ -32,20 +47,11 @@
 	smoothing_flags = /obj/structure/grillen::smoothing_flags
 	icon_state = /obj/structure/grillen::icon_state
 	QUEUE_SMOOTH_NEIGHBORS(src)
+	update_appearance()
 
-/obj/structure/grillen/atom_break(damage_flag)
+/obj/structure/grillen/update_integrity(new_value)
 	. = ..()
-	base_icon_state = "grille-broken"
-	density = FALSE
-	if(!isnull(smoothing_flags))
-		QUEUE_SMOOTH(src)
-
-/obj/structure/grillen/atom_fix()
-	. = ..()
-	base_icon_state = "grille"
-	density = TRUE
-	if(!isnull(smoothing_flags))
-		QUEUE_SMOOTH(src)
+	update_appearance()
 
 /obj/structure/grillen/screwdriver_act(mob/living/user, obj/item/tool)
 	if(!Adjacent(user))

@@ -1,6 +1,5 @@
 /turf/closed/constructed_wall
 	name = "steel wall"
-	desc = "A huge chunk of iron used to separate rooms."
 	icon = 'icons/construction/wall/iron/wall/wall_0.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
@@ -151,6 +150,13 @@
 		return
 	var/wanted_state = MAP(integrity_pct, 0, 1, 1, total_states)
 	icon = plating_icons[wanted_state]
+
+/turf/closed/constructed_wall/update_desc(updates)
+	if(material_reinforcement)
+		desc = "A reinforced bulkhead of [material_plating::wall_name]."
+	else
+		desc = "A wall of [material_plating::wall_name]."
+	return ..()
 
 /turf/closed/constructed_wall/update_overlays()
 	. = ..()
