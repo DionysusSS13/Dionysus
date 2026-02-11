@@ -70,15 +70,6 @@ TYPEINFO_DEF(/obj/structure/window)
 	if (flags_1 & ON_BORDER_1)
 		AddElement(/datum/element/connect_loc, loc_connections)
 
-#ifdef UNIT_TESTS
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/structure/window/LateInitialize()
-	var/obj/structure/grillen/grille = locate() in get_turf(src)
-	if(!grille)
-		stack_trace("No grille found for [src]([type]) at [loc_name(src)]")
-#endif
-
 /obj/structure/window/examine(mob/user)
 	. = ..()
 	if(reinf)
@@ -676,6 +667,16 @@ TYPEINFO_DEF(/obj/structure/window/reinforced/plasma)
 		'icons/construction/wall/glass/wall/wall_0.dmi',
 	)
 
+#ifdef UNIT_TESTS
+/obj/structure/window/fulltile/Initialize(mapload)
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/structure/window/fulltile/LateInitialize()
+	var/obj/structure/grillen/grille = locate() in get_turf(src)
+	if(!grille && SSmapping.config.run_mapping_tests)
+		stack_trace("No grille found for [src]([type]) at [loc_name(src)]")
+#endif
+
 /obj/structure/window/fulltile/unanchored
 	anchored = FALSE
 
@@ -739,6 +740,16 @@ TYPEINFO_DEF(/obj/structure/window/reinforced/plasma)
 		'icons/construction/wall/glass_reinforced/wall/wall_1.dmi',
 		'icons/construction/wall/glass_reinforced/wall/wall_0.dmi',
 	)
+
+#ifdef UNIT_TESTS
+/obj/structure/window/reinforced/fulltile/Initialize(mapload)
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/structure/window/reinforced/fulltile/LateInitialize()
+	var/obj/structure/grillen/grille = locate() in get_turf(src)
+	if(!grille && SSmapping.config.run_mapping_tests)
+		stack_trace("No grille found for [src]([type]) at [loc_name(src)]")
+#endif
 
 /obj/structure/window/reinforced/fulltile/unanchored
 	anchored = FALSE
