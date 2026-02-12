@@ -1020,7 +1020,54 @@ TYPEINFO_DEF(/obj/item/rcd_ammo/large)
 						qdel(A)
 						return TRUE
 				return FALSE
+
 		if(LIGHT_MODE)
+			if(iswallturf(A))
+				var/turf/closed/constructed_wall/W = A
+				if(checkResource(floorcost, user))
+					to_chat(user, span_notice("You start building a wall light..."))
+					user.Beam(A,icon_state="light_beam", time = 15)
+					playsound(src.loc, 'sound/machines/click.ogg', 50, TRUE)
+					playsound(src.loc, 'sound/effects/light_flicker.ogg', 50, FALSE)
+					if(do_after(user, A, floordelay, DO_PUBLIC, display = src))
+						if(!istype(W))
+							return FALSE
+						var/list/candidates = list()
+						var/turf/open/winner = null
+						var/winning_dist = null
+						for(var/direction in GLOB.cardinals)
+							var/turf/C = get_step(W, direction)
+							var/list/dupes = checkdupes(C)
+							if((isspaceturf(C) || (get_step(src, 0).open_directions & direction)) && !dupes.len)
+								candidates += C
+						if(!candidates.len)
+							to_chat(user, span_warning("Valid target not found..."))
+							playsound(src.loc, 'sound/misc/compiler-failure.ogg', 30, TRUE)
+							return FALSE
+						for(var/turf/open/O in candidates)
+							if(istype(O))
+								var/x0 = O.x
+								var/y0 = O.y
+								var/contender = cheap_hypotenuse(start.x, start.y, x0, y0)
+								if(!winner)
+									winner = O
+									winning_dist = contender
+								else
+									if(contender < winning_dist) // lower is better
+										winner = O
+										winning_dist = contender
+						activate()
+						if(!useResource(wallcost, user))
+							return FALSE
+						var/light = get_turf(winner)
+						var/align = get_dir(winner, A)
+						var/obj/machinery/light/L = new /obj/machinery/light(light)
+						L.setDir(align)
+						L.color = color_choice
+						L.set_light_color(L.color)
+						return TRUE
+				return FALSE
+
 			if(isfloorturf(A))
 				var/turf/open/floor/F = A
 				if(checkResource(floorcost, user))

@@ -40,7 +40,7 @@
 			if(istype(T, /turf/closed/constructed_wall))
 				var/turf/closed/constructed_wall/cwall = T
 				if(cwall.material_reinforcement)
-					if(cwall.deconstruction_stage == DECON_NONE)
+					if(cwall.deconstruction_stage == WALL_DECON_NONE)
 						r_wall += 2
 					else
 						r_wall += 1

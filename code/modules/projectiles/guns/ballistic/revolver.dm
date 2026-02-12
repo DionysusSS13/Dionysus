@@ -141,6 +141,91 @@
 
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/rev762
 
+// A gun to play Russian Roulette!
+// You can spin the chamber to randomize the position of the bullet.
+
+/obj/item/gun/ballistic/revolver/russian
+	name = "\improper Russian revolver"
+	desc = "A Russian-made revolver for drinking games. Uses .357 ammo, and has a mechanism requiring you to spin the chamber before each trigger pull."
+	icon_state = "russianrevolver"
+	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/rus357
+	var/spun = FALSE
+	hidden_chambered = TRUE //Cheater.
+	gun_flags = NOT_A_REAL_GUN
+
+/obj/item/gun/ballistic/revolver/russian/do_spin()
+	. = ..()
+	if(.)
+		spun = TRUE
+
+/obj/item/gun/ballistic/revolver/russian/attackby(obj/item/A, mob/user, params)
+	..()
+	if(get_ammo() > 0)
+		spin()
+	update_appearance()
+	A.update_appearance()
+	return
+
+/obj/item/gun/ballistic/revolver/russian/can_trigger_gun(mob/living/user, akimbo_usage)
+	if(akimbo_usage)
+		return FALSE
+	return ..()
+
+/obj/item/gun/ballistic/revolver/russian/attack_self(mob/user)
+	if(!spun)
+		spin()
+		spun = TRUE
+		return
+	..()
+
+/obj/item/gun/ballistic/revolver/russian/try_fire_gun(atom/target, mob/living/user, flag, params)
+	. = ..(null, user, flag, params)
+
+	if(flag)
+		if(!(target in user.contents) && ismob(target))
+			if(user.combat_mode) // Flogging action
+				return
+
+	if(isliving(user))
+		if(!can_trigger_gun(user))
+			return
+	if(target != user)
+		playsound(src, dry_fire_sound, 30, TRUE)
+		user.visible_message(
+			span_danger("[user.name] tries to fire \the [src] at the same time, but only succeeds at looking like an idiot."), \
+			span_danger("\The [src]'s anti-combat mechanism prevents you from firing it at anyone but yourself!"))
+		return
+
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(!spun)
+			to_chat(user, span_warning("You need to spin \the [src]'s chamber first!"))
+			return
+
+		spun = FALSE
+
+		var/zone = deprecise_zone(user.zone_selected)
+		var/obj/item/bodypart/affecting = H.get_bodypart(zone)
+		var/is_target_face = zone == BODY_ZONE_HEAD || zone == BODY_ZONE_PRECISE_EYES || zone == BODY_ZONE_PRECISE_MOUTH
+
+		if(chambered)
+			var/obj/item/ammo_casing/AC = chambered
+			if(AC.fire_casing(user, user, params, distro = 0, quiet = 0, zone_override = null, spread = 0, fired_from = src))
+				playsound(user, fire_sound, fire_sound_volume, vary_fire_sound)
+				if(is_target_face)
+					shoot_self(user, affecting)
+				else
+					user.visible_message(span_danger("[user.name] cowardly fires [src] at [user.p_their()] [affecting.name]!"), span_userdanger("You cowardly fire [src] at your [affecting.name]!"), span_hear("You hear a gunshot!"))
+				chambered = null
+				return
+
+		user.visible_message(span_danger("*click*"))
+		playsound(src, dry_fire_sound, 30, TRUE)
+
+/obj/item/gun/ballistic/revolver/russian/proc/shoot_self(mob/living/carbon/human/user, affecting = BODY_ZONE_HEAD)
+	user.apply_damage(300, BRUTE, affecting)
+	user.visible_message(span_danger("[user.name] fires [src] at [user.p_their()] head!"), span_userdanger("You fire [src] at your head!"), span_hear("You hear a gunshot!"))
+
 /obj/item/gun/ballistic/revolver/reverse //Fires directly at its user... unless the user is a clown, of course.
 	name = "\improper Syndicate Revolver"
 	clumsy_check = FALSE

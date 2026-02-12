@@ -16,8 +16,8 @@
 	var/datum/material/material_reinforcement //! (if applicable) the material that the reinforcement rods are made of.
 	var/datum/material/material_trim_bottom //! (if applicable) the material that the bottom trim is made of.
 	var/datum/material/material_trim_top //! (if applicable) the material that the top trim is made of.
-	var/deconstruction_stage = DECON_NONE //! the current stage of wall deconstruction
-	var/deconstruction_r_step = DECON_REINF_NONE //! the current stage of reinforcement deconstruction
+	var/deconstruction_stage = WALL_DECON_NONE //! the current stage of wall deconstruction
+	var/deconstruction_r_step = WALL_DECON_REINF_NONE //! the current stage of reinforcement deconstruction
 
 /turf/closed/constructed_wall/New(loc, material_plating, material_reinforcement, material_trim_bottom, material_trim_top)
 	return ..()
@@ -99,15 +99,17 @@
 	if(atom_integrity < max_integrity)
 		. += span_notice("The wall can be repaired with a <i>welder</i>.")
 		switch((atom_integrity / max_integrity) * 100)
-			if(00 to 01)
+			if(00 to 02)
 				. += span_warning("You're not even sure if this qualifies as a wall right now.")
 			if(02 to 25)
 				. += span_warning("The wall is almost destroyed.")
 			if(25 to 50)
-				. += span_warning("The wall has seen better days.")
+				. += span_warning("The wall looks like it's about to fall apart.")
 			if(50 to 75)
+				. += span_warning("The wall has seen better days.")
+			if(75 to 90)
 				. += span_warning("Looks fine to me.")
-			if(75 to 100)
+			if(90 to 100)
 				. += span_warning("One could argue that the damage is soul.")
 	if(!isnull(material_trim_bottom) || !isnull(material_trim_top))
 		if(!isnull(material_trim_bottom))
@@ -116,20 +118,20 @@
 			. += span_notice("You could remove the top trim with a <i>crowbar</i>.")
 		return .
 	switch(deconstruction_stage)
-		if(DECON_NONE)
+		if(WALL_DECON_NONE)
 			. += span_notice("You could loosen the [isnull(material_reinforcement) ? "plating" : "bulkhead"] with a <i>welder</i>.")
-		if(DECON_WALL_WEAKENED)
+		if(WALL_DECON_WALL_WEAKENED)
 			if(!isnull(material_reinforcement))
 				switch(deconstruction_r_step)
-					if(DECON_REINF_NONE)
+					if(WALL_DECON_REINF_NONE)
 						. += span_notice("You could remove the bulkhead with a <i>crowbar</i>.")
-					if(DECON_REINF_BULKHEAD_REMOVED)
+					if(WALL_DECON_REINF_BULKHEAD_REMOVED)
 						. += span_notice("You could remove the grille with a <i>wirecutters</i>.")
-					if(DECON_REINF_GRILLE_REMOVED)
+					if(WALL_DECON_REINF_GRILLE_REMOVED)
 						. += span_notice("You could remove the bracing with a <i>welder</i>.")
-					if(DECON_REINF_BRACING_REMOVED)
+					if(WALL_DECON_REINF_BRACING_REMOVED)
 						. += span_notice("You could remove the bolts with a <i>wrench</i>.")
-					if(DECON_REINF_BOLTS_UNDONE)
+					if(WALL_DECON_REINF_BOLTS_UNDONE)
 						. += span_notice("You could remove the plating with a <i>crowbar</i>.")
 			else
 				. += span_notice("You could remove the plating with a <i>crowbar</i>.")

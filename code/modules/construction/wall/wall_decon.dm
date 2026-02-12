@@ -2,22 +2,22 @@
 	if(!Adjacent(tool))
 		return ..()
 	switch(deconstruction_stage)
-		if(DECON_NONE)
+		if(WALL_DECON_NONE)
 			if(material_trim_top || material_trim_bottom)
 				balloon_alert("remove the trim!")
 				return TRUE
 			balloon_alert_to_viewers("cutting frame...")
 			if(!tool.use_tool(src, user, WALL_DECON_STEP_TIME, volume = 50))
 				return TRUE
-			deconstruction_stage = DECON_WALL_WEAKENED
+			deconstruction_stage = WALL_DECON_WALL_WEAKENED
 			update_appearance(UPDATE_OVERLAYS)
 			return TRUE
-		if(DECON_WALL_WEAKENED)
-			if(material_reinforcement && deconstruction_r_step == DECON_REINF_GRILLE_REMOVED)
+		if(WALL_DECON_WALL_WEAKENED)
+			if(material_reinforcement && deconstruction_r_step == WALL_DECON_REINF_GRILLE_REMOVED)
 				balloon_alert_to_viewers("removing bracing...")
 				if(!tool.use_tool(src, user, WALL_DECON_STEP_REINF_TIME, volume = 50))
 					return TRUE
-				deconstruction_r_step = DECON_REINF_BRACING_REMOVED
+				deconstruction_r_step = WALL_DECON_REINF_BRACING_REMOVED
 				update_appearance(UPDATE_OVERLAYS)
 				return TRUE
 	return ..()
@@ -40,14 +40,14 @@
 		update_appearance(UPDATE_OVERLAYS)
 		return TRUE
 	switch(deconstruction_stage)
-		if(DECON_WALL_WEAKENED)
+		if(WALL_DECON_WALL_WEAKENED)
 			// if we are reinforced, we need to remove the bulkhead first
-			if(material_reinforcement && deconstruction_r_step != DECON_REINF_BOLTS_UNDONE)
-				if(deconstruction_r_step == DECON_REINF_NONE)
+			if(material_reinforcement && deconstruction_r_step != WALL_DECON_REINF_BOLTS_UNDONE)
+				if(deconstruction_r_step == WALL_DECON_REINF_NONE)
 					balloon_alert_to_viewers("removing bulkhead...")
 					if(!tool.use_tool(src, user, WALL_DECON_STEP_REINF_TIME, volume = 50))
 						return TRUE
-					deconstruction_r_step = DECON_REINF_BULKHEAD_REMOVED
+					deconstruction_r_step = WALL_DECON_REINF_BULKHEAD_REMOVED
 					update_appearance(UPDATE_OVERLAYS)
 				return TRUE
 			balloon_alert_to_viewers("removing plating...")
@@ -60,12 +60,12 @@
 /turf/closed/constructed_wall/wrench_act(mob/living/user, obj/item/tool)
 	if(!Adjacent(tool))
 		return ..()
-	if(deconstruction_r_step != DECON_REINF_BRACING_REMOVED)
+	if(deconstruction_r_step != WALL_DECON_REINF_BRACING_REMOVED)
 		return ..()
 	balloon_alert_to_viewers("undoing bolts...")
 	if(!tool.use_tool(src, user, WALL_DECON_STEP_REINF_TIME, volume = 50))
 		return TRUE
-	deconstruction_r_step = DECON_REINF_BOLTS_UNDONE
+	deconstruction_r_step = WALL_DECON_REINF_BOLTS_UNDONE
 	update_appearance(UPDATE_OVERLAYS)
 	return TRUE
 
@@ -73,12 +73,12 @@
 	if(!Adjacent(tool))
 		return ..()
 	switch(deconstruction_stage)
-		if(DECON_WALL_WEAKENED)
-			if(material_reinforcement && deconstruction_r_step == DECON_REINF_BULKHEAD_REMOVED)
+		if(WALL_DECON_WALL_WEAKENED)
+			if(material_reinforcement && deconstruction_r_step == WALL_DECON_REINF_BULKHEAD_REMOVED)
 				balloon_alert_to_viewers("removing grille...")
-				if(!tool.use_tool(src, user, WALL_DECON_STEP_REINF_TIME, volume = 50, extra_checks = CALLBACK(src, PROC_REF(check_shock), user)))
+				if(!tool.use_tool(src, user, WALL_DECON_STEP_REINF_TIME, volume = 50, extra_checks = CALLBACK(src, PROC_REF(deconstruction_shock_check), user)))
 					return TRUE
-				deconstruction_r_step = DECON_REINF_GRILLE_REMOVED
+				deconstruction_r_step = WALL_DECON_REINF_GRILLE_REMOVED
 				update_appearance(UPDATE_OVERLAYS)
 				return TRUE
 	return ..()
@@ -94,8 +94,8 @@
 	girder.start_smoothing()
 	ScrapeAway()
 
-/turf/closed/constructed_wall/proc/check_shock(mob/living/user)
+/turf/closed/constructed_wall/proc/deconstruction_shock_check(mob/living/user)
 	var/obj/structure/cable/cable = locate() in src
 	if(isnull(cable))
 		return TRUE
-	return !cable.shock(user, 75)
+	return !cable.shock(user, prb = 75)

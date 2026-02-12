@@ -51,29 +51,6 @@
 	integer = FALSE
 	min_val = 0
 
-/datum/config_entry/number/server_port
-	protection = CONFIG_ENTRY_LOCKED|CONFIG_ENTRY_HIDDEN
-	min_val = 0
-	max_val = 32767
-
-/datum/config_entry/number/server_port/ValidateAndSet(str_val)
-	if(!VASProcCallGuard(str_val))
-		CRASH("attempt to change protected config entry [name]")
-	if(!str_val)
-		return TRUE // no setting is valid
-	var/port = text2num(str_val)
-	if(port == 0)
-		return TRUE // considered as no setting
-#ifdef TGS
-	CRASH("TGS: Server port is not configurable via config.")
-#endif
-	var/cport = clamp(port, min_val, max_val)
-	if(cport != port)
-		log_config("Config port invalid.")
-		return FALSE
-	world.OpenPort(cport)
-	return TRUE
-
 /// Time between the round ending and credits beginning to roll
 /datum/config_entry/number/eor_credits_delay
 	default = 40
