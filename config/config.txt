@@ -19,9 +19,6 @@ $include cryostasis.txt
 ## Server name: This appears at the top of the screen in-game and in the BYOND hub. Uncomment and replace 'tgstation' with the name of your choice.
 SERVERNAME Dionysus
 
-## Server port: This is the port the server will listen on. Do not set this is you are using TGS. A value of 0 acts as if this is not set.
-#SERVER_PORT 0
-
 ## Server SQL name: This is the name used to identify the server to the SQL DB, distinct from SERVERNAME as it must be at most 32 characters.
 SERVERSQLNAME dionysus
 

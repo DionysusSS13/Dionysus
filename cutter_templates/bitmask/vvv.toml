@@ -1,4 +1,0 @@
-template = "bitmask/baylike_32x32.toml"
-[positions]
-horizontal = 3
-concave = 1
