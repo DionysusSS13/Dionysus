@@ -7,7 +7,7 @@ if [ -z "${BYOND_MAJOR+x}" ]; then
 fi
 
 echo "$@"
-if [ -z "$1" ]; then
+if [ "$#" -eq 0 ]; then
   BYOND_INSTALL_LOCATION="$HOME/BYOND"
 else
   BYOND_INSTALL_LOCATION="$1"
