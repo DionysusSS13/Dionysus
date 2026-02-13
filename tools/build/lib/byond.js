@@ -9,13 +9,10 @@ import { homedir } from "os";
  */
 let dmPath;
 
-const byondPathLinux = () => {
-  return path.join(homedir(), "BYOND/byond");
-};
-
+const BYOND_PATH_LINUX = "./tools/byond_install/byond";
 const getDmPathLinux = async () => {
-  const dreammakerPath = byondPathLinux() + "/bin/DreamMaker";
-  if (fs.existsSync(dreammakerPath)) {
+  const dreammakerPath = BYOND_PATH_LINUX + "/bin/DreamMaker";
+  if (fs.existsSync(BYOND_PATH_LINUX)) {
     return dreammakerPath;
   }
   Juke.logger.warn(
@@ -23,7 +20,7 @@ const getDmPathLinux = async () => {
   );
   const installResponse = await Juke.exec("sh", [
     "-c",
-    "tools/ci/install_byond.sh",
+    "tools/ci/install_byond.sh ./tools/byond_install",
   ]);
   if (installResponse.code !== 0) {
     Juke.logger.error("Failed to install DreamMaker");
@@ -115,8 +112,8 @@ export const DreamMaker = async (dmeFile, options = {}) => {
   const runWithWarningChecks = async (dmeFile, args) => {
     if (process.platform === "linux") {
       Juke.logger.info("Inserting LD_LIBRARY_PATH and BYOND_SYSTEM.");
-      const ldLibrary = byondPathLinux() + "/bin";
-      const byondSystem = byondPathLinux();
+      const ldLibrary = BYOND_PATH_LINUX + "/bin";
+      const byondSystem = BYOND_PATH_LINUX;
       process.env.LD_LIBRARY_PATH = ldLibrary;
       process.env.BYOND_SYSTEM = byondSystem;
     }
