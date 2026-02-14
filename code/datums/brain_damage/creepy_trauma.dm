@@ -8,7 +8,6 @@
 	random_gain = FALSE
 	resilience = TRAUMA_RESILIENCE_SURGERY
 	var/mob/living/obsession
-	var/datum/objective/spendtime/attachedobsessedobj
 	var/datum/antagonist/obsessed/antagonist
 	var/viewing = FALSE //it's a lot better to store if the owner is watching the obsession than checking it twice between two procs
 
@@ -32,7 +31,6 @@
 	RegisterSignal(obsession, COMSIG_MOB_EYECONTACT, PROC_REF(stare))
 	..()
 	//antag stuff//
-	antagonist.forge_objectives(obsession.mind)
 	antagonist.greet()
 	RegisterSignal(owner, COMSIG_CARBON_HELPED, PROC_REF(on_hug))
 
@@ -51,8 +49,6 @@
 	if(viewing)
 		total_time_creeping += delta_time SECONDS
 		time_spent_away = 0
-		if(attachedobsessedobj)//if an objective needs to tick down, we can do that since traumas coexist with the antagonist datum
-			attachedobsessedobj.timer -= delta_time SECONDS //mob subsystem ticks every 2 seconds(?), remove 20 deciseconds from the timer. sure, that makes sense.
 	else
 		out_of_view()
 

@@ -142,14 +142,6 @@
 		if(ertemplate.rename_team)
 			ert_team.name = ertemplate.rename_team
 
-		//Assign team objective
-		var/datum/objective/missionobj = new ()
-		missionobj.team = ert_team
-		missionobj.explanation_text = ertemplate.mission
-		missionobj.completed = TRUE
-		ert_team.objectives += missionobj
-		ert_team.mission = missionobj
-
 		var/mob/dead/observer/earmarked_leader
 		var/leader_spawned = FALSE // just in case the earmarked leader disconnects or becomes unavailable, we can try giving leader to the last guy to get chosen
 

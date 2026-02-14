@@ -37,13 +37,6 @@
 	owner.mind.add_antag_datum(/datum/antagonist/hypnotized)
 	antagonist = owner.mind.has_antag_datum(/datum/antagonist/hypnotized)
 	antagonist.trauma = src
-
-	// Add the phrase to objectives
-	var/datum/objective/fixation = new ()
-	fixation.explanation_text = hypnotic_phrase
-	fixation.completed = TRUE
-	antagonist.objectives = list(fixation)
-
 	hypno_alert.desc = "\"[hypnotic_phrase]\"... your mind seems to be fixated on this concept."
 	..()
 

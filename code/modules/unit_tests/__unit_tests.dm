@@ -184,7 +184,6 @@
 #include "teleporters.dm"
 #include "tgui_create_message.dm"
 #include "timer_sanity.dm"
-#include "traitor.dm"
 
 #include "wizard_loadout.dm"
 #include "wounds.dm"

@@ -100,19 +100,6 @@ TYPEINFO_DEF(/obj/vehicle/sealed/mecha/working/clarke)
 	if(!pinpointed_ruin)
 		chassis.balloon_alert(living_owner, "no ruins!")
 		return
-	var/datum/status_effect/agent_pinpointer/ruin_pinpointer = living_owner.apply_status_effect(/datum/status_effect/agent_pinpointer/ruin)
-	ruin_pinpointer.RegisterSignal(living_owner, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/datum/status_effect/agent_pinpointer/ruin, cancel_self))
-	ruin_pinpointer.scan_target = pinpointed_ruin
-	chassis.balloon_alert(living_owner, "pinpointing nearest ruin")
-
-/datum/status_effect/agent_pinpointer/ruin
-	duration = SEARCH_COOLDOWN * 0.5
-	alert_type = /atom/movable/screen/alert/status_effect/agent_pinpointer/ruin
-	tick_interval = 3 SECONDS
-	range_fuzz_factor = 0
-	minimum_range = 5
-	range_mid = 20
-	range_far = 50
 
 /datum/status_effect/agent_pinpointer/ruin/scan_for_target()
 	return

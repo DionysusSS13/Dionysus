@@ -99,9 +99,6 @@
 	/// A lazylist of dream types we have fully experienced
 	var/list/finished_dream_types
 
-	/// A list of the mind's objectives.
-	var/list/datum/objective/objectives = list()
-
 /datum/mind/New(_key)
 	key = _key
 	martial_art = default_martial_art
@@ -535,105 +532,6 @@
 			return
 		set_assigned_role(new_job)
 
-	else if (href_list["obj_edit"] || href_list["obj_add"])
-		var/objective_pos //Edited objectives need to keep same order in antag objective list
-		var/def_value
-		var/datum/antagonist/target_antag
-		var/datum/objective/old_objective //The old objective we're replacing/editing
-		var/datum/objective/new_objective //New objective we're be adding
-
-		if(href_list["obj_edit"])
-			for(var/datum/antagonist/A in antag_datums)
-				old_objective = locate(href_list["obj_edit"]) in A.objectives
-				if(old_objective)
-					target_antag = A
-					objective_pos = A.objectives.Find(old_objective)
-					break
-			if(!old_objective)
-				to_chat(usr,"Invalid objective.")
-				return
-		else
-			if(href_list["target_antag"])
-				var/datum/antagonist/X = locate(href_list["target_antag"]) in antag_datums
-				if(X)
-					target_antag = X
-			if(!target_antag)
-				switch(antag_datums.len)
-					if(0)
-						target_antag = add_antag_datum(/datum/antagonist/custom)
-					if(1)
-						target_antag = antag_datums[1]
-					else
-						var/datum/antagonist/target = input("Which antagonist gets the objective:", "Antagonist", "(new custom antag)") as null|anything in sort_list(antag_datums) + "(new custom antag)"
-						if (QDELETED(target))
-							return
-						else if(target == "(new custom antag)")
-							target_antag = add_antag_datum(/datum/antagonist/custom)
-						else
-							target_antag = target
-
-		if(!GLOB.admin_objective_list)
-			generate_admin_objective_list()
-
-		if(old_objective)
-			if(old_objective.name in GLOB.admin_objective_list)
-				def_value = old_objective.name
-
-		var/selected_type = input("Select objective type:", "Objective type", def_value) as null|anything in GLOB.admin_objective_list
-		selected_type = GLOB.admin_objective_list[selected_type]
-		if (!selected_type)
-			return
-
-		if(!old_objective)
-			//Add new one
-			new_objective = new selected_type
-			new_objective.owner = src
-			new_objective.admin_edit(usr)
-			target_antag.objectives += new_objective
-			message_admins("[key_name_admin(usr)] added a new objective for [current]: [new_objective.explanation_text]")
-			log_admin("[key_name(usr)] added a new objective for [current]: [new_objective.explanation_text]")
-		else
-			if(old_objective.type == selected_type)
-				//Edit the old
-				old_objective.admin_edit(usr)
-				new_objective = old_objective
-			else
-				//Replace the old
-				new_objective = new selected_type
-				new_objective.owner = src
-				new_objective.admin_edit(usr)
-				target_antag.objectives -= old_objective
-				target_antag.objectives.Insert(objective_pos, new_objective)
-			message_admins("[key_name_admin(usr)] edited [current]'s objective to [new_objective.explanation_text]")
-			log_admin("[key_name(usr)] edited [current]'s objective to [new_objective.explanation_text]")
-
-	else if (href_list["obj_delete"])
-		var/datum/objective/objective
-		for(var/datum/antagonist/A in antag_datums)
-			objective = locate(href_list["obj_delete"]) in A.objectives
-			if(istype(objective))
-				A.objectives -= objective
-				break
-		if(!objective)
-			to_chat(usr,"Invalid objective.")
-			return
-		//qdel(objective) Needs cleaning objective destroys
-		message_admins("[key_name_admin(usr)] removed an objective for [current]: [objective.explanation_text]")
-		log_admin("[key_name(usr)] removed an objective for [current]: [objective.explanation_text]")
-
-	else if(href_list["obj_completed"])
-		var/datum/objective/objective
-		for(var/datum/antagonist/A in antag_datums)
-			objective = locate(href_list["obj_completed"]) in A.objectives
-			if(istype(objective))
-				objective = objective
-				break
-		if(!objective)
-			to_chat(usr,"Invalid objective.")
-			return
-		objective.completed = !objective.completed
-		log_admin("[key_name(usr)] toggled the win state for [current]'s objective: [objective.explanation_text]")
-
 	else if (href_list["silicon"])
 		switch(href_list["silicon"])
 			if("unemag")
@@ -744,9 +642,6 @@
 				else
 					log_admin("[key_name(usr)] gave [current] an uplink.")
 
-	else if (href_list["obj_announce"])
-		announce_objectives(TRUE)
-
 	//Something in here might have changed your mob
 	if(self_antagging && (!usr || !usr.client) && current.client)
 		usr = current
@@ -758,32 +653,6 @@
 	for(var/datum/antagonist/A in antag_datums)
 		all_objectives |= A.objectives
 	return all_objectives
-
-/// Prints the objectives to the mind's owner. If loudly is true, instead open a window.
-/datum/mind/proc/announce_objectives(loudly)
-	set waitfor = FALSE
-	var/obj_count = 1
-	if(!loudly)
-		var/list/objectives = get_all_objectives()
-		if(!length(objectives))
-			return
-
-		to_chat(current, span_notice("Your current objectives:"))
-		for(var/datum/objective/objective as anything in get_all_objectives())
-			to_chat(current, "<B>[objective.objective_name] #[obj_count]</B>: [objective.explanation_text]")
-			obj_count++
-	else
-		var/list/content = list("<div>")
-		content +="<span style='text-align: center;color: red'><h1>Your objectives may have been changed!</h1></span><br><br>"
-		for(var/datum/objective/objective as anything in get_all_objectives())
-			content += "<B>[objective.objective_name] #[obj_count]</B>: [objective.explanation_text]<br><br>"
-			obj_count++
-
-		content += "</div>"
-		var/datum/browser/popup = new(current, "Objectives", "Objectives", 700, 300)
-		popup.set_window_options("can_close=1;can_minimize=10;can_maximize=0;can_resize=0;titlebar=1;")
-		popup.set_content(jointext(content, ""))
-		popup.open(current)
 
 /datum/mind/proc/find_syndicate_uplink(check_unlocked)
 	var/list/L = current.get_all_contents()
@@ -799,15 +668,6 @@
 * and gives them a fallback spell if no uplink was found
 */
 /datum/mind/proc/try_give_equipment_fallback()
-	var/uplink_exists
-	var/datum/antagonist/traitor/traitor_datum = has_antag_datum(/datum/antagonist/traitor)
-	if(traitor_datum)
-		uplink_exists = traitor_datum.uplink_ref
-	if(!uplink_exists)
-		uplink_exists = find_syndicate_uplink(check_unlocked = TRUE)
-	if(!uplink_exists && !(locate(/datum/action/special_equipment_fallback) in current.actions))
-		var/datum/action/special_equipment_fallback/fallback = new(src)
-		fallback.Grant(current)
 
 /datum/mind/proc/take_uplink()
 	qdel(find_syndicate_uplink())
@@ -852,12 +712,6 @@
 	. = G
 	if(G)
 		G.reenter_corpse()
-
-/// Sets our can_hijack to the fastest speed our antag datums allow.
-/datum/mind/proc/get_hijack_speed()
-	. = 0
-	for(var/datum/antagonist/A in antag_datums)
-		. = max(., A.hijack_speed())
 
 /datum/mind/proc/has_objective(objective_type)
 	for(var/datum/antagonist/A in antag_datums)

@@ -269,9 +269,6 @@ GLOBAL_LIST_EMPTY(antagonists)
 
 		var/list/objective_strings = list()
 		var/objective_tally = 0
-		for(var/datum/objective/O as anything in objectives)
-			objective_tally++
-			objective_strings += "[FOURSPACES]<b>[objective_tally].) [O.objective_name]</b>: [O.explanation_text]"
 
 		greeting += jointext(objective_strings, "<br><br>")
 
@@ -298,7 +295,6 @@ GLOBAL_LIST_EMPTY(antagonists)
  */
 /datum/antagonist/proc/farewell()
 	to_chat(owner.current, span_userdanger("You are no longer [get_name()]!"))
-	owner.announce_objectives()
 
 /**
  * Proc that will return the team this antagonist belongs to, when called. Helpful with antagonists that may belong to multiple potential teams in a single round, like families.
@@ -320,12 +316,6 @@ GLOBAL_LIST_EMPTY(antagonists)
 	report += printplayer(owner)
 
 	var/objectives_complete = TRUE
-	if(objectives.len)
-		report += printobjectives(objectives)
-		for(var/datum/objective/objective in objectives)
-			if(!objective.check_completion())
-				objectives_complete = FALSE
-				break
 
 	if(objectives.len == 0 || objectives_complete)
 		report += "<span class='greentext big'>The [name] was successful!</span>"
@@ -447,14 +437,6 @@ GLOBAL_LIST_EMPTY(antagonists)
 		return
 	antag_memory = new_memo
 
-/**
- * Gets how fast we can hijack the shuttle, return 0 for can not hijack.
- * Defaults to hijack_speed var, override for custom stuff like buffing hijack speed for hijack objectives or something.
- */
-/datum/antagonist/proc/hijack_speed()
-	var/datum/objective/hijack/H = locate() in objectives
-	return H?.hijack_speed_override || hijack_speed
-
 /// Adds a HUD that will show you other members with the same antagonist.
 /// If an antag typepath is passed to `antag_to_check`, will check that, otherwise will use the source type.
 /datum/antagonist/proc/add_team_hud(mob/target, antag_to_check)
@@ -503,25 +485,9 @@ GLOBAL_LIST_EMPTY(antagonists)
 /datum/antagonist/ui_state(mob/user)
 	return GLOB.always_state
 
-///generic helper to send objectives as data through tgui.
-/datum/antagonist/proc/get_objectives()
-	var/objective_count = 1
-	var/list/objective_data = list()
-	//all obj
-	for(var/datum/objective/objective in objectives)
-		objective_data += list(list(
-			"count" = objective_count,
-			"name" = objective.objective_name,
-			"explanation" = objective.explanation_text,
-			"complete" = objective.completed,
-		))
-		objective_count++
-	return objective_data
-
 /datum/antagonist/ui_static_data(mob/user)
 	var/list/data = list()
 	data["antag_name"] = name
-	data["objectives"] = get_objectives()
 	return data
 
 //button for antags to review their descriptions/info

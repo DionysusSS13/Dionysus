@@ -115,8 +115,6 @@
 	create_emporium()
 	create_innate_actions()
 	create_initial_profile()
-	if(give_objectives)
-		forge_objectives()
 	owner.current.grant_all_languages(FALSE, FALSE, TRUE) //Grants omnitongue. We are able to transform our body after all.
 	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ling_aler.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 	return ..()
@@ -561,57 +559,7 @@
 /datum/antagonist/changeling/proc/create_initial_profile()
 	if(!ishuman(owner.current))
 		return
-
 	add_new_profile(owner.current)
-
-
-/// Generate objectives for our changeling.
-/datum/antagonist/changeling/proc/forge_objectives()
-	//OBJECTIVES - random traitor objectives. Unique objectives "steal brain" and "identity theft".
-	//No escape alone because changelings aren't suited for it and it'd probably just lead to rampant robusting
-	//If it seems like they'd be able to do it in play, add a 10% chance to have to escape alone
-
-	var/escape_objective_possible = TRUE
-
-	switch(competitive_objectives ? rand(1,3) : 1)
-		if(1)
-			var/datum/objective/absorb/absorb_objective = new
-			absorb_objective.owner = owner
-			absorb_objective.gen_amount_goal(6, 8)
-			objectives += absorb_objective
-		if(2)
-			var/datum/objective/absorb_most/ac = new
-			ac.owner = owner
-			objectives += ac
-		if(3)
-			var/datum/objective/absorb_changeling/ac = new
-			ac.owner = owner
-			objectives += ac
-
-	if(prob(60))
-		var/datum/objective/steal/steal_objective = new
-		steal_objective.owner = owner
-		steal_objective.find_target()
-		objectives += steal_objective
-
-	var/list/active_ais = active_ais()
-	if(active_ais.len && prob(100/GLOB.joined_player_list.len))
-		var/datum/objective/destroy/destroy_objective = new
-		destroy_objective.owner = owner
-		destroy_objective.find_target()
-		objectives += destroy_objective
-	else
-		var/datum/objective/assassinate/kill_objective = new
-		kill_objective.owner = owner
-		kill_objective.find_target()
-		objectives += kill_objective
-
-	if (!(locate(/datum/objective/escape) in objectives) && escape_objective_possible)
-		var/datum/objective/escape/escape_with_identity/identity_theft = new
-		identity_theft.owner = owner
-		identity_theft.find_target()
-		objectives += identity_theft
-		escape_objective_possible = FALSE
 
 /datum/antagonist/changeling/get_admin_commands()
 	. = ..()
@@ -820,16 +768,6 @@
 	parts += printplayer(owner)
 	parts += "<b>Genomes Extracted:</b> [absorbed_count]<br>"
 
-	if(objectives.len)
-		var/count = 1
-		for(var/datum/objective/objective in objectives)
-			if(objective.check_completion())
-				parts += "<b>Objective #[count]</b>: [objective.explanation_text] [span_greentext("Success!</b>")]"
-			else
-				parts += "<b>Objective #[count]</b>: [objective.explanation_text] [span_redtext("Fail.")]"
-				changeling_win = FALSE
-			count++
-
 	if(changeling_win)
 		parts += span_greentext("The changeling was successful!")
 	else
@@ -861,7 +799,6 @@
 	data["memories"] = memories
 	data["hive_name"] = hive_name
 	data["stolen_antag_info"] = antag_memory
-	data["objectives"] = get_objectives()
 	return data
 
 // Changelings spawned from non-changeling headslugs (IE, due to being transformed into a headslug as a non-ling). Weaker than a normal changeling.

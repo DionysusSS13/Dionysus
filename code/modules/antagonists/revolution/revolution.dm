@@ -323,16 +323,6 @@
 
 /datum/team/revolution/proc/update_objectives(initial = FALSE)
 	var/untracked_heads = SSjob.get_all_management()
-	for(var/datum/objective/mutiny/O in objectives)
-		untracked_heads -= O.target
-
-	for(var/datum/mind/M in untracked_heads)
-		var/datum/objective/mutiny/new_target = new()
-		new_target.team = src
-		new_target.target = M
-		new_target.update_explanation_text()
-		objectives += new_target
-
 	for(var/datum/mind/M in members)
 		var/datum/antagonist/rev/R = M.has_antag_datum(/datum/antagonist/rev)
 		R.objectives |= objectives
@@ -381,9 +371,6 @@
 
 /// Checks if revs have won
 /datum/team/revolution/proc/check_rev_victory()
-	for(var/datum/objective/mutiny/objective in objectives)
-		if(!(objective.check_completion()))
-			return FALSE
 	return TRUE
 
 /// Checks if the government has won
@@ -398,19 +385,9 @@
 /// Updates the state of the world depending on if revs won or loss.
 /// Returns who won, at which case this method should no longer be called.
 /datum/team/revolution/proc/check_completion()
-	if (check_rev_victory())
-		return REVOLUTION_VICTORY
-	else if (check_management_victory())
-		return STATION_VICTORY
 
 /// Mutates the ticker to report that the revs have won
 /datum/team/revolution/proc/round_result(finished)
-	if (finished == REVOLUTION_VICTORY)
-		SSticker.mode_result = "win - heads killed"
-		SSticker.news_report = REVS_WIN
-	else if (finished == STATION_VICTORY)
-		SSticker.mode_result = "loss - rev heads killed"
-		SSticker.news_report = REVS_LOSE
 
 /datum/team/revolution/roundend_report()
 	if(!members.len && !ex_headrevs.len)

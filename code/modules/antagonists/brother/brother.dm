@@ -116,7 +116,6 @@
 	T.add_member(new_owner)
 	T.add_member(bro)
 	T.pick_meeting_area()
-	T.forge_brother_objectives()
 	new_owner.add_antag_datum(/datum/antagonist/brother,T)
 	bro.add_antag_datum(/datum/antagonist/brother, T)
 	T.update_name()
@@ -126,7 +125,6 @@
 /datum/antagonist/brother/ui_static_data(mob/user)
 	var/list/data = list()
 	data["antag_name"] = name
-	data["objectives"] = get_objectives()
 	data["brothers"] = get_brother_names()
 	return data
 
@@ -153,46 +151,11 @@
 
 /datum/team/brother_team/roundend_report()
 	var/list/parts = list()
-
 	parts += "<span class='header'>The blood brothers of [name] were:</span>"
 	for(var/datum/mind/M in members)
 		parts += printplayer(M)
-	var/win = TRUE
-	var/objective_count = 1
-	for(var/datum/objective/objective in objectives)
-		if(objective.check_completion())
-			parts += "<B>Objective #[objective_count]</B>: [objective.explanation_text] [span_greentext("Success!")]"
-		else
-			parts += "<B>Objective #[objective_count]</B>: [objective.explanation_text] [span_redtext("Fail.")]"
-			win = FALSE
-		objective_count++
-	if(win)
-		parts += span_greentext("The blood brothers were successful!")
-	else
-		parts += span_redtext("The blood brothers have failed!")
-
+	parts += span_greentext("The blood brothers were successful!")
 	return "<div class='panel redborder'>[parts.Join("<br>")]</div>"
-
-/datum/team/brother_team/proc/add_objective(datum/objective/O, needs_target = FALSE)
-	O.team = src
-	if(needs_target)
-		O.find_target(dupe_search_range = list(src))
-	O.update_explanation_text()
-	objectives += O
-
-/datum/team/brother_team/proc/forge_brother_objectives()
-	objectives = list()
-	for(var/i = 1 to max(1, CONFIG_GET(number/brother_objectives_amount) + (members.len > 2)))
-		forge_single_objective()
-
-/datum/team/brother_team/proc/forge_single_objective()
-	if(prob(50))
-		if(LAZYLEN(active_ais()) && prob(100/GLOB.joined_player_list.len))
-			add_objective(new/datum/objective/destroy, TRUE)
-		else
-			add_objective(new/datum/objective/assassinate, TRUE)
-	else
-		add_objective(new/datum/objective/steal, TRUE)
 
 /datum/team/brother_team/antag_listing_name()
 	return "[name] blood brothers"

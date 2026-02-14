@@ -26,7 +26,6 @@
 	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/blobalert.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 
 /datum/antagonist/blob/on_gain()
-	create_objectives()
 	. = ..()
 
 /datum/antagonist/blob/remove_innate_effects()
@@ -43,19 +42,11 @@
 
 	return icon
 
-/datum/antagonist/blob/proc/create_objectives()
-	var/datum/objective/blob_takeover/main = new
-	main.owner = owner
-	objectives += main
-
 /datum/antagonist/blob/apply_innate_effects(mob/living/mob_override)
 	if(!isovermind(owner.current))
 		if(!pop_action)
 			pop_action = new
 		pop_action.Grant(owner.current)
-
-/datum/objective/blob_takeover
-	explanation_text = "Reach critical mass!"
 
 //Non-overminds get this on blob antag assignment
 /datum/action/innate/blobpop

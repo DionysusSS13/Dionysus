@@ -74,15 +74,6 @@
 			continue
 		changeling.antag_memory += " Objectives:"
 		var/obj_count = 1
-		for(var/datum/objective/objective as anything in all_objectives)
-			if(!objective) //nulls? in my objective list? it's more likely than you think.
-				continue
-			changeling.antag_memory += " Objective #[obj_count++]: [objective.explanation_text]."
-			var/list/datum/mind/other_owners = objective.get_owners() - suckedbrain
-			if(!other_owners.len)
-				continue
-			for(var/datum/mind/conspirator as anything in other_owners)
-				changeling.antag_memory += " Objective Conspirator: [conspirator.name]."
 	changeling.antag_memory += " That's all [target] had. "
 
 	//Some of target's recent speech, so the changeling can attempt to imitate them better.

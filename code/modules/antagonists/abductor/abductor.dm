@@ -158,33 +158,16 @@ GLOBAL_LIST_INIT(possible_abductor_names, list("Alpha","Beta","Gamma","Delta","E
 	..()
 	team_number = team_count++
 	name = "Mothership [pick(GLOB.possible_abductor_names)]" //TODO Ensure unique and actual alieny names
-	add_objective(new/datum/objective/experiment)
 
 /datum/team/abductor_team/is_solo()
 	return FALSE
 
-/datum/team/abductor_team/proc/add_objective(datum/objective/O)
-	O.team = src
-	O.update_explanation_text()
-	objectives += O
-
 /datum/team/abductor_team/roundend_report()
 	var/list/result = list()
-
-	var/won = TRUE
-	for(var/datum/objective/O in objectives)
-		if(!O.check_completion())
-			won = FALSE
-	if(won)
-		result += "<span class='greentext big'>[name] team fulfilled its mission!</span>"
-	else
-		result += "<span class='redtext big'>[name] team failed its mission.</span>"
-
+	result += "<span class='greentext big'>[name] team fulfilled its mission!</span>"
 	result += "<span class='header'>The abductors of [name] were:</span>"
 	for(var/datum/mind/abductor_mind in members)
 		result += printplayer(abductor_mind)
-	result += printobjectives(objectives)
-
 	return "<div class='panel redborder'>[result.Join("<br>")]</div>"
 
 // LANDMARKS
@@ -195,19 +178,3 @@ GLOBAL_LIST_INIT(possible_abductor_names, list("Alpha","Beta","Gamma","Delta","E
 	icon_state = "abductor_agent"
 /obj/effect/landmark/abductor/scientist
 	icon_state = "abductor"
-
-// OBJECTIVES
-/datum/objective/experiment
-	target_amount = 6
-
-/datum/objective/experiment/New()
-	explanation_text = "Experiment on [target_amount] humans."
-
-/datum/objective/experiment/check_completion()
-	for(var/obj/machinery/abductor/experiment/E in INSTANCES_OF(/obj/machinery/abductor/console))
-		if(!istype(team, /datum/team/abductor_team))
-			return FALSE
-		var/datum/team/abductor_team/T = team
-		if(E.team_number == T.team_number)
-			return E.points >= target_amount
-	return FALSE

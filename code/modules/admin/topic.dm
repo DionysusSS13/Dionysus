@@ -88,11 +88,6 @@
 	else if(href_list["editrights"])
 		edit_rights_topic(href_list)
 
-	else if(href_list["gamemode_panel"])
-		if(!check_rights(R_ADMIN))
-			return
-		SSticker.mode.admin_panel()
-
 	else if(href_list["call_shuttle"])
 		if(!check_rights(R_ADMIN))
 			return
@@ -435,89 +430,6 @@
 		if(!check_rights(R_ADMIN))
 			return
 		cmd_admin_mute(href_list["mute"], text2num(href_list["mute_type"]))
-
-	else if(href_list["f_dynamic_roundstart"])
-		if(!check_rights(R_ADMIN))
-			return
-		if(Master.current_runlevel > RUNLEVEL_LOBBY)
-			return tgui_alert(usr, "The game has already started.")
-		var/roundstart_rules = list()
-		for (var/rule in subtypesof(/datum/dynamic_ruleset/roundstart))
-			var/datum/dynamic_ruleset/roundstart/newrule = new rule()
-			roundstart_rules[newrule.name] = newrule
-		var/added_rule = input(usr,"What ruleset do you want to force? This will bypass threat level and population restrictions.", "Rigging Roundstart", null) as null|anything in sort_list(roundstart_rules)
-		if (added_rule)
-			GLOB.dynamic_forced_roundstart_ruleset += roundstart_rules[added_rule]
-			log_admin("[key_name(usr)] set [added_rule] to be a forced roundstart ruleset.")
-			message_admins("[key_name(usr)] set [added_rule] to be a forced roundstart ruleset.", 1)
-			Game()
-
-	else if(href_list["f_dynamic_roundstart_clear"])
-		if(!check_rights(R_ADMIN))
-			return
-		GLOB.dynamic_forced_roundstart_ruleset = list()
-		Game()
-		log_admin("[key_name(usr)] cleared the rigged roundstart rulesets. The mode will pick them as normal.")
-		message_admins("[key_name(usr)] cleared the rigged roundstart rulesets. The mode will pick them as normal.", 1)
-
-	else if(href_list["f_dynamic_roundstart_remove"])
-		if(!check_rights(R_ADMIN))
-			return
-		var/datum/dynamic_ruleset/roundstart/rule = locate(href_list["f_dynamic_roundstart_remove"])
-		GLOB.dynamic_forced_roundstart_ruleset -= rule
-		Game()
-		log_admin("[key_name(usr)] removed [rule] from the forced roundstart rulesets.")
-		message_admins("[key_name(usr)] removed [rule] from the forced roundstart rulesets.", 1)
-
-	else if (href_list["f_dynamic_options"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		if(Master.current_runlevel > RUNLEVEL_LOBBY)
-			return tgui_alert(usr, "The game has already started.")
-
-		dynamic_mode_options(usr)
-	else if(href_list["f_dynamic_force_extended"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		GLOB.dynamic_forced_extended = !GLOB.dynamic_forced_extended
-		log_admin("[key_name(usr)] set 'forced_extended' to [GLOB.dynamic_forced_extended].")
-		message_admins("[key_name(usr)] set 'forced_extended' to [GLOB.dynamic_forced_extended].")
-		dynamic_mode_options(usr)
-
-	else if(href_list["f_dynamic_no_stacking"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		GLOB.dynamic_no_stacking = !GLOB.dynamic_no_stacking
-		log_admin("[key_name(usr)] set 'no_stacking' to [GLOB.dynamic_no_stacking].")
-		message_admins("[key_name(usr)] set 'no_stacking' to [GLOB.dynamic_no_stacking].")
-		dynamic_mode_options(usr)
-	else if(href_list["f_dynamic_stacking_limit"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		GLOB.dynamic_stacking_limit = input(usr,"Change the threat limit at which round-endings rulesets will start to stack.", "Change stacking limit", null) as num
-		log_admin("[key_name(usr)] set 'stacking_limit' to [GLOB.dynamic_stacking_limit].")
-		message_admins("[key_name(usr)] set 'stacking_limit' to [GLOB.dynamic_stacking_limit].")
-		dynamic_mode_options(usr)
-
-	else if(href_list["f_dynamic_forced_threat"])
-		if(!check_rights(R_ADMIN))
-			return
-
-		if(Master.current_runlevel > RUNLEVEL_LOBBY)
-			return tgui_alert(usr, "The game has already started.")
-
-		var/new_value = input(usr, "Enter the forced threat level for dynamic mode.", "Forced threat level") as num
-		if (new_value > 100)
-			return tgui_alert(usr, "The value must be be under 100.")
-		GLOB.dynamic_forced_threat_level = new_value
-
-		log_admin("[key_name(usr)] set 'forced_threat_level' to [GLOB.dynamic_forced_threat_level].")
-		message_admins("[key_name(usr)] set 'forced_threat_level' to [GLOB.dynamic_forced_threat_level].")
-		dynamic_mode_options(usr)
 
 	else if(href_list["forcespeech"])
 		if(!check_rights(R_FUN))
@@ -1779,17 +1691,6 @@
 				var/datum/team/T = locate(href_list["team"]) in GLOB.antagonist_teams
 				if(T)
 					T.admin_delete(usr)
-			if("add_objective")
-				var/datum/team/T = locate(href_list["team"]) in GLOB.antagonist_teams
-				if(T)
-					T.admin_add_objective(usr)
-			if("remove_objective")
-				var/datum/team/T = locate(href_list["team"]) in GLOB.antagonist_teams
-				if(!T)
-					return
-				var/datum/objective/O = locate(href_list["tobjective"]) in T.objectives
-				if(O)
-					T.admin_remove_objective(usr,O)
 			if("add_member")
 				var/datum/team/T = locate(href_list["team"]) in GLOB.antagonist_teams
 				if(T)

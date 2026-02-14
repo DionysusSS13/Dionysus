@@ -33,28 +33,10 @@ GLOBAL_VAR(antag_prototypes)
 		commands += "<a href='?src=[REF(src)];command=[command]'>[command]</a>"
 	var/command_part = commands.Join(" | ")
 	var/data_part = antag_panel_data()
-	var/objective_part = antag_panel_objectives()
 
-	var/list/parts = listtrim(list(command_part, data_part, objective_part))
+	var/list/parts = listtrim(list(command_part, data_part, ))
 
 	return parts.Join("<br>")
-
-/datum/antagonist/proc/antag_panel_objectives()
-	var/result = "<i><b>Objectives</b></i>:<br>"
-	if (objectives.len == 0)
-		result += "EMPTY<br>"
-	else
-		var/obj_count = 1
-		for(var/datum/objective/objective as anything in objectives)
-			result += "<B>[obj_count]</B>: [objective.explanation_text] \
-				<a href='?src=[REF(owner)];obj_edit=[REF(objective)]'>Edit</a> \
-				<a href='?src=[REF(owner)];obj_delete=[REF(objective)]'>Delete</a> \
-				<a href='?src=[REF(owner)];obj_completed=[REF(objective)]'><font color=[objective.check_completion() ? "green" : "red"]>[objective.completed ? "Mark as incomplete" : "Mark as complete"]</font></a> \
-				<br>"
-			obj_count++
-	result += "<a href='?src=[REF(owner)];obj_add=1;target_antag=[REF(src)]'>Add objective</a><br>"
-	result += "<a href='?src=[REF(owner)];obj_announce=1'>Announce objectives</a><br>"
-	return result
 
 /datum/mind/proc/get_common_admin_commands()
 	var/common_commands = "<span>Common Commands:</span>"

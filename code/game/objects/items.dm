@@ -309,10 +309,7 @@ DEFINE_INTERACTABLE(/obj/item)
 
 	if(LAZYLEN(embedding))
 		updateEmbedding()
-
-	if(mapload && !GLOB.steal_item_handler.generated_items)
-		add_stealing_item_objective()
-
+		
 /obj/item/Destroy(force)
 	// This var exists as a weird proxy "owner" ref
 	// It's used in a few places. Stop using it, and optimially replace all uses please

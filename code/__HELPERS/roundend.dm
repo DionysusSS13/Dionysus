@@ -6,7 +6,6 @@
 #define SERVER_LAST_ROUND "server last round"
 
 /datum/controller/subsystem/ticker/proc/gather_roundend_feedback()
-	gather_antag_data()
 	record_nuke_disk_location()
 	var/json_file = file("[GLOB.log_directory]/round_end_data.json")
 	// All but npcs sublists and ghost category contain only mobs with minds
@@ -115,35 +114,6 @@
 	.["human_escapees_list"] = list_of_human_escapees
 	.["station_integrity"] = station_integrity
 
-/datum/controller/subsystem/ticker/proc/gather_antag_data()
-	var/team_gid = 1
-	var/list/team_ids = list()
-
-	for(var/datum/antagonist/A in GLOB.antagonists)
-		if(!A.owner)
-			continue
-
-		var/list/antag_info = list()
-		antag_info["key"] = A.owner.key
-		antag_info["name"] = A.owner.name
-		antag_info["antagonist_type"] = A.type
-		antag_info["antagonist_name"] = A.name //For auto and custom roles
-		antag_info["objectives"] = list()
-		antag_info["team"] = list()
-		var/datum/team/T = A.get_team()
-		if(T)
-			antag_info["team"]["type"] = T.type
-			antag_info["team"]["name"] = T.name
-			if(!team_ids[T])
-				team_ids[T] = team_gid++
-			antag_info["team"]["id"] = team_ids[T]
-
-		if(A.objectives.len)
-			for(var/datum/objective/O in A.objectives)
-				var/result = O.check_completion() ? "SUCCESS" : "FAIL"
-				antag_info["objectives"] += list(list("objective_type"=O.type,"text"=O.explanation_text,"result"=result))
-		SSblackbox.record_feedback("associative", "antagonists", 1, antag_info)
-
 /datum/controller/subsystem/ticker/proc/record_nuke_disk_location()
 	var/disk_count = 1
 	for(var/obj/item/disk/nuclear/nuke_disk as anything in SSpoints_of_interest.real_nuclear_disks)
@@ -201,17 +171,9 @@
 		return FALSE
 
 	if(human_mob.mind && (human_mob.mind.special_role || length(human_mob.mind.antag_datums) > 0))
-		var/didthegamerwin = TRUE
-		for(var/datum/antagonist/antag_datums as anything in human_mob.mind.antag_datums)
-			for(var/datum/objective/objective_datum as anything in antag_datums.objectives)
-				if(!objective_datum.check_completion())
-					didthegamerwin = FALSE
-		if(!didthegamerwin)
-			return FALSE
 		player_client.give_award(/datum/award/score/hardcore_random, human_mob, round(human_mob.hardcore_survival_score * 2))
 	else if(human_mob.onCentCom())
 		player_client.give_award(/datum/award/score/hardcore_random, human_mob, round(human_mob.hardcore_survival_score))
-
 
 /datum/controller/subsystem/ticker/proc/declare_completion()
 	set waitfor = FALSE
@@ -244,9 +206,6 @@
 			antagonist_hud.show_to(player)
 
 	CHECK_TICK
-
-	//Set news report and mode result
-	mode.set_round_result()
 
 	send2adminchat("Server", "Round just ended.")
 
@@ -358,19 +317,6 @@
 			//ignore this comment, it fixes the broken sytax parsing caused by the " above
 			else
 				parts += "[FOURSPACES]<i>Nobody died this round!</i>"
-	if(GAMEMODE_WAS_DYNAMIC)
-		var/datum/game_mode/dynamic/mode = SSticker.mode
-		parts += "[FOURSPACES]Threat level: [mode.threat_level]"
-		parts += "[FOURSPACES]Threat left: [mode.mid_round_budget]"
-		if(mode.roundend_threat_log.len)
-			parts += "[FOURSPACES]Threat edits:"
-			for(var/entry as anything in mode.roundend_threat_log)
-				parts += "[FOURSPACES][FOURSPACES][entry]<BR>"
-		parts += "[FOURSPACES]Executed rules:"
-		for(var/datum/dynamic_ruleset/rule in mode.executed_rules)
-			parts += "[FOURSPACES][FOURSPACES][rule.ruletype] - <b>[rule.name]</b>: -[rule.cost + rule.scaled_times * rule.scaling_cost] threat"
-	else
-		parts += "[FOURSPACES]The gamemode was: [mode.name]."
 
 	return parts.Join("<br>")
 
@@ -690,17 +636,6 @@
 		parts += "<li>[printplayer(M,fleecheck)]</li>"
 	parts += "</ul>"
 	return parts.Join()
-
-/proc/printobjectives(list/objectives)
-	if(!length(objectives))
-		return
-
-	var/list/objective_parts = list()
-	var/count = 1
-	for(var/datum/objective/objective in objectives)
-		objective_parts += "<b>[objective.objective_name] #[count]</b>: [objective.explanation_text] [objective.get_roundend_suffix()]"
-		count++
-	return objective_parts.Join("<br>")
 
 /datum/controller/subsystem/ticker/proc/save_admin_data()
 	if(IsAdminAdvancedProcCall())

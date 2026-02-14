@@ -229,27 +229,6 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 				for(var/i in GLOB.human_list)
 					var/mob/living/carbon/human/H = i
 					H.set_species(newtype)
-		if("power")
-			if(!is_funmin)
-				return
-			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Power All APCs"))
-			log_admin("[key_name(holder)] made all areas powered", 1)
-			message_admins(span_adminnotice("[key_name_admin(holder)] made all areas powered"))
-			power_restore()
-		if("unpower")
-			if(!is_funmin)
-				return
-			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Depower All APCs"))
-			log_admin("[key_name(holder)] made all areas unpowered", 1)
-			message_admins(span_adminnotice("[key_name_admin(holder)] made all areas unpowered"))
-			power_failure()
-		if("quickpower")
-			if(!is_funmin)
-				return
-			SSblackbox.record_feedback("nested tally", "admin_secrets_fun_used", 1, list("Power All SMESs"))
-			log_admin("[key_name(holder)] made all SMESs powered", 1)
-			message_admins(span_adminnotice("[key_name_admin(holder)] made all SMESs powered"))
-			power_restore_quick()
 		if("anon_name")
 			if(!is_funmin)
 				return
@@ -623,15 +602,7 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 		return
 	if(ishuman(player))
 		var/datum/antagonist/traitor/traitor_datum = new(give_objectives = FALSE)
-		var/datum/objective/new_objective = new
-		new_objective.owner = player
-		new_objective.explanation_text = objective
-		traitor_datum.objectives += new_objective
 		player.mind.add_antag_datum(traitor_datum)
 	else if(isAI(player))
 		var/datum/antagonist/malf_ai/malfunction_datum = new(give_objectives = FALSE)
-		var/datum/objective/new_objective = new
-		new_objective.owner = player
-		new_objective.explanation_text = objective
-		malfunction_datum.objectives += new_objective
 		player.mind.add_antag_datum(malfunction_datum)

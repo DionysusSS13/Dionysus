@@ -327,32 +327,6 @@
 	GLOB.reality_smash_track.rework_network()
 
 /**
- * Create our objectives for our heretic.
- */
-/datum/antagonist/heretic/proc/forge_primary_objectives()
-	var/datum/objective/heretic_research/research_objective = new()
-	research_objective.owner = owner
-	objectives += research_objective
-
-	var/num_heads = 0
-	for(var/mob/player in GLOB.alive_player_list)
-		if(player.mind.assigned_role.departments_bitflags & DEPARTMENT_BITFLAG_COMPANY_LEADER)
-			num_heads++
-
-	var/datum/objective/minor_sacrifice/sac_objective = new()
-	sac_objective.owner = owner
-	if(num_heads < 2) // They won't get major sacrifice, so bump up minor sacrifice a bit
-		sac_objective.target_amount += 2
-		sac_objective.update_explanation_text()
-
-	objectives += sac_objective
-
-	if(num_heads >= 2)
-		var/datum/objective/major_sacrifice/other_sac_objective = new()
-		other_sac_objective.owner = owner
-		objectives += other_sac_objective
-
-/**
  * Add [target] as a sacrifice target for the heretic.
  * Generates a preview image and associates it with a weakref of the mob.
  */
@@ -402,16 +376,6 @@
 
 	parts += printplayer(owner)
 	parts += "<b>Sacrifices Made:</b> [total_sacrifices]"
-
-	if(length(objectives))
-		var/count = 1
-		for(var/datum/objective/objective as anything in objectives)
-			if(objective.check_completion())
-				parts += "<b>Objective #[count]</b>: [objective.explanation_text] [span_greentext("Success!")]"
-			else
-				parts += "<b>Objective #[count]</b>: [objective.explanation_text] [span_redtext("Fail.")]"
-				succeeded = FALSE
-			count++
 
 	if(ascended)
 		parts += span_greentext(span_big("THE HERETIC ASCENDED!"))
@@ -532,19 +496,6 @@
 
 	return "<br><b>Research Done:</b><br>[english_list(string_of_knowledge, and_text = ", and ")]<br>"
 
-/datum/antagonist/heretic/antag_panel_objectives()
-	. = ..()
-
-	. += "<br>"
-	. += "<i><b>Current Targets:</b></i><br>"
-	if(LAZYLEN(sac_targets))
-		for(var/mob/living/carbon/human/target as anything in sac_targets)
-			. += " - <b>[target.real_name]</b>, the [target.mind?.assigned_role?.get_title_name(target.client) || "human"].<br>"
-
-	else
-		. += "<i>None!</i><br>"
-	. += "<br>"
-
 /*
  * Learns the passed [typepath] of knowledge, creating a knowledge datum
  * and adding it to our researched knowledge list.
@@ -605,9 +556,6 @@
  * Returns FALSE if not all of our objectives are complete, or TRUE otherwise.
  */
 /datum/antagonist/heretic/proc/can_ascend()
-	for(var/datum/objective/must_be_done as anything in objectives)
-		if(!must_be_done.check_completion())
-			return FALSE
 	return TRUE
 
 /*
@@ -629,84 +577,6 @@
 		return HERETIC_NO_LIVING_HEART
 
 	return HERETIC_HAS_LIVING_HEART
-
-/// Heretic's minor sacrifice objective. "Minor sacrifices" includes anyone.
-/datum/objective/minor_sacrifice
-	name = "minor sacrifice"
-
-/datum/objective/minor_sacrifice/New(text)
-	. = ..()
-	target_amount = rand(2, 3)
-	update_explanation_text()
-
-/datum/objective/minor_sacrifice/update_explanation_text()
-	. = ..()
-	explanation_text = "Sacrifice at least [target_amount] crewmembers."
-
-/datum/objective/minor_sacrifice/check_completion()
-	var/datum/antagonist/heretic/heretic_datum = owner?.has_antag_datum(/datum/antagonist/heretic)
-	if(!heretic_datum)
-		return FALSE
-	return completed || (heretic_datum.total_sacrifices >= target_amount)
-
-/// Heretic's major sacrifice objective. "Major sacrifices" are heads of staff.
-/datum/objective/major_sacrifice
-	name = "major sacrifice"
-	target_amount = 1
-	explanation_text = "Sacrifice 1 head of staff."
-
-/datum/objective/major_sacrifice/check_completion()
-	var/datum/antagonist/heretic/heretic_datum = owner?.has_antag_datum(/datum/antagonist/heretic)
-	if(!heretic_datum)
-		return FALSE
-	return completed || (heretic_datum.high_value_sacrifices >= target_amount)
-
-/// Heretic's research objective. "Research" is heretic knowledge nodes (You start with some).
-/datum/objective/heretic_research
-	name = "research"
-	/// The length of a main path. Calculated once in New().
-	var/static/main_path_length = 0
-
-/datum/objective/heretic_research/New(text)
-	. = ..()
-
-	if(!main_path_length)
-		// Let's find the length of a main path. We'll use rust because it's the coolest.
-		// (All the main paths are (should be) the same length, so it doesn't matter.)
-		var/rust_paths_found = 0
-		for(var/datum/heretic_knowledge/knowledge as anything in subtypesof(/datum/heretic_knowledge))
-			if(initial(knowledge.route) == PATH_RUST)
-				rust_paths_found++
-
-		main_path_length = rust_paths_found
-
-	// Factor in the length of the main path first.
-	target_amount = main_path_length
-	// Add in the base research we spawn with, otherwise it'd be too easy.
-	target_amount += length(GLOB.heretic_start_knowledge)
-	// And add in some buffer, to require some sidepathing.
-	target_amount += rand(2, 4)
-	update_explanation_text()
-
-/datum/objective/heretic_research/update_explanation_text()
-	. = ..()
-	explanation_text = "Research at least [target_amount] knowledge from the Mansus. You start with [length(GLOB.heretic_start_knowledge)] researched."
-
-/datum/objective/heretic_research/check_completion()
-	var/datum/antagonist/heretic/heretic_datum = owner?.has_antag_datum(/datum/antagonist/heretic)
-	if(!heretic_datum)
-		return FALSE
-	return completed || (length(heretic_datum.researched_knowledge) >= target_amount)
-
-/datum/objective/heretic_summon
-	name = "summon monsters"
-	target_amount = 2
-	explanation_text = "Summon 2 monsters from the Mansus into this realm."
-	/// The total number of summons the objective owner has done
-	var/num_summoned = 0
-
-/datum/objective/heretic_summon/check_completion()
-	return completed || (num_summoned >= target_amount)
 
 /datum/outfit/heretic
 	name = "Heretic (Preview only)"

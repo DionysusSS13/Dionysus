@@ -74,43 +74,11 @@
 					uplink_items += item
 					continue
 		uplink_handler.extra_purchasable += create_uplink_sales(uplink_sale_count, /datum/uplink_category/discounts, -1, uplink_items)
-
-	if(give_objectives)
-		forge_traitor_objectives()
 	pick_employer()
 
 	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/tatoralert.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)
 
 	return ..()
-
-/// Generates a complete set of traitor objectives up to the traitor objective limit, including non-generic objectives such as hijack.
-/datum/antagonist/traitor/proc/forge_traitor_objectives()
-	objectives.Cut()
-
-	var/datum/objective/O = new /datum/objective/gimmick
-	O.owner = owner
-	objectives += O
-
-	if(prob(EXTRA_OBJECTIVE_PROB))
-		if(prob(KILL_PROB))
-			var/list/active_ais = active_ais()
-			if(active_ais.len && prob(DESTROY_AI_PROB(GLOB.joined_player_list.len)))
-				O = new /datum/objective/destroy
-				O.owner = owner
-				O.find_target()
-				objectives += O
-				return
-			O = new /datum/objective/assassinate
-			O.owner = owner
-			O.find_target()
-			objectives += O
-			return
-		else
-			O = new /datum/objective/steal
-			O.owner = owner
-			O.find_target()
-			objectives += O
-			return
 
 /datum/antagonist/traitor/on_removal()
 	if(uplink_handler)
@@ -141,29 +109,6 @@
 		string += " - <b><font color='green'>Succeeded</font></b>"
 
 	return string
-
-/datum/antagonist/traitor/antag_panel_objectives()
-	var/result = ..()
-	if(!uplink_handler)
-		return result
-	result += "<i><b>Traitor specific objectives</b></i><br>"
-	result += "<i><b>Concluded Objectives</b></i>:<br>"
-	for(var/datum/traitor_objective/objective as anything in uplink_handler.completed_objectives)
-		result += "[traitor_objective_to_html(objective)]<br>"
-	if(!length(uplink_handler.completed_objectives))
-		result += "EMPTY<br>"
-	result += "<i><b>Ongoing Objectives</b></i>:<br>"
-	for(var/datum/traitor_objective/objective as anything in uplink_handler.active_objectives)
-		result += "[traitor_objective_to_html(objective)]<br>"
-	if(!length(uplink_handler.active_objectives))
-		result += "EMPTY<br>"
-	result += "<i><b>Potential Objectives</b></i>:<br>"
-	for(var/datum/traitor_objective/objective as anything in uplink_handler.potential_objectives)
-		result += "[traitor_objective_to_html(objective)]<br>"
-	if(!length(uplink_handler.potential_objectives))
-		result += "EMPTY<br>"
-	result += "<a href='?src=[REF(owner)];common=give_objective'>Force add objective</a><br>"
-	return result
 
 /datum/antagonist/traitor/on_removal()
 	owner.special_role = null
@@ -230,16 +175,6 @@
 		purchases += purchase_log.generate_render(FALSE)
 
 	var/objectives_text = ""
-	if(objectives.len) //If the traitor had no objectives, don't need to process this.
-		var/count = 1
-		for(var/datum/objective/objective in objectives)
-			if(objective.check_completion())
-				objectives_text += "<br><B>Objective #[count]</B>: [objective.explanation_text] [span_greentext("Success!")]"
-			else
-				objectives_text += "<br><B>Objective #[count]</B>: [objective.explanation_text] [span_redtext("Fail.")]"
-				traitor_won = FALSE
-			count++
-
 	result += "<br>[owner.name] <B>[traitor_flavor["roundend_report"]]</B>"
 
 	if(uplink_owned)

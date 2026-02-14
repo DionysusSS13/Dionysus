@@ -18,13 +18,7 @@
 					But now, we find intruders spread out amongst our claim, willing to fight our teeth with magics unimaginable, their dens like lights flickering in the depths of space.\n\
 					Today, we will snuff out one of those lights.</b>")
 	to_chat(owner, span_boldwarning("You have five minutes to find a safe location to place down the first rift.  If you take longer than five minutes to place a rift, you will be returned from whence you came."))
-	owner.announce_objectives()
 	SEND_SOUND(owner.current, sound('sound/magic/demon_attack1.ogg'))
-
-/datum/antagonist/space_dragon/proc/forge_objectives()
-	var/datum/objective/summon_carp/summon = new()
-	summon.dragon = src
-	objectives += summon
 
 /datum/antagonist/space_dragon/on_gain()
 	forge_objectives()
@@ -46,10 +40,6 @@
 	icon.Scale(ANTAGONIST_PREVIEW_ICON_SIZE, ANTAGONIST_PREVIEW_ICON_SIZE)
 
 	return icon
-
-/datum/objective/summon_carp
-	var/datum/antagonist/space_dragon/dragon
-	explanation_text = "Summon and protect the rifts to flood the station with carp."
 
 /datum/antagonist/space_dragon/roundend_report()
 	var/list/parts = list()

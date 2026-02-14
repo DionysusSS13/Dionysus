@@ -6,15 +6,9 @@
 	var/datum/mind/M = L.mind
 	var/datum/antagonist/brainwashed/B = M.has_antag_datum(/datum/antagonist/brainwashed)
 	if(B)
-		for(var/O in directives)
-			var/datum/objective/brainwashing/objective = new(O)
-			B.objectives += objective
 		B.greet()
 	else
 		B = new()
-		for(var/O in directives)
-			var/datum/objective/brainwashing/objective = new(O)
-			B.objectives += objective
 		M.add_antag_datum(B)
 
 	var/begin_message = " has been brainwashed with the following objectives: "
@@ -35,12 +29,6 @@
 	show_name_in_check_antagonists = TRUE
 	ui_name = "AntagInfoBrainwashed"
 	suicide_cry = "FOR... SOMEONE!!"
-
-/datum/antagonist/brainwashed/ui_static_data(mob/user)
-	. = ..()
-	var/list/data = list()
-	data["objectives"] = get_objectives()
-	return data
 
 /datum/antagonist/brainwashed/farewell()
 	to_chat(owner, span_warning("Your mind suddenly clears..."))
@@ -80,6 +68,3 @@
 	message_admins("[key_name_admin(admin)] has brainwashed [key_name_admin(C)] with the following objectives: [obj_list].")
 	C.log_message("has been force-brainwashed with the objective '[obj_list]' by admin [key_name(admin)]", LOG_VICTIM, log_globally = FALSE)
 	log_admin("[key_name(admin)] has brainwashed [key_name(C)] with the following objectives: [obj_list].")
-
-/datum/objective/brainwashing
-	completed = TRUE

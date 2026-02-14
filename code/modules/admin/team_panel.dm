@@ -10,8 +10,6 @@
 			content += "<a href='?src=[REF(T)];command=[command]'>[command]</a>"
 		content += "<br>"
 		content += "Objectives:<br><ol>"
-		for(var/datum/objective/O in T.objectives)
-			content += "<li>[O.explanation_text] - <a href='?_src_=holder;[HrefToken()];team_command=remove_objective;team=[REF(T)];tobjective=[REF(O)]'>Remove</a></li>"
 		content += "</ol><a href='?_src_=holder;[HrefToken()];team_command=add_objective;team=[REF(T)]'>Add Objective</a><br>"
 		content += "Members: <br><ul>"
 		for(var/datum/mind/M in T.members)
@@ -59,52 +57,6 @@
 
 	message_admins("[key_name_admin(usr)] messaged [name] team with : [message]")
 	log_admin("Team Message: [key_name(usr)] -> [name] team : [message]")
-
-/datum/team/proc/admin_add_objective(mob/user)
-	//any antag with get_team == src => add objective to that antag
-	//otherwise create new custom antag
-	if(!GLOB.admin_objective_list)
-		generate_admin_objective_list()
-
-	var/selected_type = input("Select objective type:", "Objective type") as null|anything in GLOB.admin_objective_list
-	selected_type = GLOB.admin_objective_list[selected_type]
-	if (!selected_type)
-		return
-
-	var/datum/objective/O = new selected_type
-	O.team = src
-	O.admin_edit(user)
-	objectives |= O
-
-	var/custom_antag_name
-
-	for(var/datum/mind/M in members)
-		var/datum/antagonist/team_antag
-		for(var/datum/antagonist/A in M.antag_datums)
-			if(A.get_team() == src)
-				team_antag = A
-		if(!team_antag)
-			team_antag = new /datum/antagonist/custom
-			if(!custom_antag_name)
-				custom_antag_name = stripped_input(user, "Custom team antagonist name:", "Custom antag", "Antagonist")
-				if(!custom_antag_name)
-					custom_antag_name = "Team Member"
-			team_antag.name = custom_antag_name
-			M.add_antag_datum(team_antag,src)
-		team_antag.objectives |= O
-
-	message_admins("[key_name_admin(usr)] added objective \"[O.explanation_text]\" to [name]")
-	log_admin("[key_name(usr)] added objective \"[O.explanation_text]\" to [name]")
-
-/datum/team/proc/admin_remove_objective(mob/user,datum/objective/O)
-	for(var/datum/mind/M in members)
-		for(var/datum/antagonist/A in M.antag_datums)
-			A.objectives -= O
-	objectives -= O
-
-	message_admins("[key_name_admin(usr)] removed objective \"[O.explanation_text]\" from [name]")
-	log_admin("[key_name(usr)] removed objective \"[O.explanation_text]\" from [name]")
-	//qdel maybe
 
 /datum/team/proc/admin_add_member(mob/user)
 	var/list/minds = list()

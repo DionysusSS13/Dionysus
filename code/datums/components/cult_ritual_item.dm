@@ -340,26 +340,6 @@
  * cult_team - the team of the mob placing the rune
  */
 /datum/component/cult_ritual_item/proc/scribe_narsie_rune(mob/living/cultist, datum/team/cult/cult_team)
-	var/datum/objective/eldergod/summon_objective = locate() in cult_team.objectives
-	var/datum/objective/sacrifice/sac_objective = locate() in cult_team.objectives
-	if(!check_if_in_ritual_site(cultist, cult_team))
-		return FALSE
-	if(sac_objective && !sac_objective.check_completion())
-		to_chat(cultist, span_warning("The sacrifice is not complete. The portal would lack the power to open if you tried!"))
-		return FALSE
-	if(summon_objective.check_completion())
-		to_chat(cultist, span_cultlarge("\"I am already here. There is no need to try to summon me now.\""))
-		return FALSE
-	var/confirm_final = tgui_alert(cultist, "This is the FINAL step to summon Nar'Sie; it is a long, painful ritual and the crew will be alerted to your presence.", "Are you prepared for the final battle?", list("My life for Nar'Sie!", "No"))
-	if(confirm_final == "No")
-		to_chat(cultist, span_cult("You decide to prepare further before scribing the rune."))
-		return
-	if(!check_if_in_ritual_site(cultist, cult_team))
-		return FALSE
-	priority_announce("Figments from an eldritch god are being summoned by [cultist.real_name] into [get_area(cultist)] from an unknown dimension. Disrupt the ritual at all costs!","Ananke Higher Dimensional Affairs", sound_type = ANNOUNCER_SPANOMALIES)
-	for(var/shielded_turf in spiral_range_turfs(1, cultist, 1))
-		LAZYADD(shields, new /obj/structure/emergency_shield/cult/narsie(shielded_turf))
-
 	return TRUE
 
 /*
@@ -441,20 +421,6 @@
  * fail_if_last_site - whether the check fails if it's the last site in the summoning list.
  */
 /datum/component/cult_ritual_item/proc/check_if_in_ritual_site(mob/living/cultist, datum/team/cult/cult_team, fail_if_last_site = FALSE)
-	var/datum/objective/eldergod/summon_objective = locate() in cult_team.objectives
-	var/area/our_area = get_area(cultist)
-	if(!summon_objective)
-		to_chat(cultist, span_warning("There are no ritual sites on this station to scribe this rune!"))
-		return FALSE
-
-	if(!(our_area in summon_objective.summon_spots))
-		to_chat(cultist, span_warning("This veil is not weak enough here - it can only be scribed in [english_list(summon_objective.summon_spots)]!"))
-		return FALSE
-
-	if(fail_if_last_site && length(summon_objective.summon_spots) <= 1)
-		to_chat(cultist, span_warning("This rune cannot be scribed here - the ritual site must be reserved for the final summoning!"))
-		return FALSE
-
 	return TRUE
 
 /*

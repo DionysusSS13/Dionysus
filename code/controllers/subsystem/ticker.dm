@@ -21,10 +21,6 @@ SUBSYSTEM_DEF(ticker)
 	#endif
 	var/setup_done = FALSE //All game setup done including mode post setup and
 
-	var/datum/game_mode/mode = null
-	///The name of the gamemode to show at roundstart. This is here to admins can give fake gamemodes.
-	var/mode_display_name = null
-
 	///All players that are readied up and about to spawn in.
 	var/list/mob/dead/new_player/ready_players
 
@@ -118,12 +114,6 @@ SUBSYSTEM_DEF(ticker)
 	else if(CONFIG_GET(flag/shift_time_realtime))
 		gametime_offset = world.timeofday
 
-	if(GLOB.is_debug_server)
-		mode = new /datum/game_mode/extended
-
-	if(CONFIG_GET(flag/hide_gamemode_name))
-		mode_display_name = "Secret"
-
 	return ..()
 
 /datum/controller/subsystem/ticker/fire()
@@ -213,11 +203,9 @@ SUBSYSTEM_DEF(ticker)
 				SEND_SIGNAL(src, COMSIG_TICKER_ERROR_SETTING_UP)
 
 		if(GAME_STATE_PLAYING)
-			if(mode.datum_flags & DF_ISPROCESSING)
-				mode.process(wait * 0.1)
 			check_queue()
 
-			if(force_ending || (!roundend_check_paused && mode.check_finished()))
+			if(force_ending)
 				current_state = GAME_STATE_FINISHED
 				toggle_ooc(TRUE) // Turn it on
 				toggle_dooc(TRUE)
@@ -235,14 +223,6 @@ SUBSYSTEM_DEF(ticker)
 		var/mob/dead/new_player/player = i
 		if(player.ready == PLAYER_READY_TO_PLAY && player.mind && player.check_preferences())
 			ready_players.Add(player)
-
-	// Set up gamemode, divide up jobs.
-	if(!initialize_gamemode())
-		return FALSE
-
-	to_chat(world, systemtext("The gamemode is: [get_mode_name()]."))
-	if(mode_display_name)
-		message_admins("The real gamemode is: [get_mode_name(TRUE)].")
 	to_chat(world, "<br><hr><br>")
 
 	CHECK_TICK
@@ -296,8 +276,6 @@ SUBSYSTEM_DEF(ticker)
 			var/datum/holiday/holiday = SSevents.holidays[holidayname]
 			to_chat(world, "<h4>[holiday.greet()]</h4>")
 
-	//Setup the antags AFTTTTER theyve gotten their jobs
-	mode.setup_antags()
 	PostSetup()
 	SSticker.ready_players = null
 	SSlobby.game_status?.alpha = 0
@@ -305,13 +283,12 @@ SUBSYSTEM_DEF(ticker)
 
 /datum/controller/subsystem/ticker/proc/PostSetup()
 	set waitfor = FALSE
-	mode.post_setup()
 	GLOB.start_state = new /datum/station_state()
 	GLOB.start_state.count()
 
 	var/list/adm = get_admin_counts()
 	var/list/allmins = adm["present"]
-	send2adminchat("Server", "Round [GLOB.round_id ? "#[GLOB.round_id]:" : "of"] [SSticker.get_mode_name()] has started[allmins.len ? ".":" with no active admins online!"]")
+	send2adminchat("Server", "Round [GLOB.round_id ? "#[GLOB.round_id]:" : "of"] has started[allmins.len ? ".":" with no active admins online!"]")
 	setup_done = TRUE
 
 	for(var/obj/effect/landmark/start/S as anything in GLOB.start_landmarks_list)
@@ -534,7 +511,6 @@ SUBSYSTEM_DEF(ticker)
 /datum/controller/subsystem/ticker/Recover()
 	current_state = SSticker.current_state
 	force_ending = SSticker.force_ending
-	mode = SSticker.mode
 
 	login_music = SSticker.login_music
 	round_end_sound = SSticker.round_end_sound
@@ -777,74 +753,3 @@ SUBSYSTEM_DEF(ticker)
 
 	if(!credits_music)
 		credits_music = login_music
-
-///Generate a list of gamemodes we can play.
-/datum/controller/subsystem/ticker/proc/draft_gamemodes()
-	var/list/datum/game_mode/runnable_modes = list()
-	for(var/datum/game_mode/path as anything in subtypesof(/datum/game_mode))
-		if(isabstract(path))
-			continue
-
-		var/datum/game_mode/M = new path()
-		if(!(M.weight == GAMEMODE_WEIGHT_NEVER) && !M.check_for_errors())
-			runnable_modes[path] = M.weight
-		else
-			qdel(M)
-	return runnable_modes
-
-/datum/controller/subsystem/ticker/proc/get_mode_name(bypass_secret)
-	if(!istype(mode))
-		return "Undecided"
-	if(bypass_secret || !mode_display_name)
-		return mode.name
-
-	return mode_display_name
-
-/datum/controller/subsystem/ticker/proc/initialize_gamemode()
-	if(!mode)
-		var/list/datum/game_mode/runnable_modes = draft_gamemodes()
-		if(!runnable_modes.len)
-			message_admins(world, "<B>No viable gamemodes to play.</B> Running Extended.")
-			mode = new /datum/game_mode/extended
-		else
-			mode = pick_weight(runnable_modes)
-			mode = new mode
-
-	else
-		if(istype(mode, /datum/game_mode/extended) && GLOB.is_debug_server)
-			message_admins("Using Extended gamemode during debugging. Use Set Gamemode to change this.")
-
-		var/potential_error = mode.check_for_errors()
-		if(potential_error)
-			if(mode_display_name)
-				message_admins(span_adminnotice("Unable to force secret [get_mode_name(TRUE)]. [potential_error]"))
-				to_chat(world, "<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby.")
-			else
-				to_chat(world, "<B>Unable to start [get_mode_name(TRUE)].</B> [potential_error] Reverting to pre-game lobby.")
-
-			QDEL_NULL(mode)
-			SSjob.ResetOccupations()
-			return FALSE
-
-	CHECK_TICK
-	//Configure mode and assign player to special mode stuff
-	var/can_continue = 0
-	can_continue = mode.execute_roundstart() //Choose antagonists
-	CHECK_TICK
-	can_continue = can_continue && SSjob.DivideOccupations(mode.get_required_jobs()) //Distribute jobs
-	CHECK_TICK
-
-	if(!GLOB.Debug2)
-		if(!can_continue)
-			log_game("[get_mode_name(TRUE)] failed pre_setup, cause(s): [english_list(mode.setup_error)].")
-			message_admins("[get_mode_name(TRUE)] failed pre_setup, cause(s): [english_list(mode.setup_error)].")
-			to_chat(world, "<B>Error setting up [get_mode_name(TRUE)].</B> Reverting to pre-game lobby.")
-			mode.on_failed_execute()
-			QDEL_NULL(mode)
-			SSjob.ResetOccupations()
-			return FALSE
-	else
-		message_admins(span_notice("DEBUG: Bypassing prestart checks..."))
-
-	log_game("Gamemode successfully initialized, chose: [mode.name]")
-	return TRUE

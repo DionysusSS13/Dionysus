@@ -98,8 +98,6 @@ SUBSYSTEM_DEF(lobby)
 
 	clock.maptext = "<span class='vga outline' style='text-align: right;color: #aaaaaa'>[time_to_twelve_hour(WRAP_UP(world.timeofday + (TIMEZONE_EST HOURS), 24 HOURS), "hh:mm")]</span>"
 
-	gamemode.maptext = "<span class='vga outline' style='color: #aaaaaa'>Gamemode: [SSticker.get_mode_name()]</span>"
-
 	if(times_fired % 15 == 0) // every 15 seconds
 		update_tip()
 
@@ -161,7 +159,6 @@ SUBSYSTEM_DEF(lobby)
 	gamemode.maptext_height = 48
 	gamemode.pixel_y = world.icon_size * 14
 	gamemode.pixel_x = 8 // Add some padding
-	gamemode.maptext = "<span class='vga'>[SSticker.get_mode_name()]</span>"
 	add_child_object(gamemode, "Gamemode")
 
 	tip = new()

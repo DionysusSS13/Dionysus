@@ -434,7 +434,6 @@ SUBSYSTEM_DEF(job)
 
 	. = assign_captain()
 	if(!.)
-		SSticker.mode.setup_error += "Failed to assign captain. See JobDebug for more information."
 		return FALSE
 
 	//People who wants to be the overflow role, sure, go on.
@@ -525,7 +524,6 @@ SUBSYSTEM_DEF(job)
 			if(!AssignRole(player, GetJobType(overflow_role))) //If everything is already filled, make them an assistant
 				JobDebug("DO, Forced antagonist could not be assigned any random job or the overflow role. DivideOccupations failed.")
 				JobDebug("---------------------------------------------------")
-				SSticker.mode.setup_error += "An unassigned player could not be given a random or overflow role. See JobDebug for more information."
 				return FALSE //Living on the edge, the forced antagonist couldn't be assigned to overflow role (bans, client age) - just reroll
 
 	JobDebug("DO, Ending handle unrejectable unassigned")
@@ -542,7 +540,6 @@ SUBSYSTEM_DEF(job)
 
 			if(we_fucked)
 				JobDebug("DO, could not fill all departments.")
-				SSticker.mode.setup_error += "Could not fill all required departments. See JobDebug for more information."
 				return FALSE
 
 			JobDebug("DO, all departments have atleast one player.")
@@ -1102,14 +1099,12 @@ SUBSYSTEM_DEF(job)
 		for(var/rank in required_group)
 			var/datum/job/J = GetJob(rank)
 			if(!J)
-				SSticker.mode.setup_error += "Invalid job [rank] in gamemode required jobs."
 				return FALSE
 			if(J.current_positions < required_group[rank])
 				group_ok = FALSE
 				break
 		if(group_ok)
 			return TRUE
-	SSticker.mode.setup_error += "Required jobs not present."
 	return FALSE
 
 /// Adds back a job slot. Used for cryoing or clocking out (if we ever add that)
