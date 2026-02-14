@@ -821,7 +821,7 @@ GLOBAL_LIST_EMPTY(vending_products)
 		.["user"]["name"] = C.registered_account.account_holder
 		.["user"]["cash"] = C.registered_account.account_balance
 		if(C.registered_account.account_job)
-			.["user"]["job"] = C.registered_account.account_job.title
+			.["user"]["job"] = C.registered_account.account_job_title.name
 			.["user"]["department"] = C.registered_account.account_job.paycheck_department
 		else
 			.["user"]["job"] = "No Job"

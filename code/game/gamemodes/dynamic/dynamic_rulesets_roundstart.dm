@@ -275,7 +275,7 @@
 // Dynamic is a wonderful thing that adds wizards to every round and then adds even more wizards during the round.
 /datum/dynamic_ruleset/roundstart/wizard
 	name = "Wizard"
-	antag_flag = ROLE_WIZARD
+	antag_flag = ROLE_SPACE_WIZARD
 	antag_datum = /datum/antagonist/wizard
 	flags = HIGH_IMPACT_RULESET
 	minimum_required_age = 14
@@ -304,7 +304,7 @@
 	if (M)
 		assigned += M.mind
 		M.mind.set_assigned_role(SSjob.GetJobType(/datum/job/space_wizard))
-		M.mind.special_role = ROLE_WIZARD
+		M.mind.special_role = ROLE_SPACE_WIZARD
 
 	return TRUE
 

@@ -39,7 +39,7 @@
 					return image('icons/mob/ai.dmi', icon_state = resolve_ai_icon(read_preference(/datum/preference/choiced/ai_core_display)), dir = SOUTH)
 				if (istype(preview_job, /datum/job/cyborg))
 					return image('icons/mob/robots.dmi', icon_state = "robot", dir = SOUTH)
-				mannequin.job = preview_job.title
+				mannequin.job = preview_job.id
 				mannequin.dress_up_as_job(preview_job, TRUE, src, TRUE)
 		if(PREVIEW_PREF_LOADOUT)
 			mannequin.equip_outfit_and_loadout(new /datum/outfit, src, TRUE)

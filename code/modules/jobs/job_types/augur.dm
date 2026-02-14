@@ -1,5 +1,8 @@
 /datum/job/augur
-	title = JOB_DIRECTOR_OF_MEDICAE_SERVICES
+	id = JOB_DIRECTOR_OF_MEDICAE_SERVICES
+	titles = list(
+		/datum/job_title/augur,
+	)
 
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
 	head_announce = list(RADIO_CHANNEL_MEDICAL)
@@ -16,12 +19,6 @@
 
 	employers = list(
 		/datum/employer/aether,
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/cmo,
-		),
 	)
 
 	departments_list = list(
@@ -105,3 +102,9 @@
 	internals_slot = ITEM_SLOT_SUITSTORE
 	backpack_contents = null
 	box = null
+
+/datum/job_title/augur
+	name = JOB_DIRECTOR_OF_MEDICAE_SERVICES
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/cmo,
+	)

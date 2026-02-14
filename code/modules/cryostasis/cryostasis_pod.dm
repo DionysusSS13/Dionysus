@@ -123,7 +123,7 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 		stored_name = mob_occupant.name
 
 		if(mob_occupant.mind)
-			stored_rank = mob_occupant.mind.assigned_role.title
+			stored_rank = mob_occupant.mind.assigned_role.get_title_name(mob_occupant.client)
 			if(isnull(stored_ckey))
 				stored_ckey = mob_occupant.mind.key // if mob does not have a ckey and was placed in cryo by someone else, we can get the key this way
 
@@ -267,7 +267,7 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 			var/datum/data_library/library = SSdatacore.library[library_name]
 			var/datum/data/record/record = library.records_by_name[mob_occupant.real_name]
 			if(record && library_name == DATACORE_RECORDS_STATION)
-				announce_rank = record.fields[DATACORE_RANK]
+				announce_rank = record.fields[DATACORE_TEMPLATE_RANK]
 				qdel(record)
 
 	var/obj/machinery/computer/cryostasis/control_computer = control_computer_weakref?.resolve()

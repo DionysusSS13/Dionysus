@@ -168,8 +168,7 @@ SUBSYSTEM_DEF(credits)
 			heads_of_staff += H
 
 	for(var/mob/living/carbon/human/H as anything in heads_of_staff)
-		var/job2show = H.client?.prefs.alt_job_titles[H.mind.assigned_role.title] || H.mind.assigned_role.title
-		producers += "<h1>[job2show]<br>[uppertext(H.real_name)]</h1><br>"
+		producers += "<h1>[H.mind.get_title().name]<br>[uppertext(H.real_name)]</h1><br>"
 
 	producers_string = ""
 	for(var/producer in producers)

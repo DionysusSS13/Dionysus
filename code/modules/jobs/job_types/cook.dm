@@ -1,5 +1,10 @@
 /datum/job/cook
-	title = JOB_CULINARY_VENDOR
+	id = JOB_CULINARY_VENDOR
+	titles = list(
+		/datum/job_title/cook,
+		/datum/job_title/cook/chef, // I guess they can fight over who truly is in charge.
+		/datum/job_title/cook/chef/culinary_artist,
+	)
 	description = "Serve food, cook meat, keep the crew fed."
 	department_head = list(JOB_DIRECTOR_OF_PORT_SERVICES)
 	faction = FACTION_STATION
@@ -13,24 +18,6 @@
 
 	employers = list(
 		/datum/employer/none
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/cook,
-			SPECIES_TESHARI = /datum/outfit/job/cook,
-			SPECIES_VOX = /datum/outfit/job/cook,
-		),
-		"Chef" = list(
-			SPECIES_HUMAN = /datum/outfit/job/cook/chef,
-			SPECIES_TESHARI = /datum/outfit/job/cook/chef,
-			SPECIES_VOX = /datum/outfit/job/cook/chef,
-		),
-		"Culinary Artist" = list(
-			SPECIES_HUMAN = /datum/outfit/job/cook/chef,
-			SPECIES_TESHARI = /datum/outfit/job/cook/chef,
-			SPECIES_VOX = /datum/outfit/job/cook/chef,
-		),
 	)
 
 	liver_traits = list(TRAIT_CULINARY_METABOLISM)
@@ -102,24 +89,26 @@
 
 	skillchips = list(/obj/item/skillchip/job/chef)
 
-/* Commenting this out for now, since it overrides alternate job title outfits
-/datum/outfit/job/cook/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	..()
-	var/datum/job/cook/J = SSjob.GetJobType(jobtype)
-	if(J) // Fix for runtime caused by invalid job being passed
-		if(J.cooks>0)//Cooks
-			id_template = /datum/access_template/job/cook
-			suit = /obj/item/clothing/suit/apron/chef
-			head = /obj/item/clothing/head/soft/mime
-		if(!visualsOnly)
-			J.cooks++
-
-/datum/outfit/job/cook/get_types_to_preload()
-	. = ..()
-	. += /obj/item/clothing/suit/apron/chef
-	. += /obj/item/clothing/head/soft/mime*/
-
 /datum/outfit/job/cook/chef
 	name = "Chef"
 	id_template = /datum/access_template/job/cook/chef
 	suit = /obj/item/clothing/suit/toggle/chef
+
+/datum/job_title/cook
+	name = JOB_CULINARY_VENDOR
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/cook,
+		SPECIES_TESHARI = /datum/outfit/job/cook,
+		SPECIES_VOX = /datum/outfit/job/cook,
+	)
+
+/datum/job_title/cook/chef
+	name = "Chef"
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/cook/chef,
+		SPECIES_TESHARI = /datum/outfit/job/cook/chef,
+		SPECIES_VOX = /datum/outfit/job/cook/chef,
+	)
+
+/datum/job_title/cook/chef/culinary_artist
+	name = "Culinary Artist"

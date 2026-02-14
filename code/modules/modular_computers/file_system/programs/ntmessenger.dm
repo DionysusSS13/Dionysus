@@ -157,7 +157,7 @@
 			var/datum/mind/target_mind
 			var/list/backup_players = list()
 			for(var/datum/mind/player as anything in get_crewmember_minds())
-				if(player.assigned_role?.title == computer.saved_job)
+				if(player.assigned_role?.get_title() == computer.saved_job)
 					backup_players += player
 				if(player.name == computer.saved_identification)
 					target_mind = player

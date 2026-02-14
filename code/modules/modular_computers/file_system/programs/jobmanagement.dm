@@ -39,7 +39,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 
 
 /datum/computer_file/program/job_management/proc/can_edit_job(datum/job/job)
-	if(!job || !(job.job_flags & JOB_CREW_MEMBER) || (job.title in blacklisted))
+	if(!job || !(job.job_flags & JOB_CREW_MEMBER) || (job.id in blacklisted))
 		return FALSE
 	return TRUE
 
@@ -49,7 +49,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 		return FALSE
 	if((job.total_positions <= length(GLOB.player_list) * (max_relative_positions / 100)))
 		var/delta = (world.time / 10) - GLOB.time_last_changed_position
-		if((change_position_cooldown < delta) || (opened_positions[job.title] < 0))
+		if((change_position_cooldown < delta) || (opened_positions[job.id] < 0))
 			return TRUE
 	return FALSE
 
@@ -59,7 +59,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 		return FALSE
 	if(job.total_positions > length(GLOB.player_list) * (max_relative_positions / 100))
 		var/delta = (world.time / 10) - GLOB.time_last_changed_position
-		if((change_position_cooldown < delta) || (opened_positions[job.title] > 0))
+		if((change_position_cooldown < delta) || (opened_positions[job.id] > 0))
 			return TRUE
 	return FALSE
 
@@ -85,7 +85,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 				GLOB.time_last_changed_position = world.time / 10
 			j.total_positions++
 			opened_positions[edit_job_target]++
-			log_job_debug("[key_name(usr)] opened a [j.title] job position, for a total of [j.total_positions] open job slots.")
+			log_job_debug("[key_name(usr)] opened a [j.id] job position, for a total of [j.total_positions] open job slots.")
 			playsound(computer, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 			return TRUE
 		if("PRG_close_job")
@@ -98,7 +98,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 				GLOB.time_last_changed_position = world.time / 10
 			j.total_positions--
 			opened_positions[edit_job_target]--
-			log_job_debug("[key_name(usr)] closed a [j.title] job position, leaving [j.total_positions] open job slots.")
+			log_job_debug("[key_name(usr)] closed a [j.id] job position, leaving [j.total_positions] open job slots.")
 			playsound(computer, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 			return TRUE
 		if("PRG_priority")
@@ -133,11 +133,12 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 	var/list/pos = list()
 	for(var/j in SSjob.joinable_occupations)
 		var/datum/job/job = j
-		if(job.title in blacklisted)
+		if(job.id in blacklisted)
 			continue
 
 		pos += list(list(
-			"title" = job.title,
+			"id" = job.id,
+			"title" = job.get_title_name(),
 			"current" = job.current_positions,
 			"total" = job.total_positions,
 			"status_open" = authed ? can_open_job(job) : FALSE,
@@ -149,7 +150,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 	var/list/priority = list()
 	for(var/j in SSjob.prioritized_jobs)
 		var/datum/job/job = j
-		priority += job.title
+		priority += job.id
 	data["prioritized"] = priority
 	return data
 

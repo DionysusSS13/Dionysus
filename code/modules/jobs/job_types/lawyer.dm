@@ -1,5 +1,10 @@
 /datum/job/lawyer
-	title = JOB_CIVIL_REPRESENTATIVE
+	id = JOB_CIVIL_REPRESENTATIVE
+	titles = list(
+		/datum/job_title/lawyer,
+		/datum/job_title/lawyer/defence,
+		/datum/job_title/lawyer/prosecutor,
+	)
 	description = "Advocate for prisoners, create law-binding contracts, \
 		ensure Security is following protocol and Space Law."
 	department_head = list(JOB_DIRECTOR_OF_PORT_SERVICES)
@@ -12,20 +17,6 @@
 
 	employers = list(
 		/datum/employer/none
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/lawyer,
-		),
-		"Defence Attorney" = list(
-			SPECIES_HUMAN = /datum/outfit/job/lawyer/defence,
-			SPECIES_VOX = /datum/outfit/job/lawyer/defence,
-		),
-		"Prosecutor" = list(
-			SPECIES_HUMAN = /datum/outfit/job/lawyer/prosecutor,
-			SPECIES_VOX = /datum/outfit/job/lawyer/prosecutor,
-		),
 	)
 
 	mind_traits = list(TRAIT_DONUT_LOVER)
@@ -54,24 +45,6 @@
 
 	chameleon_extras = /obj/item/stamp/law
 
-/* Commenting this out for now, since it overrides alternate job title outfits
-/datum/outfit/job/lawyer/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(visualsOnly)
-		return ..()
-
-	var/static/use_purple_suit = FALSE //If there is one lawyer, they get the default blue suit. If another lawyer joins the round, they start with a purple suit.
-	if(use_purple_suit)
-		uniform = /obj/item/clothing/under/rank/civilian/lawyer/purpsuit
-		suit = /obj/item/clothing/suit/toggle/lawyer/purple
-	else
-		use_purple_suit = TRUE
-	..()
-
-/datum/outfit/job/lawyer/get_types_to_preload()
-	. = ..()
-	. += /obj/item/clothing/under/rank/civilian/lawyer/purpsuit
-	. += /obj/item/clothing/suit/toggle/lawyer/purple*/
-
 /datum/outfit/job/lawyer/defence
 	name = "Defence Attorney"
 	uniform = /obj/item/clothing/under/rank/civilian/lawyer/blue
@@ -79,3 +52,21 @@
 /datum/outfit/job/lawyer/prosecutor
 	name = "Prosecutor"
 	uniform = /obj/item/clothing/under/rank/civilian/lawyer/red
+
+/datum/job_title/lawyer
+	name = JOB_CIVIL_REPRESENTATIVE
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/lawyer,
+	)
+
+/datum/job_title/lawyer/defence
+	name = "Defence Attorney"
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/lawyer/defence,
+	)
+
+/datum/job_title/lawyer/prosecutor
+	name = "Prosecutor"
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/lawyer/prosecutor,
+	)

@@ -1,5 +1,8 @@
 /datum/job/chief_engineer
-	title = JOB_CHIEF_ENGINEER
+	id = JOB_CHIEF_ENGINEER
+	titles = list(
+		/datum/job_title/chief_engineer,
+	)
 	description = "Coordinate engineering, ensure equipment doesn't get stolen, \
 		make sure the Supermatter doesn't blow up, maintain telecommunications."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
@@ -17,12 +20,6 @@
 
 	employers = list(
 		/datum/employer/daedalus,
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/ce,
-		),
 	)
 
 	departments_list = list(
@@ -92,3 +89,9 @@
 	internals_slot = ITEM_SLOT_SUITSTORE
 	backpack_contents = null
 	box = null
+
+/datum/job_title/chief_engineer
+	name = JOB_CHIEF_ENGINEER
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/ce,
+	)

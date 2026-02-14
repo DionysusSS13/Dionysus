@@ -80,7 +80,7 @@ GLOBAL_LIST_EMPTY(dead_players_during_shift)
 		if(!viewer.client)
 			continue
 
-		var/job = viewer.mind?.assigned_role?.title
+		var/job = viewer.mind?.assigned_role?.id
 		if(job == JOB_MEDICAE_TECHNICIAN || job == JOB_DIRECTOR_OF_MEDICAE_SERVICES)
 			viewer.client.give_award(/datum/award/achievement/jobs/hes_dead_jim, viewer)
 

@@ -1,5 +1,8 @@
 /datum/job/bureaucrat
-	title = "Bureaucrat"
+	id = JOB_BUREAUCRAT
+	titles = list(
+		/datum/job_title/bureaucrat,
+	)
 	description = "Handles relationships with Mars Executive Outcomes. Acts as a guard for Management."
 	department_head = list(JOB_PORT_AUTHORITY)
 	faction = FACTION_STATION
@@ -16,12 +19,6 @@
 
 	employers = list(
 		/datum/employer/government
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/hop,
-		),
 	)
 
 	departments_list = list(
@@ -44,3 +41,10 @@
 
 /datum/job/bureaucrat/get_captaincy_announcement(mob/living/captain)
 	return "Due to staffing shortages, newly promoted Acting Captain [captain.real_name] on deck!"
+
+
+/datum/job_title/bureaucrat
+	name = "Bureaucrat"
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/hop,
+	)

@@ -117,7 +117,7 @@ SUBSYSTEM_DEF(datacore)
 /datum/controller/subsystem/datacore/proc/manifest_modify(name, assignment, trim)
 	var/datum/data/record/foundrecord = library[DATACORE_RECORDS_STATION].get_record_by_name(name)
 	if(foundrecord)
-		foundrecord.fields[DATACORE_RANK] = assignment
+		foundrecord.fields[DATACORE_TITLE] = assignment
 		foundrecord.fields[DATACORE_TEMPLATE_RANK] = trim
 
 /datum/controller/subsystem/datacore/proc/get_manifest(record_type = DATACORE_RECORDS_STATION)
@@ -134,7 +134,7 @@ SUBSYSTEM_DEF(datacore)
 
 	for(var/datum/data/record/record as anything in SSdatacore.get_records(record_type))
 		var/name = record.fields[DATACORE_NAME]
-		var/rank = record.fields[DATACORE_RANK] // user-visible job
+		var/rank = record.fields[DATACORE_TITLE] // user-visible job
 		var/template_name = record.fields[DATACORE_TEMPLATE_RANK] // internal jobs by trim name
 		var/datum/job/job = SSjob.GetJob(template_name)
 
@@ -222,10 +222,10 @@ SUBSYSTEM_DEF(datacore)
 		return
 
 	var/datum/job/job = H.mind.assigned_role
-	var/assignment = H.mind.assigned_role.title
+	var/assignment = job.id
 
 	// The alt job title, if user picked one, or the default
-	var/chosen_assignment = C?.prefs.alt_job_titles[assignment] || assignment
+	var/chosen_assignment = C?.prefs.get_chosen_job_title_name(job.id) || assignment
 
 	var/id = next_record_id()
 	if(!C)
@@ -239,7 +239,7 @@ SUBSYSTEM_DEF(datacore)
 	G.fields[DATACORE_ID] = id
 
 	G.fields[DATACORE_NAME] = H.real_name
-	G.fields[DATACORE_RANK] = chosen_assignment
+	G.fields[DATACORE_TITLE] = chosen_assignment
 	G.fields[DATACORE_TEMPLATE_RANK] = assignment
 	G.fields[DATACORE_INITIAL_RANK] = assignment
 	G.fields[DATACORE_AGE] = H.age
@@ -297,8 +297,7 @@ SUBSYSTEM_DEF(datacore)
 	var/datum/data/record/locked/L = new()
 	L.fields[DATACORE_ID] = id
 	L.fields[DATACORE_NAME] = H.real_name
-	// L.fields[DATACORE_RANK] = assignment //ORIGINAL
-	L.fields[DATACORE_RANK] = chosen_assignment
+	L.fields[DATACORE_TITLE] = chosen_assignment
 	L.fields[DATACORE_TEMPLATE_RANK] = assignment
 	G.fields[DATACORE_INITIAL_RANK] = assignment
 	L.fields[DATACORE_AGE] = H.age

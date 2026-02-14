@@ -23,7 +23,7 @@
 		var/datum/bank_account/current_bank_account = SSeconomy.bank_accounts_by_id[current_account]
 		player_accounts += list(list(
 			"name" = current_bank_account.account_holder,
-			"job" = current_bank_account.account_job.title,
+			"job" = current_bank_account.account_job_title.name,
 			"balance" = current_bank_account.account_balance,
 			"modifier" = current_bank_account.payday_modifier,
 		))

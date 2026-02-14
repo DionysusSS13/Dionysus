@@ -32,7 +32,7 @@
 /mob/living/simple_animal/hostile/zombie/proc/setup_visuals()
 	var/datum/job/job = SSjob.GetJob(zombiejob)
 
-	var/datum/outfit/outfit = job.outfits["Default"]?[SPECIES_HUMAN]
+	var/datum/outfit/outfit = job.get_title().outfits[SPECIES_HUMAN]
 
 	var/mob/living/carbon/human/dummy/dummy = new
 	qdel(dummy.get_item_for_held_index(1))

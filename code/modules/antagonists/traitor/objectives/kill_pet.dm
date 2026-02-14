@@ -56,14 +56,14 @@
 /datum/traitor_objective/kill_pet/generate_objective(datum/mind/generating_for, list/possible_duplicates)
 	var/datum/job/role = generating_for.assigned_role
 	for(var/datum/traitor_objective/kill_pet/objective as anything in possible_duplicates)
-		possible_heads -= objective.target.title
+		possible_heads -= objective.target.id
 	if(limited_to_department_head)
 		possible_heads = possible_heads & role.department_head
 
 	if(!length(possible_heads))
 		return FALSE
 	target = SSjob.name_occupations[pick(possible_heads)]
-	var/pet_type = possible_heads[target.title]
+	var/pet_type = possible_heads[target.id]
 	if(islist(pet_type))
 		for(var/type in pet_type)
 			target_pet = locate(pet_type) in GLOB.mob_living_list
@@ -77,7 +77,7 @@
 		return FALSE
 	AddComponent(/datum/component/traitor_objective_register, target_pet, \
 		succeed_signals = list(COMSIG_PARENT_QDELETING, COMSIG_LIVING_DEATH))
-	replace_in_name("%DEPARTMENT HEAD%", target.title)
+	replace_in_name("%DEPARTMENT HEAD%", target.get_title())
 	replace_in_name("%PET%", target_pet.name)
 	return TRUE
 

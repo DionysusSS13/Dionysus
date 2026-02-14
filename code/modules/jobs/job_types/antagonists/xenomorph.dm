@@ -1,2 +1,8 @@
 /datum/job/xenomorph
-	title = ROLE_ALIEN
+	id = ROLE_XENOMORPH
+	titles = list(
+		/datum/job_title/xenomorph,
+	)
+
+/datum/job_title/xenomorph
+	name = ROLE_XENOMORPH

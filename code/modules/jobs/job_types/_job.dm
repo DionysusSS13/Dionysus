@@ -2,7 +2,7 @@ GLOBAL_LIST_INIT(job_display_order, list(
 	// Management
 	/datum/job/captain,
 	/datum/job/head_of_personnel,
-	///datum/job/bureaucrat,
+	/datum/job/bureaucrat,
 	// Security
 	/datum/job/head_of_security,
 	/datum/job/warden,
@@ -39,8 +39,10 @@ GLOBAL_LIST_INIT(job_display_order, list(
 ))
 
 /datum/job
-	/// The name of the job , used for preferences, bans and more. Make sure you know what you're doing before changing this.
-	var/title = "NOPE"
+	/// The titles this job has. These are turned into instances during init.
+	var/list/datum/job_title/titles = list(/datum/job_title)
+	/// Title types to their instance. Populated automatically.
+	var/list/datum/job_title/type_to_title = list()
 
 	/// The description of the job, used for preferences menu.
 	/// Keep it short and useful. Avoid in-jokes, these are for new players.
@@ -92,9 +94,12 @@ GLOBAL_LIST_INIT(job_display_order, list(
 
 	var/outfit = null
 
-	/// Different outfits for alternate job titles and different species
-	var/list/outfits
-
+/**
+ * DB STUFF
+ * DO NOT EDIT UNLESS YOU REALLY KNOW WHAT YOU'RE DOING
+ */
+	/// Dictates what the job is named in the DB, the preferences file, and a few other places. DO NOT CHANGE THIS WITHOUT A VERY GOOD REASON!!!
+	var/id
 	/// Minutes of experience-time required to play in this job. The type is determined by [exp_required_type] and [exp_required_type_department] depending on configs.
 	var/exp_requirements = 0
 	/// Experience required to play this job, if the config is enabled, and `exp_required_type_department` is not enabled with the proper config.
@@ -103,6 +108,9 @@ GLOBAL_LIST_INIT(job_display_order, list(
 	var/exp_required_type_department = ""
 	/// Experience type granted by playing in this job.
 	var/exp_granted_type = ""
+/**
+ * END DB STUFF
+ */
 
 	var/paycheck = PAYCHECK_MINIMAL
 	var/paycheck_department = null
@@ -156,11 +164,6 @@ GLOBAL_LIST_INIT(job_display_order, list(
 	/// String. If set to a non-empty one, it will be the key for the policy text value to show this role on spawn.
 	var/policy_index = ""
 
-	//PARIAH ADDITION START
-	/// Job title to use for spawning. Allows a job to spawn without needing map edits.
-	var/job_spawn_title
-	//PARIAH ADDITION END
-
 	///RPG job names, for the memes
 	var/rpg_title
 
@@ -176,8 +179,20 @@ GLOBAL_LIST_INIT(job_display_order, list(
 
 /datum/job/New()
 	. = ..()
-	if(!job_spawn_title)
-		job_spawn_title = title
+
+	if(!id)
+		var/type_str = "[type]"
+		id = copytext(type_str, findlasttext(type_str, "/") + 1, length(type_str) + 1) // Just use the last part of the type to fill this out if it's empty.
+
+	var/list/title_instances = list()
+	if (islist(titles))
+		for (var/title in titles)
+			var/title_inst = new title
+			type_to_title[title] = title_inst
+			title_instances.Add(title_inst)
+	else
+		title_instances.Add(new titles)
+	titles = title_instances
 
 	if(pinpad_key)
 		SSid_access.get_static_pincode(pinpad_key, 5)
@@ -255,7 +270,7 @@ GLOBAL_LIST_INIT(job_display_order, list(
 	return
 
 /mob/living/carbon/human/on_job_equipping(datum/job/equipping, datum/preferences/used_pref)
-	var/datum/bank_account/bank_account = new(real_name, equipping)
+	var/datum/bank_account/bank_account = new(real_name, equipping, equipping.get_title(used_pref.parent))
 	account_id = bank_account.account_id
 	bank_account.replaceable = FALSE
 
@@ -272,19 +287,20 @@ GLOBAL_LIST_INIT(job_display_order, list(
 
 /mob/living/carbon/human/dress_up_as_job(datum/job/equipping, visual_only = FALSE, datum/preferences/used_pref, use_loadout = FALSE)
 	//Find job title in the first list, then pick the outfit based on species.
-	if(!equipping.outfits)
+	var/datum/job_title/title = equipping.get_title(used_pref?.parent)
+	if(!length(title.outfits))
 		dna.species.pre_equip_species_outfit(null, src, visual_only)
 		return//for jobs that don't come with any equipment or load outfits differently
 
 	var/species2try = dna.species.job_outfit_type || dna.species.id //Uses the job_outfit_type of the species, if possible.
-	var/datum/outfit/outfit2wear = equipping.outfits[used_pref?.alt_job_titles[equipping.title] || "Default"]?[species2try]
-	outfit2wear ||= equipping.outfits["Default"]?[species2try]//A fallback that uses the default job title outfit for the species.
-	outfit2wear ||= equipping.outfits["Default"]?[SPECIES_HUMAN]//Second fallback that uses the default job title and human outfit.
+	var/datum/outfit/outfit2wear = title.outfits[species2try]
+	var/datum/job_title/default_title = equipping.get_title()
+	outfit2wear ||= default_title.outfits[species2try] //A fallback that uses the default job title outfit for the species.
+	outfit2wear ||= default_title.outfits[SPECIES_HUMAN] //Second fallback that uses the default job title and human outfit.
 	if(!outfit2wear)
-		outfit2wear = /datum/outfit/job//Emergency fallback that equips the generic "job outfit". This shouldn't happen unless something is wrong.
+		outfit2wear = /datum/outfit/job //Emergency fallback that equips the generic "job outfit". This shouldn't happen unless something is wrong.
 		stack_trace("[equipping] has no valid outfits in its list.")
 
-	outfit2wear = new outfit2wear()
 	dna.species.pre_equip_species_outfit(outfit2wear, src, visual_only)
 	if(use_loadout)
 		equip_outfit_and_loadout(outfit2wear, used_pref, visual_only, equipping)
@@ -393,11 +409,13 @@ GLOBAL_LIST_INIT(job_display_order, list(
 	var/obj/item/modular_computer/tablet/pda/PDA = H.get_item_by_slot(pda_slot)
 	if(istype(PDA))
 		PDA.saved_identification = H.real_name
-		PDA.saved_job = J.title
 		PDA.UpdateDisplay()
 		if(H.mind)
+			PDA.saved_job = H.mind.get_title().name
 			spawn(-1) //Ssshhh linter don't worry about the lack of a user it's all gonna be okay.
 				PDA.turn_on()
+		else
+			PDA.saved_job = J.get_title()
 
 /datum/outfit/job/get_types_to_preload()
 	var/list/preload = ..()
@@ -454,9 +472,9 @@ GLOBAL_LIST_INIT(job_display_order, list(
 	SHOULD_NOT_OVERRIDE(TRUE)
 	RETURN_TYPE(/obj/effect/landmark/start)
 
-	var/obj/effect/landmark/start/spawnpoint = get_start_landmark_for(title)
+	var/obj/effect/landmark/start/spawnpoint = get_start_landmark_for(id)
 	if(!spawnpoint)
-		log_world("Couldn't find a round start spawn point for [title].")
+		log_world("Couldn't find a round start spawn point for [id].")
 		return
 
 	spawnpoint.used = TRUE
@@ -465,8 +483,8 @@ GLOBAL_LIST_INIT(job_display_order, list(
 
 /// Finds a valid latejoin spawn point, checking for events and special conditions.
 /datum/job/proc/get_latejoin_spawn_point()
-	if(length(GLOB.high_priority_spawns[title])) //We're doing something special today.
-		return pick(GLOB.high_priority_spawns[title])
+	if(length(GLOB.high_priority_spawns[id])) //We're doing something special today.
+		return pick(GLOB.high_priority_spawns[id])
 
 	if(length(SSjob.latejoin_trackers))
 		return pick(SSjob.latejoin_trackers)
@@ -503,7 +521,7 @@ GLOBAL_LIST_INIT(job_display_order, list(
 
 	var/require_human = FALSE
 
-	src.job = job.title
+	src.job = job.id
 
 	if(fully_randomize)
 		player_client.prefs.apply_prefs_to(src)
@@ -608,6 +626,7 @@ GLOBAL_LIST_INIT(job_display_order, list(
 /// Called by SSjob when a player joins the round as this job.
 /datum/job/proc/on_join_message(client/C, job_title_pref)
 	var/completed_title = "<span style='color:[selection_color]'>[job_title_pref]</span>"
+	var/title = get_title(C)
 	var/prefix
 	if(spawn_positions == 1)
 		prefix = "the"
@@ -628,3 +647,22 @@ GLOBAL_LIST_INIT(job_display_order, list(
 /// Called by SSjob when a player joins the round as this job.
 /datum/job/proc/on_join_popup(client/C, job_title_pref)
 	return
+
+/// Tries to get the job name from the client, otherwise, returns index 1, or a random one.
+/datum/job/proc/get_title(client/player, random = FALSE)
+	RETURN_TYPE(/datum/job_title)
+	var/title = player?.prefs.get_chosen_job_title(id)
+
+	if (!title)
+		return random ? pick(titles) : titles[1]
+
+	return title
+
+/datum/job/proc/get_title_name(client/player, random = FALSE)
+	var/datum/job_title/title = player?.prefs.get_chosen_job_title(id)
+
+	if (!title)
+		title = random ? pick(titles) : titles[1]
+		return title.name
+
+	return title.name

@@ -92,8 +92,8 @@
 			return "[jobtitle] is not compatible with some antagonist role assigned to you."
 	return "Error: Unknown job availability."
 
-/mob/dead/new_player/proc/IsJobUnavailable(rank, latejoin = FALSE)
-	var/datum/job/job = SSjob.GetJob(rank)
+/mob/dead/new_player/proc/IsJobUnavailable(job_id, latejoin = FALSE)
+	var/datum/job/job = SSjob.GetJob(job_id)
 	if(!(job.job_flags & JOB_NEW_PLAYER_JOINABLE))
 		return JOB_UNAVAILABLE_GENERIC
 	if((job.current_positions >= job.total_positions) && job.total_positions != -1)
@@ -114,10 +114,10 @@
 		return JOB_UNAVAILABLE_GENERIC
 	return JOB_AVAILABLE
 
-/mob/dead/new_player/proc/AttemptLateSpawn(rank)
-	var/error = IsJobUnavailable(rank)
+/mob/dead/new_player/proc/AttemptLateSpawn(job_id)
+	var/error = IsJobUnavailable(job_id)
 	if(error != JOB_AVAILABLE)
-		tgui_alert(usr, get_job_unavailable_error_message(error, rank))
+		tgui_alert(usr, get_job_unavailable_error_message(error, job_id))
 		return FALSE
 
 	if(SSshuttle.arrivals)
@@ -133,7 +133,7 @@
 	SSticker.queued_players -= src
 	SSticker.queue_delay = 4
 
-	var/datum/job/job = SSjob.GetJob(rank)
+	var/datum/job/job = SSjob.GetJob(job_id)
 
 	if(!SSjob.AssignRole(src, job, TRUE))
 		tgui_alert(usr, "There was an unexpected error putting you into your requested job. If you cannot join with any job, you should contact an admin.")
@@ -160,7 +160,7 @@
 		is_captain = IS_FULL_CAPTAIN
 
 	// If we don't have an assigned cap yet, check if this person qualifies for some from of captaincy.
-	else if(!SSjob.assigned_captain && ishuman(character) && SSjob.chain_of_command[rank] && !is_banned_from(ckey, list(JOB_PORT_AUTHORITY)))
+	else if(!SSjob.assigned_captain && ishuman(character) && SSjob.chain_of_command[job_id] && !is_banned_from(ckey, list(JOB_PORT_AUTHORITY)))
 		is_captain = IS_ACTING_CAPTAIN
 
 	if(is_captain != IS_NOT_CAPTAIN)
@@ -178,7 +178,7 @@
 		humanc = character //Let's retypecast the var to be human,
 
 	if(humanc) //These procs all expect humans
-		var/chosen_rank = humanc.client?.prefs.alt_job_titles[rank] || rank
+		var/chosen_rank = humanc.client?.prefs.get_chosen_job_title_name(job_id)
 		SSdatacore.manifest_inject(humanc, humanc.client)
 
 		if(SSshuttle.arrivals)
@@ -190,7 +190,7 @@
 
 		var/datum/job_department/department = job.departments_list?[1]
 		if(department?.department_head == job.type && SSjob.temporary_heads_by_dep[department])
-			var/message = "Greetings, [job.title] [humanc.real_name], in your absense, your employee \"[SSjob.temporary_heads_by_dep[department]]\" was granted elevated access to perform your duties."
+			var/message = "Greetings, [job.get_title_name(humanc.client)] [humanc.real_name], in your absense, your employee \"[SSjob.temporary_heads_by_dep[department]]\" was granted elevated access to perform your duties."
 			aas_pda_message_name(humanc.real_name, DATACORE_RECORDS_STATION, message, "Staff Notice")
 
 		if(GLOB.curse_of_madness_triggered)
@@ -213,7 +213,7 @@
 	log_manifest(character.mind.key,character.mind,character,latejoin = TRUE)
 	character.client?.give_award(/datum/award/achievement/enter_the_pool, character)
 
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CREWMEMBER_JOINED, character, rank)
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CREWMEMBER_JOINED, character, job_id)
 
 /mob/dead/new_player/proc/AddEmploymentContract(mob/living/carbon/human/employee)
 	//TODO:  figure out a way to exclude wizards/nukeops/demons from this.

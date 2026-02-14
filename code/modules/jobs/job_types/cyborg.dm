@@ -1,5 +1,8 @@
 /datum/job/cyborg
-	title = JOB_CYBORG
+	id = JOB_CYBORG
+	titles = list(
+		/datum/job_title/cyborg,
+	)
 	description = "Assist the crew, follow your laws, obey your AI."
 	radio_help_message = "<b>Prefix your message with :b to speak with other cyborgs and AI.</b>"
 	auto_deadmin_role_flags = DEADMIN_POSITION_SILICON
@@ -33,3 +36,6 @@
 	robot_spawn.notify_ai(AI_NOTIFICATION_NEW_BORG)
 	if(!robot_spawn.connected_ai) // Only log if there's no Master AI
 		robot_spawn.log_current_laws()
+
+/datum/job_title/cyborg
+	name = JOB_CYBORG

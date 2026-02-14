@@ -28,7 +28,7 @@
 	new_uplink.unlock_text = "Your Syndicate Uplink has been cunningly implanted in you, for a small TC fee. Simply trigger the uplink to access it."
 	if(!uplink_handler)
 		new_uplink.uplink_handler.owner = target.mind
-		new_uplink.uplink_handler.assigned_role = target.mind.assigned_role.title
+		new_uplink.uplink_handler.assigned_role = target.mind.assigned_role.id
 		new_uplink.uplink_handler.assigned_species = target.dna.species.id
 
 /**

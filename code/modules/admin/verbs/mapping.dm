@@ -306,7 +306,7 @@ GLOBAL_VAR_INIT(say_disabled, FALSE)
 
 	for(var/job in subtypesof(/datum/job))
 		var/datum/job/JB = new job
-		switch(JB.title)
+		switch(JB.id)
 			if(JOB_AI, JOB_CYBORG)
 				continue
 
@@ -315,8 +315,8 @@ GLOBAL_VAR_INIT(say_disabled, FALSE)
 				randomize_human(D)
 				D.dress_up_as_job(JB, TRUE)
 				var/icon/I = getFlatIcon(D, no_anim = TRUE)
-				fcopy(I, "icons/mob/job_icons_temp/[JB.title].dmi")
-				completed += JB.title
+				fcopy(I, "icons/mob/job_icons_temp/[JB.id].dmi")
+				completed += JB.id
 
 	qdel(D)
 

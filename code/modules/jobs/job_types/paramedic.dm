@@ -1,5 +1,8 @@
 /datum/job/paramedic
-	title = JOB_PARAMEDIC
+	id = JOB_PARAMEDIC
+	titles = list(
+		/datum/job_title/paramedic,
+	)
 	description = "Run around the station looking for patients, respond to \
 		emergencies, give patients a roller bed ride to medbay."
 	department_head = list(JOB_DIRECTOR_OF_MEDICAE_SERVICES)
@@ -12,12 +15,6 @@
 
 	employers = list(
 		/datum/employer/aether,
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/paramedic,
-		),
 	)
 
 	paycheck = PAYCHECK_MEDIUM
@@ -68,3 +65,9 @@
 	box = /obj/item/storage/box/survival/medical
 	chameleon_extras = /obj/item/gun/syringe
 	pda_slot = ITEM_SLOT_LPOCKET
+
+/datum/job_title/paramedic
+	name = JOB_PARAMEDIC
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/paramedic,
+	)

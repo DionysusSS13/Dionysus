@@ -224,7 +224,7 @@ DEFINE_INTERACTABLE(/obj/machinery/c4_embedded_controller)
 
 /obj/item/key/embedded_controller/examine(mob/user)
 	. = ..()
-	if(user.mind?.assigned_role?.title == JOB_CHIEF_ENGINEER)
+	if(user.mind?.assigned_role?.id == JOB_CHIEF_ENGINEER)
 		. += span_alert("Even in space, everything is CH751...")
 	else
 		var/datum/roll_result/result = user.get_examine_result("embed_control_key_examine")

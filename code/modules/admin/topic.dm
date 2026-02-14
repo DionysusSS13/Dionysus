@@ -810,7 +810,7 @@
 
 		//Job + antagonist
 		if(M.mind)
-			special_role_description = "Role: <b>[M.mind.assigned_role.title]</b>; Antagonist: <font color='red'><b>"
+			special_role_description = "Role: <b>[M.mind.assigned_role.get_title_name(M.client)]</b>; Antagonist: <font color='red'><b>"
 			var/i = 0
 			for(var/datum/antagonist/A in M.mind.antag_datums)
 				special_role_description += "[A.name]"
@@ -860,9 +860,9 @@
 		var/Add = href_list["addjobslot"]
 
 		for(var/datum/job/job as anything in SSjob.joinable_occupations)
-			if(job.title == Add)
+			if(job.id == Add)
 				job.total_positions += 1
-				log_job_debug("[key_name(usr)] added a slot to [job.title]")
+				log_job_debug("[key_name(usr)] added a slot to [job.id]")
 				break
 
 		src.manage_free_slots()
@@ -875,13 +875,13 @@
 		var/Add = href_list["customjobslot"]
 
 		for(var/datum/job/job as anything in SSjob.joinable_occupations)
-			if(job.title == Add)
+			if(job.id == Add)
 				var/newtime = null
 				newtime = input(usr, "How many jebs do you want?", "Add wanted posters", "[newtime]") as num|null
 				if(!newtime)
 					to_chat(src.owner, "Setting to amount of positions filled for the job", confidential = TRUE)
 					job.total_positions = job.current_positions
-					log_job_debug("[key_name(usr)] set the job cap for [job.title] to [job.total_positions]")
+					log_job_debug("[key_name(usr)] set the job cap for [job.id] to [job.total_positions]")
 					break
 				job.total_positions = newtime
 
@@ -894,9 +894,9 @@
 		var/Remove = href_list["removejobslot"]
 
 		for(var/datum/job/job as anything in SSjob.joinable_occupations)
-			if(job.title == Remove && job.total_positions - job.current_positions > 0)
+			if(job.id == Remove && job.total_positions - job.current_positions > 0)
 				job.total_positions -= 1
-				log_job_debug("[key_name(usr)] removed a slot from [job.title]")
+				log_job_debug("[key_name(usr)] removed a slot from [job.id]")
 				break
 
 		src.manage_free_slots()
@@ -908,9 +908,9 @@
 		var/Unlimit = href_list["unlimitjobslot"]
 
 		for(var/datum/job/job as anything in SSjob.joinable_occupations)
-			if(job.title == Unlimit)
+			if(job.id == Unlimit)
 				job.total_positions = -1
-				log_job_debug("[key_name(usr)] removed the limit from [job.title]")
+				log_job_debug("[key_name(usr)] removed the limit from [job.id]")
 				break
 
 		src.manage_free_slots()
@@ -922,9 +922,9 @@
 		var/Limit = href_list["limitjobslot"]
 
 		for(var/datum/job/job as anything in SSjob.joinable_occupations)
-			if(job.title == Limit)
+			if(job.id == Limit)
 				job.total_positions = job.current_positions
-				log_job_debug("[key_name(usr)] set the limit for [job.title] to [job.total_positions]")
+				log_job_debug("[key_name(usr)] set the limit for [job.id] to [job.total_positions]")
 				break
 
 		src.manage_free_slots()

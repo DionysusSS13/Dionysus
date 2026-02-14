@@ -1,5 +1,8 @@
 /datum/job/cargo_technician
-	title = JOB_DECKHAND
+	id = JOB_DECKHAND
+	titles = list(
+		/datum/job_title/cargo_technician,
+	)
 	description = "Distribute supplies to the departments that ordered them, \
 		collect empty crates, load and unload the supply shuttle, \
 		ship bounty cubes."
@@ -12,12 +15,6 @@
 
 	employers = list(
 		/datum/employer/hermes
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/cargo_tech,
-		),
 	)
 
 	paycheck = PAYCHECK_EASY
@@ -53,3 +50,9 @@
 	name = JOB_DECKHAND + " (MODsuit)"
 
 	back = /obj/item/mod/control/pre_equipped/loader
+
+/datum/job_title/cargo_technician
+	name = JOB_DECKHAND
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/cargo_tech,
+	)

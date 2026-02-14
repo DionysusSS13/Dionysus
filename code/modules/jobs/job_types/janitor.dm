@@ -1,5 +1,8 @@
 /datum/job/janitor
-	title = JOB_JANITOR
+	id = JOB_JANITOR
+	titles = list(
+		/datum/job_title/janitor,
+	)
 	description = "Clean up trash and blood. Replace broken lights. Slip people over."
 	department_head = list(JOB_DIRECTOR_OF_PORT_SERVICES)
 	faction = FACTION_STATION
@@ -10,12 +13,6 @@
 
 	employers = list(
 		/datum/employer/none
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/janitor,
-		),
 	)
 
 	departments_list = list(
@@ -56,3 +53,9 @@
 	if(GARBAGEDAY in SSevents.holidays)
 		. += /obj/item/gun/ballistic/revolver
 		. += /obj/item/ammo_box/a357
+
+/datum/job_title/janitor
+	name = JOB_JANITOR
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/janitor,
+	)

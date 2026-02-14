@@ -468,7 +468,7 @@
 
 		var/list/job_data = list()
 		for(var/datum/job/job_datum as anything in department.department_jobs)
-			if(parent.IsJobUnavailable(job_datum.title, TRUE) != JOB_AVAILABLE)
+			if(parent.IsJobUnavailable(job_datum.id, TRUE) != JOB_AVAILABLE)
 				continue
 
 			var/command_bold = ""
@@ -476,9 +476,9 @@
 				command_bold = " command"
 
 			if(job_datum in SSjob.prioritized_jobs)
-				job_data += "<a class='genericLink job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'><span class='priority'>[job_datum.title] ([job_datum.current_positions])</span></a>"
+				job_data += "<a class='genericLink job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.id]'><span class='priority'>[job_datum.get_title_name()] ([job_datum.current_positions])</span></a>"
 			else
-				job_data += "<a class='genericLink job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'>[job_datum.title] ([job_datum.current_positions])</a>"
+				job_data += "<a class='genericLink job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.id]'>[job_datum.get_title_name()] ([job_datum.current_positions])</a>"
 
 		if(length(job_data))
 			dept_data += job_data

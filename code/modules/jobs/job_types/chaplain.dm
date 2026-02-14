@@ -1,5 +1,8 @@
 /datum/job/chaplain
-	title = JOB_CHAPLAIN
+	id = JOB_CHAPLAIN
+	titles = list(
+		/datum/job_title/chaplain,
+	)
 	description = "Hold services and funerals, cremate people, preach your \
 		religion, protect the crew against cults."
 	department_head = list(JOB_DIRECTOR_OF_PORT_SERVICES)
@@ -11,12 +14,6 @@
 
 	employers = list(
 		/datum/employer/none
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/chaplain,
-		),
 	)
 
 	departments_list = list(
@@ -128,3 +125,9 @@
 	back = /obj/item/storage/backpack/cultpack
 
 	chameleon_extras = /obj/item/stamp/chap
+
+/datum/job_title/chaplain
+	name = JOB_CHAPLAIN
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/chaplain,
+	)

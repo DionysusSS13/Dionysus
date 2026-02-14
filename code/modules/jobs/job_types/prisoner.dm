@@ -1,5 +1,8 @@
 /datum/job/prisoner
-	title = JOB_PRISONER
+	id = JOB_PRISONER
+	titles = list(
+		/datum/job_title/prisoner,
+	)
 	description = "Keep yourself occupied in permabrig."
 	department_head = list("The Security Team")
 	faction = FACTION_STATION
@@ -8,12 +11,6 @@
 	selection_color = "#bd630a"
 	exp_granted_type = EXP_TYPE_CREW
 	paycheck = PAYCHECK_ZERO //This doesnt actually do anything since prisoners have no department
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/prisoner,
-		),
-	)
 
 	department_for_prefs = /datum/job_department/security
 
@@ -43,3 +40,9 @@
 	..()
 	if(prob(1)) // D BOYYYYSSSSS
 		head = /obj/item/clothing/head/beanie/black/dboy
+
+/datum/job_title/prisoner
+	name = JOB_PRISONER
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/prisoner,
+	)

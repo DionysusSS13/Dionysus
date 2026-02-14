@@ -87,7 +87,7 @@
 			entry["security_record"] = player_security_record
 		entry["name"] = player_record.fields[DATACORE_NAME]
 		entry["id"] = player_record.fields[DATACORE_ID]
-		entry["rank"] = player_record.fields[DATACORE_RANK]
+		entry["rank"] = player_record.fields[DATACORE_TITLE]
 		entry["gender"] = player_record.fields[DATACORE_GENDER]
 		entry["age"] = player_record.fields[DATACORE_AGE]
 		entry["species"] = player_record.fields[DATACORE_SPECIES]
@@ -304,9 +304,9 @@
 									background = "''" //"'background-color:#FFFFFF;'"
 									crimstat = "No Record."
 							dat += "<tr style=[background]>"
-							dat += "<td><input type='hidden' value='[R.fields[DATACORE_NAME]] [R.fields[DATACORE_ID]] [R.fields[DATACORE_RANK]] [R.fields[DATACORE_FINGERPRINT]]'></input><A href='?src=[REF(src)];choice=Browse Record;d_rec=[REF(R)]'>[R.fields[DATACORE_NAME]]</a></td>"
+							dat += "<td><input type='hidden' value='[R.fields[DATACORE_NAME]] [R.fields[DATACORE_ID]] [R.fields[DATACORE_TITLE]] [R.fields[DATACORE_FINGERPRINT]]'></input><A href='?src=[REF(src)];choice=Browse Record;d_rec=[REF(R)]'>[R.fields[DATACORE_NAME]]</a></td>"
 							dat += "<td>[R.fields[DATACORE_ID]]</td>"
-							dat += "<td>[R.fields[DATACORE_RANK]]</td>"
+							dat += "<td>[R.fields[DATACORE_TITLE]]</td>"
 							dat += "<td>[R.fields[DATACORE_FINGERPRINT]]</td>"
 							dat += "<td>[crimstat]</td></tr>"
 						dat += {"
@@ -338,7 +338,7 @@
 						<tr><td>Gender:</td><td><A href='?src=[REF(src)];choice=Edit Field;field=gender'>&nbsp;[active1.fields[DATACORE_GENDER]]&nbsp;</A></td></tr>
 						<tr><td>Age:</td><td><A href='?src=[REF(src)];choice=Edit Field;field=age'>&nbsp;[active1.fields[DATACORE_AGE]]&nbsp;</A></td></tr>"}
 						dat += "<tr><td>Species:</td><td><A href ='?src=[REF(src)];choice=Edit Field;field=species'>&nbsp;[active1.fields[DATACORE_SPECIES]]&nbsp;</A></td></tr>"
-						dat += {"<tr><td>Rank:</td><td><A href='?src=[REF(src)];choice=Edit Field;field=rank'>&nbsp;[active1.fields[DATACORE_RANK]]&nbsp;</A></td></tr>
+						dat += {"<tr><td>Rank:</td><td><A href='?src=[REF(src)];choice=Edit Field;field=rank'>&nbsp;[active1.fields[DATACORE_TITLE]]&nbsp;</A></td></tr>
 						<tr><td>Initial Rank:</td><td>[active1.fields[DATACORE_INITIAL_RANK]]</td>
 						<tr><td>Fingerprint:</td><td><A href='?src=[REF(src)];choice=Edit Field;field=fingerprint'>&nbsp;[active1.fields[DATACORE_FINGERPRINT]]&nbsp;</A></td></tr>
 						</table></td>
@@ -709,7 +709,7 @@ Age: [active1.fields[DATACORE_AGE]]<BR>"}
 				var/datum/data/record/general/G = new /datum/data/record/general()
 				G.fields[DATACORE_NAME] = "New Record"
 				G.fields[DATACORE_ID] = "[num2hex(rand(1, 1.6777215E7), 6)]"
-				G.fields[DATACORE_RANK] = "Unassigned"
+				G.fields[DATACORE_TITLE] = "Unassigned"
 				G.fields[DATACORE_TEMPLATE_RANK] = "Unassigned"
 				G.fields[DATACORE_INITIAL_RANK] = "Unassigned"
 				G.fields[DATACORE_GENDER] = "Male"
@@ -1023,9 +1023,9 @@ Age: [active1.fields[DATACORE_AGE]]<BR>"}
 							if(ispath(path))
 								var/rank = SSid_access.station_job_templates[path]
 								if(rank)
-									active1.fields[DATACORE_RANK] = rank
-									active1.fields[DATACORE_TEMPLATE_RANK] = active1.fields[DATACORE_RANK]
-									investigate_log("[key_name(usr)] updated [active1.fields[DATACORE_NAME]]'s record: Var: rank | Old value:[active1.fields[DATACORE_RANK]] | New value: [rank].", INVESTIGATE_RECORDS)
+									active1.fields[DATACORE_TITLE] = rank
+									active1.fields[DATACORE_TEMPLATE_RANK] = active1.fields[DATACORE_TITLE]
+									investigate_log("[key_name(usr)] updated [active1.fields[DATACORE_NAME]]'s record: Var: rank | Old value:[active1.fields[DATACORE_TITLE]] | New value: [rank].", INVESTIGATE_RECORDS)
 								else
 									message_admins("Warning: possible href exploit by [key_name(usr)] - attempted to set change a crew member rank to an invalid path: [path]")
 									log_game("Warning: possible href exploit by [key_name(usr)] - attempted to set change a crew member rank to an invalid path: [path]")

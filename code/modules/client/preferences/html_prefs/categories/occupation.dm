@@ -9,21 +9,21 @@
 	if(.)
 		return
 
+	var/datum/preferences/prefs = locate(href_list["prefs"])
+	if(!prefs)
+		CRASH("Prefs reference for occupation of [usr?.client] is invalid?")
+
+	if(prefs.parent != usr.client && !check_rights())
+		CRASH("Unable to edit prefs that don't belong to you, [usr.key]! (pref owner: [prefs.parent?.key || "NULL"])")
+
 	if(href_list["job_info"])
 		var/datum/job/J = SSjob.GetJob(href_list["job_info"])
 		if(!J)
 			return
-		var/datum/browser/window = new(usr, "JobInfo", J.title, 400, 120)
+		var/datum/browser/window = new(usr, "JobInfo", J.get_title_name(usr.client), 400, 120)
 		window.set_content(J.description)
 		window.open()
 		return TRUE
-
-	var/datum/preferences/prefs = locate(href_list["prefs"])
-	if(!prefs)
-		return
-
-	if(prefs.parent != usr.client && !check_rights())
-		CRASH("Unable to edit prefs that don't belong to you, [usr.key]! (pref owner: [prefs.parent?.key || "NULL"])")
 
 	if(href_list["change_alt_title"])
 		if(set_job_title(prefs, href_list["job"]))
@@ -67,10 +67,10 @@
 	var/index = 0
 	for(var/datum/job/job in job_data)
 		index++
-		var/is_banned = job_bans[job.title] == "banned"
-		var/is_too_new = job_bans[job.title]?["job_days_left"]
-		var/job_priority = priority2text[(job_prefs[job.title] + 1)]
-		var/title_link = length(job.alt_titles) ? button_element(src, prefs.alt_job_titles?[job.title] || job.title, "change_alt_title=1;prefs=\ref[prefs];job=[job.title]") : "[job.title]"
+		var/is_banned = job_bans[job.id] == "banned"
+		var/is_too_new = job_bans[job.id]?["job_days_left"]
+		var/job_priority = priority2text[(job_prefs[job.id] + 1)]
+		var/title_link = length(job.titles) > 1 ? button_element(src, job.get_title_name(usr), "change_alt_title=1;prefs=\ref[prefs];job=[job.id]") : "[job.get_title_name()]"
 		var/rejection_reason = ""
 
 		if(is_banned)
@@ -97,13 +97,13 @@
 			<td>
 			</td>
 			<td width='30%' align='center'>
-				[rejection_reason ? "<span class='linkOff'>[job.title]</span>" : title_link]
+				[rejection_reason ? "<span class='linkOff'>[job.id]</span>" : title_link]
 			</td>
 			<td width = '10%' align = 'center'>
-				[button_element(src, "?", "job_info=[job.title]")]
+				[button_element(src, "?", "job_info=[job.id]")]
 			</td>
 			<td>
-				<b>[rejection_reason || button_element(prefs, job_priority, "pref_act=[/datum/preference/blob/job_priority];job=[job.title]")]</b>
+				<b>[rejection_reason || button_element(prefs, job_priority, "pref_act=[/datum/preference/blob/job_priority];job=[job.id]")]</b>
 			</td>
 		</tr>
 		"}
@@ -137,7 +137,7 @@
 			var/datum/job/department_head_type = initial(department_type.department_head)
 
 			departments[department_name] = list(
-				"head" = department_head_type && initial(department_head_type.title),
+				"head" = department_head_type && initial(department_head_type.id),
 			)
 
 		jobs +=  job
@@ -152,12 +152,12 @@
 
 	for (var/datum/job/job as anything in SSjob.all_occupations)
 		var/required_playtime_remaining = job.required_playtime_remaining(user.client)
-		if (is_banned_from(user.client?.ckey, job.title))
+		if (is_banned_from(user.client?.ckey, job.id))
 			data["job_banned"] = TRUE
 			continue
 
 		if (required_playtime_remaining)
-			job_required_experience[job.title] = list(
+			job_required_experience[job.id] = list(
 				"experience_type" = job.get_exp_req_type(),
 				"required_playtime" = required_playtime_remaining,
 			)
@@ -165,7 +165,7 @@
 			continue
 
 		if (!job.player_old_enough(user.client))
-			job_days_left[job.title] = job.available_in_days(user.client)
+			job_days_left[job.id] = job.available_in_days(user.client)
 
 	if (job_days_left.len)
 		data["job_days_left"] = job_days_left
@@ -175,22 +175,21 @@
 
 	return data
 
-/datum/preference_group/category/occupation/proc/set_job_title(datum/preferences/prefs, job_title)
-	var/datum/job/job = SSjob.GetJob(job_title)
+/datum/preference_group/category/occupation/proc/set_job_title(datum/preferences/prefs, job_id)
+	var/datum/job/job = SSjob.GetJob(job_id)
 	if(!job)
 		return
 
-	var/new_job_title = input(usr, "Select Job Title",, prefs.alt_job_titles?[job_title] || job_title) as null|anything in job.alt_titles
+	var/new_job_title = input(usr, "Select Job Title",, prefs.get_chosen_job_title().type) as null|anything in job.type_to_title
 	if(!new_job_title)
 		return
 
-	if (!(new_job_title in job.alt_titles))
-		if(length(job.alt_titles))
-			new_job_title = job.alt_titles[1]
-		else
-			return FALSE
+	if (!(new_job_title in job.type_to_title))
+		new_job_title = job.titles[1].type
 
-	prefs.alt_job_titles[job_title] = new_job_title
+	var/list/alt_titles = prefs.read_preference(/datum/preference/blob/alternate_titles)
+	alt_titles[job_id] = new_job_title
+	prefs.update_preference(/datum/preference/blob/alternate_titles, alt_titles)
 
 	prefs.character_preview_view?.update_body()
 	return TRUE

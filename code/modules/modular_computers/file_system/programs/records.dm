@@ -43,7 +43,7 @@
 
 				current_record["id"] = person.fields[DATACORE_ID]
 				current_record["name"] = person.fields[DATACORE_NAME]
-				current_record["rank"] = person.fields[DATACORE_RANK]
+				current_record["rank"] = person.fields[DATACORE_TITLE]
 				current_record["gender"] = person.fields[DATACORE_GENDER]
 				current_record["age"] = person.fields[DATACORE_AGE]
 				current_record["species"] = person.fields[DATACORE_SPECIES]

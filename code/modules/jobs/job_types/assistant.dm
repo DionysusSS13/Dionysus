@@ -4,7 +4,10 @@ GLOBAL_DATUM(colored_assistant, /datum/colored_assistant)
 Assistant
 */
 /datum/job/assistant
-	title = JOB_CIVILLIAN
+	id = JOB_CIVILLIAN
+	titles = list(
+		/datum/job_title/assistant,
+	)
 	description = "The everyman, an essential component to station life."
 	faction = FACTION_STATION
 	total_positions = 5
@@ -17,12 +20,6 @@ Assistant
 		/datum/employer/mars_exec,
 		/datum/employer/hermes,
 		/datum/employer/none
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/assistant,
-		),
 	)
 
 	paycheck = PAYCHECK_ASSISTANT // Get a job. Job reassignment changes your paycheck now. Get over it.
@@ -208,3 +205,9 @@ Assistant
 
 	// Couldn't find a matching jumpskirt, oh well
 	jumpskirts = list(get_random_jumpskirt())
+
+/datum/job_title/assistant
+	name = JOB_CIVILLIAN
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/assistant,
+	)

@@ -1,5 +1,8 @@
 /datum/job/quartermaster
-	title = JOB_QUARTERMASTER
+	id = JOB_QUARTERMASTER
+	titles = list(
+		/datum/job_title/quartermaster,
+	)
 	description = "Manage your Deckhands and Prospectors, assist with \
 		economical purchasing."
 	faction = FACTION_STATION
@@ -13,12 +16,6 @@
 
 	employers = list(
 		/datum/employer/hermes
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/quartermaster,
-		),
 	)
 
 	paycheck = PAYCHECK_COMMAND
@@ -53,3 +50,9 @@
 	l_hand = /obj/item/clipboard
 
 	chameleon_extras = /obj/item/stamp/qm
+
+/datum/job_title/quartermaster
+	name = JOB_QUARTERMASTER
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/quartermaster,
+	)

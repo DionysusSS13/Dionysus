@@ -27,7 +27,7 @@
 		var/list/exceptions = list()
 		for(var/datum/job/job as anything in department.department_jobs)
 			if(job.total_positions == -1)
-				exceptions += job.title
+				exceptions += job.id
 				continue
 			var/open_slots = job.total_positions - job.current_positions
 			if(open_slots < 1)

@@ -1,5 +1,8 @@
 /datum/job/bartender
-	title = JOB_LOUNGE_STEWARD
+	id = JOB_LOUNGE_STEWARD
+	titles = list(
+		/datum/job_title/bartender,
+	)
 	description = "Serve booze, mix drinks, keep the crew drunk."
 	department_head = list(JOB_DIRECTOR_OF_PORT_SERVICES)
 	faction = FACTION_STATION
@@ -10,12 +13,6 @@
 
 	employers = list(
 		/datum/employer/none
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/bartender,
-		),
 	)
 
 	departments_list = list(
@@ -56,3 +53,9 @@
 	if(H.age < AGE_MINOR)
 		W.registered_age = AGE_MINOR
 		to_chat(H, span_notice("You're not technically old enough to access or serve alcohol, but your ID has been discreetly modified to display your age as [AGE_MINOR]. Try to keep that a secret!"))
+
+/datum/job_title/bartender
+	name = JOB_LOUNGE_STEWARD
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/bartender,
+	)

@@ -229,7 +229,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	if(G_found.mind && !G_found.mind.active) //mind isn't currently in use by someone/something
 		/*Try and locate a record for the person being respawned through SSdatacore.
 		This isn't an exact science but it does the trick more often than not.*/
-		var/id = md5("[G_found.real_name][G_found.mind.assigned_role.title]")
+		var/id = md5("[G_found.real_name][G_found.mind.assigned_role.id]")
 
 		record_found = SSdatacore.find_record("id", id, DATACORE_RECORDS_LOCKED)
 
@@ -270,7 +270,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		new_character.mind.give_uplink(silent = TRUE, antag_datum = traitordatum)
 
 	switch(new_character.mind.special_role)
-		if(ROLE_WIZARD)
+		if(ROLE_SPACE_WIZARD)
 			new_character.forceMove(pick(GLOB.wizardstart))
 			var/datum/antagonist/wizard/A = new_character.mind.has_antag_datum(/datum/antagonist/wizard,TRUE)
 			A.equip_wizard()
@@ -278,7 +278,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			new_character.forceMove(pick(GLOB.nukeop_start))
 			var/datum/antagonist/nukeop/N = new_character.mind.has_antag_datum(/datum/antagonist/nukeop,TRUE)
 			N.equip_op()
-		if(ROLE_NINJA)
+		if(ROLE_SPACE_NINJA)
 			var/list/ninja_spawn = list()
 			for(var/obj/effect/landmark/carpspawn/L in GLOB.landmarks_list)
 				ninja_spawn += L
@@ -303,8 +303,8 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		if(tgui_alert(new_character,"Warning: No data core entry detected. Would you like to announce the arrival of this character by adding them to various databases, such as medical records?",,list("No","Yes"))=="Yes")
 			SSdatacore.manifest_inject(new_character)
 
-		if(tgui_alert(new_character,"Would you like an active AI to announce this character?",,list("No","Yes"))=="Yes")
-			announce_arrival(new_character, new_character.mind.assigned_role.title)
+		if(tgui_alert(new_character,"Would you like an active announcement system to announce this character?",,list("No","Yes"))=="Yes")
+			announce_arrival(new_character, new_character.mind.assigned_role.get_title_name(new_character.client))
 
 	var/msg = span_adminnotice("[admin] has respawned [player_key] as [new_character.real_name].")
 	message_admins(msg)
@@ -342,7 +342,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 
 	for(var/datum/job/job as anything in SSjob.joinable_occupations)
 		count++
-		var/J_title = html_encode(job.title)
+		var/J_title = html_encode(job.get_title_name())
 		var/J_opPos = html_encode(job.total_positions - (job.total_positions - job.current_positions))
 		var/J_totPos = html_encode(job.total_positions)
 		dat += "<tr><td>[J_title]:</td> <td>[J_opPos]/[job.total_positions < 0 ? " (unlimited)" : J_totPos]"
@@ -350,15 +350,15 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		dat += "</td>"
 		dat += "<td>"
 		if(job.total_positions >= 0)
-			dat += "<A href='?src=[REF(src)];[HrefToken()];customjobslot=[job.title]'>Custom</A> | "
-			dat += "<A href='?src=[REF(src)];[HrefToken()];addjobslot=[job.title]'>Add 1</A> | "
+			dat += "<A href='?src=[REF(src)];[HrefToken()];customjobslot=[job.id]'>Custom</A> | "
+			dat += "<A href='?src=[REF(src)];[HrefToken()];addjobslot=[job.id]'>Add 1</A> | "
 			if(job.total_positions > job.current_positions)
-				dat += "<A href='?src=[REF(src)];[HrefToken()];removejobslot=[job.title]'>Remove</A> | "
+				dat += "<A href='?src=[REF(src)];[HrefToken()];removejobslot=[job.id]'>Remove</A> | "
 			else
 				dat += "Remove | "
-			dat += "<A href='?src=[REF(src)];[HrefToken()];unlimitjobslot=[job.title]'>Unlimit</A></td>"
+			dat += "<A href='?src=[REF(src)];[HrefToken()];unlimitjobslot=[job.id]'>Unlimit</A></td>"
 		else
-			dat += "<A href='?src=[REF(src)];[HrefToken()];limitjobslot=[job.title]'>Limit</A></td>"
+			dat += "<A href='?src=[REF(src)];[HrefToken()];limitjobslot=[job.id]'>Limit</A></td>"
 
 	browser.height = min(100 + count * 20, 650)
 	browser.set_content(dat.Join())

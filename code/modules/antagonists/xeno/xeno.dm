@@ -10,7 +10,7 @@
 
 /datum/antagonist/xeno
 	name = "\improper Xenomorph"
-	job_rank = ROLE_ALIEN
+	job_rank = ROLE_XENOMORPH
 	show_in_antagpanel = FALSE
 	prevent_roundtype_conversion = FALSE
 	show_to_ghosts = TRUE

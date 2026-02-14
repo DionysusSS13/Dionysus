@@ -19,11 +19,14 @@
 #define ROLE_THIEF "Thief"
 #define ROLE_TRAITOR "Traitor"
 #define ROLE_VAMPIRE "Vampire"
-#define ROLE_WIZARD "Wizard"
+#define ROLE_SPACE_WIZARD "Wizard"
 
 // Midround roles
 #define ROLE_ABDUCTOR "Abductor"
-#define ROLE_ALIEN "Xenomorph"
+#define ROLE_ABDUCTOR_AGENT "Abductor Agent"
+#define ROLE_ABDUCTOR_SCIENTIST "Abductor Scientist"
+#define ROLE_ABDUCTOR_SOLO "Abductor Solo"
+#define ROLE_XENOMORPH "Xenomorph"
 #define ROLE_BLOB "Blob"
 #define ROLE_BLOB_INFECTION "Blob Infection"
 #define ROLE_FAMILY_HEAD_ASPIRANT "Family Head Aspirant"
@@ -31,7 +34,7 @@
 #define ROLE_LONE_OPERATIVE "Lone Operative"
 #define ROLE_MALF_MIDROUND "Malf AI (Midround)"
 #define ROLE_NIGHTMARE "Nightmare"
-#define ROLE_NINJA "Space Ninja"
+#define ROLE_SPACE_NINJA "Space Ninja"
 #define ROLE_OBSESSED "Obsessed"
 #define ROLE_OPERATIVE_MIDROUND "Operative (Midround)"
 #define ROLE_OPPORTUNIST "Opportunist"
@@ -40,7 +43,7 @@
 #define ROLE_SLEEPER_AGENT "Syndicate Sleeper Agent"
 #define ROLE_SPACE_DRAGON "Space Dragon"
 #define ROLE_SPIDER "Spider"
-#define ROLE_WIZARD_MIDROUND "Wizard (Midround)"
+#define ROLE_SPACE_WIZARD_MIDROUND "Wizard (Midround)"
 #define ROLE_DRIFTING_CONTRACTOR "Drifting Contractor"
 
 // Latejoin roles
@@ -70,7 +73,7 @@
 #define ROLE_SERVANT_GOLEM "Servant Golem"
 #define ROLE_NUCLEAR_OPERATIVE "Nuclear Operative"
 #define ROLE_CLOWN_OPERATIVE "Clown Operative"
-#define ROLE_WIZARD_APPRENTICE "apprentice"
+#define ROLE_WIZARD_APPRENTICE "Apprentice"
 #define ROLE_SLAUGHTER_DEMON "Slaughter Demon"
 #define ROLE_MORPH "Morph"
 #define ROLE_SANTA "Santa"
@@ -81,7 +84,7 @@
 #define ROLE_FUGITIVE_HUNTER "Fugitive Hunter"
 #define ROLE_ESCAPED_PRISONER "Escaped Prisoner"
 #define ROLE_LIFEBRINGER "Lifebringer"
-#define ROLE_ASHWALKER "Ash Walker"
+#define ROLE_ASH_WALKER "Ash Walker"
 #define ROLE_HERMIT "Hermit"
 #define ROLE_BEACH_BUM "Beach Bum"
 #define ROLE_HOTEL_STAFF "Hotel Staff"
@@ -116,12 +119,12 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_REV_HEAD = 14,
 	ROLE_THIEF = 0,
 	ROLE_TRAITOR = 0,
-	ROLE_WIZARD = 14,
+	ROLE_SPACE_WIZARD = 14,
 	ROLE_VAMPIRE = 0,
 
 	// Midround
 	ROLE_ABDUCTOR = 0,
-	ROLE_ALIEN = 0,
+	ROLE_XENOMORPH = 0,
 	ROLE_BLOB = 0,
 	ROLE_BLOB_INFECTION = 0,
 	ROLE_FAMILY_HEAD_ASPIRANT = 0,
@@ -129,7 +132,7 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_LONE_OPERATIVE = 14,
 	ROLE_MALF_MIDROUND = 0,
 	ROLE_NIGHTMARE = 0,
-	ROLE_NINJA = 0,
+	ROLE_SPACE_NINJA = 0,
 	ROLE_OBSESSED = 0,
 	ROLE_OPERATIVE_MIDROUND = 14,
 	ROLE_OPPORTUNIST = 0,
@@ -138,7 +141,7 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_SLEEPER_AGENT = 0,
 	ROLE_SPACE_DRAGON = 0,
 	ROLE_SPIDER = 0,
-	ROLE_WIZARD_MIDROUND = 14,
+	ROLE_SPACE_WIZARD_MIDROUND = 14,
 	ROLE_DRIFTING_CONTRACTOR = 14,
 
 	// Latejoin

@@ -1,5 +1,8 @@
 /datum/job/psychologist
-	title = JOB_PSYCHOLOGIST
+	id = JOB_PSYCHOLOGIST
+	titles = list(
+		/datum/job_title/psychologist,
+	)
 	description = "Advocate sanity, self-esteem, and teamwork in a station \
 		staffed with headcases."
 	department_head = list(JOB_DIRECTOR_OF_PORT_SERVICES)
@@ -13,12 +16,6 @@
 	employers = list(
 		/datum/employer/aether,
 		/datum/employer/none
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/psychologist,
-		),
 	)
 
 	paycheck = PAYCHECK_MEDIUM
@@ -63,3 +60,9 @@
 
 	pda_slot = ITEM_SLOT_BELT
 	skillchips = list(/obj/item/skillchip/job/psychology)
+
+/datum/job_title/psychologist
+	name = JOB_PSYCHOLOGIST
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/psychologist,
+	)

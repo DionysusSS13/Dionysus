@@ -1,5 +1,8 @@
 /datum/job/warden
-	title = JOB_BRIG_LIEUTENANT
+	id = JOB_BRIG_LIEUTENANT
+	titles = list(
+		/datum/job_title/warden,
+	)
 	description = "Watch over the Brig and Prison Wing, manage prisoners, \
 		issue equipment to security, work with the Security Marshal \
 		to organize security."
@@ -17,12 +20,6 @@
 
 	employers = list(
 		/datum/employer/mars_exec
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/warden,
-		),
 	)
 
 	paycheck = PAYCHECK_HARD
@@ -73,3 +70,9 @@
 
 	box = /obj/item/storage/box/survival/security
 	implants = list(/obj/item/implant/mindshield)
+
+/datum/job_title/warden
+	name = JOB_BRIG_LIEUTENANT
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/warden,
+	)

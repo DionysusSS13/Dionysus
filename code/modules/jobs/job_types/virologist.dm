@@ -1,5 +1,8 @@
 /datum/job/virologist
-	title = JOB_VIROLOGIST
+	id = JOB_VIROLOGIST
+	titles = list(
+		/datum/job_title/virologist,
+	)
 	description = "Study the effects of various diseases and synthesize a \
 		vaccine for them. Engineer beneficial viruses."
 	department_head = list(JOB_DIRECTOR_OF_MEDICAE_SERVICES)
@@ -14,12 +17,6 @@
 
 	employers = list(
 		/datum/employer/aether,
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/virologist,
-		),
 	)
 
 	paycheck = PAYCHECK_MEDIUM
@@ -60,3 +57,9 @@
 	back = /obj/item/storage/backpack/virology
 
 	box = /obj/item/storage/box/survival/medical
+
+/datum/job_title/virologist
+	name = JOB_VIROLOGIST
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/virologist,
+	)

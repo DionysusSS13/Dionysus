@@ -218,7 +218,7 @@
 	var/datum/mind/kill_target_mind = pick(possible_targets)
 	kill_target = kill_target_mind.current
 	replace_in_name("%TARGET%", kill_target.real_name)
-	replace_in_name("%JOB TITLE%", kill_target_mind.assigned_role.title)
+	replace_in_name("%JOB TITLE%", kill_target_mind.assigned_role.get_title_name(kill_target.client))
 	RegisterSignal(kill_target, COMSIG_LIVING_DEATH, PROC_REF(on_target_death))
 	return TRUE
 

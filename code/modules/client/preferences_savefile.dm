@@ -248,10 +248,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		value_cache -= preference_type
 		read_preference(preference_type)
 
-	if(islist(save_data)) // Guest client, does not have a character.
-		//Load prefs
-		alt_job_titles = save_data["alt_job_titles"]
-
 	//try to fix any outdated data if necessary
 	//preference updating will handle saving the updated data for us.
 	if(needs_update >= 0)
@@ -281,9 +277,6 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 			write_preference(preference, preference.serialize(value_cache[preference.type]))
 
 	save_data["version"] = SAVEFILE_VERSION_MAX //load_character will sanitize any bad data, so assume up-to-date.)
-
-	//Write prefs
-	save_data["alt_job_titles"] = alt_job_titles
 
 	return TRUE
 

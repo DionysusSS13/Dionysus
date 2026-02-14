@@ -1,5 +1,11 @@
 /datum/job/station_engineer
-	title = JOB_STATION_ENGINEER
+	id = JOB_STATION_ENGINEER
+	titles = list(
+		/datum/job_title/station_engineer,
+		/datum/job_title/station_engineer/electrician,
+		/datum/job_title/station_engineer/enginetech,
+		/datum/job_title/station_engineer/mainttech,
+	)
 	description = "Start the Supermatter, wire the solars, repair station hull \
 		and wiring damage."
 	department_head = list(JOB_CHIEF_ENGINEER)
@@ -14,27 +20,6 @@
 
 	employers = list(
 		/datum/employer/daedalus,
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/engineer,
-			SPECIES_TESHARI = /datum/outfit/job/engineer,
-			SPECIES_VOX = /datum/outfit/job/engineer,
-		),
-		"Engine Technician" = list(
-			SPECIES_HUMAN = /datum/outfit/job/engineer/enginetech,
-			SPECIES_TESHARI = /datum/outfit/job/engineer/enginetech,
-			SPECIES_VOX = /datum/outfit/job/engineer/enginetech,
-		),
-		"Electrician" = list(
-			SPECIES_HUMAN = /datum/outfit/job/engineer/electrician,
-			SPECIES_TESHARI = /datum/outfit/job/engineer/electrician,
-			SPECIES_VOX = /datum/outfit/job/engineer/electrician,
-		),
-		"Maintenance Technician" = list(
-			SPECIES_HUMAN = /datum/outfit/job/engineer/mainttech,
-		),
 	)
 
 	paycheck = PAYCHECK_MEDIUM
@@ -100,3 +85,27 @@
 /datum/outfit/job/engineer/mainttech
 	name = "Maintenance Technician"
 	uniform = /obj/item/clothing/under/rank/engineering/engineer/hazard
+
+/datum/job_title/station_engineer
+	name = JOB_STATION_ENGINEER
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/engineer,
+	)
+
+/datum/job_title/station_engineer/enginetech
+	name = "Engine Technician"
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/engineer/enginetech,
+	)
+
+/datum/job_title/station_engineer/electrician
+	name = "Electrician"
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/engineer/electrician,
+	)
+
+/datum/job_title/station_engineer/mainttech
+	name = "Maintenance Technician"
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/engineer/mainttech,
+	)

@@ -47,7 +47,7 @@
 		if(!target.TargetExists())
 			qdel(target)
 			continue
-		if(role.title in target.excludefromjob)
+		if(role.id in target.excludefromjob)
 			qdel(target)
 			continue
 		if(target.exists_on_map)

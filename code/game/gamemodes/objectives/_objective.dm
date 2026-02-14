@@ -204,7 +204,7 @@ GLOBAL_LIST_EMPTY(objectives)
 		RegisterSignal(target, COMSIG_LIVING_DEATH, PROC_REF(register_target_death), TRUE)
 
 	if(target?.current)
-		explanation_text = "Assassinate [target.name], the [!target_role_type ? target.assigned_role.title : target.special_role]."
+		explanation_text = "Assassinate [target.name], the [!target_role_type ? target.assigned_role.get_title_name(target.current.client) : target.special_role]."
 	else
 		explanation_text = "Free Objective"
 
@@ -229,7 +229,7 @@ GLOBAL_LIST_EMPTY(objectives)
 /datum/objective/mutiny/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Assassinate or exile [target.name], the [!target_role_type ? target.assigned_role.title : target.special_role]."
+		explanation_text = "Assassinate or exile [target.name], the [!target_role_type ? target.assigned_role.get_title_name(target.current.client) : target.special_role]."
 	else
 		explanation_text = "Free Objective"
 
@@ -246,7 +246,7 @@ GLOBAL_LIST_EMPTY(objectives)
 /datum/objective/jailbreak/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Ensure that [target.name], the [!target_role_type ? target.assigned_role.title : target.special_role] escapes alive and out of custody."
+		explanation_text = "Ensure that [target.name], the [!target_role_type ? target.assigned_role.get_title_name(target.current.client) : target.special_role] escapes alive and out of custody."
 	else
 		explanation_text = "Free Objective"
 
@@ -262,7 +262,7 @@ GLOBAL_LIST_EMPTY(objectives)
 /datum/objective/jailbreak/detain/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Ensure that [target.name], the [!target_role_type ? target.assigned_role.title : target.special_role] is alive and in custody."
+		explanation_text = "Ensure that [target.name], the [!target_role_type ? target.assigned_role.get_title_name(target.current.client) : target.special_role] is alive and in custody."
 	else
 		explanation_text = "Free Objective"
 
@@ -346,7 +346,7 @@ GLOBAL_LIST_EMPTY(objectives)
 /datum/objective/escape/escape_with_identity/update_explanation_text()
 	if(target?.current)
 		target_real_name = target.current.real_name
-		explanation_text = "Escape on the shuttle or an escape pod with the identity of [target_real_name], the [target.assigned_role.title]"
+		explanation_text = "Escape on the shuttle or an escape pod with the identity of [target_real_name], the [target.assigned_role.get_title_name(target.current.client)]"
 		var/mob/living/carbon/human/H
 		if(ishuman(target.current))
 			H = target.current
@@ -444,7 +444,7 @@ GLOBAL_LIST_EMPTY(possible_items)
 			if(!is_unique_objective(possible_item.targetitem,dupe_search_range))
 				continue
 			for(var/datum/mind/M in owners)
-				if(M.current.mind.assigned_role.title in possible_item.excludefromjob)
+				if(M.current.mind.assigned_role.id in possible_item.excludefromjob)
 					continue check_items
 			approved_targets += possible_item
 	if (length(approved_targets))

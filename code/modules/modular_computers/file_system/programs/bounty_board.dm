@@ -27,7 +27,7 @@
 		data["user"] = list()
 		data["user"]["name"] = current_user.account_holder
 		if(current_user.account_job)
-			data["user"]["job"] = current_user.account_job.title
+			data["user"]["job"] = current_user.account_job.get_title_name(user.client)
 			data["user"]["department"] = current_user.account_job.paycheck_department
 		else
 			data["user"]["job"] = "No Job"

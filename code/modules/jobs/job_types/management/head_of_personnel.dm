@@ -1,5 +1,8 @@
 /datum/job/head_of_personnel
-	title = JOB_DIRECTOR_OF_PORT_SERVICES
+	id = JOB_DIRECTOR_OF_PORT_SERVICES
+	titles = list(
+		/datum/job_title/head_of_personnel,
+	)
 	description = "The Superintendent's right hand, and Management's workhorse. Completes tasks on behalf of the Superintendent."
 	department_head = list(JOB_PORT_AUTHORITY)
 	faction = FACTION_STATION
@@ -13,12 +16,6 @@
 
 	employers = list(
 		/datum/employer/government
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/hop,
-		),
 	)
 
 	departments_list = list(
@@ -100,3 +97,9 @@
 <li>Don't forget to set a custom occupation! SecHUDs now interface direct with the ID card's trim and display the trim's job icon even when a custom assignment is set.</li>
 </ol>
 	"}
+
+/datum/job_title/head_of_personnel
+	name = JOB_DIRECTOR_OF_PORT_SERVICES
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/hop,
+	)

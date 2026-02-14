@@ -37,7 +37,7 @@
 
 		for(var/datum/loadout_entry/entry as anything in loadout)
 			var/datum/loadout_item/item = locate(entry.path) in GLOB.loadout_items
-			if(item.restricted_roles && equipping_job && !(equipping_job.title in item.restricted_roles))
+			if(item.restricted_roles && equipping_job && !(equipping_job.id in item.restricted_roles))
 				if(client)
 					to_chat(src, span_warning("You were unable to get a loadout item ([entry.custom_name]) due to job restrictions!"))
 				continue
@@ -53,7 +53,7 @@
 		var/list/items_to_return = list()
 		for(var/datum/loadout_entry/entry as anything in loadout)
 			var/datum/loadout_item/item = locate(entry.path) in GLOB.loadout_items
-			if(item.restricted_roles && equipping_job && !(equipping_job.title in item.restricted_roles))
+			if(item.restricted_roles && equipping_job && !(equipping_job.id in item.restricted_roles))
 				if(client)
 					to_chat(src, span_warning("You were unable to get a loadout item ([entry.custom_name]) due to job restrictions!"))
 				continue

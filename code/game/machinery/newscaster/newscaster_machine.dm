@@ -129,7 +129,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/newscaster, 30)
 		data["user"] = list()
 		data["user"]["name"] = card.registered_account.account_holder
 		if(card?.registered_account.account_job)
-			data["user"]["job"] = card.registered_account.account_job.title
+			data["user"]["job"] = card.registered_account.account_job.id // TODO: Convert this to a friendly name
 			data["user"]["department"] = card.registered_account.account_job.paycheck_department
 		else
 			data["user"]["job"] = "No Job"

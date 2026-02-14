@@ -1,5 +1,8 @@
 /datum/job/security_officer
-	title = JOB_SECURITY_LIASON
+	id = JOB_SECURITY_LIASON
+	titles = list(
+		/datum/job_title/security_officer,
+	)
 	description = "Protect company assets, follow the Standard Operating \
 		Procedure, eat donuts."
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
@@ -16,12 +19,6 @@
 
 	employers = list(
 		/datum/employer/mars_exec,
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/security,
-		),
 	)
 
 	paycheck = PAYCHECK_HARD
@@ -325,3 +322,9 @@
 			lowest_departments += department
 
 	return (preference in lowest_departments) ? preference : lowest_departments[1]
+
+/datum/job_title/security_officer
+	name = JOB_SECURITY_LIASON
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/security,
+	)

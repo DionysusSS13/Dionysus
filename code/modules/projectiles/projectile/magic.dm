@@ -369,7 +369,7 @@
 	var/datum/brain_trauma/special/imaginary_friend/trapped_owner/trauma = target.gain_trauma(/datum/brain_trauma/special/imaginary_friend/trapped_owner)
 	var/poll_message = "Do you want to play as [target.real_name]?"
 	if(target.mind)
-		poll_message = "[poll_message] Job:[target.mind.assigned_role.title]."
+		poll_message = "[poll_message] Job:[target.mind.get_title().name]."
 	if(target.mind && target.mind.special_role)
 		poll_message = "[poll_message] Status:[target.mind.special_role]."
 	else if(target.mind)

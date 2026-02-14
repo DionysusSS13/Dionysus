@@ -299,20 +299,21 @@
 				if(break_counter > 0 && (break_counter % 3 == 0))
 					output += "<br>"
 				break_counter++
-				var/job_name = job_datum.title
+				var/job_id = job_datum.id
+				var/job_name = job_datum.get_title_name()
 				if(length(job_datum.departments_list) > 1) //This job is in multiple departments, so we need to check all the boxes.
 					// Clicking this will also toggle all the other boxes, minus this one.
 					var/department_index = job_datum.departments_list.Find(department.type)
 					if(!department_index)
 						stack_trace("Failed to find a department index for [department.type] in the departments_list of [job_datum.type]")
 					output += {"<label class='inputlabel checkbox'>[job_name]
-						<input type='checkbox' id='[job_name]_[department_index]' name='[job_name]' class='[label_class]' value='1'[tgui_fancy ? " onClick='toggle_other_checkboxes(this, \"[length(job_datum.departments_list)]\", \"[department_index]\")'" : ""]>
+						<input type='checkbox' id='[job_id]_[department_index]' name='[job_name]' class='[label_class]' value='1'[tgui_fancy ? " onClick='toggle_other_checkboxes(this, \"[length(job_datum.departments_list)]\", \"[department_index]\")'" : ""]>
 						<div class='inputbox[(job_name in banned_from) ? " banned" : ""]'></div></label>
 						"}
 				else
 					output += {"<label class='inputlabel checkbox'>[job_name]
 							<input type='checkbox' name='[job_name]' class='[label_class]' value='1'>
-							<div class='inputbox[(job_name in banned_from) ? " banned" : ""]'></div></label>
+							<div class='inputbox[(job_id in banned_from) ? " banned" : ""]'></div></label>
 							"}
 			output += "</div></div>"
 			break_counter = 0
@@ -344,7 +345,7 @@
 			),
 			"Antagonist Positions" = list(
 				ROLE_ABDUCTOR,
-				ROLE_ALIEN,
+				ROLE_XENOMORPH,
 				ROLE_BLOB,
 				ROLE_BROTHER,
 				ROLE_CHANGELING,
@@ -353,7 +354,7 @@
 				ROLE_HERETIC,
 				ROLE_HIVE,
 				ROLE_MALF,
-				ROLE_NINJA,
+				ROLE_SPACE_NINJA,
 				ROLE_OPERATIVE,
 				ROLE_OVERTHROW,
 				ROLE_REV,
@@ -363,7 +364,7 @@
 				ROLE_SPIDER,
 				ROLE_SYNDICATE,
 				ROLE_TRAITOR,
-				ROLE_WIZARD,
+				ROLE_SPACE_WIZARD,
 			),
 		)
 		for(var/department in long_job_lists)

@@ -97,7 +97,7 @@
 		if(C.registered_account)
 			.["user"]["name"] = C.registered_account.account_holder
 			if(C.registered_account.account_job)
-				.["user"]["job"] = C.registered_account.account_job.title
+				.["user"]["job"] = C.registered_account.account_job_title.name
 			else
 				.["user"]["job"] = "No Job"
 

@@ -158,17 +158,17 @@
 	for(var/mob/living/carbon/human/H as anything in SSticker.popcount["human_escapees_list"])
 		if(H.mind && H.mind.miming)
 			mimecount++
-		if(H.is_wearing_item_of_type(list(/obj/item/clothing/mask/gas/clown_hat, /obj/item/clothing/mask/gas/sexyclown)) || (H.mind && H.mind.assigned_role.title == "Clown"))
+		if(H.is_wearing_item_of_type(list(/obj/item/clothing/mask/gas/clown_hat, /obj/item/clothing/mask/gas/sexyclown)) || (H.mind && H.mind.assigned_role.id == JOB_CLOWN))
 			clowncount++
-		if(H.is_wearing_item_of_type(/obj/item/clothing/under/color/grey) || (H.mind && H.mind.assigned_role.title == "Assistant"))
+		if(H.is_wearing_item_of_type(/obj/item/clothing/under/color/grey) || (H.mind && H.mind.assigned_role.id == JOB_CIVILLIAN))
 			assistantcount++
-		if(H.is_wearing_item_of_type(/obj/item/clothing/head/chefhat) || (H.mind && H.mind.assigned_role.title == "Chef"))
+		if(H.is_wearing_item_of_type(/obj/item/clothing/head/chefhat) || (H.mind && H.mind.assigned_role.id == JOB_CULINARY_VENDOR))
 			chefcount++
 		if(H.is_wearing_item_of_type(/obj/item/clothing/under/rank/civilian/lawyer))
 			lawyercount++
-		if(H.mind && H.mind.assigned_role.title == JOB_PROSPECTOR)
+		if(H.mind && H.mind.assigned_role.id == JOB_CIVILLIAN)
 			minercount++
-		if(H.mind && H.mind.assigned_role.title == "Chaplain")
+		if(H.mind && H.mind.assigned_role.id == JOB_CHAPLAIN)
 			chaplaincount++
 			if(IS_CHANGELING(H))
 				episode_names += new /datum/episode_name/rare("[uppertext(H.real_name)]: A BLESSING IN DISGUISE", "The Chaplain, [H.real_name], was a changeling and escaped alive.", 750)
@@ -210,8 +210,8 @@
 
 		if(IS_TRAITOR(H) || IS_NUKE_OP(H))
 			theme = "syndie"
-		if(H.stat == CONSCIOUS && H.mind && H.mind.assigned_role.title)
-			switch(H.mind.assigned_role.title)
+		if(H.stat == CONSCIOUS && H.mind && H.mind.assigned_role.id)
+			switch(H.mind.assigned_role.id)
 				if(JOB_CULINARY_VENDOR)
 					var/chance = 250
 					if(H.is_wearing_item_of_type(/obj/item/clothing/head/chefhat))

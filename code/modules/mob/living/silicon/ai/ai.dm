@@ -655,7 +655,7 @@
 					var/list/personnel_list = list()
 
 					for(var/datum/data/record/record_datum in SSdatacore.get_records(DATACORE_RECORDS_LOCKED))//Look in data core locked.
-						personnel_list["[record_datum.fields[DATACORE_NAME]]: [record_datum.fields[DATACORE_RANK]]"] = record_datum.fields[DATACORE_APPEARANCE]//Pull names, rank, and image.
+						personnel_list["[record_datum.fields[DATACORE_NAME]]: [record_datum.fields[DATACORE_TITLE]]"] = record_datum.fields[DATACORE_APPEARANCE]//Pull names, rank, and image.
 
 					if(!length(personnel_list))
 						tgui_alert(usr,"No suitable records found. Aborting.")
@@ -1113,7 +1113,7 @@
 
 	var/datum/job/ai/ai_job_ref = SSjob.GetJobType(/datum/job/ai)
 
-	.[ai_job_ref.title] = minutes
+	.[ai_job_ref.id] = minutes
 
 
 /mob/living/silicon/ai/GetVoice()

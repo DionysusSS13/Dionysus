@@ -54,13 +54,13 @@
 			trimmed_list.Remove(M)
 			continue
 		if (M.mind)
-			if (restrict_ghost_roles && (M.mind.assigned_role.title in GLOB.exp_specialmap[EXP_TYPE_SPECIAL])) // Are they playing a ghost role?
+			if (restrict_ghost_roles && (M.mind.assigned_role.id in GLOB.exp_specialmap[EXP_TYPE_SPECIAL])) // Are they playing a ghost role?
 				trimmed_list.Remove(M)
 				continue
-			if (M.mind.assigned_role.title in restricted_roles) // Does their job allow it?
+			if (M.mind.assigned_role.id in restricted_roles) // Does their job allow it?
 				trimmed_list.Remove(M)
 				continue
-			if ((exclusive_roles.len > 0) && !(M.mind.assigned_role.title in exclusive_roles)) // Is the rule exclusive to their job?
+			if ((exclusive_roles.len > 0) && !(M.mind.assigned_role.id in exclusive_roles)) // Is the rule exclusive to their job?
 				trimmed_list.Remove(M)
 				continue
 	return trimmed_list
@@ -77,7 +77,7 @@
 			for (var/mob/M in GLOB.alive_player_list)
 				if (M.stat == DEAD || !M.client)
 					continue // Dead/disconnected players cannot count as opponents
-				if (M.mind && (M.mind.assigned_role.title in enemy_roles) && (!(M in candidates) || (M.mind.assigned_role.title in restricted_roles)))
+				if (M.mind && (M.mind.assigned_role.id in enemy_roles) && (!(M in candidates) || (M.mind.assigned_role.id in restricted_roles)))
 					job_check++ // Checking for "enemies" (such as sec officers). To be counters, they must either not be candidates to that rule, or have a job that restricts them from it
 
 		var/threat = round(mode.threat_level/10)
@@ -296,7 +296,7 @@
 			candidates -= player
 		else if(HAS_TRAIT(player, TRAIT_MINDSHIELD))
 			candidates -= player
-		else if(player.mind.assigned_role.title in restricted_roles)
+		else if(player.mind.assigned_role.id in restricted_roles)
 			candidates -= player
 
 
@@ -393,8 +393,8 @@
 /datum/dynamic_ruleset/midround/from_ghosts/wizard
 	name = "Wizard"
 	antag_datum = /datum/antagonist/wizard
-	antag_flag = ROLE_WIZARD_MIDROUND
-	antag_flag_override = ROLE_WIZARD
+	antag_flag = ROLE_SPACE_WIZARD_MIDROUND
+	antag_flag_override = ROLE_SPACE_WIZARD
 	enemy_roles = list(
 		JOB_PORT_AUTHORITY,
 		JOB_COMPLIANCE_AUDITOR,
@@ -559,7 +559,7 @@
 /datum/dynamic_ruleset/midround/from_ghosts/xenomorph
 	name = "Alien Infestation"
 	antag_datum = /datum/antagonist/xeno
-	antag_flag = ROLE_ALIEN
+	antag_flag = ROLE_XENOMORPH
 	enemy_roles = list(
 		JOB_PORT_AUTHORITY,
 		JOB_COMPLIANCE_AUDITOR,
@@ -611,7 +611,7 @@
 	name = "Nightmare"
 	antag_datum = /datum/antagonist/nightmare
 	antag_flag = ROLE_NIGHTMARE
-	antag_flag_override = ROLE_ALIEN
+	antag_flag_override = ROLE_XENOMORPH
 	enemy_roles = list(
 		JOB_PORT_AUTHORITY,
 		JOB_COMPLIANCE_AUDITOR,

@@ -277,7 +277,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/virtualspeaker)
 		// can know their job even if they don't carry an ID.
 		var/datum/data/record/findjob = SSdatacore.get_record_by_name(name, DATACORE_RECORDS_STATION)
 		if(findjob)
-			job = findjob.fields[DATACORE_RANK]
+			job = findjob.fields[DATACORE_TITLE]
 		else
 			job = "Unknown"
 

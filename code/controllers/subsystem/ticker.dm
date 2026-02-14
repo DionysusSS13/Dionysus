@@ -177,7 +177,7 @@ SUBSYSTEM_DEF(ticker)
 					if(!J)
 						player_ready_data += "* [display] forgot to pick a job!"
 						continue
-					var/title = prefs.alt_job_titles?[J.title] || J.title
+					var/title = prefs.get_chosen_job_title_name(J.id)
 					if(player.ready == PLAYER_READY_TO_PLAY)
 						player_ready_data += "* [display] as [title]"
 

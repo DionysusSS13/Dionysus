@@ -77,9 +77,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	/// Preference of how the preview should show the character.
 	var/tmp/preview_pref = PREVIEW_PREF_JOB
 
-	///Alternative job titles stored in preferences. Assoc list, ie. alt_job_titles["Scientist"] = "Cytologist"
-	var/list/alt_job_titles = list()
-
 	/// Stores the instance of the category we are viewing. (CHARACTER CREATOR)
 	var/tmp/datum/preference_group/category/selected_category
 
@@ -191,7 +188,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	data["character_profiles"] = create_character_profiles()
 
 	data["character_preview_view"] = character_preview_view.assigned_map
-	data["overflow_role"] = SSjob.GetJobType(SSjob.overflow_role).title
+	data["overflow_role"] = SSjob.GetJobType(SSjob.overflow_role).id
 	data["window"] = current_window
 
 	data["content_unlocked"] = unlock_content
@@ -551,3 +548,31 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/subscreen)
 			LAZYADD(output[key], action)
 
 	return output
+
+/datum/preferences/proc/get_chosen_job_title(job_id)
+	RETURN_TYPE(/datum/job_title)
+	var/datum/job/job = SSjob.GetJob(job_id)
+
+	if (!job)
+		CRASH("Given job id doesn't exist! ([job_id])")
+
+	var/list/titles = read_preference(/datum/preference/blob/alternate_titles)
+	var/datum/job_title/title = titles[job_id]
+
+	if (!title)
+		return job.get_title()
+
+	return title
+
+/datum/preferences/proc/get_chosen_job_title_name(job_id)
+	var/datum/job_title/title = get_chosen_job_title(job_id)
+
+	if (!title)
+		var/datum/job/job = SSjob.GetJob(job_id)
+
+		if (!job)
+			CRASH("Given job id doesn't exist! ([job_id])")
+
+		return job.get_title_name()
+
+	return title.name

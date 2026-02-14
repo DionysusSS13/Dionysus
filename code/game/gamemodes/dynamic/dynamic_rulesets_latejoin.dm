@@ -10,9 +10,9 @@
 			candidates.Remove(P)
 		else if (P.client.get_remaining_days(minimum_required_age) > 0)
 			candidates.Remove(P)
-		else if(P.mind.assigned_role.title in restricted_roles) // Does their job allow for it?
+		else if(P.mind.assigned_role.id in restricted_roles) // Does their job allow for it?
 			candidates.Remove(P)
-		else if((exclusive_roles.len > 0) && !(P.mind.assigned_role.title in exclusive_roles)) // Is the rule exclusive to their job?
+		else if((exclusive_roles.len > 0) && !(P.mind.assigned_role.id in exclusive_roles)) // Is the rule exclusive to their job?
 			candidates.Remove(P)
 		else
 			var/list/client_antags = P.client.prefs.read_preference(/datum/preference/blob/antagonists)
@@ -26,7 +26,7 @@
 			for (var/mob/M in GLOB.alive_player_list)
 				if (M.stat == DEAD)
 					continue // Dead players cannot count as opponents
-				if (M.mind && (M.mind.assigned_role.title in enemy_roles) && (!(M in candidates) || (M.mind.assigned_role.title in restricted_roles)))
+				if (M.mind && (M.mind.assigned_role.id in enemy_roles) && (!(M in candidates) || (M.mind.assigned_role.id in restricted_roles)))
 					job_check++ // Checking for "enemies" (such as sec officers). To be counters, they must either not be candidates to that rule, or have a job that restricts them from it
 
 		var/threat = round(mode.threat_level/10)

@@ -60,7 +60,7 @@
 		return create_default_value()
 
 	for(var/thing in input)
-		if(!istext(thing))
+		if(!ispath(thing))
 			input -= thing
 			continue
 
@@ -69,12 +69,12 @@
 
 	return input
 
-/datum/preference/blob/job_priority/proc/can_play_job(datum/preferences/prefs, job_title)
-	var/datum/job/J = SSjob.GetJob(job_title)
+/datum/preference/blob/job_priority/proc/can_play_job(datum/preferences/prefs, job_id)
+	var/datum/job/J = SSjob.GetJob(job_id)
 	if(!J)
 		return FALSE
 
-	if(is_banned_from(prefs.parent.ckey, job_title))
+	if(is_banned_from(prefs.parent.ckey, job_id))
 		return FALSE
 
 	if(J.required_playtime_remaining(prefs.parent))
@@ -93,7 +93,7 @@
 	if (job.faction != FACTION_STATION)
 		return FALSE
 
-	if(!can_play_job(prefs, job.title))
+	if(!can_play_job(prefs, job.id))
 		return FALSE
 
 	var/list/job_prefs = prefs.read_preference(type)
@@ -106,7 +106,7 @@
 
 	if (level == JP_HIGH)
 		var/datum/job/overflow_role = SSjob.overflow_role
-		var/overflow_role_title = initial(overflow_role.title)
+		var/overflow_role_title = overflow_role.id
 
 		for(var/other_job in job_prefs)
 			if(job_prefs[other_job] == JP_HIGH)
@@ -116,6 +116,6 @@
 				else
 					job_prefs[other_job] = JP_MEDIUM
 
-	job_prefs[job.title] = level
+	job_prefs[job.id] = level
 
 	return prefs.update_preference(src, job_prefs)

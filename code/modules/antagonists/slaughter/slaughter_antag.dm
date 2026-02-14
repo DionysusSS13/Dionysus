@@ -2,7 +2,7 @@
 	name = "\improper Slaughter Demon"
 	show_name_in_check_antagonists = TRUE
 	ui_name = "AntagInfoDemon"
-	job_rank = ROLE_ALIEN
+	job_rank = ROLE_XENOMORPH
 	show_in_antagpanel = FALSE
 	show_to_ghosts = TRUE
 	var/fluff = "You're a Demon of Wrath, often dragged into reality by wizards to terrorize their enemies."

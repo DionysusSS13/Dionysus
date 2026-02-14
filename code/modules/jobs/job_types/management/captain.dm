@@ -1,5 +1,8 @@
 /datum/job/captain
-	title = JOB_PORT_AUTHORITY
+	id = JOB_PORT_AUTHORITY
+	titles = list(
+		/datum/job_title/captain,
+	)
 	description = "The middle-man between the big man at home and the station's inhabitants. Ensure that quotas are met and the population is \
 	compliant."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD|DEADMIN_POSITION_SECURITY
@@ -17,12 +20,6 @@
 
 	employers = list(
 		/datum/employer/government
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/captain,
-		),
 	)
 
 	paycheck = PAYCHECK_COMMAND
@@ -52,7 +49,7 @@
 
 
 /datum/job/captain/get_captaincy_announcement(mob/living/captain)
-	return "[title] [captain.real_name] will be overseeing operations today."
+	return "[get_title_name(captain.client)] [captain.real_name] will be overseeing operations today."
 
 /datum/outfit/job/captain
 	name = JOB_PORT_AUTHORITY
@@ -123,3 +120,9 @@
 	var/obj/item/mod/control/modsuit = equipped.back
 	var/obj/item/mod/module/pathfinder/module = locate() in modsuit.modules
 	module.implant.implant(equipped, silent = TRUE)
+
+/datum/job_title/captain
+	name = JOB_PORT_AUTHORITY
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/captain,
+	)

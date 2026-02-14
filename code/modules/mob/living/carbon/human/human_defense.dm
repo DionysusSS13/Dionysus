@@ -614,7 +614,7 @@
 ///Overrides the point value that the mob is worth
 /mob/living/carbon/human/singularity_act()
 	. = 20
-	switch(mind?.assigned_role.title)
+	switch(mind?.assigned_role.id)
 		if(JOB_CHIEF_ENGINEER, JOB_STATION_ENGINEER)
 			. = 100
 		if(JOB_CLOWN)

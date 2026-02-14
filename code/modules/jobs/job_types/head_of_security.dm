@@ -1,5 +1,8 @@
 /datum/job/head_of_security
-	title = JOB_PORT_MARSHAL
+	id = JOB_PORT_MARSHAL
+	titles = list(
+		/datum/job_title/head_of_security,
+	)
 	description = "Coordinate security personnel, ensure Management's needs are met."
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD|DEADMIN_POSITION_SECURITY
 	department_head = list(JOB_PORT_AUTHORITY)
@@ -17,12 +20,6 @@
 
 	employers = list(
 		/datum/employer/mars_exec
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/hos,
-		),
 	)
 
 	departments_list = list(
@@ -49,7 +46,7 @@
 /datum/job/head_of_security/on_join_popup(client/C, job_title_pref)
 	var/content = {"
 		<div style='width:100%; text-align:center; font-size: 20px'>
-		You are the <b>[title]</b>
+		You are the <b>[get_title_name(C)]</b>
 		</div>
 		<br>
 		<div style='padding: 0px 30px; text-align: center; font-size: 14px;'>
@@ -103,3 +100,9 @@
 	internals_slot = ITEM_SLOT_SUITSTORE
 	backpack_contents = null
 	box = null
+
+/datum/job_title/head_of_security
+	name = JOB_PORT_MARSHAL
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/hos,
+	)

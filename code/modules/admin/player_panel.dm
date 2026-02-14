@@ -240,7 +240,7 @@
 						if(islarva(M))
 							M_job = "Alien larva"
 						else
-							M_job = ROLE_ALIEN
+							M_job = ROLE_XENOMORPH
 					else
 						M_job = "Carbon-based"
 

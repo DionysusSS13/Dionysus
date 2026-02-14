@@ -1033,8 +1033,8 @@
 /mob/living/carbon/human/get_exp_list(minutes)
 	. = ..()
 
-	if(mind.assigned_role.title in SSjob.name_occupations)
-		.[mind.assigned_role.title] = minutes
+	if(mind.assigned_role.id in SSjob.name_occupations)
+		.[mind.assigned_role.id] = minutes
 
 /mob/living/carbon/human/atmos_expose(datum/gas_mixture/air, exposed_temperature)
 	var/plasma_exposure = air.gas[GAS_PLASMA]

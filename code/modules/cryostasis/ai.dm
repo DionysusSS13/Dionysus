@@ -19,7 +19,7 @@
 	new /obj/structure/ai_core/latejoin_inactive(loc)
 	if(src.mind)
 		//Handle job slot/tater cleanup.
-		if(src.mind.assigned_role.title == JOB_AI)
+		if(src.mind.assigned_role.id == JOB_AI)
 			SSjob.FreeRole(JOB_AI)
 	LAZYNULL(src.mind.special_role)
 	qdel(src)

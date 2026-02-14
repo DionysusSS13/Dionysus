@@ -1,5 +1,8 @@
 /datum/job/shaft_miner
-	title = JOB_PROSPECTOR
+	id = JOB_PROSPECTOR
+	titles = list(
+		/datum/job_title/shaft_miner,
+	)
 	description = "Gather valuable resources for the station. Hit rocks with tools. Do trigonometry."
 	department_head = list(JOB_DIRECTOR_OF_PORT_SERVICES)
 	faction = FACTION_STATION
@@ -12,12 +15,6 @@
 	employers = list(
 		/datum/employer/hermes,
 		/datum/employer/none,
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/miner,
-		),
 	)
 
 	paycheck = PAYCHECK_MEDIUM
@@ -79,3 +76,9 @@
 	mask = /obj/item/clothing/mask/breath
 	backpack_contents = null
 	box = null
+
+/datum/job_title/shaft_miner
+	name = JOB_PROSPECTOR
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/miner,
+	)

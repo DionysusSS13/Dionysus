@@ -4,7 +4,7 @@ GLOBAL_LIST_INIT(exp_specialmap, list(
 	EXP_TYPE_ANTAG = list(),
 	EXP_TYPE_SPECIAL = list(
 		ROLE_LIFEBRINGER,
-		ROLE_ASHWALKER,
+		ROLE_ASH_WALKER,
 		ROLE_EXILE,
 		ROLE_SERVANT_GOLEM,
 		ROLE_FREE_GOLEM,
@@ -28,12 +28,12 @@ GLOBAL_PROTECT(exp_specialmap)
 
 //this is necessary because antags happen before job datums are handed out, but NOT before they come into existence
 //so I can't simply use job datum.department_head straight from the mind datum, laaaaame.
-/proc/get_department_heads(job_title)
-	if(!job_title)
+/proc/get_department_heads(job_id)
+	if(!job_id)
 		return list()
 
 	for(var/datum/job/job as anything in SSjob.joinable_occupations)
-		if(job.title == job_title)
+		if(job.id == job_id)
 			return job.department_head //this is a list
 
 /proc/get_full_job_name(job)

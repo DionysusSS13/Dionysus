@@ -1,5 +1,8 @@
 /datum/job/acolyte
-	title = JOB_MEDICAE_TECHNICIAN
+	id = JOB_MEDICAE_TECHNICIAN
+	titles = list(
+		/datum/job_title/acolyte,
+	)
 	department_head = list(JOB_DIRECTOR_OF_MEDICAE_SERVICES)
 	faction = FACTION_STATION
 	total_positions = 5
@@ -9,12 +12,6 @@
 
 	employers = list(
 		/datum/employer/aether,
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/doctor,
-		),
 	)
 
 	paycheck = PAYCHECK_MEDIUM
@@ -89,3 +86,9 @@
 	internals_slot = ITEM_SLOT_SUITSTORE
 	backpack_contents = null
 	box = null
+
+/datum/job_title/acolyte
+	name = JOB_MEDICAE_TECHNICIAN
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/doctor,
+	)

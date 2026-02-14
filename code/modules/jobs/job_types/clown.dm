@@ -1,5 +1,9 @@
 /datum/job/clown
-	title = JOB_CLOWN
+	id = JOB_CLOWN
+	titles = list(
+		/datum/job_title/clown,
+		/datum/job_title/mime,
+	)
 	description = "Entertain the crew, make bad jokes, go on a holy quest to find bananium, HONK!"
 	faction = FACTION_STATION
 	pinpad_key = "pantomime"
@@ -9,17 +13,6 @@
 
 	employers = list(
 		/datum/employer/none
-	)
-
-	alt_titles = list(JOB_CLOWN, "Mime")
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/clown,
-		),
-
-		"Mime" = list(
-			SPECIES_HUMAN = /datum/outfit/job/mime,
-		),
 	)
 
 	liver_traits = list(TRAIT_COMEDY_METABOLISM)
@@ -192,3 +185,15 @@
 	if(!user.mind)
 		return FALSE
 	return TRUE
+
+/datum/job_title/clown
+	name = JOB_CLOWN
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/clown,
+	)
+
+/datum/job_title/mime
+	name = "Mime"
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/mime,
+	)

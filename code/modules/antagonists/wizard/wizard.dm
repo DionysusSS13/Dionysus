@@ -5,7 +5,7 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 	name = "\improper Space Wizard"
 	roundend_category = "wizards/witches"
 	antagpanel_category = "Wizard"
-	job_rank = ROLE_WIZARD
+	job_rank = ROLE_SPACE_WIZARD
 	assign_job = /datum/job/space_wizard
 	antag_hud_name = "wizard"
 	hijack_speed = 0.5
@@ -39,12 +39,12 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 
 /datum/antagonist/wizard_minion/apply_innate_effects(mob/living/mob_override)
 	var/mob/living/current_mob = mob_override || owner.current
-	current_mob.faction |= ROLE_WIZARD
+	current_mob.faction |= ROLE_SPACE_WIZARD
 	add_team_hud(current_mob)
 
 /datum/antagonist/wizard_minion/remove_innate_effects(mob/living/mob_override)
 	var/mob/living/last_mob = mob_override || owner.current
-	last_mob.faction -= ROLE_WIZARD
+	last_mob.faction -= ROLE_SPACE_WIZARD
 
 /datum/antagonist/wizard_minion/on_gain()
 	create_objectives()
@@ -172,12 +172,12 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 
 /datum/antagonist/wizard/apply_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
-	M.faction |= ROLE_WIZARD
+	M.faction |= ROLE_SPACE_WIZARD
 	add_team_hud(M)
 
 /datum/antagonist/wizard/remove_innate_effects(mob/living/mob_override)
 	var/mob/living/M = mob_override || owner.current
-	M.faction -= ROLE_WIZARD
+	M.faction -= ROLE_SPACE_WIZARD
 
 
 /datum/antagonist/wizard/get_admin_commands()

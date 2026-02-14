@@ -5,7 +5,7 @@
 	for(var/datum/job/job as anything in SSjob.joinable_occupations)
 		if(!(job.job_flags & JOB_CREW_MEMBER))
 			continue
-		var/rank = job.title
+		var/rank = job.id
 		if(rank in restricted_roles)
 			continue
 		possible_jobs += rank

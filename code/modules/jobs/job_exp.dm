@@ -47,7 +47,7 @@ GLOBAL_PROTECT(exp_to_update)
 	var/list/exp_map = prefs.exp.Copy()
 	. = 0
 	for(var/datum/job/job as anything in job_list)
-		. += exp_map[job.title]
+		. += exp_map[job.id]
 
 
 /client/proc/get_exp_living(pure_numeric = FALSE)

@@ -68,11 +68,11 @@
 	for(var/hater_department_type as anything in list(/datum/job_department/security, /datum/job_department/command))
 		var/datum/job_department/hater_department = SSjob.get_department_type(hater_department_type)
 		for(var/datum/job/hater_job as anything in hater_department.department_jobs)
-			haters += hater_job.title
+			haters += hater_job.id
 	var/datum/job/quartermaster/fucking_quartermaster = SSjob.GetJobType(/datum/job/quartermaster)
-	haters += fucking_quartermaster.title
+	haters += fucking_quartermaster.id
 
-	if(!(user.mind.assigned_role.title in haters))
+	if(!(user.mind.assigned_role.id in haters))
 		msg = "What \a [pick("masterpiece", "chef-d'oeuvre")] [source.p_theyre()]. So [pick("relatable", "down to earth", "true", "real")]!"
 	else
 		msg = "Wow, [source.p_they()] sucks."

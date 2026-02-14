@@ -388,7 +388,7 @@
 	if(!record)
 		return FALSE
 
-	record.fields[DATACORE_RANK] = target_id_card.assignment
+	record.fields[DATACORE_TITLE] = target_id_card.assignment
 	record.fields[DATACORE_TEMPLATE_RANK] = target_id_card.template?.assignment
 	record.fields[DATACORE_AGE] = target_id_card.registered_age
 	return TRUE

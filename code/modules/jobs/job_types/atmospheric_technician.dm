@@ -1,5 +1,8 @@
 /datum/job/atmospheric_technician
-	title = JOB_ATMOSPHERIC_TECHNICIAN
+	id = JOB_ATMOSPHERIC_TECHNICIAN
+	titles = list(
+		/datum/job_title/atmospheric_technician,
+	)
 	description = "Ensure the air is breathable on the station, fill oxygen tanks, fight fires, purify the air."
 	department_head = list(JOB_CHIEF_ENGINEER)
 	faction = FACTION_STATION
@@ -12,12 +15,6 @@
 	exp_granted_type = EXP_TYPE_CREW
 
 	outfit = /datum/outfit/job/atmos
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/atmos,
-		),
-	)
 
 	paycheck = PAYCHECK_MEDIUM
 	paycheck_department = ACCOUNT_ENG
@@ -65,3 +62,9 @@
 	internals_slot = ITEM_SLOT_SUITSTORE
 	backpack_contents = null
 	box = null
+
+/datum/job_title/atmospheric_technician
+	name = JOB_ATMOSPHERIC_TECHNICIAN
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/atmos,
+	)

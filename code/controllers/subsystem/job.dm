@@ -12,6 +12,9 @@ SUBSYSTEM_DEF(job)
 	/// Dictionary of all jobs, keys are types.
 	var/list/datum/job/type_occupations = list()
 
+	/// Dictionary of title types to their instances
+	var/list/datum/job_title/type_titles = list()
+
 	/// Dictionary of jobs indexed by the experience type they grant.
 	var/list/experience_jobs_map = list()
 
@@ -70,6 +73,7 @@ SUBSYSTEM_DEF(job)
 	var/list/temporary_heads_by_dep = list()
 
 /datum/controller/subsystem/job/Initialize(timeofday)
+	setup_titles()
 	setup_job_lists()
 	if(!length(all_occupations))
 		SetupOccupations()
@@ -138,7 +142,7 @@ SUBSYSTEM_DEF(job)
 			continue
 
 		new_all_occupations += job
-		name_occupations[job.title] = job
+		name_occupations[job.id] = job
 		type_occupations[job_type] = job
 
 		if(job.job_flags & JOB_NEW_PLAYER_JOINABLE)
@@ -191,10 +195,10 @@ SUBSYSTEM_DEF(job)
 		employers += E
 		employers_by_name[E.name] = E
 
-/datum/controller/subsystem/job/proc/GetJob(rank)
+/datum/controller/subsystem/job/proc/GetJob(job_id)
 	if(!length(all_occupations))
 		SetupOccupations()
-	return name_occupations[rank]
+	return name_occupations[job_id]
 
 /datum/controller/subsystem/job/proc/GetJobType(jobtype)
 	RETURN_TYPE(/datum/job)
@@ -234,7 +238,7 @@ SUBSYSTEM_DEF(job)
 	if(do_eligibility_checks && (check_job_eligibility(player, job, "AR", add_job_to_log = TRUE) != JOB_AVAILABLE))
 		return FALSE
 
-	JobDebug("Player: [player] is now Rank: [job.title], JCP:[job.current_positions], JPL:[latejoin ? job.total_positions : job.spawn_positions]")
+	JobDebug("Player: [player] is now Rank: [job.get_title(player)], JCP:[job.current_positions], JPL:[latejoin ? job.total_positions : job.spawn_positions]")
 	player.mind.set_assigned_role(job)
 	unassigned -= player
 	job.current_positions++
@@ -258,7 +262,7 @@ SUBSYSTEM_DEF(job)
 			continue
 
 		// Initial screening check. Does the player even have the job enabled, if they do - Is it at the correct priority level?
-		var/player_job_level = player.client?.prefs.read_preference(/datum/preference/blob/job_priority)[job.title]
+		var/player_job_level = player.client?.prefs.read_preference(/datum/preference/blob/job_priority)[job]
 		if(isnull(player_job_level))
 			JobDebug("FOC player job not enabled, Player: [player]")
 			continue
@@ -486,7 +490,7 @@ SUBSYSTEM_DEF(job)
 					continue
 
 				// Filter any job that doesn't fit the current level.
-				var/player_job_level = player.client?.prefs.read_preference(/datum/preference/blob/job_priority)[job.title]
+				var/player_job_level = player.client?.prefs.read_preference(/datum/preference/blob/job_priority)[job.id]
 				if(isnull(player_job_level))
 					JobDebug("FOC player job not enabled, Player: [player]")
 					continue
@@ -497,7 +501,7 @@ SUBSYSTEM_DEF(job)
 				if(check_job_eligibility(player, job, "DO", add_job_to_log = TRUE) != JOB_AVAILABLE)
 					continue
 
-				JobDebug("DO pass, Player: [player], Level:[level], Job:[job.title]")
+				JobDebug("DO pass, Player: [player], Level:[level], Job:[job.id] | [job.get_title(player.client)]")
 				AssignRole(player, job, do_eligibility_checks = FALSE)
 				unassigned -= player
 				break
@@ -585,8 +589,8 @@ SUBSYSTEM_DEF(job)
 //Gives the player the stuff he should have with his rank
 /datum/controller/subsystem/job/proc/EquipRank(mob/living/equipping, datum/job/job, client/player_client)
 	//The alt job title, if user picked one, or the default
-	var/chosen_title = player_client?.prefs.alt_job_titles[job.title] || job.title
-	equipping.job = job.title
+	var/chosen_title = player_client?.prefs.get_chosen_job_title_name(job.id)
+	equipping.job = job.id
 
 	SEND_SIGNAL(equipping, COMSIG_JOB_RECEIVED, job)
 
@@ -600,14 +604,14 @@ SUBSYSTEM_DEF(job)
 		if(CONFIG_GET(flag/auto_deadmin_players) || (player_client.prefs?.toggles & DEADMIN_ALWAYS))
 			player_client.holder.auto_deadmin()
 		else
-			handle_auto_deadmin_roles(player_client, job.title)
+			handle_auto_deadmin_roles(player_client, job.id)
 
 	if(player_client)
 		job.on_join_message(player_client, chosen_title)
 		job.on_join_popup(player_client, chosen_title)
 
 	if(player_client)
-		var/related_policy = get_policy(job.title)
+		var/related_policy = get_policy(job.id)
 		if(related_policy)
 			to_chat(player_client, related_policy)
 
@@ -625,6 +629,28 @@ SUBSYSTEM_DEF(job)
 
 	job.after_spawn(equipping, player_client)
 
+/**
+ * All extra functionality to run on new player mobs, in a place where we actually have the client,
+ * and haven't called COMSIG_GLOB_JOB_AFTER_SPAWN yet, so we are running before the wallet trait,
+ * and other things that rely on items already being settled.
+ */
+/datum/controller/subsystem/job/proc/setup_alt_job_items(mob/living/carbon/human/equipping, datum/job/job, client/player_client)
+	if(!player_client)
+		return
+
+	var/chosen_title = job.get_title(player_client)
+
+	var/obj/item/card/id/card = equipping.wear_id
+	if(istype(card))
+		card.assignment = chosen_title
+		card.update_label()
+
+	// Look for PDA in belt or L pocket
+	var/obj/item/modular_computer/tablet/pda/pda = equipping.belt
+	if(!istype(pda))
+		pda = equipping.l_store
+	if(istype(pda))
+		pda.saved_job = chosen_title
 
 /datum/controller/subsystem/job/proc/handle_auto_deadmin_roles(client/C, rank)
 	if(!C?.holder)
@@ -684,7 +710,7 @@ SUBSYSTEM_DEF(job)
 			var/mob/dead/new_player/player = i
 			if(!(player.ready == PLAYER_READY_TO_PLAY && player.mind && is_unassigned_job(player.mind.assigned_role)))
 				continue //This player is not ready
-			if(is_banned_from(player.ckey, job.title) || QDELETED(player))
+			if(is_banned_from(player.ckey, job.id) || QDELETED(player))
 				banned++
 				continue
 			if(!job.player_old_enough(player.client))
@@ -693,7 +719,7 @@ SUBSYSTEM_DEF(job)
 			if(job.required_playtime_remaining(player.client))
 				young++
 				continue
-			switch(player.client?.prefs.read_preference(/datum/preference/blob/job_priority)[job.title])
+			switch(player.client?.prefs.read_preference(/datum/preference/blob/job_priority)[job.id])
 				if(JP_HIGH)
 					high++
 				if(JP_MEDIUM)
@@ -702,12 +728,12 @@ SUBSYSTEM_DEF(job)
 					low++
 				else
 					never++
-		SSblackbox.record_feedback("nested tally", "job_preferences", high, list("[job.title]", "high"))
-		SSblackbox.record_feedback("nested tally", "job_preferences", medium, list("[job.title]", "medium"))
-		SSblackbox.record_feedback("nested tally", "job_preferences", low, list("[job.title]", "low"))
-		SSblackbox.record_feedback("nested tally", "job_preferences", never, list("[job.title]", "never"))
-		SSblackbox.record_feedback("nested tally", "job_preferences", banned, list("[job.title]", "banned"))
-		SSblackbox.record_feedback("nested tally", "job_preferences", young, list("[job.title]", "young"))
+		SSblackbox.record_feedback("nested tally", "job_preferences", high, list("[job.id]", "high"))
+		SSblackbox.record_feedback("nested tally", "job_preferences", medium, list("[job.id]", "medium"))
+		SSblackbox.record_feedback("nested tally", "job_preferences", low, list("[job.id]", "low"))
+		SSblackbox.record_feedback("nested tally", "job_preferences", never, list("[job.id]", "never"))
+		SSblackbox.record_feedback("nested tally", "job_preferences", banned, list("[job.id]", "banned"))
+		SSblackbox.record_feedback("nested tally", "job_preferences", young, list("[job.id]", "young"))
 
 /datum/controller/subsystem/job/proc/PopcapReached()
 	var/hpc = CONFIG_GET(number/hard_popcap)
@@ -737,7 +763,7 @@ SUBSYSTEM_DEF(job)
 		INVOKE_ASYNC(src, PROC_REF(RecoverJob), job)
 
 /datum/controller/subsystem/job/proc/RecoverJob(datum/job/J)
-	var/datum/job/newjob = GetJob(J.title)
+	var/datum/job/newjob = GetJob(J.id)
 	if (!istype(newjob))
 		return
 	newjob.total_positions = J.total_positions
@@ -876,6 +902,10 @@ SUBSYSTEM_DEF(job)
 /datum/controller/subsystem/job/proc/JobDebug(message)
 	log_job_debug(message)
 
+/datum/controller/subsystem/job/proc/setup_titles()
+	for (var/title in subtypesof(/datum/job_title))
+		type_titles[title] = new title()
+
 /// Builds various lists of jobs based on station, centcom and additional jobs with icons associated with them.
 /datum/controller/subsystem/job/proc/setup_job_lists()
 	job_priorities_to_strings = list(
@@ -951,8 +981,8 @@ SUBSYSTEM_DEF(job)
 		CRASH("Somehow someone tried to get promoted to department head despite their job not having a valid department. Value: [assigned_job.departments_list?[1] || "NULL"]")
 
 	var/datum/job/head_job = SSjob.GetJobType(department.department_head)
-	var/datum/outfit/outfit_prototype = head_job.outfits["Default"][SPECIES_HUMAN]
-	var/datum/access_template/trim = SSid_access.template_singletons_by_path[initial(outfit_prototype.id_template)]
+	var/datum/outfit/outfit = head_job.get_title(new_head.client).outfits[SPECIES_HUMAN]
+	var/datum/access_template/trim = SSid_access.template_singletons_by_path[outfit.id_template]
 
 	id_card.add_access(trim.access)
 
@@ -1039,7 +1069,7 @@ SUBSYSTEM_DEF(job)
 		JobDebug("[debug_prefix] player has no mind, Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 		return JOB_UNAVAILABLE_GENERIC
 
-	if(possible_job.title in player.mind.restricted_roles)
+	if(possible_job.id in player.mind.restricted_roles)
 		JobDebug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_ANTAG_INCOMPAT)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 		return JOB_UNAVAILABLE_ANTAG_INCOMPAT
 
@@ -1053,7 +1083,7 @@ SUBSYSTEM_DEF(job)
 		return JOB_UNAVAILABLE_PLAYTIME
 
 	// Run the banned check last since it should be the rarest check to fail and can access the database.
-	if(is_banned_from(player.ckey, possible_job.title))
+	if(is_banned_from(player.ckey, possible_job.id))
 		JobDebug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_BANNED)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 		return JOB_UNAVAILABLE_BANNED
 
@@ -1091,7 +1121,7 @@ SUBSYSTEM_DEF(job)
 	if(!job)
 		stack_trace("FreeRole could not map rank [rank] to a job slot")
 		return FALSE
-	log_econ("Modifying job slots of [job.title]. Existing slots: [job.current_positions]/[job.total_positions] New slots: [max(0, job.current_positions - 1)]/[job.total_positions]")
+	log_econ("Modifying job slots of [job.id] ([job.get_title_name()]). Existing slots: [job.current_positions]/[job.total_positions] New slots: [max(0, job.current_positions - 1)]/[job.total_positions]")
 	job.current_positions = max(0, job.current_positions - 1)
 
 /// Used for clocking back in, re-claiming the previously freed role. Returns false if no slot is available.
@@ -1104,8 +1134,8 @@ SUBSYSTEM_DEF(job)
 		stack_trace("FreeRole could not map rank [rank] to a job slot")
 		return FALSE
 	if(job.current_positions >= job.total_positions)
-		log_econ("Modifying job slots of [job.title] failed due to no job slot being available. Current slots: [job.current_positions]/[job.total_positions]")
+		log_econ("Modifying job slots of [job.id] ([job.get_title_name()]) failed due to no job slot being available. Current slots: [job.current_positions]/[job.total_positions]")
 		return FALSE
-	log_econ("Modifying job slots of [job.title]. Existing slots: [job.current_positions]/[job.total_positions] New slots: [job.current_positions + 1]/[job.total_positions]")
+	log_econ("Modifying job slots of [job.id] ([job.get_title_name()]). Existing slots: [job.current_positions]/[job.total_positions] New slots: [job.current_positions + 1]/[job.total_positions]")
 	job.current_positions = job.current_positions + 1
 	return TRUE

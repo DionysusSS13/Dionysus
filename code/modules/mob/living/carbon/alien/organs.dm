@@ -100,11 +100,11 @@
 	if(!.)
 		return
 
-	M.faction |= ROLE_ALIEN
+	M.faction |= ROLE_XENOMORPH
 	ADD_TRAIT(M, TRAIT_XENO_IMMUNE, ORGAN_TRAIT)
 
 /obj/item/organ/alien/hivenode/Remove(mob/living/carbon/M, special = 0)
-	M.faction -= ROLE_ALIEN
+	M.faction -= ROLE_XENOMORPH
 	REMOVE_TRAIT(M, TRAIT_XENO_IMMUNE, ORGAN_TRAIT)
 	..()
 

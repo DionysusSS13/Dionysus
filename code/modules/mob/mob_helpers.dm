@@ -396,7 +396,7 @@ GLOBAL_LIST_INIT(bodyzone_gurps_mods, list(
 		message_admins("[key_name_admin(usr)] has offered control of ([ADMIN_LOOKUPFLW(M)]) to ghosts")
 	var/poll_message = "Do you want to play as [M.real_name]?"
 	if(M.mind)
-		poll_message = "[poll_message] Job: [M.mind.assigned_role.title]."
+		poll_message = "[poll_message] Job: [M.mind.assigned_role.get_title()]."
 		if(M.mind.special_role)
 			poll_message = "[poll_message] Status: [M.mind.special_role]."
 		else

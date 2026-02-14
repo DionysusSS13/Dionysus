@@ -9,6 +9,8 @@
 	var/payday_modifier = 1
 	///The job datum of the account owner.
 	var/datum/job/account_job
+	///The job title datum of the account holder.
+	var/datum/job_title/account_job_title
 	///List of the physical ID card objects that are associated with this bank_account
 	var/list/bank_cards = list()
 
@@ -25,9 +27,10 @@
 	///Is there a CRAB 17 on the station draining funds? Prevents manual fund transfer. pink levels are rising
 	var/being_dumped = FALSE
 
-/datum/bank_account/New(newname, job, player_account = TRUE)
+/datum/bank_account/New(newname, job, job_title, player_account = TRUE)
 	account_holder = newname
 	account_job = job
+	account_job_title = job_title
 	add_to_accounts = player_account
 	setup_unique_account_id()
 

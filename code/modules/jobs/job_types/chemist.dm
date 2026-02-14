@@ -1,5 +1,8 @@
 /datum/job/chemist
-	title = JOB_PHARMACOLOGIST
+	id = JOB_PHARMACOLOGIST
+	titles = list(
+		/datum/job_title/chemist,
+	)
 	description = "Supply the doctors with chemicals, make medicine, as well as \
 		less likable substances in the comfort of a fully reinforced room."
 	department_head = list("Medical Director")
@@ -14,12 +17,6 @@
 
 	employers = list(
 		/datum/employer/aether
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/chemist,
-		),
 	)
 
 	paycheck = PAYCHECK_MEDIUM
@@ -57,3 +54,9 @@
 
 	box = /obj/item/storage/box/survival/medical
 	chameleon_extras = /obj/item/gun/syringe
+
+/datum/job_title/chemist
+	name = JOB_PHARMACOLOGIST
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/chemist,
+	)

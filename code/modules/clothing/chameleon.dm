@@ -316,7 +316,7 @@
 		if(new_template)
 			SSid_access.apply_template_to_chameleon_card(agent_card, new_template, FALSE)
 		else
-			agent_card.assignment = job_datum.title
+			agent_card.assignment = job_datum.get_title_name() // This should probably support alt titles, but honestly you can still manually set it.
 
 		agent_card.icon_state = initial(copied_card.icon_state)
 		if(ispath(copied_card, /obj/item/card/id/advanced))
@@ -361,7 +361,7 @@
 	..()
 	var/obj/item/modular_computer/tablet/pda/agent_pda = target
 	if(istype(agent_pda) && istype(job_datum))
-		agent_pda.saved_job = job_datum.title
+		agent_pda.saved_job = job_datum.get_title_name()
 
 
 TYPEINFO_DEF(/obj/item/clothing/under/chameleon)

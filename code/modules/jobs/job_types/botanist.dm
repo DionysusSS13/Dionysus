@@ -1,5 +1,8 @@
 /datum/job/botanist
-	title = JOB_BOTANIST
+	id = JOB_BOTANIST
+	titles = list(
+		/datum/job_title/botanist,
+	)
 	description = "Grow plants for the cook, for medicine, and for recreation."
 	department_head = list(JOB_DIRECTOR_OF_PORT_SERVICES)
 	faction = FACTION_STATION
@@ -10,12 +13,6 @@
 
 	employers = list(
 		/datum/employer/none
-	)
-
-	outfits = list(
-		"Default" = list(
-			SPECIES_HUMAN = /datum/outfit/job/botanist,
-		),
 	)
 
 	departments_list = list(
@@ -49,3 +46,9 @@
 	gloves = /obj/item/clothing/gloves/botanic_leather
 
 	back = /obj/item/storage/backpack/botany
+
+/datum/job_title/botanist
+	name = JOB_BOTANIST
+	outfits = list(
+		SPECIES_HUMAN = /datum/outfit/job/botanist,
+	)

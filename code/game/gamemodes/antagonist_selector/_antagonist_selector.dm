@@ -12,7 +12,7 @@
 	/// If set, rule will only accept candidates from those roles. If on a roundstart ruleset, requires the player to have the correct antag pref enabled and any of the possible roles enabled.
 	var/list/exclusive_roles = null
 
-	///The antagonist flag to check player prefs for, for example ROLE_WIZARD
+	///The antagonist flag to check player prefs for, for example ROLE_SPACE_WIZARD
 	var/antag_flag = NONE
 	/// If a role is to be considered another for the purpose of banning.
 	var/antag_flag_to_ban_check = NONE

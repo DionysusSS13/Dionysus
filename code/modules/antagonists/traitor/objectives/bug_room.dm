@@ -71,7 +71,7 @@
 			bug = new(user.drop_location())
 			user.put_in_hands(bug)
 			bug.balloon_alert(user, "the bug materializes in your hand")
-			bug.target_area_type = applicable_heads[target_office.title]
+			bug.target_area_type = applicable_heads[target_office.get_title_name()]
 			AddComponent(/datum/component/traitor_objective_register, bug, \
 				succeed_signals = COMSIG_TRAITOR_BUG_PLANTED_GROUND, \
 				fail_signals = COMSIG_PARENT_QDELETING, \
@@ -85,7 +85,7 @@
 	else
 		possible_heads = applicable_heads
 	for(var/datum/traitor_objective/bug_room/room as anything in possible_duplicates)
-		possible_heads -= room.target_office.title
+		possible_heads -= room.target_office.get_title_name()
 	if(!length(possible_heads))
 		return FALSE
 	var/target_head = pick(possible_heads)

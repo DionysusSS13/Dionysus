@@ -96,6 +96,7 @@ TYPEINFO_DEF(/obj/item/card/id)
 	var/datum/bank_account/blank_bank_account = new /datum/bank_account("Unassigned", player_account = FALSE)
 	registered_account = blank_bank_account
 	blank_bank_account.account_job = new /datum/job/unassigned
+	blank_bank_account.account_job_title = new /datum/job_title/unassigned
 	registered_account.replaceable = TRUE
 
 	// Applying the template updates the label and icon, so don't do this twice.
