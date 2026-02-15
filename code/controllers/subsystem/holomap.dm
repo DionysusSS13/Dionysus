@@ -31,41 +31,42 @@ SUBSYSTEM_DEF(holomap)
 	return ..()
 
 /datum/controller/subsystem/holomap/proc/generate_holomaps()
-// commented out as this code will runtime until new holodecks are mapped in
-//	var/offset_x = SSmapping.config.holomap_offsets[1]
-//	var/offset_y = SSmapping.config.holomap_offsets[2]
-//	for(var/z_value in SSmapping.levels_by_trait(ZTRAIT_STATION))
-//		var/icon/canvas = icon('icons/blanks/480x480.dmi', "nothing")
-//		var/area/A
-//		turfloop:
-//			for(var/turf/T as anything in block(1, 1, z_value, world.maxx, world.maxy, z_value))
-//				A = T.loc
-//				if(isnull(A.holomap_color))
-//					continue
-//				var/pixel_x = T.x + offset_x
-//				var/pixel_y = T.y + offset_y
-				// Draw spacebound airlocks
-//				if(locate(/obj/machinery/door/airlock/external, T))
-//					for(var/dir in GLOB.cardinals)
-//						var/turf/other = get_step(T, dir)
-//						if(!istype(other.loc, /area/station))
-//							canvas.DrawBox(HOLOMAP_COLOR_EXTERNAL_AIRLOCK, pixel_x, pixel_y)
-//							continue turfloop
-//				var/obj/structure/window/W
-//				if(iswallturf(T) || ((W = locate(/obj/structure/window, T)) && W.fulltile) || locate(/obj/structure/plasticflaps, T))
-//					for(var/dir in GLOB.cardinals)
-//						var/turf/other = get_step(T, dir)
-//						var/area/other_area = other.loc
-						// This check is for "Is the area bordering a non-station turf OR a different area color?"
-//						if(!istype(other_area, /area/station) || (other_area.holomap_color != A.holomap_color))
-//							canvas.DrawBox(HOLOMAP_COLOR_WALL, pixel_x, pixel_y)
-//							continue turfloop
-				// Draw pixel according to the area
-//				canvas.DrawBox(A.holomap_color, pixel_x, pixel_y)
-//		generate_minimaps(canvas, z_value)
-//		var/icon/backdrop = icon('icons/hud/holomap/holomap_480x480.dmi', "stationmap")
-//		canvas.Blend(backdrop, ICON_UNDERLAY)
-//		holomaps_by_z[z_value] = canvas
+	var/offset_x = SSmapping.config.holomap_offsets[1]
+	var/offset_y = SSmapping.config.holomap_offsets[2]
+	for(var/z_value in SSmapping.levels_by_trait(ZTRAIT_STATION))
+		var/icon/canvas = icon('icons/blanks/480x480.dmi', "nothing")
+		var/area/A
+		turfloop:
+			for(var/turf/T as anything in block(1, 1, z_value, world.maxx, world.maxy, z_value))
+				A = T.loc
+				if(isnull(A.holomap_color))
+					continue
+				var/pixel_x = T.x + offset_x
+				var/pixel_y = T.y + offset_y
+				Draw spacebound airlocks
+				if(locate(/obj/machinery/door/airlock/external, T))
+					for(var/dir in GLOB.cardinals)
+						var/turf/other = get_step(T, dir)
+						if(!istype(other.loc, /area/station))
+							canvas.DrawBox(HOLOMAP_COLOR_EXTERNAL_AIRLOCK, pixel_x, pixel_y)
+							continue turfloop
+				var/obj/structure/window/W
+				if(iswallturf(T) || ((W = locate(/obj/structure/window, T)) && W.fulltile) || locate(/obj/structure/plasticflaps, T))
+					for(var/dir in GLOB.cardinals)
+						var/turf/other = get_step(T, dir)
+						if(isnull(other))
+							continue
+						var/area/other_area = other.loc
+						This check is for "Is the area bordering a non-station turf OR a different area color?"
+						if(!istype(other_area, /area/station) || (other_area.holomap_color != A.holomap_color))
+							canvas.DrawBox(HOLOMAP_COLOR_WALL, pixel_x, pixel_y)
+							continue turfloop
+				Draw pixel according to the area
+				canvas.DrawBox(A.holomap_color, pixel_x, pixel_y)
+		generate_minimaps(canvas, z_value)
+		var/icon/backdrop = icon('icons/hud/holomap/holomap_480x480.dmi', "stationmap")
+		canvas.Blend(backdrop, ICON_UNDERLAY)
+		holomaps_by_z[z_value] = canvas
 
 /// Generate minimaps from a full map.
 /datum/controller/subsystem/holomap/proc/generate_minimaps(icon/canvas, z)
