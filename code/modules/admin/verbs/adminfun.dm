@@ -199,6 +199,40 @@
 
 	message_admins("Mass polymorph started by [who_did_it] is complete.")
 
+/client/proc/admin_power_restore()
+	set category = "Admin.Fun"
+	set name = "Power Restore"
+	set desc = "Restores power to all SMES and APCs."
+	for(var/obj/machinery/power/apc/apc as anything in INSTANCES_OF(/obj/machinery/power/apc))
+		apc.cell.charge = apc.cell.maxcharge
+		apc.environ = APC_CHANNEL_AUTO_ON
+		apc.equipment = APC_CHANNEL_AUTO_ON
+		apc.lighting = APC_CHANNEL_AUTO_ON
+		apc.operating = TRUE
+	for(var/obj/machinery/power/smes/smes as anything in INSTANCES_OF(/obj/machinery/power/smes))
+		for(var/obj/item/stock_parts/cell/cell in smes.component_parts)
+			cell.charge = cell.maxcharge
+		smes.output_level = smes.output_level_max
+		smes.output_attempt = TRUE
+	message_admins("[key_name(usr)] restored all power.")
+
+/client/proc/admin_power_destore()
+	set category = "Admin.Fun"
+	set name = "Power Destore"
+	set desc = "Removes power from all SMES and APCs."
+	for(var/obj/machinery/power/apc/apc as anything in INSTANCES_OF(/obj/machinery/power/apc))
+		apc.cell.charge = 0
+		apc.environ = APC_CHANNEL_OFF
+		apc.equipment = APC_CHANNEL_OFF
+		apc.lighting = APC_CHANNEL_OFF
+		apc.operating = FALSE
+	for(var/obj/machinery/power/smes/smes as anything in INSTANCES_OF(/obj/machinery/power/smes))
+		for(var/obj/item/stock_parts/cell/cell in smes.component_parts)
+			cell.charge = 0
+		smes.output_level = 0
+		smes.output_attempt = FALSE
+	message_admins("[key_name(usr)] destored all power.")
+
 /client/proc/smite(mob/living/target as mob)
 	set category = "Admin.Fun"
 	set name = "Smite"
