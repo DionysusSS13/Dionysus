@@ -219,3 +219,5 @@ codex.db-wal
 # ezdb
 /db/
 /config/ezdb.txt
+
+/tools/byond_install
