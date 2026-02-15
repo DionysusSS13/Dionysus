@@ -15,10 +15,6 @@
 	. = ..()
 
 /datum/antagonist/fugitive_hunter/proc/forge_objectives() //this isn't an actual objective because it's about round end rosters
-	var/datum/objective/capture = new /datum/objective
-	capture.owner = owner
-	capture.explanation_text = "Capture the fugitives in the station and put them into the bluespace capture machine on your ship."
-	objectives += capture
 
 /datum/antagonist/fugitive_hunter/greet()
 	switch(backstory)
@@ -57,10 +53,6 @@
 	var/backstory = "error"
 
 /datum/team/fugitive_hunters/proc/update_objectives(initial = FALSE)
-	objectives = list()
-	var/datum/objective/O = new()
-	O.team = src
-	objectives += O
 
 /datum/team/fugitive_hunters/proc/assemble_fugitive_results()
 	var/list/fugitives_counted = list()

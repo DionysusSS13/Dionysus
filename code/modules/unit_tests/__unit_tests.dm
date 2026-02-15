@@ -125,7 +125,6 @@
 #include "dcs_get_id_from_elements.dm"
 #include "designs.dm"
 #include "dummy_spawn.dm"
-#include "dynamic_ruleset_sanity.dm"
 #include "egg_glands.dm"
 #include "emoting.dm"
 #include "food_edibility_check.dm"

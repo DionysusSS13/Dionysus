@@ -119,9 +119,6 @@
 
 /// Used to display gang objectives in the player's traitor panel
 /datum/antagonist/gang/proc/add_objectives()
-	var/datum/objective/objective = new ()
-	objective.explanation_text = my_gang.current_theme.gang_objectives[type]
-	objectives.Add(objective)
 
 /// Gives a gangster their equipment in their backpack and / or pockets.
 /datum/antagonist/gang/proc/equip_gangster_in_inventory()

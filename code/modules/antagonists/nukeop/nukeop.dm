@@ -248,7 +248,6 @@
 	if(!CONFIG_GET(flag/disable_warops))
 		to_chat(owner, "<span class='warningplain'><B>In your hand you will find a special item capable of triggering a greater challenge for your team. Examine it carefully and consult with your fellow operatives before activating it.</B></span>")
 
-	owner.announce_objectives()
 
 /datum/antagonist/nukeop/leader/on_gain()
 	. = ..()
@@ -322,7 +321,7 @@
 /datum/team/nuclear
 	var/syndicate_name
 	var/obj/machinery/nuclearbomb/tracked_nuke
-	var/core_objective = /datum/objective/nuclear
+	var/core_objective
 	var/memorized_code
 	var/list/team_discounts
 	var/datum/weakref/war_button_ref
@@ -332,10 +331,7 @@
 	syndicate_name = syndicate_name()
 
 /datum/team/nuclear/proc/update_objectives()
-	if(core_objective)
-		var/datum/objective/O = new core_objective
-		O.team = src
-		objectives += O
+
 
 /datum/team/nuclear/proc/disk_rescued()
 	for(var/obj/item/disk/nuclear/D in SSpoints_of_interest.real_nuclear_disks)

@@ -51,11 +51,6 @@
 		return FALSE
 	if(EMERGENCY_ESCAPED_OR_ENDGAMED)
 		return FALSE
-
-	var/datum/game_mode/dynamic/dynamic = SSticker.mode
-	if (istype(dynamic) && dynamic_should_hijack && dynamic.random_event_hijacked != HIJACKED_NOTHING)
-		return FALSE
-
 	return TRUE
 
 /datum/round_event_control/proc/preRunEvent()

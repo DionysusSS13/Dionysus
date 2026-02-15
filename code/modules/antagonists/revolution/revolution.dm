@@ -322,7 +322,6 @@
 	var/list/ex_revs = list()
 
 /datum/team/revolution/proc/update_objectives(initial = FALSE)
-	var/untracked_heads = SSjob.get_all_management()
 	for(var/datum/mind/M in members)
 		var/datum/antagonist/rev/R = M.has_antag_datum(/datum/antagonist/rev)
 		R.objectives |= objectives

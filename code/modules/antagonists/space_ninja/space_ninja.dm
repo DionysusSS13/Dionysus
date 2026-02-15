@@ -40,8 +40,6 @@
 	to_chat(owner.current, "Surprise is my weapon. Shadows are my armor. Without them, I am nothing. (//initialize your suit by right clicking on it, to use abilities like stealth)!")
 
 /datum/antagonist/ninja/on_gain()
-	if(give_objectives)
-		addObjectives()
 	addMemories()
 	if(give_equipment)
 		equip_space_ninja(owner.current)

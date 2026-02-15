@@ -486,11 +486,7 @@
 /mob/living/simple_animal/hostile/space_dragon/proc/victory()
 	objective_complete = TRUE
 	permanant_empower()
-	var/datum/antagonist/space_dragon/S = mind.has_antag_datum(/datum/antagonist/space_dragon)
-	if(S)
-		var/datum/objective/summon_carp/main_objective = locate() in S.objectives
-		if(main_objective)
-			main_objective.completed = TRUE
+
 	priority_announce("A large amount of lifeforms have been detected approaching [station_name()] at extreme speeds. \
 	Remaining crew are advised to evacuate as soon as possible.", FLAVOR_ANANKE_STATION)
 	sound_to_playing_players('sound/creatures/space_dragon_roar.ogg')

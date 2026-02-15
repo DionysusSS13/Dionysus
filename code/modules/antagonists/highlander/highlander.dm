@@ -23,13 +23,6 @@
 	REMOVE_TRAIT(L, TRAIT_NOBREATH, HIGHLANDER_TRAIT)
 
 /datum/antagonist/highlander/proc/forge_objectives()
-	var/datum/objective/steal/steal_objective = new
-	steal_objective.owner = owner
-	steal_objective.set_target(new /datum/objective_item/steal/nukedisc)
-	objectives += steal_objective
-	var/datum/objective/elimination/highlander/elimination_objective = new
-	elimination_objective.owner = owner
-	objectives += elimination_objective
 
 /datum/antagonist/highlander/on_gain()
 	forge_objectives()
@@ -41,7 +34,6 @@
 	to_chat(owner, "<span class='boldannounce'>Your [sword.name] cries out for blood. Claim the lives of others, and your own will be restored!\n\
 	Activate it in your hand, and it will lead to the nearest target. Attack the nuclear authentication disk with it, and you will store it.</span>")
 
-	owner.announce_objectives()
 
 /datum/antagonist/highlander/proc/give_equipment()
 	var/mob/living/carbon/human/H = owner.current

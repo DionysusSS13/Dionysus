@@ -73,7 +73,6 @@
 		if(!LAZYLEN(all_objectives))
 			continue
 		changeling.antag_memory += " Objectives:"
-		var/obj_count = 1
 	changeling.antag_memory += " That's all [target] had. "
 
 	//Some of target's recent speech, so the changeling can attempt to imitate them better.

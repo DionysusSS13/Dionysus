@@ -161,46 +161,6 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 		despawn_occupant()
 
 /obj/machinery/cryostasis_pod/proc/handle_objectives()
-	var/mob/living/mob_occupant = occupant
-	// Update any existing objectives involving this mob.
-	for(var/datum/objective/objective in GLOB.objectives)
-		// We don't want revs to get objectives that aren't for heads of staff. Letting
-		// them win or lose based on cryo is silly so we remove the objective.
-		if(istype(objective,/datum/objective/mutiny) && objective.target == mob_occupant.mind)
-			objective.team.objectives -= objective
-			qdel(objective)
-			for(var/datum/mind/mind in objective.team.members)
-				to_chat(mind.current, "<BR>[span_userdanger("Your target is no longer within reach. Objective removed!")]")
-				mind.announce_objectives()
-		else if(istype(objective.target) && objective.target == mob_occupant.mind)
-			var/old_target = objective.target
-			objective.target = null
-			if(!objective)
-				return
-			objective.find_target()
-			if(!objective.target && objective.owner)
-				to_chat(objective.owner.current, "<BR>[span_userdanger("Your target is no longer within reach. Objective removed!")]")
-				for(var/datum/antagonist/antag in objective.owner.antag_datums)
-					antag.objectives -= objective
-			if (!objective.team)
-				objective.update_explanation_text()
-				objective.owner.announce_objectives()
-				to_chat(objective.owner.current, "<BR>[span_userdanger("You get the feeling your target is no longer within reach. Time for Plan [pick("A","B","C","D","X","Y","Z")]. Objectives updated!")]")
-			else
-				var/list/objectivestoupdate
-				for(var/datum/mind/objective_owner in objective.get_owners())
-					to_chat(objective_owner.current, "<BR>[span_userdanger("You get the feeling your target is no longer within reach. Time for Plan [pick("A","B","C","D","X","Y","Z")]. Objectives updated!")]")
-					for(var/datum/objective/update_target_objective in objective_owner.get_all_objectives())
-						LAZYADD(objectivestoupdate, update_target_objective)
-				objectivestoupdate += objective.team.objectives
-				for(var/datum/objective/update_objective in objectivestoupdate)
-					if(update_objective.target != old_target || !istype(update_objective,objective.type))
-						continue
-					update_objective.target = objective.target
-					update_objective.update_explanation_text()
-					to_chat(objective.owner.current, "<BR>[span_userdanger("You get the feeling your target is no longer within reach. Time for Plan [pick("A","B","C","D","X","Y","Z")]. Objectives updated!")]")
-					update_objective.owner.announce_objectives()
-			qdel(objective)
 
 /**
  * Attempt to store a given item in either the control computer or on the ground.
@@ -237,26 +197,6 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	var/mob/living/mob_occupant = occupant
 
 	SSjob.FreeRole(stored_rank)
-
-	// Handle holy successor removal
-	// var/list/holy_successors = list_holy_successors()
-	// if(mob_occupant in holy_successors) // if this mob was a holy successor then remove them from the pool
-	// 	GLOB.holy_successors -= WEAKREF(mob_occupant)
-
-	if(mob_occupant.mind)
-		// Handle tater cleanup.
-		if(LAZYLEN(mob_occupant.mind.objectives))
-			mob_occupant.mind.objectives.Cut()
-			if (mob_occupant.mind.special_role)
-				mob_occupant.mind.special_role = null
-		// Handle freeing the high priest role for the next chaplain in line
-		// if(mob_occupant.mind.holy_role == HOLY_ROLE_HIGHPRIEST)
-		// 	reset_religion()
-	// else
-		// handle the case of the high priest no longer having a mind
-		// var/datum/weakref/current_highpriest = GLOB.current_highpriest
-		// if(current_highpriest?.resolve() == mob_occupant)
-		// 	reset_religion()
 
 	// Delete them from datacore and ghost records.
 	var/announce_rank = GLOB.ghost_records[WEAKREF(mob_occupant)]

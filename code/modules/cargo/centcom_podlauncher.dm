@@ -171,10 +171,6 @@
 		return
 	switch(action)
 		////////////////////////////UTILITIES//////////////////
-		if("gamePanel")
-			holder.holder.Game()
-			SSblackbox.record_feedback("tally", "admin_verb", 1, "Game Panel") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-			. = TRUE
 		if("buildMode")
 			var/mob/holder_mob = holder.mob
 			if (holder_mob && (holder.holder?.rank?.rights & R_BUILD))

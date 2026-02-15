@@ -11,10 +11,3 @@
 	export_types = list(
 		/obj/item/gun/syringe/syndicate/prototype
 	)
-
-/datum/export/traitor/ritual_wine
-	cost = CARGO_CRATE_VALUE * 15
-	unit_name = "super high value contraband"
-	export_types = list(
-		/obj/item/reagent_containers/glass/bottle/ritual_wine
-	)

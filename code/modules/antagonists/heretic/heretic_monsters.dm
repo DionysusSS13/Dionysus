@@ -31,12 +31,5 @@
 /datum/antagonist/heretic_monster/proc/set_owner(datum/mind/master)
 	src.master = master
 
-	var/datum/objective/master_obj = new()
-	master_obj.owner = owner
-	master_obj.explanation_text = "Assist your master."
-	master_obj.completed = TRUE
-
-	objectives += master_obj
-	owner.announce_objectives()
 	to_chat(owner, span_boldnotice("You are a [ishuman(owner.current) ? "shambling corpse returned":"horrible creation brought"] to this plane through the Gates of the Mansus."))
 	to_chat(owner, span_notice("Your master is [master]. Assist them to all ends."))

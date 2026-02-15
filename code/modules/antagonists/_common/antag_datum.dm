@@ -268,7 +268,6 @@ GLOBAL_LIST_EMPTY(antagonists)
 		greeting += "You have the following objectives:<br>"
 
 		var/list/objective_strings = list()
-		var/objective_tally = 0
 
 		greeting += jointext(objective_strings, "<br><br>")
 

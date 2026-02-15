@@ -101,9 +101,6 @@ TYPEINFO_DEF(/obj/vehicle/sealed/mecha/working/clarke)
 		chassis.balloon_alert(living_owner, "no ruins!")
 		return
 
-/datum/status_effect/agent_pinpointer/ruin/scan_for_target()
-	return
-
 /datum/status_effect/agent_pinpointer/ruin/proc/cancel_self(datum/source, atom/old_loc)
 	SIGNAL_HANDLER
 	qdel(src)

@@ -8,10 +8,7 @@
 	show_in_antagpanel = FALSE
 
 /datum/antagonist/enemy_of_the_revolution/proc/forge_objectives()
-	var/datum/objective/survive/survive = new
-	survive.owner = owner
-	survive.explanation_text = "The station has been overrun by revolutionaries, stay alive until the end."
-	objectives += survive
+
 
 /datum/antagonist/enemy_of_the_revolution/on_gain()
 	//the state version of this antag has to sleep a tick, this doesn't because it's not replacing an old antag datum.

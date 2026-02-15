@@ -50,23 +50,7 @@
 	outfit = /datum/outfit/centcom/centcom_official
 
 /datum/antagonist/ert/official/greet()
-	. = ..()
-	if (ert_team)
-		to_chat(owner, "<span class='warningplain'>Central Command is sending you to [station_name()] with the task: [ert_team.mission.explanation_text]</span>")
-	else
-		to_chat(owner, "<span class='warningplain'>Central Command is sending you to [station_name()] with the task: [mission.explanation_text]</span>")
-
 /datum/antagonist/ert/official/forge_objectives()
-	if (ert_team)
-		return ..()
-	if(mission)
-		return
-	var/datum/objective/missionobj = new ()
-	missionobj.owner = owner
-	missionobj.explanation_text = "Conduct a routine performance review of [station_name()] and its Captain."
-	missionobj.completed = TRUE
-	mission = missionobj
-	objectives |= mission
 
 /datum/antagonist/ert/security // kinda handled by the base template but here for completion
 
@@ -225,21 +209,6 @@
 
 
 /datum/antagonist/ert/greet()
-	if(!ert_team)
-		return
-
-	to_chat(owner, "<span class='warningplain'><B><font size=3 color=red>You are [get_name()].</font></B></span>")
-
-	var/missiondesc = "Your squad is being sent on a mission to [station_name()] by Nanotrasen's Security Division."
-	if(leader) //If Squad Leader
-		missiondesc += " Lead your squad to ensure the completion of the mission. Board the shuttle when your team is ready."
-	else
-		missiondesc += " Follow orders given to you by your squad leader."
-	if(!rip_and_tear)
-		missiondesc += " Avoid civilian casualties when possible."
-
-	missiondesc += "<span class='warningplain'><BR><B>Your Mission</B> : [ert_team.mission.explanation_text]</span>"
-	to_chat(owner,missiondesc)
 
 
 /datum/antagonist/ert/families

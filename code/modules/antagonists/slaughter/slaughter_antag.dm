@@ -18,21 +18,11 @@
 	to_chat(owner, span_warning("You have a powerful alt-attack that slams people backwards that you can activate by right-clicking your target!"))
 
 /datum/antagonist/slaughter/proc/forge_objectives()
-	if(summoner)
-		var/datum/objective/assassinate/new_objective = new /datum/objective/assassinate
-		new_objective.owner = owner
-		new_objective.target = summoner
-		new_objective.explanation_text = "[objective_verb] [summoner.name], the one who summoned you."
-		objectives += new_objective
-	var/datum/objective/new_objective2 = new /datum/objective
-	new_objective2.owner = owner
-	new_objective2.explanation_text = "[objective_verb] everyone[summoner ? " else while you're at it":""]."
-	objectives += new_objective2
+
 
 /datum/antagonist/slaughter/ui_static_data(mob/user)
 	var/list/data = list()
 	data["fluff"] = fluff
-	data["objectives"] = get_objectives()
 	data["explain_attack"] = TRUE
 	return data
 

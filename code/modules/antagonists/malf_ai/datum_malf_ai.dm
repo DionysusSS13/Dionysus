@@ -56,29 +56,11 @@
 
 /// Generates a complete set of malf AI objectives up to the traitor objective limit.
 /datum/antagonist/malf_ai/proc/forge_ai_objectives()
-	objectives.Cut()
 
-	if(prob(PROB_SPECIAL))
-		forge_special_objective()
-
-	var/objective_count = length(objectives)
-
-	for(var/i in objective_count to 1)
-		var/datum/objective/assassinate/kill_objective = new
-		kill_objective.owner = owner
-		kill_objective.find_target()
-		objectives += kill_objective
-
-	var/datum/objective/survive/malf/dont_die_objective = new
-	dont_die_objective.owner = owner
-	objectives += dont_die_objective
 
 /// Generates a special objective and adds it to the objective list.
 /datum/antagonist/malf_ai/proc/forge_special_objective()
-	var/datum/objective/jailbreak/yandere_one = new
-	yandere_one.owner = owner
-	objectives += yandere_one
-	yandere_one.find_target()
+
 
 /datum/antagonist/malf_ai/greet()
 	. = ..()
@@ -154,7 +136,6 @@
 	data["intro"] = malfunction_flavor["introduction"]
 	data["allies"] = malfunction_flavor["allies"]
 	data["goal"] = malfunction_flavor["goal"]
-	data["objectives"] = get_objectives()
 
 	//module picker data
 
@@ -207,19 +188,6 @@
 	var/malf_ai_won = TRUE
 
 	result += printplayer(owner)
-
-	var/objectives_text = ""
-	if(objectives.len) //If the traitor had no objectives, don't need to process this.
-		var/count = 1
-		for(var/datum/objective/objective in objectives)
-			if(objective.check_completion())
-				objectives_text += "<br><B>Objective #[count]</B>: [objective.explanation_text] [span_greentext("Success!")]"
-			else
-				objectives_text += "<br><B>Objective #[count]</B>: [objective.explanation_text] [span_redtext("Fail.")]"
-				malf_ai_won = FALSE
-			count++
-
-	result += objectives_text
 
 	var/special_role_text = lowertext(name)
 

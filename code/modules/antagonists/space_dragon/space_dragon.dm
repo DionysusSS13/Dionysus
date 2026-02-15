@@ -21,7 +21,6 @@
 	SEND_SOUND(owner.current, sound('sound/magic/demon_attack1.ogg'))
 
 /datum/antagonist/space_dragon/on_gain()
-	forge_objectives()
 	. = ..()
 	rift_ability = new
 	rift_ability.Grant(owner.current)
@@ -43,17 +42,9 @@
 
 /datum/antagonist/space_dragon/roundend_report()
 	var/list/parts = list()
-	var/datum/objective/summon_carp/S = locate() in objectives
-	if(S.check_completion())
-		parts += "<span class='redtext big'>The [name] has succeeded! Station space has been reclaimed by the space carp!</span>"
 	parts += printplayer(owner)
 	var/objectives_complete = TRUE
-	if(objectives.len)
-		parts += printobjectives(objectives)
-		for(var/datum/objective/objective in objectives)
-			if(!objective.check_completion())
-				objectives_complete = FALSE
-				break
+
 	if(objectives_complete)
 		parts += "<span class='greentext big'>The [name] was successful!</span>"
 	else

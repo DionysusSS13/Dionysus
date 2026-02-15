@@ -51,13 +51,6 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 	return ..()
 
 /datum/antagonist/wizard_minion/proc/create_objectives()
-	if(!wiz_team)
-		return
-	var/datum/objective/custom/custom_objective = new()
-	custom_objective.owner = owner
-	custom_objective.name = "Serve [wiz_team.master_wizard?.owner]"
-	custom_objective.explanation_text = "Serve [wiz_team.master_wizard?.owner]"
-	objectives += custom_objective
 
 /datum/antagonist/wizard_minion/get_team()
 	return wiz_team
@@ -102,30 +95,6 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 	owner.current.forceMove(pick(GLOB.wizardstart))
 
 /datum/antagonist/wizard/proc/create_objectives()
-	switch(rand(1,85))
-		if(1 to 30)
-			var/datum/objective/assassinate/kill_objective = new
-			kill_objective.owner = owner
-			kill_objective.find_target()
-			objectives += kill_objective
-
-		if(31 to 60)
-			var/datum/objective/steal/steal_objective = new
-			steal_objective.owner = owner
-			steal_objective.find_target()
-			objectives += steal_objective
-
-		if(61 to 85)
-			var/datum/objective/assassinate/kill_objective = new
-			kill_objective.owner = owner
-			kill_objective.find_target()
-			objectives += kill_objective
-
-			var/datum/objective/steal/steal_objective = new
-			steal_objective.owner = owner
-			steal_objective.find_target()
-			objectives += steal_objective
-
 
 /datum/antagonist/wizard/on_removal()
 	// Currently removes all spells regardless of innate or not. Could be improved.
@@ -153,7 +122,6 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 /datum/antagonist/wizard/ui_static_data(mob/user)
 	. = ..()
 	var/list/data = list()
-	data["objectives"] = get_objectives()
 	return data
 
 /datum/antagonist/wizard/proc/rename_wizard()
@@ -196,8 +164,7 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 	wiz_age = APPRENTICE_AGE_MIN
 
 /datum/antagonist/wizard/apprentice/greet()
-	to_chat(owner, "<B>You are [master.current.real_name]'s apprentice! You are bound by magic contract to follow [master.p_their()] orders and help [master.p_them()] in accomplishing [master.p_their()] goals.")
-	owner.announce_objectives()
+
 
 /datum/antagonist/wizard/apprentice/equip_wizard()
 	. = ..()
@@ -257,11 +224,6 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 		owner.current.put_in_hands(new_item)
 
 /datum/antagonist/wizard/apprentice/create_objectives()
-	var/datum/objective/protect/new_objective = new /datum/objective/protect
-	new_objective.owner = owner
-	new_objective.target = master
-	new_objective.explanation_text = "Protect [master.current.real_name], the wizard."
-	objectives += new_objective
 
 //Random event wizard
 /datum/antagonist/wizard/apprentice/imposter
@@ -320,9 +282,6 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 	fireball.Grant(living_current)
 
 /datum/antagonist/wizard/academy/create_objectives()
-	var/datum/objective/new_objective = new("Protect Wizard Academy from the intruders")
-	new_objective.owner = owner
-	objectives += new_objective
 
 //Solo wizard report
 /datum/antagonist/wizard/roundend_report()
@@ -330,16 +289,7 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 
 	parts += printplayer(owner)
 
-	var/count = 1
 	var/wizardwin = 1
-	for(var/datum/objective/objective in objectives)
-		if(objective.check_completion())
-			parts += "<B>Objective #[count]</B>: [objective.explanation_text] [span_greentext("Success!")]"
-		else
-			parts += "<B>Objective #[count]</B>: [objective.explanation_text] [span_redtext("Fail.")]"
-			wizardwin = 0
-		count++
-
 	if(wizardwin)
 		parts += span_greentext("The wizard was successful!")
 	else

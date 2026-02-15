@@ -105,7 +105,6 @@
 
 	data["total_sacrifices"] = total_sacrifices
 	data["ascended"] = ascended
-	data["objectives"] = get_objectives()
 
 	return data
 
@@ -167,8 +166,6 @@
 	return ..()
 
 /datum/antagonist/heretic/on_gain()
-	if(give_objectives)
-		forge_primary_objectives()
 
 	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ecult_op.ogg', 100, FALSE, pressure_affected = FALSE, use_reverb = FALSE)//subject to change
 

@@ -152,7 +152,6 @@
 	if(uplink)
 		data["uplink_intro"] = traitor_flavor["uplink"]
 		data["uplink_unlock_info"] = uplink.unlock_text
-	data["objectives"] = get_objectives()
 	return data
 
 /datum/antagonist/traitor/roundend_report()

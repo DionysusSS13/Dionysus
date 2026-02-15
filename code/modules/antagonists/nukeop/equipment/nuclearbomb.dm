@@ -484,8 +484,6 @@ GLOBAL_VAR(nuke_time_left)
 	safety = TRUE
 	update_appearance()
 	sound_to_playing_players('sound/machines/alarm.ogg')
-	if(SSticker?.mode)
-		SSticker.roundend_check_paused = TRUE
 	addtimer(CALLBACK(src, PROC_REF(actually_explode)), 100)
 
 /obj/machinery/nuclearbomb/proc/actually_explode()

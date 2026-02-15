@@ -188,7 +188,6 @@ GLOBAL_LIST_EMPTY(blob_nodes)
 			A.layer = BELOW_MOB_LAYER
 			A.invisibility = 0
 			A.blend_mode = 0
-	var/datum/antagonist/blob/B = mind.has_antag_datum(/datum/antagonist/blob)
 	to_chat(world, "<B>[real_name] consumed the station in an unstoppable tide!</B>")
 	SSticker.news_report = BLOB_WIN
 	SSticker.end_round()

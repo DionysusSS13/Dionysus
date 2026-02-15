@@ -28,16 +28,6 @@
 	var/hijack_hacking = FALSE
 	var/hijack_announce = TRUE
 
-/obj/machinery/computer/emergency_shuttle/examine(mob/user)
-	. = ..()
-	if(hijack_announce)
-		. += span_danger("Security systems present on console. Any unauthorized tampering will result in an emergency announcement.")
-	if(user?.mind?.get_hijack_speed())
-		. += span_danger("Alt click on this to attempt to hijack the shuttle. This will take multiple tries (current: stage [SSshuttle.emergency.hijack_status]/[HIJACKED]).")
-		. += span_notice("It will take you [(hijack_stage_time * user.mind.get_hijack_speed()) / 10] seconds to reprogram a stage of the shuttle's navigational firmware, and the console will undergo automated timed lockout for [hijack_stage_cooldown/10] seconds after each stage.")
-		if(hijack_announce)
-			. += span_warning("It is probably best to fortify your position as to be uninterrupted during the attempt, given the automatic announcements..")
-
 /obj/machinery/computer/emergency_shuttle/attackby(obj/item/I, mob/user,params)
 	if(istype(I, /obj/item/card/id))
 		say("Please equip your ID card into your ID slot to authenticate.")
@@ -198,37 +188,6 @@
 		attempt_hijack_stage(user)
 
 /obj/machinery/computer/emergency_shuttle/proc/attempt_hijack_stage(mob/living/user)
-	if(!IsReachableBy(user))
-		return
-	if(!user?.mind?.get_hijack_speed())
-		to_chat(user, span_warning("You manage to open a user-mode shell on [src], and hundreds of lines of debugging output fly through your vision. It is probably best to leave this alone."))
-		return
-	if(!EMERGENCY_AT_LEAST_DOCKED) // prevent advancing hijack stages on BYOS shuttles until the shuttle has "docked"
-		to_chat(user, span_warning("The flight plans for the shuttle haven't been loaded yet, you can't hack this right now."))
-		return
-	if(hijack_hacking == TRUE)
-		return
-	if(SSshuttle.emergency.hijack_status >= HIJACKED)
-		to_chat(user, span_warning("The emergency shuttle is already loaded with a corrupt navigational payload. What more do you want from it?"))
-		return
-	if(hijack_last_stage_increase >= world.time + hijack_stage_cooldown)
-		say("Error - Catastrophic software error detected. Input is currently on timeout.")
-		return
-	hijack_hacking = TRUE
-	to_chat(user, span_boldwarning("You [SSshuttle.emergency.hijack_status == NOT_BEGUN? "begin" : "continue"] to override [src]'s navigational protocols."))
-	say("Software override initiated.")
-	var/turf/console_hijack_turf = get_turf(src)
-	message_admins("[src] is being overriden for hijack by [ADMIN_LOOKUPFLW(user)] in [ADMIN_VERBOSEJMP(console_hijack_turf)]")
-	log_game("[src] is being overriden for hijack by [key_name(user)] at [AREACOORD(src)]")
-	. = FALSE
-	if(do_after(user, hijack_stage_time * (1 / user.mind.get_hijack_speed()), target = src))
-		increase_hijack_stage()
-		console_hijack_turf = get_turf(src)
-		message_admins("[src] has had its hijack stage increased to stage [SSshuttle.emergency.hijack_status] out of [HIJACKED] by [ADMIN_LOOKUPFLW(user)] in [ADMIN_VERBOSEJMP(console_hijack_turf)]")
-		log_game("[src] has had its hijack stage increased to stage [SSshuttle.emergency.hijack_status] out of [HIJACKED] by [key_name(user)] at [AREACOORD(src)]")
-		. = TRUE
-		to_chat(user, span_notice("You reprogram some of [src]'s programming, putting it on timeout for [hijack_stage_cooldown/10] seconds."))
-	hijack_hacking = FALSE
 
 /obj/machinery/computer/emergency_shuttle/proc/announce_hijack_stage()
 	var/msg

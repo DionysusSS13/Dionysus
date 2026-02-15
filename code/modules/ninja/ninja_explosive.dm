@@ -29,12 +29,6 @@
  * * datum/antagonist/ninja/ninja_antag - The antag datum for the owner of the c4
  */
 /obj/item/grenade/c4/ninja/proc/set_detonation_area(datum/antagonist/ninja/ninja_antag)
-	if (!ninja_antag)
-		return
-	var/datum/objective/plant_explosive/objective = locate() in ninja_antag.objectives
-	if (!objective)
-		return
-	detonation_area = objective.detonation_location
 
 /obj/item/grenade/c4/ninja/afterattack(atom/movable/AM, mob/ninja, flag)
 	if(!IS_SPACE_NINJA(ninja))
@@ -63,9 +57,7 @@
 
 	if (isnull(ninja))
 		return
-	var/datum/antagonist/ninja/ninja_antag = ninja.mind.has_antag_datum(/datum/antagonist/ninja)
-	var/datum/objective/plant_explosive/objective = locate() in ninja_antag.objectives
-	objective.completed = TRUE
+
 
 /**
  * check_loc
