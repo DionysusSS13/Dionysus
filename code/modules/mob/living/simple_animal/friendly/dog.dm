@@ -537,12 +537,6 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 	fdel(json_file)
 	WRITE_FILE(json_file, json_encode(file_data))
 
-/mob/living/simple_animal/pet/dog/corgi/ian/narsie_act()
-	playsound(src, 'sound/magic/demon_dies.ogg', 75, TRUE)
-	var/mob/living/simple_animal/pet/dog/corgi/narsie/N = new(loc)
-	N.setDir(dir)
-	gib()
-
 /mob/living/simple_animal/pet/dog/corgi/narsie
 	name = "Nars-Ian"
 	desc = "Ia! Ia!"
@@ -555,26 +549,12 @@ GLOBAL_LIST_INIT(strippable_corgi_items, create_strippable_list(list(
 	unique_pet = TRUE
 	held_state = "narsian"
 
-/mob/living/simple_animal/pet/dog/corgi/narsie/Life(delta_time = SSMOBS_DT, times_fired)
-	..()
-	for(var/mob/living/simple_animal/pet/P in range(1, src))
-		if(P != src && !istype(P,/mob/living/simple_animal/pet/dog/corgi/narsie))
-			visible_message(span_warning("[src] devours [P]!"), \
-			"<span class='cult big bold'>DELICIOUS SOULS</span>")
-			playsound(src, 'sound/magic/demon_attack1.ogg', 75, TRUE)
-			narsie_act()
-			P.gib()
-
 /mob/living/simple_animal/pet/dog/corgi/narsie/update_corgi_fluff()
 	..()
 	speak = list("Tari'karat-pasnar!", "IA! IA!", "BRRUUURGHGHRHR")
 	speak_emote = list("growls", "barks ominously")
 	emote_hear = list("barks echoingly!", "woofs hauntingly!", "yaps in an eldritch manner.", "mutters something unspeakable.")
 	emote_see = list("communes with the unnameable.", "ponders devouring some souls.", "shakes.")
-
-/mob/living/simple_animal/pet/dog/corgi/narsie/narsie_act()
-	adjustBruteLoss(-maxHealth)
-
 
 /mob/living/simple_animal/pet/dog/corgi/regenerate_icons()
 	..()

@@ -13,7 +13,7 @@
 	ammo_type = /obj/item/ammo_casing/a357/match
 
 TYPEINFO_DEF(/obj/item/ammo_box/c38)
-	default_materials = list(/datum/material/iron = 20000)
+	default_materials = list(/datum/material/steel = 20000)
 
 /obj/item/ammo_box/c38
 	name = "speed loader (.38)"
@@ -93,7 +93,7 @@ TYPEINFO_DEF(/obj/item/ammo_box/c38)
 	max_ammo = 14
 
 TYPEINFO_DEF(/obj/item/ammo_box/foambox)
-	default_materials = list(/datum/material/iron = 500)
+	default_materials = list(/datum/material/steel = 500)
 
 /obj/item/ammo_box/foambox
 	name = "ammo box (Foam Darts)"

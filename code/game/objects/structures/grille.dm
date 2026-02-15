@@ -21,7 +21,7 @@ TYPEINFO_DEF(/obj/structure/grille)
 	integrity_failure = 0.4
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_GRILLE
-	canSmoothWith = SMOOTH_GROUP_GRILLE
+	smoothing_groups_with = SMOOTH_GROUP_GRILLE
 	var/icon/broken_icon = 'icons/obj/smooth_structures/grille_broken.dmi'
 	var/rods_type = /obj/item/stack/rods
 	var/rods_amount = 2
@@ -161,8 +161,8 @@ TYPEINFO_DEF(/obj/structure/grille)
 	add_fingerprint(user)
 	if(shock(user, 100))
 		return
-	tool.play_tool_sound(src, 100)
-	deconstruct()
+	if(tool.use_tool(src, user, 1 SECONDS, volume=50))
+		deconstruct()
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/grille/screwdriver_act(mob/living/user, obj/item/tool)
@@ -189,12 +189,6 @@ TYPEINFO_DEF(/obj/structure/grille)
 		repair_grille()
 		R.use(1)
 		return TRUE
-
-	//Try place window on the grille if the sheet supports it
-	else if(istype(W, /obj/item/stack/sheet))
-		var/obj/item/stack/sheet/my_sheet = W
-		if(my_sheet.try_install_window(user, src.loc, src))
-			return TRUE
 
 	else if(istype(W, /obj/item/shard) || !shock(user, 70))
 		return ..()

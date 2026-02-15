@@ -53,7 +53,6 @@ GLOBAL_LIST_INIT(trash_loot, list(//junk: useless, very easy to get, or ghetto c
 		/obj/item/airlock_painter/decal = 1,
 		/obj/item/airlock_painter/decal/tile = 1,
 		/obj/item/clothing/mask/breath = 1,
-		/obj/item/rack_parts = 1,
 		/obj/item/shard = 1,
 
 		/obj/item/reagent_containers/pill/maintenance/achievement = 1,
@@ -108,7 +107,7 @@ GLOBAL_LIST_INIT(common_loot, list( //common: basic items
 		/obj/item/sign = 1,
 		/obj/item/stack/cable_coil = 1,
 		/obj/item/stack/rods/twentyfive = 1,
-		/obj/item/stack/sheet/iron/twenty = 1,
+		/obj/item/stack/sheet/steel/twenty = 1,
 		/obj/item/stack/sheet/mineral/plasma = 1,
 		/obj/item/stock_parts/cell = 1,
 
@@ -322,7 +321,6 @@ GLOBAL_LIST_INIT(rarity_loot, list(//rare: really good items
 ))
 
 GLOBAL_LIST_INIT(oddity_loot, list(//oddity: strange or crazy items
-		/obj/effect/rune/teleport = 1,
 		/obj/item/clothing/head/helmet/abductor = 1,
 		/obj/item/clothing/shoes/jackboots/fast = 1,
 		/obj/item/clothing/suit/armor/reactive/table = 1,

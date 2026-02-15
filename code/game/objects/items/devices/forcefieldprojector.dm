@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/forcefield_projector)
-	default_materials = list(/datum/material/iron=250, /datum/material/glass=500)
+	default_materials = list(/datum/material/steel=250, /datum/material/glass=500)
 
 /obj/item/forcefield_projector
 	name = "forcefield projector"

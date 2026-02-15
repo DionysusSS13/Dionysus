@@ -308,9 +308,7 @@
 	name = "Cultist Ghost"
 
 	uniform = /obj/item/clothing/under/color/black/ghost
-	suit = /obj/item/clothing/suit/hooded/cultrobes/alt/ghost
 	shoes = /obj/item/clothing/shoes/cult/alt/ghost
-	l_hand = /obj/item/melee/cultblade/ghost
 
 /datum/outfit/wizard
 	name = "Blue Wizard"

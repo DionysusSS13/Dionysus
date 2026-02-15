@@ -11,7 +11,7 @@
  * Locator
  */
 TYPEINFO_DEF(/obj/item/locator)
-	default_materials = list(/datum/material/iron=400)
+	default_materials = list(/datum/material/steel=400)
 
 /obj/item/locator
 	name = "radio tracker"
@@ -100,7 +100,7 @@ TYPEINFO_DEF(/obj/item/locator)
  */
 TYPEINFO_DEF(/obj/item/hand_tele)
 	default_armor = list(BLUNT = 0, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 30, BIO = 0, FIRE = 100, ACID = 100)
-	default_materials = list(/datum/material/iron=10000)
+	default_materials = list(/datum/material/steel=10000)
 
 /obj/item/hand_tele
 	name = "hand tele"

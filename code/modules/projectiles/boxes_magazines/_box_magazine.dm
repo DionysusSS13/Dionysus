@@ -1,6 +1,6 @@
 //Boxes of ammo
 TYPEINFO_DEF(/obj/item/ammo_box)
-	default_materials = list(/datum/material/iron = 30000)
+	default_materials = list(/datum/material/steel = 30000)
 
 /obj/item/ammo_box
 	name = "ammo box (null_reference_exception)"

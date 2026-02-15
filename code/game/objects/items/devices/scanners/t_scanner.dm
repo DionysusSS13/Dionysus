@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/t_scanner)
-	default_materials = list(/datum/material/iron=150)
+	default_materials = list(/datum/material/steel=150)
 
 /obj/item/t_scanner
 	name = "\improper T-ray scanner"

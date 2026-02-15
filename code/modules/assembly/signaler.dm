@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/assembly/signaler)
-	default_materials = list(/datum/material/iron=400, /datum/material/glass=120)
+	default_materials = list(/datum/material/steel=400, /datum/material/glass=120)
 
 /obj/item/assembly/signaler
 	name = "remote signaling device"

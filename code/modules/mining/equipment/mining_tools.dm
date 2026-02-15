@@ -1,6 +1,6 @@
 /*****************Pickaxes & Drills & Shovels****************/
 TYPEINFO_DEF(/obj/item/pickaxe)
-	default_materials = list(/datum/material/iron=2000)
+	default_materials = list(/datum/material/steel=2000)
 
 /obj/item/pickaxe
 	name = "pickaxe"
@@ -39,7 +39,7 @@ TYPEINFO_DEF(/obj/item/pickaxe)
 	mining_damage = 5
 
 TYPEINFO_DEF(/obj/item/pickaxe/mini)
-	default_materials = list(/datum/material/iron=1000)
+	default_materials = list(/datum/material/steel=1000)
 
 /obj/item/pickaxe/mini
 	name = "compact pickaxe"
@@ -112,7 +112,7 @@ TYPEINFO_DEF(/obj/item/pickaxe/mini)
 	mining_damage = 100
 
 TYPEINFO_DEF(/obj/item/pickaxe/improvised)
-	default_materials = list(/datum/material/iron=12050)
+	default_materials = list(/datum/material/steel=12050)
 
 /obj/item/pickaxe/improvised
 	name = "improvised pickaxe"
@@ -128,7 +128,7 @@ TYPEINFO_DEF(/obj/item/pickaxe/improvised)
 	mining_damage = 15
 
 TYPEINFO_DEF(/obj/item/shovel)
-	default_materials = list(/datum/material/iron=50)
+	default_materials = list(/datum/material/steel=50)
 
 /obj/item/shovel
 	name = "shovel"

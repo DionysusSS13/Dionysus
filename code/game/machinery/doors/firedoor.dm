@@ -559,7 +559,7 @@ TYPEINFO_DEF(/obj/machinery/door/firedoor)
 					user.visible_message(span_notice("[user] cuts apart [src]!"), \
 						span_notice("You cut [src] into metal."))
 					var/turf/tagetloc = get_turf(src)
-					new /obj/item/stack/sheet/iron(tagetloc, 3)
+					new /obj/item/stack/sheet/steel(tagetloc, 3)
 					if(reinforced)
 						new /obj/item/stack/sheet/plasteel(tagetloc, 2)
 					qdel(src)

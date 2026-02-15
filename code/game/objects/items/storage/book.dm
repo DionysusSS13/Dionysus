@@ -205,8 +205,6 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 			if(!GLOB.chaplain_altars.len && istype(current_area, /area/station/service/chapel))
 				make_new_altar(bible_smacked, user)
 				return
-			for(var/obj/effect/rune/nearby_runes in orange(2,user))
-				nearby_runes.invisibility = 0
 		to_chat(user, span_notice("You hit the floor with the bible."))
 
 	if(user?.mind?.holy_role)
@@ -226,28 +224,6 @@ GLOBAL_LIST_INIT(bibleitemstates, list("bible", "koran", "scrapbook", "burning",
 			B.name = name
 			B.icon_state = icon_state
 			B.inhand_icon_state = inhand_icon_state
-
-	if(istype(bible_smacked, /obj/item/cult_bastard) && !IS_CULTIST(user))
-		var/obj/item/cult_bastard/sword = bible_smacked
-		to_chat(user, span_notice("You begin to exorcise [sword]."))
-		playsound(src,'sound/hallucinations/veryfar_noise.ogg',40,TRUE)
-		if(do_after(user, sword, 4 SECONDS))
-			playsound(src,'sound/effects/pray_chaplain.ogg',60,TRUE)
-			for(var/obj/item/soulstone/SS in sword.contents)
-				SS.required_role = null
-				for(var/mob/living/simple_animal/shade/EX in SS)
-					var/datum/antagonist/cult/cultist = EX.mind.has_antag_datum(/datum/antagonist/cult)
-					if (cultist)
-						cultist.silent = TRUE
-						cultist.on_removal()
-
-					EX.icon_state = "shade_holy"
-					EX.name = "Purified [EX.name]"
-				SS.release_shades(user)
-				qdel(SS)
-			new /obj/item/nullrod/claymore(get_turf(sword))
-			user.visible_message(span_notice("[user] purifies [sword]!"))
-			qdel(sword)
 
 /obj/item/storage/book/bible/booze
 	desc = "To be applied to the head repeatedly."

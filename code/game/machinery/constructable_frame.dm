@@ -15,7 +15,7 @@
 
 /obj/structure/frame/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/iron(loc, 5)
+		new /obj/item/stack/sheet/steel(loc, 5)
 		if(circuit)
 			circuit.forceMove(loc)
 			circuit = null
@@ -107,7 +107,7 @@
 				if(P.use_tool(src, user, 40, volume=50))
 					if(state == 1)
 						to_chat(user, span_notice("You disassemble the frame."))
-						var/obj/item/stack/sheet/iron/M = new (loc, 5)
+						var/obj/item/stack/sheet/steel/M = new (loc, 5)
 						if (!QDELETED(M))
 							M.add_fingerprint(user)
 						qdel(src)

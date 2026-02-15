@@ -1,6 +1,6 @@
 //Used by engineering cyborgs in place of generic circuits.
 TYPEINFO_DEF(/obj/item/electroadaptive_pseudocircuit)
-	default_materials = list(/datum/material/iron = 50, /datum/material/glass = 300)
+	default_materials = list(/datum/material/steel = 50, /datum/material/glass = 300)
 
 /obj/item/electroadaptive_pseudocircuit
 	name = "electroadaptive pseudocircuit"

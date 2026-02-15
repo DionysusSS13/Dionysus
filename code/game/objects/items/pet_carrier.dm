@@ -3,7 +3,7 @@
 //Used to transport little animals without having to drag them across the station.
 //Comes with a handy lock to prevent them from running off.
 TYPEINFO_DEF(/obj/item/pet_carrier)
-	default_materials = list(/datum/material/iron = 7500, /datum/material/glass = 100)
+	default_materials = list(/datum/material/steel = 7500, /datum/material/glass = 100)
 
 /obj/item/pet_carrier
 	name = "pet carrier"

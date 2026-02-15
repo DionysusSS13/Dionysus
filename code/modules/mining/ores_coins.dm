@@ -89,8 +89,8 @@
 	inhand_icon_state = "Iron ore"
 	singular_name = "iron ore chunk"
 	points = 1
-	mats_per_unit = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
-	refined_type = /obj/item/stack/sheet/iron
+	mats_per_unit = list(/datum/material/steel=MINERAL_MATERIAL_AMOUNT)
+	refined_type = /obj/item/stack/sheet/steel
 	merge_type = /obj/item/stack/ore/iron
 
 /obj/item/stack/ore/glass
@@ -323,7 +323,7 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 // Yes, the gold standard makes a come-back!
 // This is the only way to make coins that are possible to produce on station actually worth anything.
 TYPEINFO_DEF(/obj/item/coin)
-	default_materials = list(/datum/material/iron = 400)
+	default_materials = list(/datum/material/steel = 400)
 
 /obj/item/coin
 	icon = 'icons/obj/economy.dmi'

@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/flashlight)
-	default_materials = list(/datum/material/iron=50, /datum/material/glass=20)
+	default_materials = list(/datum/material/steel=50, /datum/material/glass=20)
 
 /obj/item/flashlight
 	name = "flashlight"

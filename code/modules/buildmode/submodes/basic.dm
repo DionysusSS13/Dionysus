@@ -24,9 +24,12 @@
 		if(isplatingturf(object))
 			clicked_turf.PlaceOnTop(/turf/open/floor/iron, flags = CHANGETURF_INHERIT_AIR)
 		else if(isfloorturf(object))
-			clicked_turf.PlaceOnTop(/turf/closed/wall)
-		else if(iswallturf(object))
-			clicked_turf.PlaceOnTop(/turf/closed/wall/r_wall)
+			clicked_turf.PlaceOnTop(/turf/closed/constructed_wall)
+		else if(istype(object, /turf/closed/constructed_wall))
+			var/turf/closed/constructed_wall/wall = object
+			wall.material_reinforcement = /datum/material/steel
+			wall.update_material_resistances()
+			wall.update_appearance()
 		else
 			clicked_turf.PlaceOnTop(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR) // Gotta do something
 		log_admin("Build Mode: [key_name(c)] built [clicked_turf] at [AREACOORD(clicked_turf)]")

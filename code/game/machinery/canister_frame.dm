@@ -26,7 +26,7 @@
 /obj/structure/canister_frame/machine/deconstruct(disassembled = TRUE)
 	if (!(flags_1 & NODECONSTRUCT_1))
 		// Spawn 5 sheets for the tier 0 frame
-		new /obj/item/stack/sheet/iron(loc, 5)
+		new /obj/item/stack/sheet/steel(loc, 5)
 
 		// Loop backwards in the tiers and spawn the requirement for each tier
 		var/obj/structure/canister_frame/machine/i_prev = prev_tier
@@ -42,7 +42,7 @@
 	icon_state = "frame_0"
 
 	next_tier = /obj/structure/canister_frame/machine/finished_canister_frame
-	next_tier_reqitem = /obj/item/stack/sheet/iron
+	next_tier_reqitem = /obj/item/stack/sheet/steel
 	next_tier_reqitem_am = 5
 
 /obj/structure/canister_frame/machine/finished_canister_frame

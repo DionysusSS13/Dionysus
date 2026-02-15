@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/assembly/mousetrap)
-	default_materials = list(/datum/material/iron=100)
+	default_materials = list(/datum/material/steel=100)
 
 /obj/item/assembly/mousetrap
 	name = "mousetrap"

@@ -506,11 +506,6 @@
 			var/poster_name = params["poster_name"]
 			attempt_print(CALLBACK(src, PROC_REF(print_poster), poster_name))
 			return TRUE
-		if("lore_spawn")
-			if(obj_flags & EMAGGED && can_spawn_lore)
-				print_forbidden_lore(usr)
-			set_screen_state(MIN_LIBRARY)
-			return TRUE
 		if("lore_deny")
 			if(obj_flags & EMAGGED && can_spawn_lore)
 				shun_the_corp(usr)
@@ -572,15 +567,6 @@
 /obj/machinery/computer/libraryconsole/bookmanagement/proc/checkout_update()
 	checkout_page_count = round(max(length(checkouts) - 1, 0) / CHECKOUTS_PER_PAGE) //This is just floor()
 	checkout_page = clamp(checkout_page, 0, checkout_page_count)
-
-/obj/machinery/computer/libraryconsole/bookmanagement/proc/print_forbidden_lore(mob/user)
-	can_spawn_lore = FALSE
-	new /obj/item/melee/cultblade/dagger(get_turf(src))
-	to_chat(user, span_warning("Your sanity barely endures the seconds spent in the vault's browsing window. The only thing to remind you of this when you stop browsing is a sinister dagger sitting on the desk. You don't even remember where it came from..."))
-	user.visible_message(span_warning("[user] stares at the blank screen for a few moments, [user.p_their()] expression frozen in fear. When [user.p_they()] finally awaken[user.p_s()] from it, [user.p_they()] look[user.p_s()] a lot older."), vision_distance = 2)
-	if(ishuman(user))
-		var/mob/living/carbon/human/fool = user
-		fool.age = clamp(fool.age + 10, AGE_MIN, AGE_MAX) //Fuck you
 
 /obj/machinery/computer/libraryconsole/bookmanagement/proc/shun_the_corp(mob/user)
 	can_spawn_lore = FALSE

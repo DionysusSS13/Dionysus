@@ -503,7 +503,7 @@
 ///////////////////////////////// Medical Beam ///////////////////////////////////////////////////////////////
 
 TYPEINFO_DEF(/obj/item/mecha_parts/mecha_equipment/medical/mechmedbeam)
-	default_materials = list(/datum/material/iron = 15000, /datum/material/glass = 8000, /datum/material/plasma = 3000, /datum/material/gold = 8000, /datum/material/diamond = 2000)
+	default_materials = list(/datum/material/steel = 15000, /datum/material/glass = 8000, /datum/material/plasma = 3000, /datum/material/gold = 8000, /datum/material/diamond = 2000)
 
 /obj/item/mecha_parts/mecha_equipment/medical/mechmedbeam
 	name = "exosuit medical beamgun"

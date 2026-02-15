@@ -7,7 +7,7 @@
 #define SCANNER_VERBOSE 1
 
 TYPEINFO_DEF(/obj/item/healthanalyzer)
-	default_materials = list(/datum/material/iron=200)
+	default_materials = list(/datum/material/steel=200)
 
 /obj/item/healthanalyzer
 	name = "health analyzer"

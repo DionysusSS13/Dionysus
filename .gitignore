@@ -165,6 +165,7 @@ Temporary Items
 /tools/MapAtmosFixer/MapAtmosFixer/bin/*
 /tools/CreditsTool/bin/*
 /tools/CreditsTool/obj/*
+/tools/byond_install
 
 #GitHub Atom
 .atom-build.json
@@ -175,7 +176,6 @@ Temporary Items
 
 #extra map stuff
 /_maps/**/backup/
-/_maps/templates.dm
 
 #dmdoc default folder
 /dmdoc

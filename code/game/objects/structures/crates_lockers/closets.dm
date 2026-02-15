@@ -56,7 +56,7 @@ TYPEINFO_DEF(/obj/structure/closet)
 	var/close_sound = 'sound/structures/locker_close.ogg'
 	var/open_sound_volume = 50
 	var/close_sound_volume = 50
-	var/material_drop = /obj/item/stack/sheet/iron
+	var/material_drop = /obj/item/stack/sheet/steel
 	var/material_drop_amount = 2
 	var/delivery_icon = "deliverycloset" //which icon to use when packagewrapped. null to be unwrappable.
 	var/anchorable = TRUE

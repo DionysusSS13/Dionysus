@@ -1,6 +1,6 @@
 // frag grenades
 TYPEINFO_DEF(/obj/item/shrapnel)
-	default_materials = list(/datum/material/iron=50)
+	default_materials = list(/datum/material/steel=50)
 
 /obj/item/shrapnel // frag grenades
 	name = "shrapnel shard"
@@ -82,7 +82,7 @@ TYPEINFO_DEF(/obj/item/shrapnel)
 	embed_adjustment_tile = 0
 
 TYPEINFO_DEF(/obj/item/shrapnel/capmine)
-	default_materials = list(/datum/material/iron=50)
+	default_materials = list(/datum/material/steel=50)
 
 /obj/item/shrapnel/capmine
 	name = "\improper AP shrapnel shard"

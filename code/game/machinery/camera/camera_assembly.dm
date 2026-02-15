@@ -4,7 +4,7 @@
 #define STATE_FINISHED 4
 
 TYPEINFO_DEF(/obj/item/wallframe/camera)
-	default_materials = list(/datum/material/iron=400, /datum/material/glass=250)
+	default_materials = list(/datum/material/steel=400, /datum/material/glass=250)
 
 /obj/item/wallframe/camera
 	name = "camera assembly"
@@ -282,7 +282,7 @@ TYPEINFO_DEF(/obj/item/wallframe/camera)
 
 /obj/structure/camera_assembly/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/iron(loc)
+		new /obj/item/stack/sheet/steel(loc)
 	qdel(src)
 
 

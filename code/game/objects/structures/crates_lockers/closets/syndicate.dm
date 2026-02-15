@@ -51,7 +51,7 @@
 
 	//Iron (common ore)
 	if(pickednum >= 2)
-		new /obj/item/stack/sheet/iron(src, rand(common_min, common_max))
+		new /obj/item/stack/sheet/steel(src, rand(common_min, common_max))
 
 	//Glass (common ore)
 	if(pickednum >= 5)
@@ -99,7 +99,7 @@
 
 /obj/structure/closet/syndicate/resources/everything/PopulateContents()
 	var/list/resources = list(
-	/obj/item/stack/sheet/iron,
+	/obj/item/stack/sheet/steel,
 	/obj/item/stack/sheet/glass,
 	/obj/item/stack/sheet/mineral/gold,
 	/obj/item/stack/sheet/mineral/silver,

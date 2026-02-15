@@ -8,7 +8,7 @@
 
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	smoothing_groups = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_MINERAL_WALLS
-	canSmoothWith = SMOOTH_GROUP_MINERAL_WALLS
+	smoothing_groups_with = SMOOTH_GROUP_MINERAL_WALLS
 	baseturfs = /turf/open/misc/asteroid/airless
 	initial_gas = AIRLESS_ATMOS
 	opacity = TRUE
@@ -59,7 +59,7 @@
 
 	#ifdef UNIT_TESTS
 	ASSERT_SORTED_SMOOTHING_GROUPS(smoothing_groups)
-	ASSERT_SORTED_SMOOTHING_GROUPS(canSmoothWith)
+	ASSERT_SORTED_SMOOTHING_GROUPS(smoothing_groups_with)
 	#endif
 
 	SETUP_SMOOTHING()
@@ -417,7 +417,7 @@
 	icon_state = "rock2"
 	base_icon_state = "rock_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
-	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS
+	smoothing_groups_with = SMOOTH_GROUP_CLOSED_TURFS
 	baseturfs = /turf/open/misc/ashplanet/wateryrock
 	initial_gas = OPENTURF_LOW_PRESSURE
 	turf_type = /turf/open/misc/ashplanet/rocky
@@ -429,7 +429,7 @@
 	icon_state = "mountainrock"
 	base_icon_state = "mountain_wall"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
-	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS
+	smoothing_groups_with = SMOOTH_GROUP_CLOSED_TURFS
 	baseturfs = /turf/open/misc/asteroid/snow
 	temperature = 180
 	turf_type = /turf/open/misc/asteroid/snow

@@ -1,6 +1,6 @@
 TYPEINFO_DEF(/obj/item/clothing/head/welding)
 	default_armor = list(BLUNT = 10, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 60)
-	default_materials = list(/datum/material/iron=1750, /datum/material/glass=400)
+	default_materials = list(/datum/material/steel=1750, /datum/material/glass=400)
 
 /obj/item/clothing/head/welding
 	name = "welding helmet"

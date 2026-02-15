@@ -32,10 +32,6 @@ GLOBAL_LIST_INIT(voice_of_god_commands, init_voice_of_god_commands())
  */
 /proc/voice_of_god(message, mob/living/user, list/span_list, base_multiplier = 1, include_speaker = FALSE, forced = null)
 	var/log_message = uppertext(message)
-	var/is_cultie = IS_CULTIST(user)
-	if(LAZYLEN(span_list) && is_cultie)
-		span_list = list("narsiesmall")
-
 	if(!user.say(message, spans = span_list, sanitize = FALSE))
 		return
 
@@ -73,11 +69,6 @@ GLOBAL_LIST_INIT(voice_of_god_commands, init_voice_of_god_commands())
 		message = replacetext(message, regex(to_remove_string, "i"), "")
 
 	var/power_multiplier = base_multiplier * (user.mind?.assigned_role.voice_of_god_power || 1)
-
-	//Cultists are closer to their gods and are more powerful, but they'll give themselves away
-	if(is_cultie)
-		power_multiplier *= 2
-
 	//Now get the proper job titles and check for matches.
 	var/job_message = get_full_job_name(message)
 	for(var/mob/living/candidate in candidates)

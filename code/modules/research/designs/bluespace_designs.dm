@@ -18,7 +18,7 @@
 	desc = "Little thingie that can track its position at all times."
 	id = "telesci_gps"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 1000)
+	materials = list(/datum/material/steel = 500, /datum/material/glass = 1000)
 	build_path = /obj/item/gps
 	category = list("Bluespace Designs")
 	mapload_design_flags = DESIGN_FAB_OMNI | DESIGN_FAB_ENGINEERING | DESIGN_FAB_SUPPLY

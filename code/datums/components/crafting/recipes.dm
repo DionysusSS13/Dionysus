@@ -74,7 +74,7 @@
 	name = "Gonbola"
 	result = /obj/item/restraints/legcuffs/bola/gonbola
 	reqs = list(/obj/item/restraints/handcuffs/cable = 1,
-				/obj/item/stack/sheet/iron = 6,
+				/obj/item/stack/sheet/steel = 6,
 				/obj/item/stack/sheet/animalhide/gondola = 1)
 	time = 40
 	category= CAT_WEAPONRY
@@ -97,7 +97,7 @@
 				/obj/item/clothing/suit/armor/vest = 1,
 				/obj/item/bodypart/leg/left/robot = 1,
 				/obj/item/bodypart/leg/right/robot = 1,
-				/obj/item/stack/sheet/iron = 1,
+				/obj/item/stack/sheet/steel = 1,
 				/obj/item/stack/cable_coil = 1,
 				/obj/item/gun/energy/disabler = 1,
 				/obj/item/assembly/prox_sensor = 1)
@@ -280,7 +280,7 @@
 /datum/crafting_recipe/improvisedslug
 	name = "Improvised Shotgun Shell"
 	result = /obj/item/ammo_casing/shotgun/improvised
-	reqs = list(/obj/item/stack/sheet/iron = 2,
+	reqs = list(/obj/item/stack/sheet/steel = 2,
 				/obj/item/stack/cable_coil = 1,
 				/datum/reagent/fuel = 10)
 	tool_behaviors = list(TOOL_SCREWDRIVER)
@@ -303,7 +303,7 @@
 	name = "Modular Rifle Reciever"
 	tool_behaviors = list(TOOL_WRENCH, TOOL_WELDER, TOOL_SAW)
 	result = /obj/item/weaponcrafting/receiver
-	reqs = list(/obj/item/stack/sheet/iron = 5,
+	reqs = list(/obj/item/stack/sheet/steel = 5,
 				/obj/item/stack/sticky_tape = 1,
 				/obj/item/screwdriver = 1,
 				/obj/item/assembly/mousetrap = 1)
@@ -416,7 +416,7 @@
 	name = "Skateboard"
 	result = /obj/vehicle/ridden/scooter/skateboard/improvised
 	time = 60
-	reqs = list(/obj/item/stack/sheet/iron = 5,
+	reqs = list(/obj/item/stack/sheet/steel = 5,
 				/obj/item/stack/rods = 10)
 	category = CAT_MISC
 
@@ -424,14 +424,14 @@
 	name = "Scooter"
 	result = /obj/vehicle/ridden/scooter
 	time = 65
-	reqs = list(/obj/item/stack/sheet/iron = 5,
+	reqs = list(/obj/item/stack/sheet/steel = 5,
 				/obj/item/stack/rods = 12)
 	category = CAT_MISC
 
 /datum/crafting_recipe/wheelchair
 	name = "Wheelchair"
 	result = /obj/vehicle/ridden/wheelchair
-	reqs = list(/obj/item/stack/sheet/iron = 4,
+	reqs = list(/obj/item/stack/sheet/steel = 4,
 				/obj/item/stack/rods = 6)
 	time = 100
 	category = CAT_MISC
@@ -439,7 +439,7 @@
 /datum/crafting_recipe/motorized_wheelchair
 	name = "Motorized Wheelchair"
 	result = /obj/vehicle/ridden/wheelchair/motorized
-	reqs = list(/obj/item/stack/sheet/iron = 10,
+	reqs = list(/obj/item/stack/sheet/steel = 10,
 		/obj/item/stack/rods = 8,
 		/obj/item/stock_parts/manipulator = 2,
 		/obj/item/stock_parts/capacitor = 1)
@@ -580,7 +580,7 @@
 	name = "Pressure Plate"
 	result = /obj/item/pressure_plate
 	time = 5
-	reqs = list(/obj/item/stack/sheet/iron = 1,
+	reqs = list(/obj/item/stack/sheet/steel = 1,
 				/obj/item/stack/tile/iron = 1,
 				/obj/item/stack/cable_coil = 2,
 				/obj/item/assembly/igniter = 1)
@@ -698,7 +698,7 @@
 	time = 6 SECONDS
 	reqs = list(/obj/item/stack/sheet/mineral/metal_hydrogen = 20,
 				/obj/item/stack/sheet/mineral/zaukerite = 15,
-				/obj/item/stack/sheet/iron = 30,
+				/obj/item/stack/sheet/steel = 30,
 				)
 	category = CAT_MISC
 
@@ -707,7 +707,7 @@
 // 	name = "Bluespace Vendor Wall Mount"
 // 	result = /obj/item/wallframe/bluespace_vendor_mount
 // 	time = 6 SECONDS
-// 	reqs = list(/obj/item/stack/sheet/iron = 15,
+// 	reqs = list(/obj/item/stack/sheet/steel = 15,
 // 				/obj/item/stack/sheet/glass = 10,
 // 				/obj/item/stack/cable_coil = 10,
 // 				)
@@ -741,7 +741,7 @@
 	name = "Aquarium"
 	result = /obj/structure/aquarium
 	time = 10 SECONDS
-	reqs = list(/obj/item/stack/sheet/iron = 15,
+	reqs = list(/obj/item/stack/sheet/steel = 15,
 				/obj/item/stack/sheet/glass = 10,
 				/obj/item/aquarium_kit = 1
 				)
@@ -790,7 +790,7 @@
 	reqs = list(
 				/obj/item/stack/cable_coil = 2,
 				/obj/item/stack/sheet/glass = 2,
-				/obj/item/stack/sheet/iron = 2,
+				/obj/item/stack/sheet/steel = 2,
 				/datum/reagent/water = 50,
 				)
 	machinery = list(/obj/machinery/space_heater = CRAFTING_MACHINERY_CONSUME)
@@ -834,7 +834,7 @@
 	result = /obj/item/pipe/binary
 	reqs = list(
 		/obj/item/pipe = 1,
-		/obj/item/stack/sheet/iron = 1)
+		/obj/item/stack/sheet/steel = 1)
 	time = 1 SECONDS
 	category = CAT_ATMOSPHERIC
 	additional_req_text = " smart pipe fitting"
@@ -855,7 +855,7 @@
 	result = /obj/item/pipe/binary
 	reqs = list(
 		/obj/item/pipe = 1,
-		/obj/item/stack/sheet/iron = 1)
+		/obj/item/stack/sheet/steel = 1)
 	time = 1 SECONDS
 	category = CAT_ATMOSPHERIC
 	additional_req_text = " smart pipe fitting"
@@ -876,7 +876,7 @@
 	result = /obj/item/pipe/quaternary
 	reqs = list(
 		/obj/item/pipe = 1,
-		/obj/item/stack/sheet/iron = 1)
+		/obj/item/stack/sheet/steel = 1)
 	time = 1 SECONDS
 	category = CAT_ATMOSPHERIC
 	additional_req_text = " smart pipe fitting"
@@ -897,7 +897,7 @@
 	result = /obj/item/pipe/directional
 	reqs = list(
 		/obj/item/pipe = 1,
-		/obj/item/stack/sheet/iron = 1)
+		/obj/item/stack/sheet/steel = 1)
 	time = 1 SECONDS
 	category = CAT_ATMOSPHERIC
 	additional_req_text = " smart pipe fitting"
@@ -918,7 +918,7 @@
 	result = /obj/item/pipe/binary
 	reqs = list(
 		/obj/item/pipe = 1,
-		/obj/item/stack/sheet/iron = 5,
+		/obj/item/stack/sheet/steel = 5,
 		/obj/item/stack/cable_coil = 5)
 	time = 2 SECONDS
 	category = CAT_ATMOSPHERIC
@@ -940,7 +940,7 @@
 	result = /obj/item/pipe/binary
 	reqs = list(
 		/obj/item/pipe = 1,
-		/obj/item/stack/sheet/iron = 1)
+		/obj/item/stack/sheet/steel = 1)
 	time = 2 SECONDS
 	category = CAT_ATMOSPHERIC
 	additional_req_text = " smart pipe fitting"
@@ -961,7 +961,7 @@
 	result = /obj/item/pipe/directional
 	reqs = list(
 		/obj/item/pipe = 1,
-		/obj/item/stack/sheet/iron = 5,
+		/obj/item/stack/sheet/steel = 5,
 		/obj/item/stack/cable_coil = 5)
 	time = 2 SECONDS
 	category = CAT_ATMOSPHERIC
@@ -983,7 +983,7 @@
 	result = /obj/item/pipe/directional
 	reqs = list(
 		/obj/item/pipe = 1,
-		/obj/item/stack/sheet/iron = 5,
+		/obj/item/stack/sheet/steel = 5,
 		/obj/item/stack/cable_coil = 5)
 	time = 2 SECONDS
 	category = CAT_ATMOSPHERIC
@@ -1005,7 +1005,7 @@
 	result = /obj/item/pipe/trinary/flippable
 	reqs = list(
 		/obj/item/pipe = 1,
-		/obj/item/stack/sheet/iron = 5,
+		/obj/item/stack/sheet/steel = 5,
 		/obj/item/stack/cable_coil = 5)
 	time = 2 SECONDS
 	category = CAT_ATMOSPHERIC
@@ -1027,7 +1027,7 @@
 	result = /obj/item/pipe/trinary/flippable
 	reqs = list(
 		/obj/item/pipe = 1,
-		/obj/item/stack/sheet/iron = 5,
+		/obj/item/stack/sheet/steel = 5,
 		/obj/item/stack/cable_coil = 5)
 	time = 2 SECONDS
 	category = CAT_ATMOSPHERIC
@@ -1049,7 +1049,7 @@
 	result = /obj/item/pipe/directional
 	reqs = list(
 		/obj/item/pipe = 1,
-		/obj/item/stack/sheet/iron = 1)
+		/obj/item/stack/sheet/steel = 1)
 	time = 2 SECONDS
 	category = CAT_ATMOSPHERIC
 	additional_req_text = " smart pipe fitting"
@@ -1070,7 +1070,7 @@
 	result = /obj/item/pipe/directional
 	reqs = list(
 		/obj/item/pipe = 1,
-		/obj/item/stack/sheet/iron = 1)
+		/obj/item/stack/sheet/steel = 1)
 	time = 2 SECONDS
 	category = CAT_ATMOSPHERIC
 	additional_req_text = " smart pipe fitting"
@@ -1091,7 +1091,7 @@
 	result = /obj/item/pipe/directional
 	reqs = list(
 		/obj/item/pipe = 1,
-		/obj/item/stack/sheet/iron = 1,
+		/obj/item/stack/sheet/steel = 1,
 		/obj/item/stack/cable_coil = 5)
 	time = 2 SECONDS
 	category = CAT_ATMOSPHERIC

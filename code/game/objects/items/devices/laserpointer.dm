@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/laser_pointer)
-	default_materials = list(/datum/material/iron=500, /datum/material/glass=500)
+	default_materials = list(/datum/material/steel=500, /datum/material/glass=500)
 
 /obj/item/laser_pointer
 	name = "laser pointer"

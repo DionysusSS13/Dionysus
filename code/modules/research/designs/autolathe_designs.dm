@@ -6,7 +6,7 @@
 	name = "Bucket"
 	id = "bucket"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 200)
+	materials = list(/datum/material/steel = 200)
 	build_path = /obj/item/reagent_containers/glass/bucket
 	category = list(DCAT_JANITORIAL, DCAT_MISC_TOOL)
 	mapload_design_flags = DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -15,7 +15,7 @@
 	name = "Mop"
 	id = "mop"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 1000)
+	materials = list(/datum/material/steel = 1000)
 	build_path = /obj/item/mop
 	category = list(DCAT_JANITORIAL)
 	mapload_design_flags = DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -24,7 +24,7 @@
 	name="Push Broom"
 	id="pushbroom"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 2000)
+	materials = list(/datum/material/steel = 2000)
 	build_path = /obj/item/pushbroom
 	category = list(DCAT_JANITORIAL)
 	mapload_design_flags = DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -33,7 +33,7 @@
 	name = "Pocket Crowbar"
 	id = "crowbar"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 50)
+	materials = list(/datum/material/steel = 50)
 	build_path = /obj/item/crowbar
 	category = list(DCAT_BASIC_TOOL)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -42,7 +42,7 @@
 	name = "Flashlight"
 	id = "flashlight"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 50, /datum/material/glass = 20)
+	materials = list(/datum/material/steel = 50, /datum/material/glass = 20)
 	build_path = /obj/item/flashlight
 	category = list(DCAT_BASIC_TOOL)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -51,7 +51,7 @@
 	name = "Fire Extinguisher"
 	id = "extinguisher"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 90)
+	materials = list(/datum/material/steel = 90)
 	build_path = /obj/item/extinguisher
 	category = list(DCAT_BASIC_TOOL)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -60,7 +60,7 @@
 	name = "Multitool"
 	id = "multitool"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 50, /datum/material/glass = 20)
+	materials = list(/datum/material/steel = 50, /datum/material/glass = 20)
 	build_path = /obj/item/multitool
 	category = list(DCAT_BASIC_TOOL)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -69,7 +69,7 @@
 	name = "Gas Analyzer"
 	id = "analyzer"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 30, /datum/material/glass = 20)
+	materials = list(/datum/material/steel = 30, /datum/material/glass = 20)
 	build_path = /obj/item/analyzer
 	category = list(DCAT_BASIC_TOOL, DCAT_ATMOS)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -78,7 +78,7 @@
 	name = "T-Ray Scanner"
 	id = "tscanner"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 150)
+	materials = list(/datum/material/steel = 150)
 	build_path = /obj/item/t_scanner
 	category = list(DCAT_BASIC_TOOL)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -87,7 +87,7 @@
 	name = "Welding Tool"
 	id = "welding_tool"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 70, /datum/material/glass = 20)
+	materials = list(/datum/material/steel = 70, /datum/material/glass = 20)
 	build_path = /obj/item/weldingtool
 	category = list(DCAT_BASIC_TOOL)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -96,7 +96,7 @@
 	name = "Screwdriver"
 	id = "screwdriver"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 75)
+	materials = list(/datum/material/steel = 75)
 	build_path = /obj/item/screwdriver
 	category = list(DCAT_BASIC_TOOL)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -105,7 +105,7 @@
 	name = "Wirecutters"
 	id = "wirecutters"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 80)
+	materials = list(/datum/material/steel = 80)
 	build_path = /obj/item/wirecutters
 	category = list(DCAT_BASIC_TOOL)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -114,7 +114,7 @@
 	name = "Wrench"
 	id = "wrench"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 150)
+	materials = list(/datum/material/steel = 150)
 	build_path = /obj/item/wrench
 	category = list(DCAT_BASIC_TOOL)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -123,7 +123,7 @@
 	name = "Plunger"
 	id = "plunger"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 150)
+	materials = list(/datum/material/steel = 150)
 	build_path = /obj/item/plunger
 	category = list(DCAT_JANITORIAL)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -132,7 +132,7 @@
 	name = "Welding Helmet"
 	id = "welding_helmet"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 1750, /datum/material/glass = 400)
+	materials = list(/datum/material/steel = 1750, /datum/material/glass = 400)
 	build_path = /obj/item/clothing/head/welding
 	category = list(DCAT_WEARABLE)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -141,7 +141,7 @@
 	name = "Cable Coil"
 	id = "cable_coil"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 10, /datum/material/glass = 5)
+	materials = list(/datum/material/steel = 10, /datum/material/glass = 5)
 	build_path = /obj/item/stack/cable_coil
 	category = list(DCAT_BASIC_TOOL)
 	maxstack = MAXCOIL
@@ -160,7 +160,7 @@
 	name = "APC Module"
 	id = "power control"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 100, /datum/material/glass = 100)
+	materials = list(/datum/material/steel = 100, /datum/material/glass = 100)
 	build_path = /obj/item/electronics/apc
 	category = list( "Electronics")
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -169,7 +169,7 @@
 	name = "Airlock Electronics"
 	id = "airlock_board"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 50, /datum/material/glass = 50)
+	materials = list(/datum/material/steel = 50, /datum/material/glass = 50)
 	build_path = /obj/item/electronics/airlock
 	category = list( "Electronics")
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -178,7 +178,7 @@
 	name = "Firelock Circuitry"
 	id = "firelock_board"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 50, /datum/material/glass = 50)
+	materials = list(/datum/material/steel = 50, /datum/material/glass = 50)
 	build_path = /obj/item/electronics/firelock
 	category = list( "Electronics")
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -187,7 +187,7 @@
 	name = "Air Alarm Electronics"
 	id = "airalarm_electronics"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 50, /datum/material/glass = 50)
+	materials = list(/datum/material/steel = 50, /datum/material/glass = 50)
 	build_path = /obj/item/electronics/airalarm
 	category = list( "Electronics")
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -196,7 +196,7 @@
 	name = "Fire Alarm Electronics"
 	id = "firealarm_electronics"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 50, /datum/material/glass = 50)
+	materials = list(/datum/material/steel = 50, /datum/material/glass = 50)
 	build_path = /obj/item/electronics/firealarm
 	category = list( "Electronics")
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -205,7 +205,7 @@
 	name = "Airlock Painter"
 	id = "airlock_painter"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 50, /datum/material/glass = 50)
+	materials = list(/datum/material/steel = 50, /datum/material/glass = 50)
 	build_path = /obj/item/airlock_painter
 	category = list(DCAT_PAINTER)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -214,7 +214,7 @@
 	name = "Decal Painter"
 	id = "decal_painter"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 50, /datum/material/glass = 50)
+	materials = list(/datum/material/steel = 50, /datum/material/glass = 50)
 	build_path = /obj/item/airlock_painter/decal
 	category = list(DCAT_PAINTER)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -223,7 +223,7 @@
 	name = "Tile Sprayer"
 	id = "tile_sprayer"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 50, /datum/material/glass = 50)
+	materials = list(/datum/material/steel = 50, /datum/material/glass = 50)
 	build_path = /obj/item/airlock_painter/decal/tile
 	category = list(DCAT_PAINTER)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -232,7 +232,7 @@
 	name = "Paint Sprayer"
 	id = "paint_sprayer"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 50, /datum/material/glass = 50)
+	materials = list(/datum/material/steel = 50, /datum/material/glass = 50)
 	build_path = /obj/item/paint_sprayer
 	category = list(DCAT_PAINTER)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -242,7 +242,7 @@
 	name = "Emergency Oxygen Tank"
 	id = "emergency_oxygen"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 500)
+	materials = list(/datum/material/steel = 500)
 	build_path = /obj/item/tank/internals/emergency_oxygen/empty
 	category = list(DCAT_ATMOS)
 
@@ -250,7 +250,7 @@
 	name = "Generic Gas Tank"
 	id = "generic_tank"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 1000)
+	materials = list(/datum/material/steel = 1000)
 	build_path = /obj/item/tank/internals/generic
 	category = list(DCAT_ATMOS)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_SUPPLY
@@ -259,8 +259,8 @@
 	name = "Iron"
 	id = "iron"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = MINERAL_MATERIAL_AMOUNT)
-	build_path = /obj/item/stack/sheet/iron
+	materials = list(/datum/material/steel = MINERAL_MATERIAL_AMOUNT)
+	build_path = /obj/item/stack/sheet/steel
 	category = list(DCAT_MATERIAL)
 	maxstack = 50
 
@@ -277,7 +277,7 @@
 	name = "Reinforced Glass"
 	id = "rglass"
 	build_type = AUTOLATHE | SMELTER | FABRICATOR
-	materials = list(/datum/material/iron = 1000, /datum/material/glass = MINERAL_MATERIAL_AMOUNT)
+	materials = list(/datum/material/steel = 1000, /datum/material/glass = MINERAL_MATERIAL_AMOUNT)
 	build_path = /obj/item/stack/sheet/rglass
 	category = list(DCAT_MATERIAL)
 	maxstack = 50
@@ -286,7 +286,7 @@
 	name = "Iron Rod"
 	id = "rods"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 1000)
+	materials = list(/datum/material/steel = 1000)
 	build_path = /obj/item/stack/rods
 	category = list(DCAT_CONSTRUCTION)
 	maxstack = 50
@@ -295,7 +295,7 @@
 	name = "Kitchen Knife"
 	id = "kitchen_knife"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 12000)
+	materials = list(/datum/material/steel = 12000)
 	build_path = /obj/item/knife/kitchen
 	category = list( DCAT_DINNERWARE)
 	mapload_design_flags = DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -313,7 +313,7 @@
 	name = "Fork"
 	id = "fork"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 80)
+	materials = list(/datum/material/steel = 80)
 	build_path = /obj/item/kitchen/fork
 	category = list( DCAT_DINNERWARE)
 	mapload_design_flags = DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -322,7 +322,7 @@
 	name = "Spatula"
 	id = "spatula"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 80, /datum/material/plastic = 40)
+	materials = list(/datum/material/steel = 80, /datum/material/plastic = 40)
 	build_path = /obj/item/kitchen/spatula
 	category = list(DCAT_DINNERWARE)
 	mapload_design_flags = DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -340,7 +340,7 @@
 	name = "Spoon"
 	id = "spoon"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 120)
+	materials = list(/datum/material/steel = 120)
 	build_path = /obj/item/kitchen/spoon
 	category = list( DCAT_DINNERWARE)
 	mapload_design_flags = DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -358,7 +358,7 @@
 	name = "Serving Tray"
 	id = "servingtray"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 3000)
+	materials = list(/datum/material/steel = 3000)
 	build_path = /obj/item/storage/bag/tray
 	category = list(DCAT_DINNERWARE)
 	mapload_design_flags = DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -367,7 +367,7 @@
 	name = "Plate"
 	id = "plate"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 3500)
+	materials = list(/datum/material/steel = 3500)
 	build_path = /obj/item/plate
 	category = list(DCAT_DINNERWARE)
 	mapload_design_flags = DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -376,7 +376,7 @@
 	name = "Cafeteria Tray"
 	id = "foodtray"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 3000)
+	materials = list(/datum/material/steel = 3000)
 	build_path = /obj/item/storage/bag/tray/cafeteria
 	category = list(DCAT_DINNERWARE)
 	mapload_design_flags = DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -412,7 +412,7 @@
 	name = "Shaker"
 	id = "shaker"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 1500)
+	materials = list(/datum/material/steel = 1500)
 	build_path = /obj/item/reagent_containers/food/drinks/shaker
 	category = list(DCAT_DINNERWARE)
 	mapload_design_flags = DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -421,7 +421,7 @@
 	name = "Plant Analyzer"
 	id = "plant_analyzer"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 30, /datum/material/glass = 20)
+	materials = list(/datum/material/steel = 30, /datum/material/glass = 20)
 	build_path = /obj/item/plant_analyzer
 	category = list(DCAT_BOTANICAL)
 	mapload_design_flags = DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -430,7 +430,7 @@
 	name = "Shovel"
 	id = "shovel"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 50)
+	materials = list(/datum/material/steel = 50)
 	build_path = /obj/item/shovel
 	category = list(DCAT_MISC_TOOL, DCAT_BOTANICAL)
 	mapload_design_flags = DESIGN_FAB_SUPPLY | DESIGN_FAB_OMNI
@@ -439,7 +439,7 @@
 	name = "Spade"
 	id = "spade"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 50)
+	materials = list(/datum/material/steel = 50)
 	build_path = /obj/item/shovel/spade
 	category = list(DCAT_MISC_TOOL, DCAT_BOTANICAL)
 	mapload_design_flags = DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -448,7 +448,7 @@
 	name = "Hatchet"
 	id = "hatchet"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 15000)
+	materials = list(/datum/material/steel = 15000)
 	build_path = /obj/item/hatchet
 	category = list(DCAT_MISC_TOOL, DCAT_BOTANICAL)
 	mapload_design_flags = DESIGN_FAB_SERVICE | DESIGN_FAB_OMNI
@@ -457,7 +457,7 @@
 	name = "Blood Filter"
 	id = "blood_filter"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 4000, /datum/material/glass = 1500, /datum/material/silver = 500)
+	materials = list(/datum/material/steel = 4000, /datum/material/glass = 1500, /datum/material/silver = 500)
 	build_path = /obj/item/blood_filter
 	category = list(DCAT_MEDICAL)
 	mapload_design_flags = DESIGN_FAB_MEDICAL | DESIGN_FAB_OMNI
@@ -466,7 +466,7 @@
 	name = "Scalpel"
 	id = "scalpel"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 4000, /datum/material/glass = 1000)
+	materials = list(/datum/material/steel = 4000, /datum/material/glass = 1000)
 	build_path = /obj/item/scalpel
 	category = list(DCAT_MEDICAL)
 	mapload_design_flags = DESIGN_FAB_MEDICAL | DESIGN_FAB_OMNI
@@ -475,7 +475,7 @@
 	name = "Vascular Recoupler"
 	id = "vascroup"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 4000, /datum/material/glass = 1500, /datum/material/silver = 500)
+	materials = list(/datum/material/steel = 4000, /datum/material/glass = 1500, /datum/material/silver = 500)
 	build_path = /obj/item/fixovein
 	category = list(DCAT_MEDICAL)
 	mapload_design_flags = DESIGN_FAB_MEDICAL | DESIGN_FAB_OMNI
@@ -484,7 +484,7 @@
 	name = "Circular Saw"
 	id = "circular_saw"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 10000, /datum/material/glass = 6000)
+	materials = list(/datum/material/steel = 10000, /datum/material/glass = 6000)
 	build_path = /obj/item/circular_saw
 	category = list(DCAT_MEDICAL)
 	mapload_design_flags = DESIGN_FAB_MEDICAL | DESIGN_FAB_OMNI
@@ -493,7 +493,7 @@
 	name = "Bonesetter"
 	id = "bonesetter"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 5000,  /datum/material/glass = 2500)
+	materials = list(/datum/material/steel = 5000,  /datum/material/glass = 2500)
 	build_path = /obj/item/bonesetter
 	category = list(DCAT_MEDICAL)
 	mapload_design_flags = DESIGN_FAB_MEDICAL | DESIGN_FAB_OMNI
@@ -502,7 +502,7 @@
 	name = "Surgical Drill"
 	id = "surgicaldrill"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 10000, /datum/material/glass = 6000)
+	materials = list(/datum/material/steel = 10000, /datum/material/glass = 6000)
 	build_path = /obj/item/surgicaldrill
 	category = list(DCAT_MEDICAL)
 	mapload_design_flags = DESIGN_FAB_MEDICAL | DESIGN_FAB_OMNI
@@ -511,7 +511,7 @@
 	name = "Retractor"
 	id = "retractor"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 6000, /datum/material/glass = 3000)
+	materials = list(/datum/material/steel = 6000, /datum/material/glass = 3000)
 	build_path = /obj/item/retractor
 	category = list(DCAT_MEDICAL)
 	mapload_design_flags = DESIGN_FAB_MEDICAL | DESIGN_FAB_OMNI
@@ -520,7 +520,7 @@
 	name = "Cautery"
 	id = "cautery"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 2500, /datum/material/glass = 750)
+	materials = list(/datum/material/steel = 2500, /datum/material/glass = 750)
 	build_path = /obj/item/cautery
 	category = list(DCAT_MEDICAL)
 	mapload_design_flags = DESIGN_FAB_MEDICAL | DESIGN_FAB_OMNI
@@ -529,7 +529,7 @@
 	name = "Hemostat"
 	id = "hemostat"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 5000, /datum/material/glass = 2500)
+	materials = list(/datum/material/steel = 5000, /datum/material/glass = 2500)
 	build_path = /obj/item/hemostat
 	category = list(DCAT_MEDICAL)
 	mapload_design_flags = DESIGN_FAB_MEDICAL | DESIGN_FAB_OMNI
@@ -565,7 +565,7 @@
 	name = "Universal Recorder"
 	id = "recorder"
 	build_type = FABRICATOR | AUTOLATHE
-	materials = list(/datum/material/iron = 60, /datum/material/glass = 30)
+	materials = list(/datum/material/steel = 60, /datum/material/glass = 30)
 	build_path = /obj/item/taperecorder/empty
 	category = list(DCAT_MISC)
 	mapload_design_flags = DESIGN_FAB_CIV
@@ -574,7 +574,7 @@
 	name = "Cassette Tape"
 	id = "tape"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 20, /datum/material/glass = 5)
+	materials = list(/datum/material/steel = 20, /datum/material/glass = 5)
 	build_path = /obj/item/tape/random
 	category = list(DCAT_MISC)
 	mapload_design_flags = DESIGN_FAB_CIV
@@ -583,7 +583,7 @@
 	name = "Igniter"
 	id = "igniter"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 50)
+	materials = list(/datum/material/steel = 500, /datum/material/glass = 50)
 	build_path = /obj/item/assembly/igniter
 	category = list(DCAT_ASSEMBLY)
 
@@ -591,7 +591,7 @@
 	name = "Condenser"
 	id = "condenser"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron=250, /datum/material/glass=300)
+	materials = list(/datum/material/steel=250, /datum/material/glass=300)
 	build_path = /obj/item/assembly/igniter/condenser
 	category = list(DCAT_ASSEMBLY)
 
@@ -599,7 +599,7 @@
 	name = "Remote Signaling Device"
 	id = "signaler"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 400, /datum/material/glass = 120)
+	materials = list(/datum/material/steel = 400, /datum/material/glass = 120)
 	build_path = /obj/item/assembly/signaler
 	category = list(DCAT_ASSEMBLY, DCAT_RADIO)
 
@@ -607,7 +607,7 @@
 	name = "Radio Headset"
 	id = "radio_headset"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 75)
+	materials = list(/datum/material/steel = 75)
 	build_path = /obj/item/radio/headset
 	category = list(DCAT_RADIO)
 
@@ -615,7 +615,7 @@
 	name = "Station Bounced Radio"
 	id = "bounced_radio"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 75, /datum/material/glass = 25)
+	materials = list(/datum/material/steel = 75, /datum/material/glass = 25)
 	build_path = /obj/item/radio/off
 	category = list(DCAT_RADIO)
 
@@ -623,7 +623,7 @@
 	name = "Intercom Frame"
 	id = "intercom_frame"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 75, /datum/material/glass = 25)
+	materials = list(/datum/material/steel = 75, /datum/material/glass = 25)
 	build_path = /obj/item/wallframe/intercom
 	category = list(DCAT_FRAME)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -632,7 +632,7 @@
 	name = "Infrared Emitter"
 	id = "infrared_emitter"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 1000, /datum/material/glass = 500)
+	materials = list(/datum/material/steel = 1000, /datum/material/glass = 500)
 	build_path = /obj/item/assembly/infra
 	category = list(DCAT_ASSEMBLY)
 
@@ -640,7 +640,7 @@
 	name = "Health Sensor"
 	id = "health_sensor"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 800, /datum/material/glass = 200)
+	materials = list(/datum/material/steel = 800, /datum/material/glass = 200)
 	build_path = /obj/item/assembly/health
 	category = list(DCAT_ASSEMBLY)
 
@@ -648,7 +648,7 @@
 	name = "Timer"
 	id = "timer"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 50)
+	materials = list(/datum/material/steel = 500, /datum/material/glass = 50)
 	build_path = /obj/item/assembly/timer
 	category = list(DCAT_ASSEMBLY)
 
@@ -656,7 +656,7 @@
 	name = "Voice Analyzer"
 	id = "voice_analyzer"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 50)
+	materials = list(/datum/material/steel = 500, /datum/material/glass = 50)
 	build_path = /obj/item/assembly/voice
 	category = list(DCAT_ASSEMBLY)
 
@@ -680,7 +680,7 @@
 	name = "Camera Assembly"
 	id = "camera_assembly"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 400, /datum/material/glass = 250)
+	materials = list(/datum/material/steel = 400, /datum/material/glass = 250)
 	build_path = /obj/item/wallframe/camera
 	category = list(DCAT_FRAME)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -689,7 +689,7 @@
 	name = "Newscaster Frame"
 	id = "newscaster_frame"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 14000, /datum/material/glass = 8000)
+	materials = list(/datum/material/steel = 14000, /datum/material/glass = 8000)
 	build_path = /obj/item/wallframe/newscaster
 	category = list(DCAT_FRAME)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -698,7 +698,7 @@
 	name = "Status Display Frame"
 	id = "status_display_frame"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 14000, /datum/material/glass = 8000)
+	materials = list(/datum/material/steel = 14000, /datum/material/glass = 8000)
 	build_path = /obj/item/wallframe/status_display
 	category = list(DCAT_FRAME)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -707,7 +707,7 @@
 	name = "Syringe"
 	id = "syringe"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 10, /datum/material/glass = 20)
+	materials = list(/datum/material/steel = 10, /datum/material/glass = 20)
 	build_path = /obj/item/reagent_containers/syringe
 	category = list(DCAT_MEDICAL, DCAT_REAGENTS)
 	mapload_design_flags = DESIGN_FAB_MEDICAL | DESIGN_FAB_OMNI
@@ -725,7 +725,7 @@
 	name = "Proximity Sensor"
 	id = "prox_sensor"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 800, /datum/material/glass = 200)
+	materials = list(/datum/material/steel = 800, /datum/material/glass = 200)
 	build_path = /obj/item/assembly/prox_sensor
 	category = list(DCAT_ASSEMBLY)
 
@@ -733,7 +733,7 @@
 	name = "Box of Foam Darts"
 	id = "foam_dart"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 500)
+	materials = list(/datum/material/steel = 500)
 	build_path = /obj/item/ammo_box/foambox
 	category = list(DCAT_AMMO)
 
@@ -743,7 +743,7 @@
 	name = "Industrial Welding Tool"
 	id = "large_welding_tool"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 70, /datum/material/glass = 60)
+	materials = list(/datum/material/steel = 70, /datum/material/glass = 60)
 	build_path = /obj/item/weldingtool/largetank
 	category = list(DCAT_BASIC_TOOL)
 
@@ -751,7 +751,7 @@
 	name = "Handcuffs"
 	id = "handcuffs"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 500)
+	materials = list(/datum/material/steel = 500)
 	build_path = /obj/item/restraints/handcuffs
 	category = list(DCAT_SECURITY)
 
@@ -759,7 +759,7 @@
 	name = "Modular Receiver"
 	id = "receiver"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 15000)
+	materials = list(/datum/material/steel = 15000)
 	build_path = /obj/item/weaponcrafting/receiver
 	category = list(DCAT_SECURITY)
 
@@ -767,7 +767,7 @@
 	name = "Butcher's Cleaver"
 	id = "cleaver"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 18000)
+	materials = list(/datum/material/steel = 18000)
 	build_path = /obj/item/knife/butcher
 	category = list(DCAT_DINNERWARE)
 
@@ -775,7 +775,7 @@
 	name = "Spraycan"
 	id = "spraycan"
 	build_type = AUTOLATHE |FABRICATOR
-	materials = list(/datum/material/iron = 100, /datum/material/glass = 100)
+	materials = list(/datum/material/steel = 100, /datum/material/glass = 100)
 	build_path = /obj/item/toy/crayon/spraycan
 	category = list(DCAT_MISC_TOOL)
 	mapload_design_flags = DESIGN_FAB_CIV | DESIGN_FAB_OMNI
@@ -784,7 +784,7 @@
 	name = "Destination Tagger"
 	id = "desttagger"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 250, /datum/material/glass = 125)
+	materials = list(/datum/material/steel = 250, /datum/material/glass = 125)
 	build_path = /obj/item/dest_tagger
 	category = list(DCAT_SUPPLY)
 	mapload_design_flags = DESIGN_FAB_SUPPLY | DESIGN_FAB_OMNI
@@ -793,7 +793,7 @@
 	name = "Sales Tagger"
 	id = "salestagger"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 700, /datum/material/glass = 200)
+	materials = list(/datum/material/steel = 700, /datum/material/glass = 200)
 	build_path = /obj/item/sales_tagger
 	category = list(DCAT_SUPPLY)
 	mapload_design_flags = DESIGN_FAB_SUPPLY | DESIGN_FAB_OMNI
@@ -802,7 +802,7 @@
 	name = "Hand Labeler"
 	id = "handlabel"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 150, /datum/material/glass = 125)
+	materials = list(/datum/material/steel = 150, /datum/material/glass = 125)
 	build_path = /obj/item/hand_labeler
 	category = list(DCAT_MISC_TOOL)
 	mapload_design_flags = DESIGN_FAB_CIV | DESIGN_FAB_OMNI
@@ -811,7 +811,7 @@
 	name = "Geiger Counter"
 	id = "geigercounter"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 150, /datum/material/glass = 150)
+	materials = list(/datum/material/steel = 150, /datum/material/glass = 150)
 	build_path = /obj/item/geiger_counter
 	category = list(DCAT_MISC_TOOL)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -820,7 +820,7 @@
 	name = "Turret Control Frame"
 	id = "turret_control"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 12000)
+	materials = list(/datum/material/steel = 12000)
 	build_path = /obj/item/wallframe/turret_control
 	category = list(DCAT_FRAME)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -829,7 +829,7 @@
 	name = "Conveyor Belt"
 	id = "conveyor_belt"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 3000)
+	materials = list(/datum/material/steel = 3000)
 	build_path = /obj/item/stack/conveyor
 	category = list(DCAT_CONSTRUCTION)
 	maxstack = 30
@@ -839,7 +839,7 @@
 	name = "Conveyor Belt Switch"
 	id = "conveyor_switch"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 450, /datum/material/glass = 190)
+	materials = list(/datum/material/steel = 450, /datum/material/glass = 190)
 	build_path = /obj/item/conveyor_switch_construct
 	category = list(DCAT_CONSTRUCTION)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -853,13 +853,13 @@
 /datum/design/modcomp/laptop
 	name = "Laptop Frame"
 	id = "laptop"
-	materials = list(/datum/material/iron = 10000, /datum/material/glass = 1000)
+	materials = list(/datum/material/steel = 10000, /datum/material/glass = 1000)
 	build_path = /obj/item/modular_computer/laptop/buildable
 
 /datum/design/modcomp/tablet
 	name = "Tablet Frame"
 	id = "tablet"
-	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
+	materials = list(/datum/material/steel = 2000, /datum/material/glass = 1000)
 	build_path = /obj/item/modular_computer/tablet
 
 /datum/design/miniature_power_cell
@@ -874,7 +874,7 @@
 	name = "Package Wrapping"
 	id = "packagewrap"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 200, /datum/material/glass = 200)
+	materials = list(/datum/material/steel = 200, /datum/material/glass = 200)
 	build_path = /obj/item/stack/package_wrap
 	category = list(DCAT_SUPPLY)
 	maxstack = 30
@@ -883,7 +883,7 @@
 	name = "Holodisk"
 	id = "holodisk"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 100, /datum/material/glass = 100)
+	materials = list(/datum/material/steel = 100, /datum/material/glass = 100)
 	build_path = /obj/item/disk/holodisk
 	category = list(DCAT_MISC)
 	mapload_design_flags = DESIGN_FAB_CIV
@@ -892,7 +892,7 @@
 	name = "Blue Circuit Tile"
 	id = "circuit"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
+	materials = list(/datum/material/steel = 500, /datum/material/glass = 500)
 	build_path = /obj/item/stack/tile/circuit
 	category = list( "Misc")
 	maxstack = 50
@@ -902,7 +902,7 @@
 	name = "Green Circuit Tile"
 	id = "circuitgreen"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
+	materials = list(/datum/material/steel = 500, /datum/material/glass = 500)
 	build_path = /obj/item/stack/tile/circuit/green
 	category = list( "Misc")
 	maxstack = 50
@@ -912,7 +912,7 @@
 	name = "Red Circuit Tile"
 	id = "circuitred"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 500, /datum/material/glass = 500)
+	materials = list(/datum/material/steel = 500, /datum/material/glass = 500)
 	build_path = /obj/item/stack/tile/circuit/red
 	category = list( "Misc")
 	maxstack = 50
@@ -922,7 +922,7 @@
 	name = "Price Tagger"
 	id = "price_tagger"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 1500, /datum/material/glass = 500)
+	materials = list(/datum/material/steel = 1500, /datum/material/glass = 500)
 	build_path = /obj/item/price_tagger
 	category = list(DCAT_SUPPLY)
 	mapload_design_flags = DESIGN_FAB_SUPPLY | DESIGN_FAB_OMNI
@@ -931,7 +931,7 @@
 	name = "Custom Vendor Refill"
 	id = "custom_vendor_refill"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 5000, /datum/material/glass = 2000)
+	materials = list(/datum/material/steel = 5000, /datum/material/glass = 2000)
 	build_path = /obj/item/vending_refill/custom
 	category = list( "Misc")
 	mapload_design_flags = DESIGN_FAB_CIV
@@ -940,7 +940,7 @@
 	name = "Cap Gun"
 	id = "toygun"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 100, /datum/material/glass = 50)
+	materials = list(/datum/material/steel = 100, /datum/material/glass = 50)
 	build_path = /obj/item/toy/gun
 	category = list(DCAT_WEAPON)
 
@@ -948,7 +948,7 @@
 	name = "Box of Cap Gun Shots"
 	id = "capbox"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 20, /datum/material/glass = 5)
+	materials = list(/datum/material/steel = 20, /datum/material/glass = 5)
 	build_path = /obj/item/toy/ammo/gun
 	category = list(DCAT_AMMO)
 
@@ -992,7 +992,7 @@
 	name = "Chisel"
 	id = "chisel"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 75)
+	materials = list(/datum/material/steel = 75)
 	build_path = /obj/item/chisel
 	category = list(DCAT_MISC_TOOL)
 
@@ -1000,7 +1000,7 @@
 	name = "Blast Door Controller"
 	id = "blast"
 	build_type = AUTOLATHE
-	materials = list(/datum/material/iron = 100, /datum/material/glass = 50)
+	materials = list(/datum/material/steel = 100, /datum/material/glass = 50)
 	build_path = /obj/item/assembly/control
 	category = list(DCAT_ASSEMBLY)
 
@@ -1008,7 +1008,7 @@
 	name = "Electric Razor"
 	id = "razor"
 	build_type = FABRICATOR  | AUTOLATHE
-	materials = list(/datum/material/iron = 75)
+	materials = list(/datum/material/steel = 75)
 	build_path = /obj/item/razor
 	category = list(DCAT_MISC_TOOL)
 	mapload_design_flags = DESIGN_FAB_SERVICE
@@ -1017,7 +1017,7 @@
 	name = "Hand Labeler Paper Roll"
 	id = "roll"
 	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/iron = 50, /datum/material/glass = 25)
+	materials = list(/datum/material/steel = 50, /datum/material/glass = 25)
 	build_path = /obj/item/hand_labeler_refill
 	category = list(DCAT_MISC)
 	mapload_design_flags = DESIGN_FAB_OMNI | DESIGN_FAB_CIV
@@ -1027,7 +1027,7 @@
 	desc = "A tracking beacon."
 	id = "beacon"
 	build_type = FABRICATOR | AUTOLATHE
-	materials = list(/datum/material/iron = 150, /datum/material/glass = 100)
+	materials = list(/datum/material/steel = 150, /datum/material/glass = 100)
 	build_path = /obj/item/beacon
 	category = list(DCAT_RADIO)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -1041,4 +1041,3 @@
 	build_path = /obj/item/bikehorn/rubberducky/plasticducky
 	category = list(DCAT_MISC)
 	mapload_design_flags = DESIGN_FAB_CIV
-

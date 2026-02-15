@@ -7,7 +7,7 @@
 /// Things that maybe move around and does stuff to things around them
 /// Used for the singularity (duh) and Nar'Sie
 /datum/component/singularity
-	/// Callback for consuming objects (for example, Nar'Sie replaces this to call narsie_act)
+	/// Callback for consuming objects
 	var/datum/callback/consume_callback
 
 	/// The range to pull in stuff around it

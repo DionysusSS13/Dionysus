@@ -6,9 +6,7 @@
  * https://github.com/stylemistake/juke-build
  */
 
-import fs from "fs";
-import https from "https";
-import { env } from "process";
+import fs, { existsSync } from "fs";
 import Juke from "./juke/index.js";
 import { DreamDaemon, DreamMaker } from "./lib/byond.js";
 import { yarn } from "./lib/yarn.js";
@@ -20,6 +18,11 @@ Juke.setup({ file: import.meta.url }).then((code) => {
   if (code !== 0 && process.argv.includes("--wait-on-error")) {
     Juke.logger.error("Please inspect the error and close the window.");
     return;
+  }
+  if (process.platform === "linux") {
+    Juke.logger.info(
+      "While building is supported on Linux, running the server is not.",
+    );
   }
   process.exit(code);
 });
@@ -86,12 +89,11 @@ export const IconCutterTarget = new Juke.Target({
     return folders.map((file) => file.replace(`${CUTTER_SUFFIX}`, ".dmi"));
   },
   executes: async () => {
-    await Juke.exec(pythonPath, [
-      "-m",
-      "icon_cutter.cutter",
-      "cutter_templates",
-      "icons",
-    ], { shell: true });
+    await Juke.exec(
+      pythonPath,
+      ["-m", "icon_cutter.cutter", "cutter_templates", "icons"],
+      { shell: true },
+    );
   },
 });
 
@@ -109,12 +111,20 @@ export const DionysusIconCutterTarget = new Juke.Target({
     return folders.map((file) => file.replace(`${CUTTER_SUFFIX}`, ".dmi"));
   },
   executes: async () => {
-    await Juke.exec(pythonPath, [
-      "-m",
-      "icon_cutter.cutter",
-      "cutter_templates", // WHY ARE YOU RELATIVE??? HUH???
-      "dionysus_icons",
-    ], { shell: true });
+    if (!existsSync("dionysus_icons")) {
+      Juke.logger.info("Dionysus icons not found, skipping");
+      return;
+    }
+    await Juke.exec(
+      pythonPath,
+      [
+        "-m",
+        "icon_cutter.cutter",
+        "cutter_templates", // WHY ARE YOU RELATIVE??? HUH???
+        "dionysus_icons",
+      ],
+      { shell: true },
+    );
   },
 });
 
@@ -144,6 +154,8 @@ export const DmTarget = new Juke.Target({
   ],
   inputs: [
     "_maps/map_files/generic/**",
+    "_maps/**.dmm",
+    "_maps/**/**.json",
     "maps/**/*.dm",
     "code/**",
     "goon/**",

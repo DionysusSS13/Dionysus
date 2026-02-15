@@ -135,7 +135,7 @@
 
 //Created through the autolathe or through deconstructing intercoms. Can be applied to wall to make a new intercom on it!
 TYPEINFO_DEF(/obj/item/wallframe/intercom)
-	default_materials = list(/datum/material/iron = 75, /datum/material/glass = 25)
+	default_materials = list(/datum/material/steel = 75, /datum/material/glass = 25)
 
 /obj/item/wallframe/intercom
 	name = "intercom frame"

@@ -2,7 +2,7 @@
  * Film
  */
 TYPEINFO_DEF(/obj/item/camera_film)
-	default_materials = list(/datum/material/iron = 10, /datum/material/glass = 10)
+	default_materials = list(/datum/material/steel = 10, /datum/material/glass = 10)
 
 /obj/item/camera_film
 	name = "film cartridge"

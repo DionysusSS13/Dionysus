@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/retractor)
-	default_materials = list(/datum/material/iron=6000, /datum/material/glass=3000)
+	default_materials = list(/datum/material/steel=6000, /datum/material/glass=3000)
 
 /obj/item/retractor
 	name = "retractor"
@@ -21,7 +21,7 @@ TYPEINFO_DEF(/obj/item/retractor)
 
 
 TYPEINFO_DEF(/obj/item/hemostat)
-	default_materials = list(/datum/material/iron=5000, /datum/material/glass=2500)
+	default_materials = list(/datum/material/steel=5000, /datum/material/glass=2500)
 
 /obj/item/hemostat
 	name = "hemostat"
@@ -45,7 +45,7 @@ TYPEINFO_DEF(/obj/item/hemostat)
 
 
 TYPEINFO_DEF(/obj/item/cautery)
-	default_materials = list(/datum/material/iron=2500, /datum/material/glass=750)
+	default_materials = list(/datum/material/steel=2500, /datum/material/glass=750)
 
 /obj/item/cautery
 	name = "cautery"
@@ -71,7 +71,7 @@ TYPEINFO_DEF(/obj/item/cautery)
 	toolspeed = 0.5
 
 TYPEINFO_DEF(/obj/item/cautery/advanced)
-	default_materials = list(/datum/material/iron = 4000, /datum/material/glass = 2000, /datum/material/plasma = 2000, /datum/material/uranium = 3000, /datum/material/titanium = 3000)
+	default_materials = list(/datum/material/steel = 4000, /datum/material/glass = 2000, /datum/material/plasma = 2000, /datum/material/uranium = 3000, /datum/material/titanium = 3000)
 
 /obj/item/cautery/advanced
 	name = "searing tool"
@@ -112,7 +112,7 @@ TYPEINFO_DEF(/obj/item/cautery/advanced)
 	. += span_notice("It's set to [tool_behaviour == TOOL_CAUTERY ? "mending" : "drilling"] mode.")
 
 TYPEINFO_DEF(/obj/item/surgicaldrill)
-	default_materials = list(/datum/material/iron=10000, /datum/material/glass=6000)
+	default_materials = list(/datum/material/steel=10000, /datum/material/glass=6000)
 
 /obj/item/surgicaldrill
 	name = "surgical drill"
@@ -151,7 +151,7 @@ TYPEINFO_DEF(/obj/item/surgicaldrill)
 
 
 TYPEINFO_DEF(/obj/item/scalpel)
-	default_materials = list(/datum/material/iron=4000, /datum/material/glass=1000)
+	default_materials = list(/datum/material/steel=4000, /datum/material/glass=1000)
 
 /obj/item/scalpel
 	name = "scalpel"
@@ -195,7 +195,7 @@ TYPEINFO_DEF(/obj/item/scalpel)
 
 
 TYPEINFO_DEF(/obj/item/circular_saw)
-	default_materials = list(/datum/material/iron=1000)
+	default_materials = list(/datum/material/steel=1000)
 
 /obj/item/circular_saw
 	name = "circular saw"
@@ -233,7 +233,7 @@ TYPEINFO_DEF(/obj/item/circular_saw)
 	toolspeed = 0.5
 
 TYPEINFO_DEF(/obj/item/scalpel/advanced)
-	default_materials = list(/datum/material/iron = 6000, /datum/material/glass = 1500, /datum/material/silver = 2000, /datum/material/gold = 1500, /datum/material/diamond = 200, /datum/material/titanium = 4000)
+	default_materials = list(/datum/material/steel = 6000, /datum/material/glass = 1500, /datum/material/silver = 2000, /datum/material/gold = 1500, /datum/material/diamond = 200, /datum/material/titanium = 4000)
 
 /obj/item/scalpel/advanced
 	name = "laser scalpel"
@@ -284,7 +284,7 @@ TYPEINFO_DEF(/obj/item/scalpel/advanced)
 	. += span_notice("It's set to [tool_behaviour == TOOL_SCALPEL ? "scalpel" : "saw"] mode.")
 
 TYPEINFO_DEF(/obj/item/retractor/advanced)
-	default_materials = list(/datum/material/iron = 12000, /datum/material/glass = 4000, /datum/material/silver = 4000, /datum/material/titanium = 5000)
+	default_materials = list(/datum/material/steel = 12000, /datum/material/glass = 4000, /datum/material/silver = 4000, /datum/material/titanium = 5000)
 
 /obj/item/retractor/advanced
 	name = "mechanical pinches"
@@ -321,7 +321,7 @@ TYPEINFO_DEF(/obj/item/retractor/advanced)
 	. += span_notice("It resembles a [tool_behaviour == TOOL_RETRACTOR ? "retractor" : "hemostat"].")
 
 TYPEINFO_DEF(/obj/item/shears)
-	default_materials = list(/datum/material/iron=8000, /datum/material/titanium=6000)
+	default_materials = list(/datum/material/steel=8000, /datum/material/titanium=6000)
 
 /obj/item/shears
 	name = "amputation shears"
@@ -402,7 +402,7 @@ TYPEINFO_DEF(/obj/item/shears)
 	return BRUTELOSS
 
 TYPEINFO_DEF(/obj/item/bonesetter)
-	default_materials = list(/datum/material/iron=5000, /datum/material/glass=2500)
+	default_materials = list(/datum/material/steel=5000, /datum/material/glass=2500)
 
 /obj/item/bonesetter
 	name = "bonesetter"
@@ -420,7 +420,7 @@ TYPEINFO_DEF(/obj/item/bonesetter)
 	toolspeed = 1
 
 TYPEINFO_DEF(/obj/item/blood_filter)
-	default_materials = list(/datum/material/iron=2000, /datum/material/glass=1500, /datum/material/silver=500)
+	default_materials = list(/datum/material/steel=2000, /datum/material/glass=1500, /datum/material/silver=500)
 
 /obj/item/blood_filter
 	name = "blood filter"

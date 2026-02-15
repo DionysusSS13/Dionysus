@@ -229,7 +229,7 @@
 	user.setDir(olddir)
 
 TYPEINFO_DEF(/obj/item/disk/holodisk)
-	default_materials = list(/datum/material/iron = 100, /datum/material/glass = 100)
+	default_materials = list(/datum/material/steel = 100, /datum/material/glass = 100)
 
 /obj/item/disk/holodisk
 	name = "holorecord disk"

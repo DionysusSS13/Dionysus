@@ -44,9 +44,6 @@
 	else if(IS_CHANGELING(human_target))
 		message += "It is neither human nor Afflicted."
 
-	else if(IS_CULTIST(human_target))
-		message += "[human_target.p_their(TRUE)] blood is foul, you should stay away."
-
 	var/blood_remaining = GLOB.blood_controller.get_blood_remaining(target)
 	if(blood_remaining == VAMPIRE_BLOOD_DRAIN_PER_TARGET)
 		message += "[human_target.p_they(TRUE)] appear[human_target.p_s()] juicy and full of life."

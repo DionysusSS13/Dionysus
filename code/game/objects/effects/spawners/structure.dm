@@ -19,7 +19,7 @@ again.
 	icon = 'icons/obj/structures_spawners.dmi'
 	icon_state = "window_spawner"
 	name = "window spawner"
-	spawn_list = list(/obj/structure/low_wall, /obj/structure/window/fulltile)
+	spawn_list = list(/obj/structure/window/fulltile)
 	dir = SOUTH
 	layer = ABOVE_OBJ_LAYER
 
@@ -30,7 +30,7 @@ again.
 
 /obj/effect/spawner/structure/window/wood
 	name = "window with wooden low wall spawner"
-	spawn_list = list(/obj/structure/low_wall/wood, /obj/structure/window/fulltile)
+	spawn_list = list(/obj/structure/window/fulltile)
 
 
 /obj/effect/spawner/structure/window/hollow
@@ -92,16 +92,16 @@ again.
 /obj/effect/spawner/structure/window/reinforced
 	name = "reinforced window spawner"
 	icon_state = "rwindow_spawner"
-	spawn_list = list(/obj/structure/low_wall, /obj/structure/window/reinforced/fulltile)
+	spawn_list = list(/obj/structure/window/reinforced/fulltile)
 
 /obj/effect/spawner/structure/window/reinforced/grille
 	name = "reinforced window with grille spawner"
-	spawn_list = list(/obj/structure/grille, /obj/structure/low_wall, /obj/structure/window/reinforced/fulltile)
+	spawn_list = list(/obj/structure/grille, /obj/structure/window/reinforced/fulltile)
 
 /obj/effect/spawner/structure/window/reinforced/wood
 	name = "reinforced window with wooden low wall spawner"
 	icon_state = "rwindow_spawner"
-	spawn_list = list(/obj/structure/low_wall/wood, /obj/structure/window/reinforced/fulltile)
+	spawn_list = list(/obj/structure/window/reinforced/fulltile)
 
 /obj/effect/spawner/structure/window/hollow/reinforced
 	name = "hollow reinforced window spawner"
@@ -162,11 +162,11 @@ again.
 /obj/effect/spawner/structure/window/reinforced/tinted
 	name = "tinted reinforced window spawner"
 	icon_state = "twindow_spawner"
-	spawn_list = list(/obj/structure/low_wall, /obj/structure/window/reinforced/tinted/fulltile)
+	spawn_list = list(/obj/structure/window/reinforced/tinted/fulltile)
 
 /obj/effect/spawner/structure/window/reinforced/tinted/grille
 	name = "tinted reinforced window with grille spawner"
-	spawn_list = list(/obj/structure/grille, /obj/structure/low_wall, /obj/structure/window/reinforced/tinted/fulltile)
+	spawn_list = list(/obj/structure/grille, /obj/structure/window/reinforced/tinted/fulltile)
 
 //bronze
 
@@ -181,7 +181,7 @@ again.
 /obj/effect/spawner/structure/window/reinforced/shuttle
 	name = "shuttle window spawner"
 	icon_state = "swindow_spawner"
-	spawn_list = list(/obj/structure/low_wall/titanium, /obj/structure/window/reinforced/shuttle)
+	spawn_list = list(/obj/structure/window/reinforced/shuttle)
 
 
 //plastitanium window
@@ -189,7 +189,7 @@ again.
 /obj/effect/spawner/structure/window/reinforced/plasma/plastitanium
 	name = "plastitanium window spawner"
 	icon_state = "plastitaniumwindow_spawner"
-	spawn_list = list(/obj/structure/low_wall/plastitanium, /obj/structure/window/reinforced/plasma/plastitanium)
+	spawn_list = list(/obj/structure/window/reinforced/plasma/plastitanium)
 
 
 //ice window
@@ -197,7 +197,7 @@ again.
 /obj/effect/spawner/structure/window/ice
 	name = "ice window spawner"
 	icon_state = "icewindow_spawner"
-	spawn_list = list(/obj/structure/low_wall, /obj/structure/window/reinforced/fulltile/ice)
+	spawn_list = list(/obj/structure/window/reinforced/fulltile/ice)
 
 
 //survival pod window
@@ -267,7 +267,7 @@ again.
 /obj/effect/spawner/structure/window/plasma
 	name = "plasma window spawner"
 	icon_state = "pwindow_spawner"
-	spawn_list = list(/obj/structure/low_wall, /obj/structure/window/plasma/fulltile)
+	spawn_list = list(/obj/structure/window/plasma/fulltile)
 
 /obj/effect/spawner/structure/window/hollow/plasma
 	name = "hollow plasma window spawner"
@@ -328,7 +328,7 @@ again.
 /obj/effect/spawner/structure/window/reinforced/plasma
 	name = "reinforced plasma window spawner"
 	icon_state = "prwindow_spawner"
-	spawn_list = list(/obj/structure/grille, /obj/structure/low_wall, /obj/structure/window/reinforced/plasma/fulltile)
+	spawn_list = list(/obj/structure/grille, /obj/structure/window/reinforced/plasma/fulltile)
 
 /obj/effect/spawner/structure/window/hollow/reinforced/plasma
 	name = "hollow reinforced plasma window spawner"
@@ -396,28 +396,28 @@ again.
 
 /obj/effect/spawner/structure/window/prepainted/daedalus
 	name = "reinforced window spawner (daedaelus paint)"
-	spawn_list = list(/obj/structure/low_wall/prepainted/daedalus, /obj/structure/window/fulltile)
+	spawn_list = list(/obj/structure/window/fulltile)
 
 /obj/effect/spawner/structure/window/reinforced/prepainted/daedalus
 	name = "window spawner (daedalus paint)"
-	spawn_list = list(/obj/structure/low_wall/prepainted/daedalus, /obj/structure/window/reinforced/fulltile)
+	spawn_list = list(/obj/structure/window/reinforced/fulltile)
 
 /obj/effect/spawner/structure/window/reinforced/tinted/prepainted/daedalus
 	name = "tinted reinforced window spawner (daedalus paint)"
-	spawn_list = list(/obj/structure/low_wall/prepainted/daedalus, /obj/structure/window/reinforced/tinted/fulltile)
+	spawn_list = list(/obj/structure/window/reinforced/tinted/fulltile)
 
 /obj/effect/spawner/structure/window/reinforced/plasma/prepainted/daedalus
 	name = "reinforced plasma window spawner (daedalus paint)"
-	spawn_list = list(/obj/structure/grille, /obj/structure/low_wall/prepainted/daedalus, /obj/structure/window/reinforced/plasma/fulltile)
+	spawn_list = list(/obj/structure/grille, /obj/structure/window/reinforced/plasma/fulltile)
 
 /obj/effect/spawner/structure/window/prepainted/marsexec
 	name = "reinforced window spawner (mars executive paint)"
-	spawn_list = list(/obj/structure/low_wall/prepainted/marsexec, /obj/structure/window/fulltile)
+	spawn_list = list(/obj/structure/window/fulltile)
 
 /obj/effect/spawner/structure/window/reinforced/prepainted/marsexec
 	name = "window spawner (mars executive paint)"
-	spawn_list = list(/obj/structure/low_wall/prepainted/marsexec, /obj/structure/window/reinforced/fulltile)
+	spawn_list = list(/obj/structure/window/reinforced/fulltile)
 
 /obj/effect/spawner/structure/window/reinforced/tinted/prepainted/marsexec
 	name = "tinted reinforced window spawner (mars executive paint)"
-	spawn_list = list(/obj/structure/low_wall/prepainted/marsexec, /obj/structure/window/reinforced/tinted/fulltile)
+	spawn_list = list(/obj/structure/window/reinforced/tinted/fulltile)

@@ -17,7 +17,7 @@
 	novariants = TRUE
 	material_flags = MATERIAL_EFFECTS
 
-	mats_per_unit = list(/datum/material/iron=100)
+	mats_per_unit = list(/datum/material/steel=100)
 	merge_type = /obj/item/stack/overfloor_catwalk
 	dynamically_set_name = TRUE
 

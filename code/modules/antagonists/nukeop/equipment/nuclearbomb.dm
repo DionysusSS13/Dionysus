@@ -139,7 +139,7 @@ GLOBAL_VAR(nuke_time_left)
 					else
 						to_chat(user, span_warning("You fail to load the plutonium core into [core_box]. [core_box] has already been used!"))
 				return
-			if(istype(I, /obj/item/stack/sheet/iron))
+			if(istype(I, /obj/item/stack/sheet/steel))
 				if(!I.tool_start_check(user, amount=20))
 					return
 

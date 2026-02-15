@@ -3,7 +3,7 @@
 #define CELL_POWER_DRAIN 750
 
 TYPEINFO_DEF(/obj/item/stock_parts/cell)
-	default_materials = list(/datum/material/iron=700, /datum/material/glass=50)
+	default_materials = list(/datum/material/steel=700, /datum/material/glass=50)
 
 /**
  * # Power cell

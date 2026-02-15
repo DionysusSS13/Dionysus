@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/sequence_scanner)
-	default_materials = list(/datum/material/iron=200)
+	default_materials = list(/datum/material/steel=200)
 
 /obj/item/sequence_scanner
 	name = "genetic sequence scanner"

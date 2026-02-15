@@ -4,7 +4,7 @@
 #define MAX_FREEZE_TEMP 1000000
 
 TYPEINFO_DEF(/obj/item/assembly/igniter)
-	default_materials = list(/datum/material/iron=500, /datum/material/glass=50)
+	default_materials = list(/datum/material/steel=500, /datum/material/glass=50)
 
 /obj/item/assembly/igniter
 	name = "igniter"
@@ -52,7 +52,7 @@ TYPEINFO_DEF(/obj/item/assembly/igniter)
 
 //For the Condenser, which functions like the igniter but makes things colder.
 TYPEINFO_DEF(/obj/item/assembly/igniter/condenser)
-	default_materials = list(/datum/material/iron=250, /datum/material/glass=300)
+	default_materials = list(/datum/material/steel=250, /datum/material/glass=300)
 
 /obj/item/assembly/igniter/condenser
 	name = "condenser"

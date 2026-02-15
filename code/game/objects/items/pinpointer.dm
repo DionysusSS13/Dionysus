@@ -1,6 +1,6 @@
 //Pinpointers are used to track atoms from a distance as long as they're on the same z-level. The captain and nuke ops have ones that track the nuclear authentication disk.
 TYPEINFO_DEF(/obj/item/pinpointer)
-	default_materials = list(/datum/material/iron = 500, /datum/material/glass = 250)
+	default_materials = list(/datum/material/steel = 500, /datum/material/glass = 250)
 
 /obj/item/pinpointer
 	name = "pinpointer"

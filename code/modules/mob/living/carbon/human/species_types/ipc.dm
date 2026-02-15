@@ -47,7 +47,7 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/robot/ipc,
 	)
 	meat = /obj/item/stack/sheet/plasteel{amount = 5}
-	skinned_type = /obj/item/stack/sheet/iron{amount = 10}
+	skinned_type = /obj/item/stack/sheet/steel{amount = 10}
 
 	robotic_bodyparts = null
 

@@ -1,7 +1,7 @@
 // Shotgun
 
 TYPEINFO_DEF(/obj/item/ammo_casing/shotgun)
-	default_materials = list(/datum/material/iron=4000)
+	default_materials = list(/datum/material/steel=4000)
 
 /obj/item/ammo_casing/shotgun
 	name = "shotgun slug"
@@ -24,7 +24,7 @@ TYPEINFO_DEF(/obj/item/ammo_casing/shotgun)
 	projectile_type = /obj/projectile/bullet/shotgun_slug/pulverizer
 
 TYPEINFO_DEF(/obj/item/ammo_casing/shotgun/beanbag)
-	default_materials = list(/datum/material/iron=250)
+	default_materials = list(/datum/material/steel=250)
 
 /obj/item/ammo_casing/shotgun/beanbag
 	name = "beanbag slug"
@@ -47,7 +47,7 @@ TYPEINFO_DEF(/obj/item/ammo_casing/shotgun/beanbag)
 	variance = 35
 
 TYPEINFO_DEF(/obj/item/ammo_casing/shotgun/stunslug)
-	default_materials = list(/datum/material/iron=250)
+	default_materials = list(/datum/material/steel=250)
 
 /obj/item/ammo_casing/shotgun/stunslug
 	name = "taser slug"
@@ -84,7 +84,7 @@ TYPEINFO_DEF(/obj/item/ammo_casing/shotgun/stunslug)
 	variance = 25
 
 TYPEINFO_DEF(/obj/item/ammo_casing/shotgun/rubbershot)
-	default_materials = list(/datum/material/iron=4000)
+	default_materials = list(/datum/material/steel=4000)
 
 /obj/item/ammo_casing/shotgun/rubbershot
 	name = "rubber shot"
@@ -95,7 +95,7 @@ TYPEINFO_DEF(/obj/item/ammo_casing/shotgun/rubbershot)
 	variance = 20
 
 TYPEINFO_DEF(/obj/item/ammo_casing/shotgun/incapacitate)
-	default_materials = list(/datum/material/iron=4000)
+	default_materials = list(/datum/material/steel=4000)
 
 /obj/item/ammo_casing/shotgun/incapacitate
 	name = "custom incapacitating shot"
@@ -106,7 +106,7 @@ TYPEINFO_DEF(/obj/item/ammo_casing/shotgun/incapacitate)
 	variance = 25
 
 TYPEINFO_DEF(/obj/item/ammo_casing/shotgun/improvised)
-	default_materials = list(/datum/material/iron=250)
+	default_materials = list(/datum/material/steel=250)
 
 /obj/item/ammo_casing/shotgun/improvised
 	name = "improvised shell"

@@ -141,7 +141,6 @@
 
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/rev762
 
-
 // A gun to play Russian Roulette!
 // You can spin the chamber to randomize the position of the bullet.
 
@@ -226,18 +225,6 @@
 /obj/item/gun/ballistic/revolver/russian/proc/shoot_self(mob/living/carbon/human/user, affecting = BODY_ZONE_HEAD)
 	user.apply_damage(300, BRUTE, affecting)
 	user.visible_message(span_danger("[user.name] fires [src] at [user.p_their()] head!"), span_userdanger("You fire [src] at your head!"), span_hear("You hear a gunshot!"))
-
-/obj/item/gun/ballistic/revolver/russian/soul
-	name = "cursed Russian revolver"
-	desc = "To play with this revolver requires wagering your very soul."
-
-/obj/item/gun/ballistic/revolver/russian/soul/shoot_self(mob/living/user)
-	. = ..()
-	var/obj/item/soulstone/anybody/revolver/stone = new /obj/item/soulstone/anybody/revolver(get_turf(src))
-	if(!stone.capture_soul(user, forced = TRUE)) //Something went wrong
-		qdel(stone)
-		return
-	user.visible_message(span_danger("[user.name]'s soul is captured by \the [src]!"), span_userdanger("You've lost the gamble! Your soul is forfeit!"))
 
 /obj/item/gun/ballistic/revolver/reverse //Fires directly at its user... unless the user is a clown, of course.
 	name = "\improper Syndicate Revolver"

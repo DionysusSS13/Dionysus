@@ -33,25 +33,6 @@
 	item_path = /obj/item/gun/magic/staff/animate
 	category = "Assistance"
 
-/datum/spellbook_entry/item/soulstones
-	name = "Soulstone Shard Kit"
-	desc = "Soul Stone Shards are ancient tools capable of capturing and harnessing the spirits of the dead and dying. \
-		The spell Artificer allows you to create arcane machines for the captured souls to pilot."
-	item_path = /obj/item/storage/belt/soulstone/full
-	category = "Assistance"
-
-/datum/spellbook_entry/item/soulstones/try_equip_item(mob/living/carbon/human/user, obj/item/to_equip)
-	var/was_equipped = user.equip_to_slot_if_possible(to_equip, ITEM_SLOT_BELT, disable_warning = TRUE)
-	to_chat(user, span_notice("\A [to_equip.name] has been summoned [was_equipped ? "on your waist" : "at your feet"]."))
-
-/datum/spellbook_entry/item/soulstones/buy_spell(mob/living/carbon/human/user, obj/item/spellbook/book)
-	. =..()
-	if(!.)
-		return
-
-	var/datum/action/cooldown/spell/conjure/construct/bonus_spell = new(user.mind || user)
-	bonus_spell.Grant(user)
-
 /datum/spellbook_entry/item/necrostone
 	name = "A Necromantic Stone"
 	desc = "A Necromantic stone is able to resurrect three dead individuals as skeletal thralls for you to command."

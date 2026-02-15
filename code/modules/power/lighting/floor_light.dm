@@ -42,7 +42,7 @@
 		qdel(src)
 		return
 
-	new /obj/item/stack/sheet/iron(loc, 2)
+	new /obj/item/stack/sheet/steel(loc, 2)
 
 	qdel(src)
 
@@ -99,8 +99,3 @@
 	cell.forceMove(loc)
 	cell = null
 	return ITEM_INTERACT_SUCCESS
-
-
-
-
-

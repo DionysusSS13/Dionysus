@@ -26,10 +26,10 @@
 	east_turf_type = east_turf.type
 	north_turf_type = north_turf.type
 
-	east_turf.ChangeTurf(/turf/closed/wall)
+	east_turf.ChangeTurf(/turf/closed/constructed_wall)
 	TEST_ASSERT(wrench.IsReachableBy(user), "Wrench was not reachable despite only one direction being blocked.")
 
-	north_turf.ChangeTurf(/turf/closed/wall)
+	north_turf.ChangeTurf(/turf/closed/constructed_wall)
 	TEST_ASSERT(!wrench.IsReachableBy(user), "Wrench was reachable despite both directions being blocked.")
 
 

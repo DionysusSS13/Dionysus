@@ -1,7 +1,7 @@
 
 // CHAINSAW
 TYPEINFO_DEF(/obj/item/chainsaw)
-	default_materials = list(/datum/material/iron=13000)
+	default_materials = list(/datum/material/steel=13000)
 
 /obj/item/chainsaw
 	name = "chainsaw"

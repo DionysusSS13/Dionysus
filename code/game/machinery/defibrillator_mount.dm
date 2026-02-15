@@ -207,7 +207,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/defibrillator_mount/loaded, 28)
 
 //wallframe, for attaching the mounts easily
 TYPEINFO_DEF(/obj/item/wallframe/defib_mount)
-	default_materials = list(/datum/material/iron = 300, /datum/material/glass = 100)
+	default_materials = list(/datum/material/steel = 300, /datum/material/glass = 100)
 
 /obj/item/wallframe/defib_mount
 	name = "unhooked defibrillator mount"
@@ -219,7 +219,7 @@ TYPEINFO_DEF(/obj/item/wallframe/defib_mount)
 	pixel_shift = 28
 
 TYPEINFO_DEF(/obj/item/wallframe/defib_mount/charging)
-	default_materials = list(/datum/material/iron = 300, /datum/material/glass = 100, /datum/material/silver = 50)
+	default_materials = list(/datum/material/steel = 300, /datum/material/glass = 100, /datum/material/silver = 50)
 
 /obj/item/wallframe/defib_mount/charging
 	name = "unhooked PENLITE defibrillator mount"

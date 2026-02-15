@@ -800,7 +800,7 @@ TYPEINFO_DEF(/obj/structure/table/abductor)
 	buildstackamount = 1
 	framestackamount = 1
 	smoothing_groups = SMOOTH_GROUP_ABDUCTOR_TABLES
-	canSmoothWith = SMOOTH_GROUP_ABDUCTOR_TABLES
+	smoothing_groups_with = SMOOTH_GROUP_ABDUCTOR_TABLES
 	frame = /obj/structure/table_frame/abductor
 
 /obj/structure/table/optable/abductor

@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/ammo_casing/caseless/foam_dart)
-	default_materials = list(/datum/material/iron = 11.25)
+	default_materials = list(/datum/material/steel = 11.25)
 
 /obj/item/ammo_casing/caseless/foam_dart
 	name = "foam dart"

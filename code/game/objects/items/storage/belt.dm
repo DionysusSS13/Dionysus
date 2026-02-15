@@ -457,28 +457,6 @@
 	. = ..()
 	atom_storage.max_slots = 5
 
-/obj/item/storage/belt/soulstone
-	name = "soul stone belt"
-	desc = "Designed for ease of access to the shards during a fight, as to not let a single enemy spirit slip away."
-	icon_state = "soulstonebelt"
-	inhand_icon_state = "soulstonebelt"
-	worn_icon_state = "soulstonebelt"
-
-/obj/item/storage/belt/soulstone/Initialize()
-	. = ..()
-	atom_storage.max_slots = 6
-	atom_storage.set_holdable(list(
-		/obj/item/soulstone
-		))
-
-/obj/item/storage/belt/soulstone/full/PopulateContents()
-	for(var/i in 1 to 6)
-		new /obj/item/soulstone/mystic(src)
-
-/obj/item/storage/belt/soulstone/full/chappy/PopulateContents()
-	for(var/i in 1 to 6)
-		new /obj/item/soulstone/anybody/chaplain(src)
-
 TYPEINFO_DEF(/obj/item/storage/belt/champion)
 	default_materials = list(/datum/material/gold=400)
 

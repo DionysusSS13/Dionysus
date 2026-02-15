@@ -2,7 +2,7 @@
 	if(HAS_TRAIT(attacking_object, TRAIT_APC_SHOCKING))
 		var/metal = 0
 		var/shock_source = null
-		metal += LAZYACCESS(attacking_object.custom_materials, GET_MATERIAL_REF(/datum/material/iron))//This prevents wooden rolling pins from shocking the user
+		metal += LAZYACCESS(attacking_object.custom_materials, GET_MATERIAL_REF(/datum/material/steel))//This prevents wooden rolling pins from shocking the user
 
 		if(cell || terminal) //The mob gets shocked by whichever powersource has the most electricity
 			if(cell && terminal)

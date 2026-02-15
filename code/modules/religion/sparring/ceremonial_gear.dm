@@ -1,6 +1,6 @@
 TYPEINFO_DEF(/obj/item/ceremonial_blade)
 	default_armor = list(BLUNT = 0, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 50)
-	default_materials = list(/datum/material/iron = 12000)
+	default_materials = list(/datum/material/steel = 12000)
 
 ///ritual weapons. they're really bad, but they become normal weapons when sparring.
 /obj/item/ceremonial_blade

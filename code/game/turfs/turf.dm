@@ -125,7 +125,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 
 	#ifdef UNIT_TESTS
 	ASSERT_SORTED_SMOOTHING_GROUPS(smoothing_groups)
-	ASSERT_SORTED_SMOOTHING_GROUPS(canSmoothWith)
+	ASSERT_SORTED_SMOOTHING_GROUPS(smoothing_groups_with)
 	#endif
 
 	SETUP_SMOOTHING()
@@ -154,7 +154,7 @@ GLOBAL_LIST_EMPTY(station_turfs)
 		set_custom_materials(custom_materials)
 
 	#ifdef SPATIAL_GRID_ZLEVEL_STATS
-	if((istype(src, /turf/open/floor) || istype(src, /turf/closed/wall)) && isstationlevel(z))
+	if((istype(src, /turf/open/floor) || istype(src, /turf/closed/constructed_wall)) && isstationlevel(z))
 		GLOB.station_turfs |= src
 	#endif
 	return INITIALIZE_HINT_NORMAL
@@ -541,15 +541,6 @@ GLOBAL_LIST_EMPTY(station_turfs)
 
 /turf/proc/is_shielded()
 	return
-
-/turf/narsie_act(force, ignore_mobs, probability = 20)
-	. = (prob(probability) || force)
-	for(var/I in src)
-		var/atom/A = I
-		if(ignore_mobs && ismob(A))
-			continue
-		if(ismob(A) || .)
-			A.narsie_act()
 
 /turf/proc/add_blueprints(atom/movable/AM)
 	var/image/I = new

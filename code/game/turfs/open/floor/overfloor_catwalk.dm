@@ -18,7 +18,7 @@
 
 	smoothing_groups = null
 	smoothing_flags = NONE
-	canSmoothWith = null
+	smoothing_groups_with = null
 
 	anchored = TRUE
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN | BLOCK_Z_IN_UP | BLOCK_Z_FALL

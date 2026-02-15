@@ -18,7 +18,7 @@
 	visible_message(span_notice("[user] slices apart \the [src]."),
 		span_notice("You cut \the [src] apart with \the [tool]."),
 		span_hear("You hear welding."))
-	new /obj/item/stack/sheet/iron(loc, MEATSPIKE_IRONROD_REQUIREMENT)
+	new /obj/item/stack/sheet/steel(loc, MEATSPIKE_IRONROD_REQUIREMENT)
 	qdel(src)
 	return TRUE
 
@@ -117,7 +117,7 @@
 		var/obj/structure/meatspike_frame = new /obj/structure/kitchenspike_frame(src.loc)
 		transfer_fingerprints_to(meatspike_frame)
 	else
-		new /obj/item/stack/sheet/iron(src.loc, 4)
+		new /obj/item/stack/sheet/steel(src.loc, 4)
 	new /obj/item/stack/rods(loc, MEATSPIKE_IRONROD_REQUIREMENT)
 	qdel(src)
 

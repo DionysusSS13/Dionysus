@@ -2,7 +2,7 @@
 #define CAMERA_PICTURE_SIZE_HARD_LIMIT 21
 
 TYPEINFO_DEF(/obj/item/camera)
-	default_materials = list(/datum/material/iron = 50, /datum/material/glass = 150)
+	default_materials = list(/datum/material/steel = 50, /datum/material/glass = 150)
 
 /obj/item/camera
 	name = "camera"

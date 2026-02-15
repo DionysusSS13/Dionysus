@@ -1,7 +1,7 @@
 #define FREQ_LISTENING (1<<0)
 
 TYPEINFO_DEF(/obj/item/radio)
-	default_materials = list(/datum/material/iron=75, /datum/material/glass=25)
+	default_materials = list(/datum/material/steel=75, /datum/material/glass=25)
 
 /obj/item/radio
 	icon = 'icons/obj/radio.dmi'

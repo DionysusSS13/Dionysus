@@ -9,7 +9,7 @@
  */
 TYPEINFO_DEF(/obj/item/tank)
 	default_armor = list(BLUNT = 0, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 0, FIRE = 80, ACID = 30)
-	default_materials = list(/datum/material/iron = 500)
+	default_materials = list(/datum/material/steel = 500)
 
 /obj/item/tank
 	name = "tank"

@@ -7,7 +7,7 @@
 	desc = "Special mechanical module made to store, sort, and apply standard machine parts."
 	id = "rped"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000) //hardcore
+	materials = list(/datum/material/steel = 10000, /datum/material/glass = 5000) //hardcore
 	build_path = /obj/item/storage/part_replacer
 	category = list(DCAT_STOCK_PART)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -18,7 +18,7 @@
 	desc = "A stock part used in the construction of various devices."
 	id = "basic_capacitor"
 	build_type = FABRICATOR  | AUTOLATHE
-	materials = list(/datum/material/iron = 100, /datum/material/glass = 100)
+	materials = list(/datum/material/steel = 100, /datum/material/glass = 100)
 	build_path = /obj/item/stock_parts/capacitor
 	category = list(DCAT_STOCK_PART)
 	lathe_time_factor = 0.2
@@ -29,7 +29,7 @@
 	desc = "A stock part used in the construction of various devices."
 	id = "adv_capacitor"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 150, /datum/material/glass = 150)
+	materials = list(/datum/material/steel = 150, /datum/material/glass = 150)
 	build_path = /obj/item/stock_parts/capacitor/adv
 	category = list(DCAT_STOCK_PART)
 	lathe_time_factor = 0.2
@@ -40,7 +40,7 @@
 	desc = "A stock part used in the construction of various devices."
 	id = "super_capacitor"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 200, /datum/material/glass = 200, /datum/material/gold = 100)
+	materials = list(/datum/material/steel = 200, /datum/material/glass = 200, /datum/material/gold = 100)
 	build_path = /obj/item/stock_parts/capacitor/super
 	category = list(DCAT_STOCK_PART)
 	lathe_time_factor = 0.2
@@ -52,7 +52,7 @@
 	desc = "A stock part used in the construction of various devices."
 	id = "basic_scanning"
 	build_type = FABRICATOR  | AUTOLATHE
-	materials = list(/datum/material/iron = 100, /datum/material/glass = 50)
+	materials = list(/datum/material/steel = 100, /datum/material/glass = 50)
 	build_path = /obj/item/stock_parts/scanning_module
 	category = list(DCAT_STOCK_PART)
 	lathe_time_factor = 0.2
@@ -63,7 +63,7 @@
 	desc = "A stock part used in the construction of various devices."
 	id = "adv_scanning"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 150, /datum/material/glass = 100)
+	materials = list(/datum/material/steel = 150, /datum/material/glass = 100)
 	build_path = /obj/item/stock_parts/scanning_module/adv
 	category = list(DCAT_STOCK_PART)
 	lathe_time_factor = 0.2
@@ -74,7 +74,7 @@
 	desc = "A stock part used in the construction of various devices."
 	id = "phasic_scanning"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 200, /datum/material/glass = 150, /datum/material/silver = 60)
+	materials = list(/datum/material/steel = 200, /datum/material/glass = 150, /datum/material/silver = 60)
 	build_path = /obj/item/stock_parts/scanning_module/phasic
 	category = list(DCAT_STOCK_PART)
 	lathe_time_factor = 0.2
@@ -86,7 +86,7 @@
 	desc = "A stock part used in the construction of various devices."
 	id = "micro_mani"
 	build_type = FABRICATOR  | AUTOLATHE
-	materials = list(/datum/material/iron = 100)
+	materials = list(/datum/material/steel = 100)
 	build_path = /obj/item/stock_parts/manipulator
 	category = list(DCAT_STOCK_PART)
 	lathe_time_factor = 0.2
@@ -97,7 +97,7 @@
 	desc = "A stock part used in the construction of various devices."
 	id = "nano_mani"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 150)
+	materials = list(/datum/material/steel = 150)
 	build_path = /obj/item/stock_parts/manipulator/nano
 	category = list(DCAT_STOCK_PART)
 	lathe_time_factor = 0.2
@@ -108,7 +108,7 @@
 	desc = "A stock part used in the construction of various devices."
 	id = "pico_mani"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 200)
+	materials = list(/datum/material/steel = 200)
 	build_path = /obj/item/stock_parts/manipulator/pico
 	category = list(DCAT_STOCK_PART)
 	lathe_time_factor = 0.2
@@ -120,7 +120,7 @@
 	desc = "A stock part used in the construction of various devices."
 	id = "basic_micro_laser"
 	build_type = FABRICATOR  | AUTOLATHE
-	materials = list(/datum/material/iron = 100, /datum/material/glass = 50)
+	materials = list(/datum/material/steel = 100, /datum/material/glass = 50)
 	build_path = /obj/item/stock_parts/micro_laser
 	category = list(DCAT_STOCK_PART)
 	lathe_time_factor = 0.2
@@ -131,7 +131,7 @@
 	desc = "A stock part used in the construction of various devices."
 	id = "high_micro_laser"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 150, /datum/material/glass = 100)
+	materials = list(/datum/material/steel = 150, /datum/material/glass = 100)
 	build_path = /obj/item/stock_parts/micro_laser/high
 	category = list(DCAT_STOCK_PART)
 	lathe_time_factor = 0.2
@@ -142,7 +142,7 @@
 	desc = "A stock part used in the construction of various devices."
 	id = "ultra_micro_laser"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 200, /datum/material/glass = 150, /datum/material/uranium = 60)
+	materials = list(/datum/material/steel = 200, /datum/material/glass = 150, /datum/material/uranium = 60)
 	build_path = /obj/item/stock_parts/micro_laser/ultra
 	category = list(DCAT_STOCK_PART)
 	lathe_time_factor = 0.2
@@ -153,7 +153,7 @@
 	desc = "A stock part used in the construction of various devices."
 	id = "basic_matter_bin"
 	build_type = FABRICATOR  | AUTOLATHE
-	materials = list(/datum/material/iron = 100)
+	materials = list(/datum/material/steel = 100)
 	build_path = /obj/item/stock_parts/matter_bin
 	category = list(DCAT_STOCK_PART)
 	lathe_time_factor = 0.2
@@ -164,7 +164,7 @@
 	desc = "A stock part used in the construction of various devices."
 	id = "adv_matter_bin"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 150)
+	materials = list(/datum/material/steel = 150)
 	build_path = /obj/item/stock_parts/matter_bin/adv
 	category = list(DCAT_STOCK_PART)
 	lathe_time_factor = 0.2
@@ -175,7 +175,7 @@
 	desc = "A stock part used in the construction of various devices."
 	id = "super_matter_bin"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 200)
+	materials = list(/datum/material/steel = 200)
 	build_path = /obj/item/stock_parts/matter_bin/super
 	category = list(DCAT_STOCK_PART)
 	lathe_time_factor = 0.2
@@ -187,7 +187,7 @@
 	desc = "A compact module capable of sensing extradimensional activity."
 	id = "s-ansible"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 100, /datum/material/silver = 100)
+	materials = list(/datum/material/steel = 100, /datum/material/silver = 100)
 	build_path = /obj/item/stock_parts/subspace/ansible
 	category = list(DCAT_STOCK_PART)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -197,7 +197,7 @@
 	desc = "A tiny device capable of filtering and converting super-intense radiowaves."
 	id = "s-filter"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 100, /datum/material/silver = 100)
+	materials = list(/datum/material/steel = 100, /datum/material/silver = 100)
 	build_path = /obj/item/stock_parts/subspace/filter
 	category = list(DCAT_STOCK_PART)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -207,7 +207,7 @@
 	desc = "A compact micro-machine capable of amplifying weak subspace transmissions."
 	id = "s-amplifier"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 100, /datum/material/gold = 100, /datum/material/uranium = 100)
+	materials = list(/datum/material/steel = 100, /datum/material/gold = 100, /datum/material/uranium = 100)
 	build_path = /obj/item/stock_parts/subspace/amplifier
 	category = list(DCAT_STOCK_PART)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -217,7 +217,7 @@
 	desc = "A compact micro-machine capable of stretching out hyper-compressed radio waves."
 	id = "s-treatment"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 100, /datum/material/silver = 200)
+	materials = list(/datum/material/steel = 100, /datum/material/silver = 200)
 	build_path = /obj/item/stock_parts/subspace/treatment
 	category = list(DCAT_STOCK_PART)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -227,7 +227,7 @@
 	desc = "A sophisticated analyzer capable of analyzing cryptic subspace wavelengths."
 	id = "s-analyzer"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 100, /datum/material/gold = 100)
+	materials = list(/datum/material/steel = 100, /datum/material/gold = 100)
 	build_path = /obj/item/stock_parts/subspace/analyzer
 	category = list(DCAT_STOCK_PART)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
@@ -257,7 +257,7 @@
 	desc = "A small magnetic card reader, used for devices that take and transmit holocredits."
 	id = "c-reader"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron=50, /datum/material/glass=10)
+	materials = list(/datum/material/steel=50, /datum/material/glass=10)
 	build_path = /obj/item/stock_parts/card_reader
 	category = list(DCAT_STOCK_PART)
 
@@ -266,7 +266,7 @@
 	desc = "A small hydrostatic reclaimer, it takes moisture out of the air and returns it back to the source."
 	id = "w-recycler"
 	build_type = FABRICATOR  | AUTOLATHE
-	materials = list(/datum/material/plastic = 200, /datum/material/iron = 50)
+	materials = list(/datum/material/plastic = 200, /datum/material/steel = 50)
 	build_path = /obj/item/stock_parts/water_recycler
 	category = list(DCAT_STOCK_PART)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI | DESIGN_FAB_MEDICAL

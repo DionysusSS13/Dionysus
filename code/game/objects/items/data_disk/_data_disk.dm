@@ -1,6 +1,6 @@
 //Just for transferring between genetics machines.
 TYPEINFO_DEF(/obj/item/disk/data)
-	default_materials = list(/datum/material/iron =300, /datum/material/glass =100)
+	default_materials = list(/datum/material/steel =300, /datum/material/glass =100)
 
 /obj/item/disk/data
 	name = "hard disk drive"
@@ -66,19 +66,19 @@ TYPEINFO_DEF(/obj/item/disk/data)
 	preloaded_programs = list(/datum/c4_file/terminal_program/operating_system/thinkdos)
 
 TYPEINFO_DEF(/obj/item/disk/data/medium)
-	default_materials = list(/datum/material/iron =300, /datum/material/glass = 100, /datum/material/gold = 50)
+	default_materials = list(/datum/material/steel =300, /datum/material/glass = 100, /datum/material/gold = 50)
 
 /obj/item/disk/data/medium
 	disk_capacity = 64
 
 TYPEINFO_DEF(/obj/item/disk/data/large)
-	default_materials = list(/datum/material/iron =300, /datum/material/glass = 100, /datum/material/gold = 50, /datum/material/diamond = 100)
+	default_materials = list(/datum/material/steel =300, /datum/material/glass = 100, /datum/material/gold = 50, /datum/material/diamond = 100)
 
 /obj/item/disk/data/large
 	disk_capacity = 128
 
 TYPEINFO_DEF(/obj/item/disk/data/extra_large)
-	default_materials = list(/datum/material/iron =300, /datum/material/glass = 100, /datum/material/gold = 100, /datum/material/diamond = 200)
+	default_materials = list(/datum/material/steel =300, /datum/material/glass = 100, /datum/material/gold = 100, /datum/material/diamond = 200)
 
 /obj/item/disk/data/extra_large
 	disk_capacity = 256

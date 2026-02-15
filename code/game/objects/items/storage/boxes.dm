@@ -1076,7 +1076,7 @@
 
 /obj/item/storage/box/dishdrive/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/stack/sheet/iron/five = 1,
+		/obj/item/stack/sheet/steel/five = 1,
 		/obj/item/stack/cable_coil/five = 1,
 		/obj/item/circuitboard/machine/dish_drive = 1,
 		/obj/item/stack/sheet/glass = 1,
@@ -1092,7 +1092,7 @@
 
 /obj/item/storage/box/material/PopulateContents() //less uranium because radioactive
 	var/static/items_inside = list(
-		/obj/item/stack/sheet/iron/fifty=1,\
+		/obj/item/stack/sheet/steel/fifty=1,\
 		/obj/item/stack/sheet/glass/fifty=1,\
 		/obj/item/stack/sheet/rglass=50,\
 		/obj/item/stack/sheet/plasmaglass=50,\
@@ -1110,7 +1110,6 @@
 		/obj/item/stack/sheet/mineral/bananium=50,\
 		/obj/item/stack/sheet/mineral/wood=50,\
 		/obj/item/stack/sheet/plastic/fifty=1,\
-		/obj/item/stack/sheet/runed_metal/fifty=1
 		)
 	generate_items_inside(items_inside,src)
 

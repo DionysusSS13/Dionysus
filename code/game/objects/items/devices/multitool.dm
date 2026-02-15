@@ -11,7 +11,7 @@
 
 
 TYPEINFO_DEF(/obj/item/multitool)
-	default_materials = list(/datum/material/iron=50, /datum/material/glass=20)
+	default_materials = list(/datum/material/steel=50, /datum/material/glass=20)
 
 /obj/item/multitool
 	name = "multitool"
@@ -164,7 +164,7 @@ TYPEINFO_DEF(/obj/item/multitool)
 	return TRUE
 
 TYPEINFO_DEF(/obj/item/multitool/abductor)
-	default_materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 5000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
+	default_materials = list(/datum/material/steel = 5000, /datum/material/silver = 2500, /datum/material/plasma = 5000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
 
 /obj/item/multitool/abductor
 	name = "alien multitool"

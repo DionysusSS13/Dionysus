@@ -2,7 +2,7 @@
 #define WELDER_FUEL_BURN_INTERVAL 9
 TYPEINFO_DEF(/obj/item/weldingtool)
 	default_armor = list(BLUNT = 0, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 30)
-	default_materials = list(/datum/material/iron=70, /datum/material/glass=30)
+	default_materials = list(/datum/material/steel=70, /datum/material/glass=30)
 
 /obj/item/weldingtool
 	name = "welding tool"
@@ -338,7 +338,7 @@ TYPEINFO_DEF(/obj/item/weldingtool/largetank)
 
 
 TYPEINFO_DEF(/obj/item/weldingtool/mini)
-	default_materials = list(/datum/material/iron=30, /datum/material/glass=10)
+	default_materials = list(/datum/material/steel=30, /datum/material/glass=10)
 
 /obj/item/weldingtool/mini
 	name = "emergency welding tool"
@@ -352,7 +352,7 @@ TYPEINFO_DEF(/obj/item/weldingtool/mini)
 	return
 
 TYPEINFO_DEF(/obj/item/weldingtool/abductor)
-	default_materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 5000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
+	default_materials = list(/datum/material/steel = 5000, /datum/material/silver = 2500, /datum/material/plasma = 5000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
 
 /obj/item/weldingtool/abductor
 	name = "alien welding tool"
@@ -370,7 +370,7 @@ TYPEINFO_DEF(/obj/item/weldingtool/abductor)
 	..()
 
 TYPEINFO_DEF(/obj/item/weldingtool/hugetank)
-	default_materials = list(/datum/material/iron=70, /datum/material/glass=120)
+	default_materials = list(/datum/material/steel=70, /datum/material/glass=120)
 
 /obj/item/weldingtool/hugetank
 	name = "upgraded industrial welding tool"
@@ -380,7 +380,7 @@ TYPEINFO_DEF(/obj/item/weldingtool/hugetank)
 	max_fuel = 80
 
 TYPEINFO_DEF(/obj/item/weldingtool/experimental)
-	default_materials = list(/datum/material/iron = 1000, /datum/material/glass = 500, /datum/material/plasma = 1500, /datum/material/uranium = 200)
+	default_materials = list(/datum/material/steel = 1000, /datum/material/glass = 500, /datum/material/plasma = 1500, /datum/material/uranium = 200)
 
 /obj/item/weldingtool/experimental
 	name = "experimental welding tool"

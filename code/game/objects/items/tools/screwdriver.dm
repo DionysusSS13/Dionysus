@@ -1,6 +1,6 @@
 TYPEINFO_DEF(/obj/item/screwdriver)
 	default_armor = list(BLUNT = 0, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 30)
-	default_materials = list(/datum/material/iron=75)
+	default_materials = list(/datum/material/steel=75)
 
 /obj/item/screwdriver
 	name = "screwdriver"
@@ -62,7 +62,7 @@ TYPEINFO_DEF(/obj/item/screwdriver)
 	AddElement(/datum/element/eyestab)
 
 TYPEINFO_DEF(/obj/item/screwdriver/abductor)
-	default_materials = list(/datum/material/iron=5000, /datum/material/silver=2500, /datum/material/plasma = 1000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
+	default_materials = list(/datum/material/steel=5000, /datum/material/silver=2500, /datum/material/plasma = 1000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
 
 /obj/item/screwdriver/abductor
 	name = "alien screwdriver"
@@ -80,7 +80,7 @@ TYPEINFO_DEF(/obj/item/screwdriver/abductor)
 	return mutable_appearance('icons/obj/clothing/belt_overlays.dmi', "screwdriver_alien")
 
 TYPEINFO_DEF(/obj/item/screwdriver/power)
-	default_materials = list(/datum/material/iron=3500, /datum/material/silver=1500, /datum/material/titanium=2500)
+	default_materials = list(/datum/material/steel=3500, /datum/material/silver=1500, /datum/material/titanium=2500)
 
 /obj/item/screwdriver/power
 	name = "hand drill"

@@ -211,7 +211,7 @@ TYPEINFO_DEF(/obj/item/reagent_containers/glass/beaker/meta)
 	fill_icon_thresholds = list(0, 1, 10, 25, 35, 50, 60, 80, 100)
 
 TYPEINFO_DEF(/obj/item/reagent_containers/glass/beaker/noreact)
-	default_materials = list(/datum/material/iron=3000)
+	default_materials = list(/datum/material/steel=3000)
 
 /obj/item/reagent_containers/glass/beaker/noreact
 	name = "cryostasis beaker"
@@ -265,7 +265,7 @@ TYPEINFO_DEF(/obj/item/reagent_containers/glass/beaker/bluespace)
 
 TYPEINFO_DEF(/obj/item/reagent_containers/glass/bucket)
 	default_armor = list(BLUNT = 10, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 75, ACID = 50)
-	default_materials = list(/datum/material/iron=200)
+	default_materials = list(/datum/material/steel=200)
 
 /obj/item/reagent_containers/glass/bucket
 	name = "bucket"

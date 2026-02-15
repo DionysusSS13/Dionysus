@@ -9,7 +9,7 @@
 	name = "Plasteel"
 	id = "plasteel"
 	build_type = SMELTER | FABRICATOR
-	materials = list(/datum/material/iron = MINERAL_MATERIAL_AMOUNT, /datum/material/plasma = MINERAL_MATERIAL_AMOUNT)
+	materials = list(/datum/material/steel = MINERAL_MATERIAL_AMOUNT, /datum/material/plasma = MINERAL_MATERIAL_AMOUNT)
 	build_path = /obj/item/stack/sheet/plasteel
 	category = list(DCAT_MATERIAL)
 	mapload_design_flags = DESIGN_FAB_SUPPLY | DESIGN_FAB_OMNI | DESIGN_FAB_ENGINEERING
@@ -40,7 +40,7 @@
 	name = "Plasma-Reinforced Glass"
 	id = "plasmareinforcedglass"
 	build_type = SMELTER | FABRICATOR
-	materials = list(/datum/material/plasma = MINERAL_MATERIAL_AMOUNT * 0.5, /datum/material/iron = MINERAL_MATERIAL_AMOUNT * 0.5,  /datum/material/glass = MINERAL_MATERIAL_AMOUNT)
+	materials = list(/datum/material/plasma = MINERAL_MATERIAL_AMOUNT * 0.5, /datum/material/steel = MINERAL_MATERIAL_AMOUNT * 0.5,  /datum/material/glass = MINERAL_MATERIAL_AMOUNT)
 	build_path = /obj/item/stack/sheet/plasmarglass
 	category = list(DCAT_MATERIAL)
 	mapload_design_flags = DESIGN_FAB_SUPPLY | DESIGN_FAB_OMNI | DESIGN_FAB_ENGINEERING

@@ -7,7 +7,7 @@
 	wall_external = TRUE
 
 TYPEINFO_DEF(/obj/item/wallframe/light_fixture/small)
-	default_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
+	default_materials = list(/datum/material/steel=MINERAL_MATERIAL_AMOUNT)
 
 /obj/item/wallframe/light_fixture/small
 	name = "small light fixture frame"

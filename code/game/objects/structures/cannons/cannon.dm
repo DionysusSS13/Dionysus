@@ -135,7 +135,7 @@
 		qdel(src)
 
 /obj/structure/cannon/trash/Destroy()
-	new /obj/item/stack/sheet/iron/five(src.loc)
+	new /obj/item/stack/sheet/steel/five(src.loc)
 	new /obj/item/stack/rods(src.loc)
 	. = ..()
 

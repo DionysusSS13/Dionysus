@@ -46,27 +46,16 @@ Simple datum which is instanced once per type and is used for every object of sa
 	var/cached_texture_filter_icon
 	///What type of shard the material will shatter to
 	var/obj/item/shard_type
+	// The heat resistance of the material
+	var/heat_resistance = 400
+	/// The integrity of walls made with this material.
+	var/wall_integrity = 50
 
-	///Icon for walls which are plated with this material
-	var/wall_icon = 'icons/turf/walls/bimmer_walls.dmi'
-	///Icon for reinforced walls which are plated with this material
-	var/reinforced_wall_icon = 'icons/turf/walls/metal_wall.dmi'
-	/// Icon for painted stripes on the walls
-	var/wall_stripe_icon = 'icons/turf/walls/bimmer_stripes.dmi'
-	/// Icon for painted stripes on reinforced walls
-	var/reinforced_wall_stripe_icon = 'icons/turf/walls/bimmer_stripes_low.dmi'
-	/// Icon for painted stripes on the low walls
-	var/low_wall_stripe_icon = 'icons/turf/walls/bimmer_stripes_low.dmi'
-	/// Color of walls constructed with this material as their plating
-	var/wall_color
-	/// Type of the wall this material makes when its used as a plating, null means can't make a wall out of it.
-	var/wall_type = /turf/closed/wall
-	/// What do we *call* a 'wall' made out of this stuff?
-	var/wall_name = "wall"
-	/// Type of the false wall this material will make when used as its plating
-	var/false_wall_type
-	/// If true, walls plated with this material that have a reinforcement, will be hard to deconstruct
-	var/hard_wall_decon = FALSE
+	var/obj/structure/window/window_type //! The type of window made with this material.
+	var/list/icon/wall_icons //! The icons used for walls made with this material. In order of the wall's damage level from destroyed to max durability.
+	var/list/icon/wall_icons_trim_top //! The icons used for wall trims made with this material. In order of the wall's damage level from destroyed to max durability.
+	var/list/icon/wall_icons_trim_bottom //! The icons used for wall trims made with this material. In order of the wall's damage level from destroyed to max durability.
+	var/wall_name //! The name of the walls made with this material.
 
 /** Handles initializing the material.
  *
@@ -78,16 +67,8 @@ Simple datum which is instanced once per type and is used for every object of sa
 		id = _id
 	else if(isnull(id))
 		id = type
-
-	if(!wall_color)
-		wall_color = greyscale_colors
-
-	if(wall_type && !false_wall_type)
-		false_wall_type = /obj/structure/falsewall
-
 	if(texture_layer_icon_state)
 		cached_texture_filter_icon = icon('icons/materials/composite.dmi', texture_layer_icon_state)
-
 	return TRUE
 
 ///This proc is called when the material is added to an object.

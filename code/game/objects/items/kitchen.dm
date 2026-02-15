@@ -19,7 +19,7 @@
 
 TYPEINFO_DEF(/obj/item/kitchen/fork)
 	default_armor = list(BLUNT = 0, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 30)
-	default_materials = list(/datum/material/iron=80)
+	default_materials = list(/datum/material/steel=80)
 
 /obj/item/kitchen/fork
 	name = "fork"
@@ -134,7 +134,7 @@ TYPEINFO_DEF(/obj/item/kitchen/rollingpin)
 
 TYPEINFO_DEF(/obj/item/kitchen/spoon)
 	default_armor = list(BLUNT = 0, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 30)
-	default_materials = list(/datum/material/iron=120)
+	default_materials = list(/datum/material/steel=120)
 
 /obj/item/kitchen/spoon
 	name = "spoon"
@@ -166,7 +166,7 @@ TYPEINFO_DEF(/obj/item/kitchen/spoon/plastic)
 	AddElement(/datum/element/easily_fragmented, PLASTIC_BREAK_PROBABILITY)
 
 TYPEINFO_DEF(/obj/item/kitchen/spatula)
-	default_materials = list(/datum/material/iron = 80, /datum/material/plastic = 40)
+	default_materials = list(/datum/material/steel = 80, /datum/material/plastic = 40)
 
 /obj/item/kitchen/spatula
 	name = "spatula"

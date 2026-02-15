@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/pipe_painter)
-	default_materials = list(/datum/material/iron=5000, /datum/material/glass=2000)
+	default_materials = list(/datum/material/steel=5000, /datum/material/glass=2000)
 
 /obj/item/pipe_painter
 	name = "pipe painter"

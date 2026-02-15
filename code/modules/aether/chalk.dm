@@ -33,7 +33,7 @@
 
 	var/turf/T = target
 	for(var/turf/nearby_turf as anything in (RANGE_TURFS(1, target) - target))
-		if(isgroundlessturf(nearby_turf) || isclosedturf(nearby_turf) || (locate(/obj/effect/aether_rune) in nearby_turf) || (locate(/obj/structure/low_wall) in nearby_turf))
+		if(isgroundlessturf(nearby_turf) || isclosedturf(nearby_turf) || (locate(/obj/effect/aether_rune) in nearby_turf))
 			to_chat(user, span_warning("There is not enough space there."))
 			return
 

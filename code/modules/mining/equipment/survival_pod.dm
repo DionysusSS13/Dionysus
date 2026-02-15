@@ -89,7 +89,7 @@
 	base_icon_state = "pod_window"
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_SURVIVAL_TITANIUM_POD
-	canSmoothWith = SMOOTH_GROUP_SURVIVAL_TITANIUM_POD
+	smoothing_groups_with = SMOOTH_GROUP_SURVIVAL_TITANIUM_POD
 
 /obj/structure/window/reinforced/shuttle/survival_pod/spawner/north
 	dir = NORTH
@@ -133,7 +133,7 @@
 	icon_state = "table"
 	smoothing_flags = NONE
 	smoothing_groups = null
-	canSmoothWith = null
+	smoothing_groups_with = null
 
 //Sleeper
 /obj/machinery/sleeper/survival_pod
@@ -228,7 +228,7 @@
 	desc = "A large machine releasing a constant gust of air."
 	anchored = TRUE
 	density = TRUE
-	var/buildstacktype = /obj/item/stack/sheet/iron
+	var/buildstacktype = /obj/item/stack/sheet/steel
 	var/buildstackamount = 5
 	can_atmos_pass = CANPASS_NEVER
 

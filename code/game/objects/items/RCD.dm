@@ -11,7 +11,7 @@ RLD
 
 TYPEINFO_DEF(/obj/item/construction)
 	default_armor = list(BLUNT = 0, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 50)
-	default_materials = list(/datum/material/iron=100000)
+	default_materials = list(/datum/material/steel=100000)
 
 /obj/item/construction
 	name = "not for ingame use"
@@ -54,7 +54,7 @@ TYPEINFO_DEF(/obj/item/construction)
 	if(upgrade & RCD_UPGRADE_SILO_LINK)
 		. += "Remote storage link state: [silo_link ? "[silo_mats.on_hold() ? "ON HOLD" : "ON"]" : "OFF"]."
 		if(silo_link && silo_mats.mat_container && !silo_mats.on_hold())
-			. += "Remote connection has iron in equivalent to [silo_mats.mat_container.get_material_amount(/datum/material/iron)/500] RCD unit\s." //1 matter for 1 floor tile, as 4 tiles are produced from 1 iron
+			. += "Remote connection has iron in equivalent to [silo_mats.mat_container.get_material_amount(/datum/material/steel)/500] RCD unit\s." //1 matter for 1 floor tile, as 4 tiles are produced from 1 iron
 
 /obj/item/construction/Destroy()
 	QDEL_NULL(spark_system)
@@ -156,13 +156,13 @@ TYPEINFO_DEF(/obj/item/construction)
 		if(!silo_mats.mat_container)
 			to_chat(user, span_alert("No silo link detected. Connect to silo via multitool."))
 			return FALSE
-		if(!silo_mats.mat_container.has_materials(list(/datum/material/iron = 500), amount))
+		if(!silo_mats.mat_container.has_materials(list(/datum/material/steel = 500), amount))
 			if(user)
 				to_chat(user, no_ammo_message)
 			return FALSE
 
 		var/list/materials = list()
-		materials[GET_MATERIAL_REF(/datum/material/iron)] = 500
+		materials[GET_MATERIAL_REF(/datum/material/steel)] = 500
 		silo_mats.mat_container.use_materials(materials, amount)
 		silo_mats.silo_log(src, "consume", -amount, "build", materials)
 		return TRUE
@@ -179,7 +179,7 @@ TYPEINFO_DEF(/obj/item/construction)
 			if(user)
 				to_chat(user, span_alert("Mineral access is on hold, please contact the quartermaster."))
 			return FALSE
-		. = silo_mats.mat_container.has_materials(list(/datum/material/iron = 500), amount)
+		. = silo_mats.mat_container.has_materials(list(/datum/material/steel = 500), amount)
 	if(!. && user)
 		to_chat(user, no_ammo_message)
 		if(has_ammobar)
@@ -773,7 +773,7 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 	to_chat(user, span_notice("You change RCD's mode to '[choice]'."))
 
 /obj/item/construction/rcd/proc/target_check(atom/A, mob/user) // only returns true for stuff the device can actually work with
-	if((isturf(A) && A.density && mode==RCD_DECONSTRUCT) || (isturf(A) && !A.density) || (istype(A, /obj/machinery/door/airlock) && mode==RCD_DECONSTRUCT) || istype(A, /obj/structure/grille) || (istype(A, /obj/structure/window) && mode==RCD_DECONSTRUCT) || istype(A, /obj/structure/girder))
+	if((isturf(A) && A.density && mode==RCD_DECONSTRUCT) || (isturf(A) && !A.density) || (istype(A, /obj/machinery/door/airlock) && mode==RCD_DECONSTRUCT) || istype(A, /obj/structure/grille) || (istype(A, /obj/structure/window) && mode==RCD_DECONSTRUCT))
 		return TRUE
 	else
 		return FALSE
@@ -874,7 +874,7 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 	upgrade = RCD_UPGRADE_FRAMES | RCD_UPGRADE_SIMPLE_CIRCUITS | RCD_UPGRADE_FURNISHING
 
 TYPEINFO_DEF(/obj/item/rcd_ammo)
-	default_materials = list(/datum/material/iron=12000, /datum/material/glass=8000)
+	default_materials = list(/datum/material/steel=12000, /datum/material/glass=8000)
 
 /obj/item/rcd_ammo
 	name = "compressed matter cartridge"
@@ -887,7 +887,7 @@ TYPEINFO_DEF(/obj/item/rcd_ammo)
 	var/ammoamt = 40
 
 TYPEINFO_DEF(/obj/item/rcd_ammo/large)
-	default_materials = list(/datum/material/iron=48000, /datum/material/glass=32000)
+	default_materials = list(/datum/material/steel=48000, /datum/material/glass=32000)
 
 /obj/item/rcd_ammo/large
 	name = "highly compressed matter cartridge"
@@ -1020,9 +1020,10 @@ TYPEINFO_DEF(/obj/item/rcd_ammo/large)
 						qdel(A)
 						return TRUE
 				return FALSE
+
 		if(LIGHT_MODE)
 			if(iswallturf(A))
-				var/turf/closed/wall/W = A
+				var/turf/closed/constructed_wall/W = A
 				if(checkResource(floorcost, user))
 					to_chat(user, span_notice("You start building a wall light..."))
 					user.Beam(A,icon_state="light_beam", time = 15)

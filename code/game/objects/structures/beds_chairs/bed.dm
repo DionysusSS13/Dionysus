@@ -18,7 +18,7 @@
 	resistance_flags = FLAMMABLE
 	max_integrity = 100
 	integrity_failure = 0.35
-	var/buildstacktype = /obj/item/stack/sheet/iron
+	var/buildstacktype = /obj/item/stack/sheet/steel
 	var/buildstackamount = 2
 	var/bolts = TRUE
 

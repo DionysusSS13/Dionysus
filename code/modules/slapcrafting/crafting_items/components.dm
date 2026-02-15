@@ -1,6 +1,6 @@
 //Misc. items that exist for other crafting recipes. Only add new ones if you can't justify making a crafting step instead.
 TYPEINFO_DEF(/obj/item/wirerod)
-	default_materials = list(/datum/material/iron=1150, /datum/material/glass=75)
+	default_materials = list(/datum/material/steel=1150, /datum/material/glass=75)
 
 /obj/item/wirerod
 	name = "wired rod"
@@ -16,7 +16,7 @@ TYPEINFO_DEF(/obj/item/wirerod)
 	attack_verb_simple = list("hit", "bludgeon", "whack", "bonk")
 
 TYPEINFO_DEF(/obj/item/metal_ball)
-	default_materials = list(/datum/material/iron=2000)
+	default_materials = list(/datum/material/steel=2000)
 
 /obj/item/metal_ball
 	name = "metal ball"

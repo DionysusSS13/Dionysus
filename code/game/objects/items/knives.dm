@@ -1,7 +1,7 @@
 // Knife Template, should not appear in game normaly //
 TYPEINFO_DEF(/obj/item/knife)
 	default_armor = list(BLUNT = 0, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 50)
-	default_materials = list(/datum/material/iron=12000)
+	default_materials = list(/datum/material/steel=12000)
 
 /obj/item/knife
 	name = "knife"
@@ -78,7 +78,7 @@ TYPEINFO_DEF(/obj/item/knife)
 		B.add_stacks(bleed_stacks_per_hit)
 
 TYPEINFO_DEF(/obj/item/knife/butcher)
-	default_materials = list(/datum/material/iron=18000)
+	default_materials = list(/datum/material/steel=18000)
 
 /obj/item/knife/butcher
 	name = "butcher's cleaver"

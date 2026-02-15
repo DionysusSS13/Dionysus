@@ -34,11 +34,11 @@
 	// Do this instead of just ChangeTurf to guarantee that baseturfs is completely default on-init behavior
 	RESET_TO_EXPECTED(run_loc_floor_bottom_left)
 
-	run_loc_floor_bottom_left.PlaceOnTop(/turf/closed/wall/rock)
-	TEST_ASSERT_EQUAL(run_loc_floor_bottom_left.type, /turf/closed/wall/rock, "Rock wall should've been placed on top")
+	run_loc_floor_bottom_left.PlaceOnTop(/turf/closed/constructed_wall)
+	TEST_ASSERT_EQUAL(run_loc_floor_bottom_left.type, /turf/closed/constructed_wall, "[/turf/closed/constructed_wall::name] should've been placed on top")
 
 	run_loc_floor_bottom_left.ScrapeAway()
-	TEST_ASSERT_EQUAL(run_loc_floor_bottom_left.type, EXPECTED_FLOOR_TYPE, "Rock wall should've been scraped off, back into the expected type")
+	TEST_ASSERT_EQUAL(run_loc_floor_bottom_left.type, EXPECTED_FLOOR_TYPE, "[/turf/closed/constructed_wall::name] should've been scraped off, back into the expected type")
 
 /datum/unit_test/baseturfs_placed_on_top/Destroy()
 	RESET_TO_EXPECTED(run_loc_floor_bottom_left)
@@ -53,7 +53,7 @@
 	// Do this instead of just ChangeTurf to guarantee that baseturfs is completely default on-init behavior
 	RESET_TO_EXPECTED(run_loc_floor_bottom_left)
 
-	run_loc_floor_bottom_left.PlaceOnBottom(/turf/closed/wall/rock)
+	run_loc_floor_bottom_left.PlaceOnBottom(/turf/closed/constructed_wall)
 	TEST_ASSERT_EQUAL(run_loc_floor_bottom_left.type, EXPECTED_FLOOR_TYPE, "PlaceOnBottom shouldn't have changed turf")
 
 	run_loc_floor_bottom_left.ScrapeAway()
@@ -63,7 +63,7 @@
 	TEST_ASSERT_EQUAL(run_loc_floor_bottom_left.type, /turf/open/space, "Plating should've scraped off to space")
 
 	run_loc_floor_bottom_left.ScrapeAway()
-	TEST_ASSERT_EQUAL(run_loc_floor_bottom_left.type, /turf/closed/wall/rock, "Space should've scraped down to a rock wall")
+	TEST_ASSERT_EQUAL(run_loc_floor_bottom_left.type, /turf/closed/constructed_wall, "Space should've scraped down to \a [/turf/closed/constructed_wall::name]")
 
 	run_loc_floor_bottom_left.ScrapeAway()
 	TEST_ASSERT_EQUAL(run_loc_floor_bottom_left.type, /turf/open/floor/plating, "Rock wall should've scraped down back to plating (because it's a wall)")

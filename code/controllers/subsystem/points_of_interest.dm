@@ -14,9 +14,6 @@ SUBSYSTEM_DEF(points_of_interest)
 	/// Special helper list of all real nuke disks.
 	var/list/obj/item/disk/nuclear/real_nuclear_disks = list()
 
-	/// Special helper list to track any Nar'sies.
-	var/list/obj/narsie/narsies = list()
-
 /**
  * Turns new_poi into a new point of interest by adding the /datum/element/point_of_interest element to it.
  */
@@ -49,8 +46,6 @@ SUBSYSTEM_DEF(points_of_interest)
 			if(!nuke_disk.fake)
 				real_nuclear_disks += nuke_disk
 		// NAR'SIE HELPER
-		else if(istype(new_poi, /obj/narsie))
-			narsies += new_poi
 
 	SEND_SIGNAL(src, COMSIG_ADDED_POINT_OF_INTEREST, new_poi)
 
@@ -75,8 +70,6 @@ SUBSYSTEM_DEF(points_of_interest)
 			if(!nuke_disk.fake)
 				real_nuclear_disks -= nuke_disk
 		// NAR'SIE HELPER
-		else if(istype(old_poi, /obj/narsie))
-			narsies -= old_poi
 
 	points_of_interest_by_target_ref -= poi_ref
 

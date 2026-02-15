@@ -17,7 +17,7 @@
 	friction = generator(GEN_NUM, 0.3, 0.6)
 
 TYPEINFO_DEF(/obj/item/gun)
-	default_materials = list(/datum/material/iron=2000)
+	default_materials = list(/datum/material/steel=2000)
 
 /obj/item/gun
 	name = "gun"

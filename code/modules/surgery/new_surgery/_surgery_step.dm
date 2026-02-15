@@ -216,8 +216,6 @@ GLOBAL_LIST_INIT(surgery_tool_exceptions, typecacheof(list(
 				modifier += 1
 			else if(locate(/obj/structure/table, T))
 				modifier += 1
-			else if(locate(/obj/effect/rune, T))
-				modifier -= 1
 			else
 				modifier -= 3
 
@@ -420,8 +418,6 @@ GLOBAL_LIST_INIT(surgery_tool_exceptions, typecacheof(list(
 	else if(locate(/obj/structure/table, T))
 		. = TRUE
 	else if(locate(/obj/structure/bed, T))
-		. = TRUE
-	else if(locate(/obj/effect/rune, T))
 		. = TRUE
 
 	return . || FALSE

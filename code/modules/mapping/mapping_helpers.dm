@@ -150,7 +150,7 @@
 					here.PlaceOnTop(T.type)
 					qdel(src)
 					return
-				here.PlaceOnTop(/turf/closed/wall)
+				here.PlaceOnTop(/turf/closed/constructed_wall)
 				qdel(src)
 				return
 			if(9 to 11)
@@ -786,54 +786,7 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	var/stripe_paint = null
 
 /obj/effect/mapping_helpers/paint_wall/LateInitialize()
-	for(var/obj/effect/mapping_helpers/paint_wall/paint in loc)
-		if(paint == src)
-			continue
-		WARNING("Duplicate paint helper found at [x], [y], [z]")
-		qdel(src)
-		return
-
-	var/did_anything = FALSE
-
-	if(istype(loc, /turf/closed/wall))
-		var/turf/closed/wall/target_wall = loc
-		if(!isnull(wall_paint))
-			target_wall.paint_wall(wall_paint)
-		if(!isnull(stripe_paint))
-			target_wall.paint_stripe(stripe_paint)
-		did_anything = TRUE
-
-	else
-		var/obj/structure/low_wall/low_wall = locate() in loc
-		if(low_wall)
-			if(!isnull(wall_paint))
-				low_wall.paint_wall(wall_paint)
-			if(!isnull(stripe_paint))
-				low_wall.paint_stripe(stripe_paint)
-			did_anything = TRUE
-		else
-			var/obj/structure/falsewall/falsewall = locate() in loc
-			if(falsewall)
-				if(!isnull(wall_paint))
-					falsewall.paint_wall(wall_paint)
-				if(!isnull(stripe_paint))
-					falsewall.paint_stripe(stripe_paint)
-				did_anything = TRUE
-
-			else
-				var/obj/machinery/door/airlock/airlock = locate() in loc
-				if(airlock)
-					if(!isnull(wall_paint))
-						airlock.airlock_paint = wall_paint
-					if(!isnull(stripe_paint))
-						airlock.stripe_paint = stripe_paint
-					airlock.update_appearance()
-					did_anything = TRUE
-
-
-	if(!did_anything)
-		WARNING("Redundant paint helper found at [x], [y], [z]")
-
+	WARNING("DEPRECATED [type] AT [x],[y],[z]")
 	qdel(src)
 
 /obj/effect/mapping_helpers/paint_wall/bridge

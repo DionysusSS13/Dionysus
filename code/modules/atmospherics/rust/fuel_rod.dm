@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/fuel_rod)
-	default_materials = list(/datum/material/iron = 500)
+	default_materials = list(/datum/material/steel = 500)
 
 /obj/item/fuel_rod
 	name = "fuel rod"

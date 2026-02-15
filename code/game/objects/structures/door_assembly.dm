@@ -21,7 +21,7 @@ TYPEINFO_DEF(/obj/structure/door_assembly)
 	var/heat_proof_finished = 0 //whether to heat-proof the finished airlock
 	var/previous_assembly = /obj/structure/door_assembly
 	var/noglass = FALSE //airlocks with no glass version, also cannot be modified with sheets
-	var/material_type = /obj/item/stack/sheet/iron
+	var/material_type = /obj/item/stack/sheet/steel
 	var/material_amt = 4
 
 	var/overlays_file
@@ -227,39 +227,7 @@ TYPEINFO_DEF(/obj/structure/door_assembly)
 									name = "near finished window airlock assembly"
 								G.use(1)
 								glass = TRUE
-					if(!mineral)
-						if(istype(G, /obj/item/stack/sheet/mineral) && G.sheettype)
-							var/M = G.sheettype
-							var/mineralassembly = text2path("/obj/structure/door_assembly/door_assembly_[M]")
-							if(!ispath(mineralassembly))
-								to_chat(user, span_warning("You cannot add [G] to [src]!"))
-								return
-							if(G.get_amount() >= 2)
-								playsound(src, 'sound/items/crowbar.ogg', 100, TRUE)
-								user.visible_message(span_notice("[user] adds [G.name] to the airlock assembly."), \
-									span_notice("You start to install [G.name] into the airlock assembly..."))
-								if(do_after(user, src, 40, DO_PUBLIC, display = W))
-									if(G.get_amount() < 2 || mineral)
-										return
-									to_chat(user, span_notice("You install [M] plating into the airlock assembly."))
-									G.use(2)
-									var/obj/structure/door_assembly/MA = new mineralassembly(loc)
-
-									if(MA.noglass && glass) //in case the new door doesn't support glass. prevents the new one from reverting to a normal airlock after being constructed.
-										var/obj/item/stack/sheet/dropped_glass
-										if(heat_proof_finished)
-											dropped_glass = new /obj/item/stack/sheet/rglass(drop_location())
-											heat_proof_finished = FALSE
-										else
-											dropped_glass = new /obj/item/stack/sheet/glass(drop_location())
-										glass = FALSE
-										to_chat(user, span_notice("As you finish, a [dropped_glass.singular_name] falls out of [MA]'s frame."))
-
-									transfer_assembly_vars(src, MA, TRUE)
-							else
-								to_chat(user, span_warning("You need at least two sheets add a mineral cover!"))
-					else
-						to_chat(user, span_warning("You cannot add [G] to [src]!"))
+					to_chat(user, span_warning("You cannot add [G] to [src]!"))
 				else
 					to_chat(user, span_warning("You cannot add [G] to [src]!"))
 
@@ -413,4 +381,3 @@ TYPEINFO_DEF(/obj/structure/door_assembly)
 
 	if(.)
 		user.visible_message(span_notice("[user] shimmies their way through [src]."))
-

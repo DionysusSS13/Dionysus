@@ -15,7 +15,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 ))
 
 TYPEINFO_DEF(/obj/item/radio/headset)
-	default_materials = list(/datum/material/iron=75)
+	default_materials = list(/datum/material/steel=75)
 
 /obj/item/radio/headset
 	name = "radio headset"

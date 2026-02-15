@@ -157,26 +157,10 @@ GLOBAL_LIST_EMPTY(active_alternate_appearances)
 /datum/atom_hud/alternate_appearance/basic/observers/mobShouldSee(mob/M)
 	return isobserver(M)
 
-/datum/atom_hud/alternate_appearance/basic/noncult
-
-/datum/atom_hud/alternate_appearance/basic/noncult/mobShouldSee(mob/M)
-	if(!IS_CULTIST(M))
-		return TRUE
-	return FALSE
-
-/datum/atom_hud/alternate_appearance/basic/cult
-
-/datum/atom_hud/alternate_appearance/basic/cult/mobShouldSee(mob/M)
-	if(IS_CULTIST(M))
-		return TRUE
-	return FALSE
-
 /datum/atom_hud/alternate_appearance/basic/blessed_aware
 
 /datum/atom_hud/alternate_appearance/basic/blessed_aware/mobShouldSee(mob/M)
 	if(M.mind?.holy_role)
-		return TRUE
-	if (istype(M, /mob/living/simple_animal/hostile/construct/wraith))
 		return TRUE
 	if(isrevenant(M) || IS_WIZARD(M))
 		return TRUE

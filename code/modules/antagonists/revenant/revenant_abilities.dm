@@ -275,7 +275,7 @@
 		qdel(blessing)
 		new /obj/effect/temp_visual/revenant(victim)
 
-	if(!isplatingturf(victim) && !istype(victim, /turf/open/floor/engine/cult) && isfloorturf(victim) && prob(15))
+	if(!isplatingturf(victim) && isfloorturf(victim) && prob(15))
 		var/turf/open/floor/floor = victim
 		if(floor.overfloor_placed && floor.floor_tile)
 			new floor.floor_tile(floor)
@@ -283,10 +283,7 @@
 		floor.burnt = 0
 		floor.make_plating(TRUE)
 
-	if(victim.type == /turf/closed/wall && prob(15) && !HAS_TRAIT(victim, TRAIT_RUSTY))
-		new /obj/effect/temp_visual/revenant(victim)
-		victim.AddElement(/datum/element/rust)
-	if(victim.type == /turf/closed/wall/r_wall && prob(10) && !HAS_TRAIT(victim, TRAIT_RUSTY))
+	if(victim.type == /turf/closed/constructed_wall && prob(15) && !HAS_TRAIT(victim, TRAIT_RUSTY))
 		new /obj/effect/temp_visual/revenant(victim)
 		victim.AddElement(/datum/element/rust)
 	for(var/obj/effect/decal/cleanable/food/salt/salt in victim)

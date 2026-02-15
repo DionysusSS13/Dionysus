@@ -1,6 +1,6 @@
 
 TYPEINFO_DEF(/obj/item/hatchet)
-	default_materials = list(/datum/material/iron = 15000)
+	default_materials = list(/datum/material/steel = 15000)
 
 /obj/item/hatchet
 	name = "hatchet"

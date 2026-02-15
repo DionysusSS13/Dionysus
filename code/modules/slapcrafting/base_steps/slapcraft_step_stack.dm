@@ -111,7 +111,7 @@
 /datum/slapcraft_step/stack/iron/one
 	desc = "Add a sheet of metal to the assembly."
 	todo_desc = "You could add a sheet of metal..."
-	item_types = list(/obj/item/stack/sheet/iron)
+	item_types = list(/obj/item/stack/sheet/steel)
 	amount = 1
 
 	start_msg = "%USER% begins adds a sheet of metal to the %TARGET%."
@@ -122,7 +122,7 @@
 /datum/slapcraft_step/stack/iron/five
 	desc = "Add 5 sheets of metal to the assembly."
 	todo_desc = "You could add some metal sheets..."
-	item_types = list(/obj/item/stack/sheet/iron)
+	item_types = list(/obj/item/stack/sheet/steel)
 	amount = 5
 
 	start_msg = "%USER% starts adding some metal to the %TARGET%."

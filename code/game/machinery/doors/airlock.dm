@@ -280,26 +280,6 @@
 	audible_message(span_hear("You hear a click from the bottom of the door."), null,  1)
 	update_appearance()
 
-/obj/machinery/door/airlock/narsie_act()
-	var/turf/T = get_turf(src)
-	var/obj/machinery/door/airlock/cult/A
-	if(GLOB.cult_narsie)
-		var/runed = prob(20)
-		if(glass)
-			if(runed)
-				A = new/obj/machinery/door/airlock/cult/glass(T)
-			else
-				A = new/obj/machinery/door/airlock/cult/unruned/glass(T)
-		else
-			if(runed)
-				A = new/obj/machinery/door/airlock/cult(T)
-			else
-				A = new/obj/machinery/door/airlock/cult/unruned(T)
-		A.name = name
-	else
-		A = new /obj/machinery/door/airlock/cult/weak(T)
-	qdel(src)
-
 /obj/machinery/door/airlock/Destroy()
 	QDEL_NULL(wires)
 	QDEL_NULL(electronics)
@@ -882,7 +862,7 @@
 		if(AIRLOCK_SECURITY_IRON)
 			layer_flavor = "panel's shielding"
 			next_level = AIRLOCK_SECURITY_NONE
-			material_to_spawn = /obj/item/stack/sheet/iron
+			material_to_spawn = /obj/item/stack/sheet/steel
 			amount_to_spawn = 2
 		if(AIRLOCK_SECURITY_PLASTEEL_O)
 			layer_flavor = "outer layer of shielding"
@@ -952,7 +932,7 @@
 		return
 
 	else if(panel_open && security_level == AIRLOCK_SECURITY_NONE && istype(C, /obj/item/stack/sheet))
-		if(istype(C, /obj/item/stack/sheet/iron))
+		if(istype(C, /obj/item/stack/sheet/steel))
 			return try_reinforce(user, C, 2, AIRLOCK_SECURITY_IRON)
 
 		else if(istype(C, /obj/item/stack/sheet/plasteel))

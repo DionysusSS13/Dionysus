@@ -294,7 +294,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/door, 24)
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 
 TYPEINFO_DEF(/obj/item/wallframe/button)
-	default_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
+	default_materials = list(/datum/material/steel=MINERAL_MATERIAL_AMOUNT)
 
 /obj/item/wallframe/button
 	name = "button frame"

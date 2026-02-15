@@ -237,7 +237,7 @@ If you create T5+ please take a pass at mech_fabricator.dm. The parts being good
 //Rating 1
 
 TYPEINFO_DEF(/obj/item/stock_parts/capacitor)
-	default_materials = list(/datum/material/iron=50, /datum/material/glass=50)
+	default_materials = list(/datum/material/steel=50, /datum/material/glass=50)
 
 /obj/item/stock_parts/capacitor
 	name = "capacitor"
@@ -245,7 +245,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/capacitor)
 	icon_state = "capacitor"
 
 TYPEINFO_DEF(/obj/item/stock_parts/scanning_module)
-	default_materials = list(/datum/material/iron=50, /datum/material/glass=20)
+	default_materials = list(/datum/material/steel=50, /datum/material/glass=20)
 
 /obj/item/stock_parts/scanning_module
 	name = "scanning module"
@@ -253,7 +253,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/scanning_module)
 	icon_state = "scan_module"
 
 TYPEINFO_DEF(/obj/item/stock_parts/manipulator)
-	default_materials = list(/datum/material/iron=30)
+	default_materials = list(/datum/material/steel=30)
 
 /obj/item/stock_parts/manipulator
 	name = "micro-manipulator"
@@ -262,7 +262,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/manipulator)
 	base_name = "manipulator"
 
 TYPEINFO_DEF(/obj/item/stock_parts/micro_laser)
-	default_materials = list(/datum/material/iron=10, /datum/material/glass=20)
+	default_materials = list(/datum/material/steel=10, /datum/material/glass=20)
 
 /obj/item/stock_parts/micro_laser
 	name = "micro-laser"
@@ -270,7 +270,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/micro_laser)
 	icon_state = "micro_laser"
 
 TYPEINFO_DEF(/obj/item/stock_parts/matter_bin)
-	default_materials = list(/datum/material/iron=80)
+	default_materials = list(/datum/material/steel=80)
 
 /obj/item/stock_parts/matter_bin
 	name = "matter bin"
@@ -280,7 +280,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/matter_bin)
 //Rating 2
 
 TYPEINFO_DEF(/obj/item/stock_parts/capacitor/adv)
-	default_materials = list(/datum/material/iron=50, /datum/material/glass=50)
+	default_materials = list(/datum/material/steel=50, /datum/material/glass=50)
 
 /obj/item/stock_parts/capacitor/adv
 	name = "advanced capacitor"
@@ -290,7 +290,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/capacitor/adv)
 	energy_rating = 3
 
 TYPEINFO_DEF(/obj/item/stock_parts/scanning_module/adv)
-	default_materials = list(/datum/material/iron=50, /datum/material/glass=20)
+	default_materials = list(/datum/material/steel=50, /datum/material/glass=20)
 
 /obj/item/stock_parts/scanning_module/adv
 	name = "advanced scanning module"
@@ -300,7 +300,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/scanning_module/adv)
 	energy_rating = 3
 
 TYPEINFO_DEF(/obj/item/stock_parts/manipulator/nano)
-	default_materials = list(/datum/material/iron=30)
+	default_materials = list(/datum/material/steel=30)
 
 /obj/item/stock_parts/manipulator/nano
 	name = "nano-manipulator"
@@ -310,7 +310,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/manipulator/nano)
 	energy_rating = 3
 
 TYPEINFO_DEF(/obj/item/stock_parts/micro_laser/high)
-	default_materials = list(/datum/material/iron=10, /datum/material/glass=20)
+	default_materials = list(/datum/material/steel=10, /datum/material/glass=20)
 
 /obj/item/stock_parts/micro_laser/high
 	name = "high-power micro-laser"
@@ -320,7 +320,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/micro_laser/high)
 	energy_rating = 3
 
 TYPEINFO_DEF(/obj/item/stock_parts/matter_bin/adv)
-	default_materials = list(/datum/material/iron=80)
+	default_materials = list(/datum/material/steel=80)
 
 /obj/item/stock_parts/matter_bin/adv
 	name = "advanced matter bin"
@@ -332,7 +332,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/matter_bin/adv)
 //Rating 3
 
 TYPEINFO_DEF(/obj/item/stock_parts/capacitor/super)
-	default_materials = list(/datum/material/iron=50, /datum/material/glass=50)
+	default_materials = list(/datum/material/steel=50, /datum/material/glass=50)
 
 /obj/item/stock_parts/capacitor/super
 	name = "super capacitor"
@@ -342,7 +342,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/capacitor/super)
 	energy_rating = 5
 
 TYPEINFO_DEF(/obj/item/stock_parts/scanning_module/phasic)
-	default_materials = list(/datum/material/iron=50, /datum/material/glass=20)
+	default_materials = list(/datum/material/steel=50, /datum/material/glass=20)
 
 /obj/item/stock_parts/scanning_module/phasic
 	name = "phasic scanning module"
@@ -352,7 +352,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/scanning_module/phasic)
 	energy_rating = 5
 
 TYPEINFO_DEF(/obj/item/stock_parts/manipulator/pico)
-	default_materials = list(/datum/material/iron=30)
+	default_materials = list(/datum/material/steel=30)
 
 /obj/item/stock_parts/manipulator/pico
 	name = "pico-manipulator"
@@ -362,7 +362,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/manipulator/pico)
 	energy_rating = 5
 
 TYPEINFO_DEF(/obj/item/stock_parts/micro_laser/ultra)
-	default_materials = list(/datum/material/iron=10, /datum/material/glass=20)
+	default_materials = list(/datum/material/steel=10, /datum/material/glass=20)
 
 /obj/item/stock_parts/micro_laser/ultra
 	name = "ultra-high-power micro-laser"
@@ -372,7 +372,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/micro_laser/ultra)
 	energy_rating = 5
 
 TYPEINFO_DEF(/obj/item/stock_parts/matter_bin/super)
-	default_materials = list(/datum/material/iron=80)
+	default_materials = list(/datum/material/steel=80)
 
 /obj/item/stock_parts/matter_bin/super
 	name = "super matter bin"
@@ -384,7 +384,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/matter_bin/super)
 // Subspace stock parts
 
 TYPEINFO_DEF(/obj/item/stock_parts/subspace/ansible)
-	default_materials = list(/datum/material/iron=30, /datum/material/glass=10)
+	default_materials = list(/datum/material/steel=30, /datum/material/glass=10)
 
 /obj/item/stock_parts/subspace/ansible
 	name = "subspace ansible"
@@ -392,7 +392,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/subspace/ansible)
 	desc = "A compact module capable of sensing extradimensional activity."
 
 TYPEINFO_DEF(/obj/item/stock_parts/subspace/filter)
-	default_materials = list(/datum/material/iron=30, /datum/material/glass=10)
+	default_materials = list(/datum/material/steel=30, /datum/material/glass=10)
 
 /obj/item/stock_parts/subspace/filter
 	name = "hyperwave filter"
@@ -400,7 +400,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/subspace/filter)
 	desc = "A tiny device capable of filtering and converting super-intense radiowaves."
 
 TYPEINFO_DEF(/obj/item/stock_parts/subspace/amplifier)
-	default_materials = list(/datum/material/iron=30, /datum/material/glass=10)
+	default_materials = list(/datum/material/steel=30, /datum/material/glass=10)
 
 /obj/item/stock_parts/subspace/amplifier
 	name = "subspace amplifier"
@@ -408,7 +408,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/subspace/amplifier)
 	desc = "A compact micro-machine capable of amplifying weak subspace transmissions."
 
 TYPEINFO_DEF(/obj/item/stock_parts/subspace/treatment)
-	default_materials = list(/datum/material/iron=30, /datum/material/glass=10)
+	default_materials = list(/datum/material/steel=30, /datum/material/glass=10)
 
 /obj/item/stock_parts/subspace/treatment
 	name = "subspace treatment disk"
@@ -416,7 +416,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/subspace/treatment)
 	desc = "A compact micro-machine capable of stretching out hyper-compressed radio waves."
 
 TYPEINFO_DEF(/obj/item/stock_parts/subspace/analyzer)
-	default_materials = list(/datum/material/iron=30, /datum/material/glass=10)
+	default_materials = list(/datum/material/steel=30, /datum/material/glass=10)
 
 /obj/item/stock_parts/subspace/analyzer
 	name = "subspace wavelength analyzer"
@@ -432,7 +432,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/subspace/crystal)
 	desc = "A crystal made from pure glass used to transmit laser databursts to subspace."
 
 TYPEINFO_DEF(/obj/item/stock_parts/subspace/transmitter)
-	default_materials = list(/datum/material/iron=50)
+	default_materials = list(/datum/material/steel=50)
 
 /obj/item/stock_parts/subspace/transmitter
 	name = "subspace transmitter"
@@ -442,7 +442,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/subspace/transmitter)
 // Misc. Parts
 
 TYPEINFO_DEF(/obj/item/stock_parts/card_reader)
-	default_materials = list(/datum/material/iron=50, /datum/material/glass=10)
+	default_materials = list(/datum/material/steel=50, /datum/material/glass=10)
 
 /obj/item/stock_parts/card_reader
 	name = "card reader"
@@ -450,7 +450,7 @@ TYPEINFO_DEF(/obj/item/stock_parts/card_reader)
 	desc = "A small magnetic card reader, used for devices that take and transmit holocredits."
 
 TYPEINFO_DEF(/obj/item/stock_parts/water_recycler)
-	default_materials = list(/datum/material/plastic=200, /datum/material/iron=50)
+	default_materials = list(/datum/material/plastic=200, /datum/material/steel=50)
 
 /obj/item/stock_parts/water_recycler
 	name = "water recycler"

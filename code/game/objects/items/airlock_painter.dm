@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/airlock_painter)
-	default_materials = list(/datum/material/iron=50, /datum/material/glass=50)
+	default_materials = list(/datum/material/steel=50, /datum/material/glass=50)
 
 /obj/item/airlock_painter
 	name = "airlock painter"
@@ -150,7 +150,7 @@ TYPEINFO_DEF(/obj/item/airlock_painter)
 		ink = null
 
 TYPEINFO_DEF(/obj/item/airlock_painter/decal)
-	default_materials = list(/datum/material/iron=50, /datum/material/glass=50)
+	default_materials = list(/datum/material/steel=50, /datum/material/glass=50)
 
 /obj/item/airlock_painter/decal
 	name = "decal painter"

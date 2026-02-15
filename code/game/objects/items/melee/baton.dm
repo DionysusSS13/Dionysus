@@ -632,7 +632,7 @@ TYPEINFO_DEF(/obj/item/melee/baton/security)
 	return ..()
 
 TYPEINFO_DEF(/obj/item/melee/baton/security/boomerang)
-	default_materials = list(/datum/material/iron = 10000, /datum/material/glass = 4000, /datum/material/silver = 10000, /datum/material/gold = 2000)
+	default_materials = list(/datum/material/steel = 10000, /datum/material/glass = 4000, /datum/material/silver = 10000, /datum/material/gold = 2000)
 
 /obj/item/melee/baton/security/boomerang
 	name = "\improper OZtek Boomerang"

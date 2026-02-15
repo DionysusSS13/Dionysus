@@ -39,9 +39,7 @@ GLOBAL_LIST_INIT(sandstone_recipes, list ( \
 	inhand_icon_state = "sheet-sandstone"
 	throw_range = 5
 	mats_per_unit = list(/datum/material/sandstone=MINERAL_MATERIAL_AMOUNT)
-	sheettype = "sandstone"
 	merge_type = /obj/item/stack/sheet/mineral/sandstone
-	walltype = /turf/closed/wall/mineral/sandstone
 	material_type = /datum/material/sandstone
 
 /obj/item/stack/sheet/mineral/sandstone/get_main_recipes()
@@ -98,14 +96,12 @@ GLOBAL_LIST_INIT(sandbag_recipes, list ( \
 	icon_state = "sheet-diamond"
 	inhand_icon_state = "sheet-diamond"
 	singular_name = "diamond"
-	sheettype = "diamond"
 	mats_per_unit = list(/datum/material/diamond=MINERAL_MATERIAL_AMOUNT)
 	novariants = TRUE
 	grind_results = list(/datum/reagent/carbon = 20)
 	point_value = 25
 	merge_type = /obj/item/stack/sheet/mineral/diamond
 	material_type = /datum/material/diamond
-	walltype = /turf/closed/wall/mineral/diamond
 
 GLOBAL_LIST_INIT(diamond_recipes, list ( \
 	new/datum/stack_recipe("diamond door", /obj/structure/mineral_door/transparent/diamond, 10, one_per_turf = 1, on_floor = 1, applies_mats = TRUE), \
@@ -116,6 +112,23 @@ GLOBAL_LIST_INIT(diamond_recipes, list ( \
 	. = ..()
 	. += GLOB.diamond_recipes
 
+/** TODO!! */
+/obj/item/stack/sheet/mineral/lead
+	singular_name = "lead sheet"
+	merge_type = /obj/item/stack/sheet/mineral/lead
+
+/obj/item/stack/sheet/mineral/marble_black
+	singular_name = "black marble sheet"
+	merge_type = /obj/item/stack/sheet/mineral/marble_black
+
+/obj/item/stack/sheet/mineral/marble_white
+	singular_name = "white marble sheet"
+	merge_type = /obj/item/stack/sheet/mineral/marble_white
+
+/obj/item/stack/sheet/mineral/centcomnium
+	singular_name = "stellar alloy crystal"
+	merge_type = /obj/item/stack/sheet/mineral/centcomnium
+
 /*
  * Uranium
  */
@@ -124,14 +137,12 @@ GLOBAL_LIST_INIT(diamond_recipes, list ( \
 	icon_state = "sheet-uranium"
 	inhand_icon_state = "sheet-uranium"
 	singular_name = "uranium sheet"
-	sheettype = "uranium"
 	mats_per_unit = list(/datum/material/uranium=MINERAL_MATERIAL_AMOUNT)
 	novariants = TRUE
 	grind_results = list(/datum/reagent/uranium = 20)
 	point_value = 20
 	merge_type = /obj/item/stack/sheet/mineral/uranium
 	material_type = /datum/material/uranium
-	walltype = /turf/closed/wall/mineral/uranium
 
 GLOBAL_LIST_INIT(uranium_recipes, list ( \
 	new/datum/stack_recipe("uranium door", /obj/structure/mineral_door/uranium, 10, one_per_turf = 1, on_floor = 1, applies_mats = TRUE), \
@@ -153,7 +164,6 @@ GLOBAL_LIST_INIT(uranium_recipes, list ( \
 	icon_state = "sheet-plasma"
 	inhand_icon_state = "sheet-plasma"
 	singular_name = "plasma sheet"
-	sheettype = "plasma"
 	resistance_flags = FLAMMABLE
 	max_integrity = 100
 	mats_per_unit = list(/datum/material/plasma=MINERAL_MATERIAL_AMOUNT)
@@ -161,7 +171,6 @@ GLOBAL_LIST_INIT(uranium_recipes, list ( \
 	point_value = 20
 	merge_type = /obj/item/stack/sheet/mineral/plasma
 	material_type = /datum/material/plasma
-	walltype = /turf/closed/wall/mineral/plasma
 
 /obj/item/stack/sheet/mineral/plasma/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins licking \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -190,13 +199,11 @@ GLOBAL_LIST_INIT(plasma_recipes, list ( \
 	icon_state = "sheet-gold"
 	inhand_icon_state = "sheet-gold"
 	singular_name = "gold bar"
-	sheettype = "gold"
 	mats_per_unit = list(/datum/material/gold=MINERAL_MATERIAL_AMOUNT)
 	grind_results = list(/datum/reagent/gold = 20)
 	point_value = 20
 	merge_type = /obj/item/stack/sheet/mineral/gold
 	material_type = /datum/material/gold
-	walltype = /turf/closed/wall/mineral/gold
 
 GLOBAL_LIST_INIT(gold_recipes, list ( \
 	new/datum/stack_recipe("golden door", /obj/structure/mineral_door/gold, 10, one_per_turf = 1, on_floor = 1, applies_mats = TRUE), \
@@ -217,14 +224,12 @@ GLOBAL_LIST_INIT(gold_recipes, list ( \
 	icon_state = "sheet-silver"
 	inhand_icon_state = "sheet-silver"
 	singular_name = "silver bar"
-	sheettype = "silver"
 	mats_per_unit = list(/datum/material/silver=MINERAL_MATERIAL_AMOUNT)
 	grind_results = list(/datum/reagent/silver = 20)
 	point_value = 20
 	merge_type = /obj/item/stack/sheet/mineral/silver
 	material_type = /datum/material/silver
 	tableVariant = /obj/structure/table/optable
-	walltype = /turf/closed/wall/mineral/silver
 
 GLOBAL_LIST_INIT(silver_recipes, list ( \
 	new/datum/stack_recipe("silver door", /obj/structure/mineral_door/silver, 10, one_per_turf = 1, on_floor = 1, applies_mats = TRUE), \
@@ -243,14 +248,12 @@ GLOBAL_LIST_INIT(silver_recipes, list ( \
 	icon_state = "sheet-bananium"
 	inhand_icon_state = "sheet-bananium"
 	singular_name = "bananium sheet"
-	sheettype = "bananium"
 	mats_per_unit = list(/datum/material/bananium=MINERAL_MATERIAL_AMOUNT)
 	novariants = TRUE
 	grind_results = list(/datum/reagent/consumable/banana = 20)
 	point_value = 50
 	merge_type = /obj/item/stack/sheet/mineral/bananium
 	material_type = /datum/material/bananium
-	walltype = /turf/closed/wall/mineral/bananium
 
 GLOBAL_LIST_INIT(bananium_recipes, list ( \
 	new/datum/stack_recipe("bananium tile", /obj/item/stack/tile/mineral/bananium, 1, 4, 20), \
@@ -276,13 +279,10 @@ GLOBAL_LIST_INIT(bananium_recipes, list ( \
 	w_class = WEIGHT_CLASS_NORMAL
 	throw_speed = 1
 	throw_range = 3
-	sheettype = "titanium"
 	mats_per_unit = list(/datum/material/titanium=MINERAL_MATERIAL_AMOUNT)
 	point_value = 20
 	merge_type = /obj/item/stack/sheet/mineral/titanium
 	material_type = /datum/material/titanium
-	walltype = /turf/closed/wall/mineral/titanium
-	tram_wall_type = /obj/structure/tramwall/titanium
 
 GLOBAL_LIST_INIT(titanium_recipes, list ( \
 	new/datum/stack_recipe("titanium tile", /obj/item/stack/tile/mineral/titanium, 1, 4, 20), \
@@ -309,14 +309,11 @@ GLOBAL_LIST_INIT(titanium_recipes, list ( \
 	w_class = WEIGHT_CLASS_NORMAL
 	throw_speed = 1
 	throw_range = 3
-	sheettype = "plastitanium"
 	mats_per_unit = list(/datum/material/alloy/plastitanium=MINERAL_MATERIAL_AMOUNT)
 	point_value = 45
 	material_type = /datum/material/alloy/plastitanium
 	merge_type = /obj/item/stack/sheet/mineral/plastitanium
 	material_flags = NONE
-	walltype = /turf/closed/wall/mineral/plastitanium
-	tram_wall_type = /obj/structure/tramwall/plastitanium
 
 GLOBAL_LIST_INIT(plastitanium_recipes, list ( \
 	new/datum/stack_recipe("plastitanium tile", /obj/item/stack/tile/mineral/plastitanium, 1, 4, 20), \
@@ -341,11 +338,9 @@ GLOBAL_LIST_INIT(plastitanium_recipes, list ( \
 	throwforce = 2
 	grind_results = list(/datum/reagent/consumable/ice = 20)
 	merge_type = /obj/item/stack/sheet/mineral/snow
-	walltype = /turf/closed/wall/mineral/snow
 	material_type = /datum/material/snow
 
 GLOBAL_LIST_INIT(snow_recipes, list ( \
-	new/datum/stack_recipe("snow wall", /turf/closed/wall/mineral/snow, 5, time = 4 SECONDS, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("snowman", /obj/structure/statue/snow/snowman, 5, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("snowball", /obj/item/toy/snowball, 1), \
 	new/datum/stack_recipe("snow tile", /obj/item/stack/tile/mineral/snow, 1, 4, 20), \
@@ -393,11 +388,9 @@ GLOBAL_LIST_INIT(snow_recipes, list ( \
 	icon_state = "sheet-abductor"
 	inhand_icon_state = "sheet-abductor"
 	singular_name = "alien alloy sheet"
-	sheettype = "abductor"
 	mats_per_unit = list(/datum/material/alloy/alien=MINERAL_MATERIAL_AMOUNT)
 	merge_type = /obj/item/stack/sheet/mineral/abductor
 	material_type = /datum/material/alloy/alien
-	walltype = /turf/closed/wall/mineral/abductor
 
 GLOBAL_LIST_INIT(abductor_recipes, list ( \
 	new/datum/stack_recipe("alien bed", /obj/structure/bed/abductor, 2, one_per_turf = 1, on_floor = 1), \

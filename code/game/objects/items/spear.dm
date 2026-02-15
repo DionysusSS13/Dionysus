@@ -1,7 +1,7 @@
 //spears
 TYPEINFO_DEF(/obj/item/spear)
 	default_armor = list(BLUNT = 0, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 30)
-	default_materials = list(/datum/material/iron=1150, /datum/material/glass=2075)
+	default_materials = list(/datum/material/steel=1150, /datum/material/glass=2075)
 
 /obj/item/spear
 	icon_state = "spearglass0"

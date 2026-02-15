@@ -686,7 +686,7 @@ TYPEINFO_DEF(/obj/item/modular_computer)
 			balloon_alert(user, "remove the other components!")
 			return
 		attacking_item.play_tool_sound(src, user, 20, volume=20)
-		new /obj/item/stack/sheet/iron( get_turf(src.loc), steel_sheet_cost )
+		new /obj/item/stack/sheet/steel( get_turf(src.loc), steel_sheet_cost )
 		user.balloon_alert(user,"disassembled")
 		relay_qdel()
 		qdel(src)

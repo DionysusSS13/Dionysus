@@ -13,7 +13,7 @@
 
 /datum/map_generator_module/border/normal_walls
 	spawnableAtoms = list()
-	spawnableTurfs = list(/turf/closed/wall = 100)
+	spawnableTurfs = list(/turf/closed/constructed_wall = 100)
 	allowAtomsOnSpace = TRUE
 
 /datum/map_generator_module/reload_station_map/generate()

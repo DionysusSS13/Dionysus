@@ -133,7 +133,7 @@
 	return P
 
 //separated to reduce code duplication. Moved here for ease of reference and to unclutter r_wall/attackby()
-/turf/closed/wall/proc/place_poster(obj/item/poster/P, mob/user)
+/turf/closed/constructed_wall/proc/place_poster(obj/item/poster/P, mob/user)
 	if(!P.poster_structure)
 		to_chat(user, span_warning("[P] has no poster... inside it? Inform a coder!"))
 		return

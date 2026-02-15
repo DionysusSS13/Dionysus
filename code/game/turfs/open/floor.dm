@@ -12,7 +12,7 @@
 	flags_1 = NO_SCREENTIPS_1
 	turf_flags = CAN_BE_DIRTY_1 | IS_SOLID
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_OPEN_FLOOR
-	canSmoothWith = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_OPEN_FLOOR
+	smoothing_groups_with = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_OPEN_FLOOR
 
 	heat_capacity = 10000
 	tiled_dirt = TRUE
@@ -101,7 +101,7 @@
 					else
 						ScrapeAway(2, flags = CHANGETURF_INHERIT_AIR)
 					if(prob(33))
-						new /obj/item/stack/sheet/iron(src)
+						new /obj/item/stack/sheet/steel(src)
 				if(2)
 					ScrapeAway(2, flags = CHANGETURF_INHERIT_AIR)
 				if(3)
@@ -111,7 +111,7 @@
 						break_tile()
 					hotspot_expose(1000,CELL_VOLUME)
 					if(prob(33))
-						new /obj/item/stack/sheet/iron(src)
+						new /obj/item/stack/sheet/steel(src)
 		if(EXPLODE_LIGHT)
 			if (prob(50))
 				src.break_tile()
@@ -165,7 +165,7 @@
 /turf/open/floor/proc/crush()
 	break_tile()
 
-/turf/open/floor/ChangeTurf(path, new_baseturf, flags)
+/turf/open/floor/ChangeTurf(turf/path, list/new_baseturfs, flags, list/args_turf_new = null)
 	if(!isfloorturf(src))
 		return ..() //fucking turfs switch the fucking src of the fucking running procs
 	if(!ispath(path, /turf/open/floor))
@@ -185,9 +185,10 @@
 	if(overfloor_placed && istype(object, /obj/item/stack/tile))
 		try_replace_tile(object, user, params)
 		return TRUE
-	if(user.combat_mode && istype(object, /obj/item/stack/sheet))
+	if(istype(object, /obj/item/stack/sheet))
 		var/obj/item/stack/sheet/sheets = object
-		return sheets.on_attack_floor(user, params)
+		if(user.combat_mode)
+			return sheets.on_attack_floor(user, src)
 	return FALSE
 
 /turf/open/floor/crowbar_act(mob/living/user, obj/item/I)
@@ -249,12 +250,6 @@
 		if(has_tile())
 			remove_tile(null, TRUE, TRUE, TRUE)
 
-
-/turf/open/floor/narsie_act(force, ignore_mobs, probability = 20)
-	. = ..()
-	if(.)
-		ChangeTurf(/turf/open/floor/engine/cult, flags = CHANGETURF_INHERIT_AIR)
-
 /turf/open/floor/acid_melt()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 
@@ -287,11 +282,6 @@
 
 /turf/open/floor/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
 	switch(passed_mode)
-		if(RCD_FLOORWALL)
-			to_chat(user, span_notice("You build a wall."))
-			var/turf/closed/wall/placed_wall = PlaceOnTop(/turf/closed/wall)
-			placed_wall.set_wall_information(/datum/material/iron)
-			return TRUE
 		if(RCD_AIRLOCK)
 			for(var/obj/machinery/door/door in src)
 				if(door.sub_door)

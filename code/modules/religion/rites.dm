@@ -366,11 +366,6 @@
 	if(!joining_now.mind)
 		to_chat(user, span_warning("The new member has no mind!"))
 		return FALSE
-	if(joining_now.mind.has_antag_datum(/datum/antagonist/cult))//what the fuck?!
-		to_chat(user, span_warning("[GLOB.deity] has seen a true, dark evil in [joining_now]'s heart, and they have been smitten!"))
-		playsound(get_turf(religious_tool), 'sound/effects/pray.ogg', 50, TRUE)
-		joining_now.gib(TRUE)
-		return FALSE
 	var/datum/mutation/human/honorbound/honormut = user.dna.check_mutation(/datum/mutation/human/honorbound)
 	if(joining_now in honormut.guilty)
 		honormut.guilty -= joining_now

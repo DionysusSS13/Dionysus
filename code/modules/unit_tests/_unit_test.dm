@@ -210,7 +210,7 @@ GLOBAL_LIST_EMPTY(unit_test_mapping_logs)
 
 /datum/map_template/unit_tests
 	name = "Unit Tests Zone"
-	mappath = "_maps/templates/unit_tests.dmm"
+	mappath = "_maps/unit_tests.dmm"
 
 /**
  * Helper to perform a click

@@ -50,6 +50,10 @@ Class Procs:
 	var/needs_update = 0
 	///An associative list of edge_source = edge. Will contain instantiated turfs and zones.
 	var/list/edges = list()
+	/// A list of border turfs that are directly adjacent to this zone. [border] = list(connections)
+	var/list/list/border_turfs_idx_bdr = list()
+	/// A list of border turfs that are directly adjacent to this zone. [connection] = list(borders)
+	var/list/list/border_turfs_idx_nbr = list()
 	///Lazylist of atmos sensitive contents
 	var/atmos_sensitive_contents
 	///The zone's gas contents
@@ -90,6 +94,22 @@ Class Procs:
 			SSzas.zones_with_sensitive_contents += src
 		LAZYDISTINCTADD(atmos_sensitive_contents, T.atmos_sensitive_contents)
 
+	// adding a new turf, check if we were a neighbor turf
+	for(var/turf/old_border as anything in border_turfs_idx_nbr[T])
+		border_turfs_idx_bdr[old_border] -= T
+		if(length(border_turfs_idx_bdr[old_border]) == 0)
+			border_turfs_idx_bdr -= old_border
+		border_turfs_idx_nbr[T] -= old_border
+		if(length(border_turfs_idx_nbr[T]) == 0)
+			border_turfs_idx_nbr -= T
+	// add our neighbors
+	for(var/dir in GLOB.cardinals)
+		var/turf/neighbor = get_step(T, dir)
+		if(neighbor in contents)
+			continue
+		border_turfs_idx_bdr[T] += list(neighbor)
+		border_turfs_idx_nbr[neighbor] += list(T)
+
 ///Removes the given turf from the zone. Will invalidate the zone if it was the last turf.
 /zone/proc/remove_turf(turf/T)
 #ifdef ZASDBG
@@ -117,6 +137,22 @@ Class Procs:
 	contents.Remove(T)
 
 	T.zone = null
+
+	// we are no longer in the zone, check if any of our neighbors are now orphaned
+	for(var/turf/old_neighbor as anything in border_turfs_idx_bdr[T])
+		border_turfs_idx_nbr[old_neighbor] -= T
+		if(length(border_turfs_idx_nbr[old_neighbor]) == 0)
+			border_turfs_idx_bdr -= old_neighbor
+		border_turfs_idx_bdr[T] -= old_neighbor
+		if(length(border_turfs_idx_bdr[T]) == 0)
+			border_turfs_idx_nbr -= T
+	// we are now a neighbor, get our borders
+	for(var/dir in GLOB.cardinals)
+		var/turf/border = get_step(T, dir)
+		if(!(border in contents))
+			continue
+		border_turfs_idx_nbr[T] += list(border)
+		border_turfs_idx_bdr[border] += list(T)
 
 	if(air.graphic)
 		T.remove_viscontents(air.graphic)

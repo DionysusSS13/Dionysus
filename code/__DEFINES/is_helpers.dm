@@ -52,7 +52,7 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 #define isindestructiblewall(A) (istype(A, /turf/closed/indestructible))
 
-#define iswallturf(A) (istype(A, /turf/closed/wall))
+#define iswallturf(A) (istype(A, /turf/closed/constructed_wall))
 
 #define ismineralturf(A) (istype(A, /turf/closed/mineral))
 
@@ -62,11 +62,9 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 #define isplatingturf(A) (istype(A, /turf/open/floor/plating))
 
-#define iswall(A) (istype(A, /turf/closed/wall))
+#define iswall(A) (istype(A, /turf/closed/constructed_wall))
 
 #define istransparentturf(A) (TURF_IS_MIMICKING(A))
-
-#define isflockturf(A) (istype(A, /turf/open/floor/flock) || istype(A, /turf/closed/wall/flock))
 
 //Mobs
 #define isliving(A) (istype(A, /mob/living))
@@ -136,8 +134,6 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 #define isbot(A) (istype(A, /mob/living/simple_animal/bot))
 
-#define isshade(A) (istype(A, /mob/living/simple_animal/shade))
-
 #define ismouse(A) (istype(A, /mob/living/simple_animal/mouse))
 
 #define iscow(A) (istype(A, /mob/living/basic/cow))
@@ -159,8 +155,6 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 #define isregalrat(A) (istype(A, /mob/living/simple_animal/hostile/regalrat))
 
 #define isguardian(A) (istype(A, /mob/living/simple_animal/hostile/guardian))
-
-#define isconstruct(A) (istype(A, /mob/living/simple_animal/hostile/construct))
 
 #define ismegafauna(A) (istype(A, /mob/living/simple_animal/hostile/megafauna))
 
@@ -293,4 +287,3 @@ GLOBAL_LIST_INIT(book_types, typecacheof(list(
 #define is_security_officer_job(job_type) (istype(job_type, /datum/job/security_officer))
 #define is_research_director_job(job_type) (istype(job_type, /datum/job/research_director))
 #define is_unassigned_job(job_type) (istype(job_type, /datum/job/unassigned))
-

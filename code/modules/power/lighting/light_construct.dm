@@ -102,7 +102,7 @@ TYPEINFO_DEF(/obj/structure/light_construct)
 					return
 				to_chat(user, span_notice("You begin deconstructing [src]..."))
 				if (tool.use_tool(src, user, 30, volume=50))
-					new /obj/item/stack/sheet/iron(drop_location(), sheets_refunded)
+					new /obj/item/stack/sheet/steel(drop_location(), sheets_refunded)
 					user.visible_message(span_notice("[user.name] deconstructs [src]."), \
 						span_notice("You deconstruct [src]."), span_hear("You hear a ratchet."))
 					playsound(src, 'sound/items/deconstruct.ogg', 75, TRUE)
@@ -158,7 +158,7 @@ TYPEINFO_DEF(/obj/structure/light_construct)
 
 /obj/structure/light_construct/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/iron(loc, sheets_refunded)
+		new /obj/item/stack/sheet/steel(loc, sheets_refunded)
 	qdel(src)
 
 /obj/structure/light_construct/small

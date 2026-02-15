@@ -257,9 +257,6 @@ TYPEINFO_DEF(/obj/machinery/door/window)
 	debris.forceMove(loc)
 	transfer_fingerprints_to(debris)
 
-/obj/machinery/door/window/narsie_act()
-	add_atom_colour("#7D1919", FIXED_COLOUR_PRIORITY)
-
 /obj/machinery/door/window/atmos_expose(datum/gas_mixture/air, exposed_temperature)
 	if((exposed_temperature > T0C + (reinf ? 1600 : 800)))
 		take_damage(round(exposed_temperature / 200), BURN, 0, 0)

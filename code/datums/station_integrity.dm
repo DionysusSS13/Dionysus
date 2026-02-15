@@ -37,15 +37,15 @@
 				else
 					floor += 2
 
-			if(iswallturf(T))
-				wall += 1
-
-			if(istype(T, /turf/closed/wall/r_wall))
-				var/turf/closed/wall/r_wall/TRW = T
-				if(TRW.d_state == INTACT)
-					r_wall += 2
+			if(istype(T, /turf/closed/constructed_wall))
+				var/turf/closed/constructed_wall/cwall = T
+				if(cwall.material_reinforcement)
+					if(cwall.deconstruction_stage == WALL_DECON_NONE)
+						r_wall += 2
+					else
+						r_wall += 1
 				else
-					r_wall += 1
+					wall += 1
 
 
 			for(var/obj/O in T.contents)

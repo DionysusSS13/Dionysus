@@ -5,7 +5,7 @@
 	build_path = /obj/item/integrated_circuit
 	build_type = IMPRINTER | COMPONENT_PRINTER
 	category = list(DCAT_WIREMOD)
-	materials = list(/datum/material/glass = 1000, /datum/material/iron = 1000)
+	materials = list(/datum/material/glass = 1000, /datum/material/steel = 1000)
 	mapload_design_flags = DESIGN_FAB_OMNI
 
 /datum/design/circuit_multitool
@@ -15,7 +15,7 @@
 	build_path = /obj/item/multitool/circuit
 	build_type = FABRICATOR | COMPONENT_PRINTER
 	category = list(DCAT_WIREMOD)
-	materials = list(/datum/material/glass = 1000, /datum/material/iron = 1000)
+	materials = list(/datum/material/glass = 1000, /datum/material/steel = 1000)
 	mapload_design_flags = DESIGN_FAB_OMNI
 
 /datum/design/usb_cable
@@ -26,7 +26,7 @@
 	build_type = FABRICATOR | COMPONENT_PRINTER
 	category = list(DCAT_WIREMOD)
 	// Yes, it would make sense to make them take plastic, but then less people would make them, and I think they're cool
-	materials = list(/datum/material/iron = 2500)
+	materials = list(/datum/material/steel = 2500)
 	mapload_design_flags = DESIGN_FAB_OMNI
 
 /datum/design/component
@@ -411,7 +411,7 @@
 	desc = "A handheld shell with one big button."
 	id = "compact_remote_shell"
 	build_path = /obj/item/compact_remote
-	materials = list(/datum/material/glass = 2000, /datum/material/iron = 5000)
+	materials = list(/datum/material/glass = 2000, /datum/material/steel = 5000)
 	build_type = FABRICATOR | COMPONENT_PRINTER
 	category = list(DCAT_WIREMOD, "Shells")
 
@@ -421,7 +421,7 @@
 	id = "controller_shell"
 	build_path = /obj/item/controller
 	build_type = FABRICATOR | COMPONENT_PRINTER
-	materials = list(/datum/material/glass = 2000, /datum/material/iron = 7000)
+	materials = list(/datum/material/glass = 2000, /datum/material/steel = 7000)
 	category = list(DCAT_WIREMOD, "Shells")
 
 /datum/design/scanner_shell
@@ -430,7 +430,7 @@
 	id = "scanner_shell"
 	build_path = /obj/item/wiremod_scanner
 	build_type = FABRICATOR | COMPONENT_PRINTER
-	materials = list(/datum/material/glass = 2000, /datum/material/iron = 7000)
+	materials = list(/datum/material/glass = 2000, /datum/material/steel = 7000)
 	category = list(DCAT_WIREMOD, "Shells")
 
 /datum/design/gun_shell
@@ -439,7 +439,7 @@
 	id = "gun_shell"
 	build_path = /obj/item/gun/energy/wiremod_gun
 	build_type = FABRICATOR | COMPONENT_PRINTER
-	materials = list(/datum/material/glass = 2000, /datum/material/iron = 10000, /datum/material/plasma = 100)
+	materials = list(/datum/material/glass = 2000, /datum/material/steel = 10000, /datum/material/plasma = 100)
 	category = list(DCAT_WIREMOD, "Shells")
 
 /datum/design/bot_shell
@@ -448,7 +448,7 @@
 	id = "bot_shell"
 	build_path = /obj/item/shell/bot
 	build_type = FABRICATOR | COMPONENT_PRINTER
-	materials = list(/datum/material/glass = 2000, /datum/material/iron = 10000)
+	materials = list(/datum/material/glass = 2000, /datum/material/steel = 10000)
 	category = list(DCAT_WIREMOD, "Shells")
 
 /datum/design/money_bot_shell
@@ -457,7 +457,7 @@
 	id = "money_bot_shell"
 	build_path = /obj/item/shell/money_bot
 	build_type = FABRICATOR | COMPONENT_PRINTER
-	materials = list(/datum/material/glass = 2000, /datum/material/iron = 10000, /datum/material/gold = 50)
+	materials = list(/datum/material/glass = 2000, /datum/material/steel = 10000, /datum/material/gold = 50)
 	category = list(DCAT_WIREMOD, "Shells")
 
 /datum/design/drone_shell
@@ -468,7 +468,7 @@
 	build_type = FABRICATOR | COMPONENT_PRINTER
 	materials = list(
 		/datum/material/glass = 2000,
-		/datum/material/iron = 11000,
+		/datum/material/steel = 11000,
 		/datum/material/gold = 500,
 	)
 	category = list(DCAT_WIREMOD, "Shells")
@@ -479,7 +479,7 @@
 	id = "server_shell"
 	materials = list(
 		/datum/material/glass = 5000,
-		/datum/material/iron = 15000,
+		/datum/material/steel = 15000,
 		/datum/material/gold = 1500,
 	)
 	build_path = /obj/item/shell/server
@@ -492,7 +492,7 @@
 	id = "door_shell"
 	materials = list(
 		/datum/material/glass = 5000,
-		/datum/material/iron = 15000,
+		/datum/material/steel = 15000,
 	)
 	build_path = /obj/item/shell/airlock
 	build_type = FABRICATOR | COMPONENT_PRINTER
@@ -504,7 +504,7 @@
 	id = "dispenser_shell"
 	materials = list(
 		/datum/material/glass = 5000,
-		/datum/material/iron = 15000,
+		/datum/material/steel = 15000,
 	)
 	build_path = /obj/item/shell/dispenser
 	build_type = FABRICATOR | COMPONENT_PRINTER
@@ -516,7 +516,7 @@
 	id = "bci_shell"
 	materials = list(
 		/datum/material/glass = 2000,
-		/datum/material/iron = 8000,
+		/datum/material/steel = 8000,
 	)
 	build_path = /obj/item/shell/bci
 	build_type = FABRICATOR | COMPONENT_PRINTER
@@ -528,7 +528,7 @@
 	id = "scanner_gate_shell"
 	materials = list(
 		/datum/material/glass = 4000,
-		/datum/material/iron = 12000,
+		/datum/material/steel = 12000,
 	)
 	build_path = /obj/item/shell/scanner_gate
 	build_type = FABRICATOR | COMPONENT_PRINTER
@@ -546,7 +546,7 @@
 	name = "Assembly Shell"
 	desc = "An assembly shell that can be attached to wires and other assemblies."
 	id = "assembly_shell"
-	materials = list(/datum/material/glass = 2000, /datum/material/iron = 5000)
+	materials = list(/datum/material/glass = 2000, /datum/material/steel = 5000)
 	build_path = /obj/item/assembly/wiremod
 	build_type = FABRICATOR | COMPONENT_PRINTER
 	category = list(DCAT_WIREMOD, "Shells")

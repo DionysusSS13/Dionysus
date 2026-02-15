@@ -454,7 +454,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/newscaster, 30)
 			playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
 			if(machine_stat & BROKEN)
 				to_chat(user, span_warning("The broken remains of [src] fall on the ground."))
-				new /obj/item/stack/sheet/iron(loc, 5)
+				new /obj/item/stack/sheet/steel(loc, 5)
 				new /obj/item/shard(loc)
 				new /obj/item/shard(loc)
 			else
@@ -501,7 +501,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/newscaster, 30)
 
 /obj/machinery/newscaster/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/iron(loc, 2)
+		new /obj/item/stack/sheet/steel(loc, 2)
 		new /obj/item/shard(loc)
 		new /obj/item/shard(loc)
 	qdel(src)
@@ -775,7 +775,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/newscaster, 30)
 	qdel(active_request)
 
 TYPEINFO_DEF(/obj/item/wallframe/newscaster)
-	default_materials = list(/datum/material/iron=14000, /datum/material/glass=8000)
+	default_materials = list(/datum/material/steel=14000, /datum/material/glass=8000)
 
 /obj/item/wallframe/newscaster
 	name = "newscaster frame"

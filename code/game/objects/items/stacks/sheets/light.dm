@@ -18,8 +18,8 @@
 	. += span_warning("The [name] looks unfinished, add <b>iron</b> to complete it.")
 
 /obj/item/stack/light_w/attackby(obj/item/O, mob/user, params)
-	if(istype(O, /obj/item/stack/sheet/iron))
-		var/obj/item/stack/sheet/iron/M = O
+	if(istype(O, /obj/item/stack/sheet/steel))
+		var/obj/item/stack/sheet/steel/M = O
 		if (M.use(1))
 			var/obj/item/L = new /obj/item/stack/tile/light(user.drop_location())
 			to_chat(user, span_notice("You make a light tile."))

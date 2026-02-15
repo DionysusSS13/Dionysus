@@ -58,7 +58,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 
 // Creates a new turf
 // new_baseturfs can be either a single type or list of types, formated the same as baseturfs. see turf.dm
-/turf/proc/ChangeTurf(turf/path, list/new_baseturfs, flags)
+/turf/proc/ChangeTurf(turf/path, list/new_baseturfs, flags, list/args_turf_new = null)
 	if(flags & CHANGETURF_DEFAULT_BASETURF)
 		new_baseturfs = initial(path.baseturfs)
 
@@ -111,7 +111,13 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	//We do this here so anything that doesn't want to persist can clear itself
 	var/list/old_comp_lookup = comp_lookup?.Copy()
 	var/list/old_signal_procs = signal_procs?.Copy()
-	var/turf/W = new path(src)
+	var/turf/W
+	if(args_turf_new)
+		var/list/_args = args_turf_new.Copy()
+		_args.Insert(1, src)
+		W = new path(arglist(_args))
+	else
+		W = new path(src)
 
 	SSzas.mark_for_update(src) //handle the addition of the new turf.
 

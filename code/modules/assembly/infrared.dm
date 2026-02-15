@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/assembly/infra)
-	default_materials = list(/datum/material/iron=1000, /datum/material/glass=500)
+	default_materials = list(/datum/material/steel=1000, /datum/material/glass=500)
 
 /obj/item/assembly/infra
 	name = "infrared emitter"

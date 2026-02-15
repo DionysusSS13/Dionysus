@@ -369,10 +369,10 @@
 
 /datum/reagent/copper/expose_obj(obj/exposed_obj, reac_volume, exposed_temperature)
 	. = ..()
-	if(!istype(exposed_obj, /obj/item/stack/sheet/iron))
+	if(!istype(exposed_obj, /obj/item/stack/sheet/steel))
 		return
 
-	var/obj/item/stack/sheet/iron/M = exposed_obj
+	var/obj/item/stack/sheet/steel/M = exposed_obj
 	reac_volume = min(reac_volume, M.amount)
 	new/obj/item/stack/sheet/bronze(get_turf(M), reac_volume)
 	M.use(reac_volume)

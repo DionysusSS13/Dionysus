@@ -51,11 +51,6 @@
 	stock_max = 3
 	availability_prob = 40
 
-/datum/market_item/misc/holywater/spawn_item(loc)
-	if (prob(6.66))
-		return new /obj/item/reagent_containers/glass/beaker/unholywater(loc)
-	return ..()
-
 /datum/market_item/misc/strange_seed
 	name = "Strange Seeds"
 	desc = "An Exotic Variety of seed that can contain anything from glow to acid."

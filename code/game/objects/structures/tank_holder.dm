@@ -1,6 +1,6 @@
 ///?
 TYPEINFO_DEF(/obj/structure/tank_holder)
-	default_materials = list(/datum/material/iron = 2000)
+	default_materials = list(/datum/material/steel = 2000)
 
 /obj/structure/tank_holder
 	name = "tank holder"

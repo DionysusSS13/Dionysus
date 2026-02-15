@@ -113,11 +113,6 @@
 	REMOVE_TRAIT(C, TRAIT_HOLY, CHEM_TRAIT_SOURCE(class))
 	..()
 
-/datum/reagent/water/holywater/expose_mob(mob/living/exposed_mob, reac_volume, exposed_temperature = T20C, datum/reagents/source, methods=TOUCH, show_message = TRUE, touch_protection = 0)
-	. = ..()
-	if(IS_CULTIST(exposed_mob))
-		to_chat(exposed_mob, span_userdanger("A vile holiness begins to spread its shining tendrils through your mind, purging the Geometer of Blood's influence!"))
-
 /datum/reagent/water/holywater/affect_ingest(mob/living/carbon/C, removed)
 	SHOULD_CALL_PARENT(FALSE) //We're going straight into blood through jesus i guess
 	holder.trans_to(C.bloodstream, volume)
@@ -130,38 +125,15 @@
 	. = ..()
 
 	C.adjust_timed_status_effect(1 SECONDS * removed, /datum/status_effect/jitter, max_duration = 20 SECONDS)
-	if(IS_CULTIST(C))
-		for(var/datum/action/innate/cult/blood_magic/BM in C.actions)
-			to_chat(C, span_cultlarge("Your blood rites falter as holy water scours your body!"))
-			for(var/datum/action/innate/cult/blood_spell/BS in BM.spells)
-				qdel(BS)
 	if(current_cycle >= 10)
 		C.adjust_timed_status_effect(1 SECONDS * removed, /datum/status_effect/speech/stutter, max_duration = 20 SECONDS)
 		C.set_timed_status_effect(10 SECONDS, /datum/status_effect/dizziness, only_if_higher = TRUE)
-		if(IS_CULTIST(C) && prob(5))
-			spawn(-1)
-				C.say(pick("Av'te Nar'Sie","Pa'lid Mors","INO INO ORA ANA","SAT ANA!","Daim'niodeis Arc'iai Le'eones","R'ge Na'sie","Diabo us Vo'iscum","Eld' Mon Nobis"), forced = "holy water")
-			if(prob(10))
-				C.visible_message(span_danger("[C] starts having a seizure!"), span_userdanger("You have a seizure!"))
-				C.Unconscious(12 SECONDS)
-				to_chat(C, "<span class='cultlarge'>[pick("Your blood is your bond - you are nothing without it", "Do not forget your place", \
-				"All that power, and you still fail?", "If you cannot scour this poison, I shall scour your meager life!")].</span>")
 
 	if(current_cycle >= 30)
-		if(IS_CULTIST(C))
-			C.mind.remove_antag_datum(/datum/antagonist/cult)
-			C.Unconscious(10 SECONDS)
 		C.remove_status_effect(/datum/status_effect/jitter)
 		C.remove_status_effect(/datum/status_effect/speech/stutter)
 		holder.remove_reagent(type, volume) // maybe this is a little too perfect and a max() cap on the statuses would be better??
 		return
-
-/datum/reagent/water/holywater/expose_turf(turf/exposed_turf, reac_volume, exposed_temperature)
-	. = ..()
-	if(reac_volume >= 10)
-		for(var/obj/effect/rune/R in exposed_turf)
-			qdel(R)
-		exposed_turf.Bless()
 
 /datum/reagent/water/hollowwater
 	name = "Hollow Water"
@@ -705,25 +677,12 @@
 
 
 /datum/reagent/fuel/unholywater/affect_blood(mob/living/carbon/C, removed)
-	if(IS_CULTIST(C))
-		C.adjust_drowsyness(-5* removed)
-		C.AdjustAllImmobility(-40 * removed)
-		C.stamina.adjust(10 * removed)
-		C.adjustToxLoss(-2 * removed, 0)
-		C.adjustOxyLoss(-2 * removed, 0)
-		C.adjustBruteLoss(-2 * removed, 0)
-		C.adjustFireLoss(-2 * removed, 0)
-		if(ishuman(C) && C.blood_volume < BLOOD_VOLUME_NORMAL)
-			C.blood_volume += 3 * removed
-	else  // Will deal about 90 damage when 50 units are thrown
-		C.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3 * removed, 150, updating_health = FALSE)
-		C.adjustToxLoss(1 * removed, 0, cause_of_death = "The devil")
-		C.adjustFireLoss(1 * removed, 0)
-		C.adjustOxyLoss(1 * removed, 0)
-		C.adjustBruteLoss(1 * removed, 0)
-
+	C.adjustOrganLoss(ORGAN_SLOT_BRAIN, 3 * removed, 150, updating_health = FALSE)
+	C.adjustToxLoss(1 * removed, 0, cause_of_death = "The devil")
+	C.adjustFireLoss(1 * removed, 0)
+	C.adjustOxyLoss(1 * removed, 0)
+	C.adjustBruteLoss(1 * removed, 0)
 	return TRUE
-
 
 /datum/reagent/glitter
 	name = "Generic Glitter"

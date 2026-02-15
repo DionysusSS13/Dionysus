@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/stamp)
-	default_materials = list(/datum/material/iron=60)
+	default_materials = list(/datum/material/steel=60)
 
 /obj/item/stamp
 	name = "\improper GRANTED rubber stamp"

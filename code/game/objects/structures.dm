@@ -16,7 +16,7 @@
 
 	#ifdef UNIT_TESTS
 	ASSERT_SORTED_SMOOTHING_GROUPS(smoothing_groups)
-	ASSERT_SORTED_SMOOTHING_GROUPS(canSmoothWith)
+	ASSERT_SORTED_SMOOTHING_GROUPS(smoothing_groups_with)
 	#endif
 
 	SETUP_SMOOTHING()

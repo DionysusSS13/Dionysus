@@ -112,7 +112,7 @@
 //////////
 
 TYPEINFO_DEF(/obj/item/clothing/accessory/medal)
-	default_materials = list(/datum/material/iron=1000)
+	default_materials = list(/datum/material/steel=1000)
 
 /obj/item/clothing/accessory/medal
 	name = "bronze medal"

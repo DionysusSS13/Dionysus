@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/structure/chair)
-	default_materials = list(/datum/material/iron = 2000)
+	default_materials = list(/datum/material/steel = 2000)
 
 /obj/structure/chair
 	name = "chair"
@@ -15,7 +15,7 @@ TYPEINFO_DEF(/obj/structure/chair)
 	layer = OBJ_LAYER
 	mouse_drop_pointer = TRUE
 
-	var/buildstacktype = /obj/item/stack/sheet/iron
+	var/buildstacktype = /obj/item/stack/sheet/steel
 	var/buildstackamount = 1
 	var/item_chair = /obj/item/chair // if null it can't be picked up
 
@@ -53,11 +53,6 @@ TYPEINFO_DEF(/obj/structure/chair)
 
 /obj/structure/chair/attack_paw(mob/user, list/modifiers)
 	return attack_hand(user, modifiers)
-
-/obj/structure/chair/narsie_act()
-	var/obj/structure/chair/wood/W = new/obj/structure/chair/wood(get_turf(src))
-	W.setDir(dir)
-	qdel(src)
 
 /obj/structure/chair/attackby(obj/item/W, mob/user, params)
 	if(flags_1 & NODECONSTRUCT_1)
@@ -146,9 +141,6 @@ TYPEINFO_DEF(/obj/structure/chair)
 	buildstacktype = /obj/item/stack/sheet/mineral/wood
 	buildstackamount = 3
 	item_chair = /obj/item/chair/wood
-
-/obj/structure/chair/wood/narsie_act()
-	return
 
 /obj/structure/chair/wood/wings
 	icon_state = "wooden_chair_wings"
@@ -263,9 +255,6 @@ TYPEINFO_DEF(/obj/structure/chair)
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool, 0)
 
-/obj/structure/chair/stool/narsie_act()
-	return
-
 /obj/structure/chair/MouseDrop(over_object, src_location, over_location)
 	. = ..()
 	if(over_object == usr && Adjacent(usr))
@@ -302,7 +291,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool/bar, 0)
 	item_chair = /obj/item/chair/stool/bamboo
 
 TYPEINFO_DEF(/obj/item/chair)
-	default_materials = list(/datum/material/iron = 2000)
+	default_materials = list(/datum/material/steel = 2000)
 
 /obj/item/chair
 	name = "chair"
@@ -327,11 +316,6 @@ TYPEINFO_DEF(/obj/item/chair)
 	user.visible_message(span_suicide("[user] begins hitting [user.p_them()]self with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
 	playsound(src, get_hitsound(), 50,TRUE)
 	return BRUTELOSS
-
-/obj/item/chair/narsie_act()
-	var/obj/item/chair/wood/W = new/obj/item/chair/wood(get_turf(src))
-	W.setDir(dir)
-	qdel(src)
 
 /obj/item/chair/attack_self(mob/user)
 	plant(user)
@@ -365,7 +349,7 @@ TYPEINFO_DEF(/obj/item/chair)
 	if(remaining_mats)
 		for(var/M=1 to remaining_mats)
 			new stack_type(get_turf(loc))
-	else if(custom_materials[GET_MATERIAL_REF(/datum/material/iron)])
+	else if(custom_materials[GET_MATERIAL_REF(/datum/material/steel)])
 		new /obj/item/stack/rods(get_turf(loc), 2)
 	qdel(src)
 
@@ -420,9 +404,6 @@ TYPEINFO_DEF(/obj/item/chair)
 	origin_type = /obj/structure/chair/stool/bamboo
 	break_chance = 50	//Submissive and breakable unlike the chad iron stool
 
-/obj/item/chair/stool/narsie_act()
-	return //sturdy enough to ignore a god
-
 TYPEINFO_DEF(/obj/item/chair/wood)
 	default_materials = null
 
@@ -435,9 +416,6 @@ TYPEINFO_DEF(/obj/item/chair/wood)
 	hitsound = 'sound/weapons/genhit1.ogg'
 	origin_type = /obj/structure/chair/wood
 	break_chance = 50
-
-/obj/item/chair/wood/narsie_act()
-	return
 
 /obj/item/chair/wood/wings
 	icon_state = "wooden_chair_wings_toppled"

@@ -281,7 +281,7 @@
  * Toy gun: Why isn't this an /obj/item/gun?
  */
 TYPEINFO_DEF(/obj/item/toy/gun)
-	default_materials = list(/datum/material/iron=10, /datum/material/glass=10)
+	default_materials = list(/datum/material/steel=10, /datum/material/glass=10)
 
 /obj/item/toy/gun
 	name = "cap gun"
@@ -344,7 +344,7 @@ TYPEINFO_DEF(/obj/item/toy/gun)
 		span_hear("You hear a gunshot!"))
 
 TYPEINFO_DEF(/obj/item/toy/ammo/gun)
-	default_materials = list(/datum/material/iron=10, /datum/material/glass=10)
+	default_materials = list(/datum/material/steel=10, /datum/material/glass=10)
 
 /obj/item/toy/ammo/gun
 	name = "capgun ammo"

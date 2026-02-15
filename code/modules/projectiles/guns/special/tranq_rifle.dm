@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/gun/ballistic/rifle/tranqrifle)
-	default_materials = list(/datum/material/iron=2000)
+	default_materials = list(/datum/material/steel=2000)
 
 /obj/item/gun/ballistic/rifle/tranqrifle
 	name = "tranquilizer rifle"

@@ -146,20 +146,20 @@
 	if(target == src)
 		to_chat(src, span_warning("You almost bite yourself, but then decide against it."))
 		return
-	if(istype(target, /turf/closed/wall))
+	if(istype(target, /turf/closed/constructed_wall))
 		if(tearing_wall)
 			return
 		tearing_wall = TRUE
-		var/turf/closed/wall/thewall = target
+		var/turf/closed/constructed_wall/thewall = target
 		to_chat(src, span_warning("You begin tearing through the wall..."))
 		playsound(src, 'sound/machines/airlock_alien_prying.ogg', 100, TRUE)
 		var/timetotear = 40
-		if(istype(target, /turf/closed/wall/r_wall))
+		if(thewall.material_reinforcement)
 			timetotear = 120
 		if(do_after(src, thewall, timetotear))
 			if(istype(thewall, /turf/open))
 				return
-			thewall.dismantle_wall(1)
+			thewall.destroy_wall(and_girder = TRUE)
 			playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
 		tearing_wall = FALSE
 		return

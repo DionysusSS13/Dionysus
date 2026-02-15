@@ -56,7 +56,7 @@ SUBSYSTEM_DEF(holomap)
 							continue turfloop
 
 				var/obj/structure/window/W
-				if(iswallturf(T) || locate(/obj/structure/low_wall, T) || ((W = locate(/obj/structure/window, T)) && W.fulltile) || locate(/obj/structure/plasticflaps, T))
+				if(iswallturf(T) || ((W = locate(/obj/structure/window, T)) && W.fulltile) || locate(/obj/structure/plasticflaps, T))
 					for(var/dir in GLOB.cardinals)
 						var/turf/other = get_step(T, dir)
 						var/area/other_area = other.loc

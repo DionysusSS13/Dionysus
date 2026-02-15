@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/desynchronizer)
-	default_materials = list(/datum/material/iron=250, /datum/material/glass=500)
+	default_materials = list(/datum/material/steel=250, /datum/material/glass=500)
 
 /obj/item/desynchronizer
 	name = "desynchronizer"

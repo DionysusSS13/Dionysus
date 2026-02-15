@@ -1,7 +1,7 @@
 //his isn't a subtype of the syringe gun because the syringegun subtype is made to hold syringes
 //this is meant to hold reagents/obj/item/gun/syringe
 TYPEINFO_DEF(/obj/item/gun/chem)
-	default_materials = list(/datum/material/iron=2000)
+	default_materials = list(/datum/material/steel=2000)
 
 /obj/item/gun/chem
 	name = "reagent gun"

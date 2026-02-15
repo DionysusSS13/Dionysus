@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/electropack)
-	default_materials = list(/datum/material/iron=10000, /datum/material/glass=2500)
+	default_materials = list(/datum/material/steel=10000, /datum/material/glass=2500)
 
 /obj/item/electropack
 	name = "electropack"

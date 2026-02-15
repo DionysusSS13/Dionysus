@@ -120,7 +120,7 @@ TYPEINFO_DEF(/obj/item/clothing/mask/gas/atmos)
 
 TYPEINFO_DEF(/obj/item/clothing/mask/gas/welding)
 	default_armor = list(BLUNT = 10, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 100, ACID = 55)
-	default_materials = list(/datum/material/iron=4000, /datum/material/glass=2000)
+	default_materials = list(/datum/material/steel=4000, /datum/material/glass=2000)
 
 /obj/item/clothing/mask/gas/welding
 	name = "welding mask"

@@ -6,7 +6,7 @@
 #define ASSEMBLY_BEEP_VOLUME 5
 
 TYPEINFO_DEF(/obj/item/assembly)
-	default_materials = list(/datum/material/iron=100)
+	default_materials = list(/datum/material/steel=100)
 
 /obj/item/assembly
 	name = "assembly"

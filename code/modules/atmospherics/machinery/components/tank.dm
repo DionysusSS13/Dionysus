@@ -1,7 +1,7 @@
 #define TANK_PLATING_SHEETS 12
 
 TYPEINFO_DEF(/obj/machinery/atmospherics/components/tank)
-	default_materials = list(/datum/material/iron = TANK_PLATING_SHEETS * MINERAL_MATERIAL_AMOUNT)
+	default_materials = list(/datum/material/steel = TANK_PLATING_SHEETS * MINERAL_MATERIAL_AMOUNT)
 
 /obj/machinery/atmospherics/components/tank
 	icon = 'icons/obj/atmospherics/stationary_canisters.dmi'
@@ -24,7 +24,7 @@ TYPEINFO_DEF(/obj/machinery/atmospherics/components/tank)
 
 	smoothing_flags = SMOOTH_CORNERS | SMOOTH_OBJ
 	smoothing_groups = SMOOTH_GROUP_GAS_TANK
-	canSmoothWith = SMOOTH_GROUP_GAS_TANK
+	smoothing_groups_with = SMOOTH_GROUP_GAS_TANK
 	appearance_flags = KEEP_TOGETHER|LONG_GLIDE
 
 	greyscale_config = /datum/greyscale_config/stationary_canister

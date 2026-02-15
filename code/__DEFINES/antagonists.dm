@@ -162,9 +162,6 @@ GLOBAL_LIST_INIT(ai_employers, list(
 
 #define UPLINK_THEME_UNDERWORLD_MARKET "neutral"
 
-/// Checks if the given mob is a blood cultist
-#define IS_CULTIST(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/cult))
-
 /// Checks if the given mob is a nuclear operative
 #define IS_NUKE_OP(mob) (mob?.mind?.has_antag_datum(/datum/antagonist/nukeop))
 

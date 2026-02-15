@@ -60,7 +60,7 @@ handles linking back and forth.
 	silo = null
 
 	var/static/list/allowed_mats = list(
-		/datum/material/iron,
+		/datum/material/steel,
 		/datum/material/glass,
 		/datum/material/silver,
 		/datum/material/gold,

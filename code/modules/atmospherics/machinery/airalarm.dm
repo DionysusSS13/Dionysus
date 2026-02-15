@@ -979,7 +979,7 @@ TYPEINFO_DEF(/obj/machinery/airalarm)
 
 /obj/machinery/airalarm/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/iron(loc, 2)
+		new /obj/item/stack/sheet/steel(loc, 2)
 		var/obj/item/I = new /obj/item/electronics/airalarm(loc)
 		if(!disassembled)
 			I.take_damage(I.max_integrity * 0.5, sound_effect=FALSE)

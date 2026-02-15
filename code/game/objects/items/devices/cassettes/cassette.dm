@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/tape)
-	default_materials = list(/datum/material/iron=20, /datum/material/glass=5)
+	default_materials = list(/datum/material/steel=20, /datum/material/glass=5)
 
 /obj/item/tape
 	name = "cassette"

@@ -1,6 +1,6 @@
 /// A cable that can connect integrated circuits to anything with a USB port, such as computers and machines.
 TYPEINFO_DEF(/obj/item/usb_cable)
-	default_materials = list(/datum/material/iron = 75)
+	default_materials = list(/datum/material/steel = 75)
 
 /obj/item/usb_cable
 	name = "usb cable"

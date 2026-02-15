@@ -115,16 +115,6 @@
 	airlock_type = /obj/machinery/door/airlock/shuttle
 	glass_type = /obj/machinery/door/airlock/shuttle/glass
 
-/obj/structure/door_assembly/door_assembly_cult
-	name = "cult airlock assembly"
-	base_name = "cult airlock"
-	airlock_type = /obj/machinery/door/airlock/cult
-	glass_type = /obj/machinery/door/airlock/cult/glass
-
-/obj/structure/door_assembly/door_assembly_cult/unruned
-	airlock_type = /obj/machinery/door/airlock/cult/unruned
-	glass_type = /obj/machinery/door/airlock/cult/unruned/glass
-
 /obj/structure/door_assembly/door_assembly_viro
 	name = "virology airlock assembly"
 	base_name = "virology airlock"

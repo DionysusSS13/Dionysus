@@ -36,7 +36,7 @@
 	var/message2 = ""
 
 TYPEINFO_DEF(/obj/item/wallframe/status_display)
-	default_materials = list(/datum/material/iron=14000, /datum/material/glass=8000)
+	default_materials = list(/datum/material/steel=14000, /datum/material/glass=8000)
 
 /obj/item/wallframe/status_display
 	name = "status display frame"
@@ -74,7 +74,7 @@ TYPEINFO_DEF(/obj/item/wallframe/status_display)
 	if(flags_1 & NODECONSTRUCT_1)
 		return
 	if(!disassembled)
-		new /obj/item/stack/sheet/iron(drop_location(), 2)
+		new /obj/item/stack/sheet/steel(drop_location(), 2)
 		new /obj/item/shard(drop_location())
 		new /obj/item/shard(drop_location())
 	else

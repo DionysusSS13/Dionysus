@@ -174,7 +174,7 @@
 	to_chat(user, span_notice("You start deconstructing the frame..."))
 	if(tool.use_tool(src, user, 2 SECONDS, volume=50))
 		to_chat(user, span_notice("You deconstruct the frame."))
-		var/obj/item/stack/sheet/iron/M = new (drop_location(), 5)
+		var/obj/item/stack/sheet/steel/M = new (drop_location(), 5)
 		if (!QDELETED(M))
 			M.add_fingerprint(user)
 

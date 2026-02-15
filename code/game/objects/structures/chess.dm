@@ -11,7 +11,7 @@
 	to_chat(user, span_notice("You start to take apart the chess piece."))
 	if(!do_after(user, src, 0.5 SECONDS))
 		return TRUE
-	var/obj/item/stack/sheet/iron/metal_sheets = new (drop_location(), 2)
+	var/obj/item/stack/sheet/steel/metal_sheets = new (drop_location(), 2)
 	if (!QDELETED(metal_sheets))
 		metal_sheets.add_fingerprint(user)
 	tool.play_tool_sound(src)

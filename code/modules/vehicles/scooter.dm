@@ -210,7 +210,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 
 /obj/item/scooter_frame/attackby(obj/item/I, mob/user, params)
-	if(!istype(I, /obj/item/stack/sheet/iron))
+	if(!istype(I, /obj/item/stack/sheet/steel))
 		return ..()
 	if(!I.tool_start_check(user, amount=5))
 		return
@@ -256,7 +256,7 @@
 	if(!I.use_tool(src, user, 20, volume=50))
 		return
 	to_chat(user, span_notice("You deconstruct the wheels on [src]."))
-	new /obj/item/stack/sheet/iron(drop_location(), 5)
+	new /obj/item/stack/sheet/steel(drop_location(), 5)
 	new /obj/item/scooter_frame(drop_location())
 	if(has_buckled_mobs())
 		var/mob/living/carbon/skatergirl = buckled_mobs[1]

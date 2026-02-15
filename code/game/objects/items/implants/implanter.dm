@@ -2,7 +2,7 @@
  * Players can use this item to put obj/item/implant's in living mobs. Can be renamed with a pen.
  */
 TYPEINFO_DEF(/obj/item/implanter)
-	default_materials = list(/datum/material/iron=600, /datum/material/glass=200)
+	default_materials = list(/datum/material/steel=600, /datum/material/glass=200)
 
 /obj/item/implanter
 	name = "implanter"

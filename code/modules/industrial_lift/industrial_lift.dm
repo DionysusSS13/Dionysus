@@ -16,7 +16,7 @@ TYPEINFO_DEF(/obj/structure/industrial_lift)
 	plane = FLOOR_PLANE
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_INDUSTRIAL_LIFT
-	canSmoothWith = SMOOTH_GROUP_INDUSTRIAL_LIFT
+	smoothing_groups_with = SMOOTH_GROUP_INDUSTRIAL_LIFT
 	obj_flags = CAN_BE_HIT | BLOCK_Z_OUT_DOWN
 	appearance_flags = PIXEL_SCALE|KEEP_TOGETHER //no TILE_BOUND since we're potentially multitile
 	// If we don't do this, we'll build our overlays early, and fuck up how we're rendered
@@ -279,13 +279,13 @@ TYPEINFO_DEF(/obj/structure/industrial_lift)
 		for(var/turf/dest_turf as anything in entering_locs)
 			SEND_SIGNAL(dest_turf, COMSIG_TURF_INDUSTRIAL_LIFT_ENTER, things_to_move)
 
-			if(istype(dest_turf, /turf/closed/wall))
-				var/turf/closed/wall/C = dest_turf
-				do_sparks(2, FALSE, C)
-				C.dismantle_wall(devastated = TRUE)
+			if(iswall(dest_turf))
+				var/turf/closed/constructed_wall/wall = dest_turf
+				do_sparks(2, FALSE, wall)
+				wall.destroy_wall()
 				for(var/mob/M in urange(8, src))
 					shake_camera(M, 2, 3)
-				playsound(C, 'sound/effects/meteorimpact.ogg', 100, TRUE)
+				playsound(wall, 'sound/effects/meteorimpact.ogg', 100, TRUE)
 
 			for(var/mob/living/crushed in dest_turf.contents)
 				to_chat(crushed, span_userdanger("You are crushed by [src]!"))
@@ -296,13 +296,13 @@ TYPEINFO_DEF(/obj/structure/industrial_lift)
 			///handles any special interactions objects could have with the lift/tram, handled on the item itself
 			SEND_SIGNAL(dest_turf, COMSIG_TURF_INDUSTRIAL_LIFT_ENTER, things_to_move)
 
-			if(istype(dest_turf, /turf/closed/wall))
-				var/turf/closed/wall/C = dest_turf
-				do_sparks(2, FALSE, C)
-				C.dismantle_wall(devastated = TRUE)
+			if(iswall(dest_turf))
+				var/turf/closed/constructed_wall/wall = dest_turf
+				do_sparks(2, FALSE, wall)
+				wall.destroy_wall()
 				for(var/mob/client_mob in SSspatial_grid.orthogonal_range_search(src, SPATIAL_GRID_CONTENTS_TYPE_CLIENTS, 8))
 					shake_camera(client_mob, 2, 3)
-				playsound(C, 'sound/effects/meteorimpact.ogg', 100, TRUE)
+				playsound(wall, 'sound/effects/meteorimpact.ogg', 100, TRUE)
 
 	else
 		///potentially finds a spot to throw the victim at for daring to be hit by a tram. is null if we havent found anything to throw
@@ -314,15 +314,14 @@ TYPEINFO_DEF(/obj/structure/industrial_lift)
 			///handles any special interactions objects could have with the lift/tram, handled on the item itself
 			SEND_SIGNAL(dest_turf, COMSIG_TURF_INDUSTRIAL_LIFT_ENTER, things_to_move)
 
-			if(istype(dest_turf, /turf/closed/wall))
-				var/turf/closed/wall/collided_wall = dest_turf
-				do_sparks(2, FALSE, collided_wall)
-				collided_wall.dismantle_wall(devastated = TRUE)
-				for(var/mob/client_mob in SSspatial_grid.orthogonal_range_search(collided_wall, SPATIAL_GRID_CONTENTS_TYPE_CLIENTS, 8))
+			if(iswall(dest_turf))
+				var/turf/closed/constructed_wall/wall = dest_turf
+				do_sparks(2, FALSE, wall)
+				wall.destroy_wall()
+				for(var/mob/client_mob in SSspatial_grid.orthogonal_range_search(wall, SPATIAL_GRID_CONTENTS_TYPE_CLIENTS, 8))
 					if(get_dist(dest_turf, client_mob) <= 8)
 						shake_camera(client_mob, 2, 3)
-
-				playsound(collided_wall, 'sound/effects/meteorimpact.ogg', 100, TRUE)
+				playsound(wall, 'sound/effects/meteorimpact.ogg', 100, TRUE)
 
 			for(var/obj/structure/victim_structure in dest_turf.contents)
 				if(QDELING(victim_structure))
@@ -668,7 +667,7 @@ TYPEINFO_DEF(/obj/structure/industrial_lift)
 	base_icon_state = null
 	smoothing_flags = NONE
 	smoothing_groups = null
-	canSmoothWith = null
+	smoothing_groups_with = null
 	//kind of a centerpiece of the station, so pretty tough to destroy
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 

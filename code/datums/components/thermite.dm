@@ -20,13 +20,8 @@
 	))
 	///List of turfs that are immune to thermite
 	var/static/list/immunelist = typecacheof(list(
-		/turf/closed/wall/mineral/diamond,
 		/turf/closed/indestructible,
 		/turf/open/indestructible,
-	))
-	///List of turfs that take extra thermite to burn through
-	var/static/list/resistlist = typecacheof(list(
-		/turf/closed/wall/r_wall,
 	))
 
 /datum/component/thermite/Initialize(_amount)
@@ -37,8 +32,10 @@
 		amount = 0 //Yeah the overlay can still go on it and be cleaned but you arent burning down a diamond wall
 	else
 		amount = _amount
-		if(resistlist[parent.type])
-			burn_require = 50
+		if(istype(parent, /turf/closed/constructed_wall))
+			var/turf/closed/constructed_wall/wall = parent
+			if(wall.material_reinforcement)
+				burn_require = 50
 		else
 			burn_require = 30
 

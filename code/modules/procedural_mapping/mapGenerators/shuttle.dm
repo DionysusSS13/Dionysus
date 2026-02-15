@@ -2,8 +2,7 @@
 	spawnableTurfs = list(/turf/open/floor/mineral/titanium = 100)
 
 /datum/map_generator_module/border/shuttle_walls
-	spawnableTurfs = list(/turf/closed/wall/mineral/titanium = 100)
-// Generators
+	spawnableTurfs = list(/turf/closed/constructed_wall/titanium = 100)
 
 /datum/map_generator/shuttle/full
 	modules = list(/datum/map_generator_module/bottom_layer/shuttle_floor, \

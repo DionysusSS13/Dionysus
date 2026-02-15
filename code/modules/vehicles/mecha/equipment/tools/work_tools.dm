@@ -307,7 +307,7 @@
 		if(MODE_DECONSTRUCT)
 			to_chat(source, "[icon2html(src, source)][span_notice("Deconstructing [target]...")]")
 			if(iswallturf(target))
-				var/turf/closed/wall/W = target
+				var/turf/closed/constructed_wall/W = target
 				if(!do_after_cooldown(W, source))
 					return
 				W.ScrapeAway()
@@ -332,7 +332,7 @@
 				to_chat(source, "[icon2html(src, source)][span_notice("Building Wall...")]")
 				if(!do_after_cooldown(F, source))
 					return
-				F.PlaceOnTop(/turf/closed/wall)
+				F.PlaceOnTop(/turf/closed/constructed_wall)
 		if(MODE_AIRLOCK)
 			if(isfloorturf(target))
 				to_chat(source, "[icon2html(src, source)][span_notice("Building Airlock...")]")

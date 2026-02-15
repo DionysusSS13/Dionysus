@@ -29,4 +29,4 @@
 	base_icon_state = "ice_turf"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_FLOOR_ICE
-	canSmoothWith = SMOOTH_GROUP_FLOOR_ICE
+	smoothing_groups_with = SMOOTH_GROUP_FLOOR_ICE

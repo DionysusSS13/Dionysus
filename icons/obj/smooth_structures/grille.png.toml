@@ -1,2 +1,0 @@
-output_name = "grille"
-template = "bitmask/baylike_32x32.toml"

@@ -81,7 +81,7 @@ output_hash = {}
 files = []
 if platform.system() == "Windows":
     for folder in whitelisted_folders:
-        files += glob.glob(f"{path_to_us}\..\\..\\" + folder + "\\**\*.toml", recursive = True)
+        files += glob.glob(f"{path_to_us}\\..\\..\\" + folder + "\\**\\*.toml", recursive = True)
 else:
     for folder in whitelisted_folders:
         files += glob.glob(f"{path_to_us}/../../" + folder + "/**/*.toml", recursive = True)
@@ -100,14 +100,14 @@ for cutter_template in files:
 
     output_hash[output_name] = get_file_hash(output_name)
 
-# Sanity check
-if len(output_hash) == 0:
-    print(f"::error output_hash dict was empty. Something has gone wrong")
+# Sanity check (dionysus icons is an icon staging folder, so can be empty)
+if len(output_hash) == 0 and folder != "dionysus_icons":
+    print(f"::error output_hash dict for folder {folder} was empty. Something has gone wrong")
     sys.exit(1)
 
 # Execute cutter
 if platform.system() == "Windows":
-    subprocess.run(f"{path_to_us}\..\\build\\build.bat --force-recut --ci icon-cutter")
+    subprocess.run(f"{path_to_us}\\..\\build\\build.bat --force-recut --ci icon-cutter")
 else:
     subprocess.run(f"{path_to_us}/../build/build --force-recut --ci icon-cutter", shell = True)
 

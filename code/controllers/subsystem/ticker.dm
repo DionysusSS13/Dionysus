@@ -265,7 +265,11 @@ SUBSYSTEM_DEF(ticker)
 	INVOKE_ASYNC(SSdbcore, TYPE_PROC_REF(/datum/controller/subsystem/dbcore,SetRoundStart))
 
 	to_chat(world, span_notice("<B>Welcome to [station_name()], enjoy your stay!</B>"))
-	SEND_SOUND(world, sound(SSstation.announcer.get_rand_welcome_sound()))
+	var/sound/game_start_sound = sound(SSstation.announcer.get_rand_welcome_sound())
+	for(var/client/client as anything in GLOB.clients)
+		if(!(client.prefs.toggles & SOUND_LOBBY))
+			continue
+		SEND_SOUND(client, game_start_sound)
 
 	current_state = GAME_STATE_PLAYING
 	Master.SetRunLevel(RUNLEVEL_GAME)

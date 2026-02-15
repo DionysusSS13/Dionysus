@@ -1,6 +1,6 @@
 //DISCLAIMER: I know nothing about how real-life Geiger counters work. This will not be realistic. ~Xhuis
 TYPEINFO_DEF(/obj/item/geiger_counter)
-	default_materials = list(/datum/material/iron = 150, /datum/material/glass = 150)
+	default_materials = list(/datum/material/steel = 150, /datum/material/glass = 150)
 
 /obj/item/geiger_counter //DISCLAIMER: I know nothing about how real-life Geiger counters work. This will not be realistic. ~Xhuis
 	name = "\improper Geiger counter"

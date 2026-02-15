@@ -138,7 +138,7 @@
 	. = ..()
 	proximity_monitor = new(src, 1)
 	var/list/allowed_materials = list(
-		/datum/material/iron,
+		/datum/material/steel,
 		/datum/material/glass,
 		/datum/material/silver,
 		/datum/material/gold,
@@ -150,7 +150,7 @@
 		/datum/material/bluespace
 	)
 	AddComponent(/datum/component/material_container, allowed_materials, INFINITY, MATCONTAINER_EXAMINE|BREAKDOWN_FLAGS_ORE_PROCESSOR, allowed_items=/obj/item/stack)
-	selected_material = GET_MATERIAL_REF(/datum/material/iron)
+	selected_material = GET_MATERIAL_REF(/datum/material/steel)
 
 	set_internal_disk(new /obj/item/disk/data(src))
 	var/datum/c4_file/fab_design_bundle/file_bundle = new(SStech.fetch_designs(subtypesof(/datum/design/alloy)))

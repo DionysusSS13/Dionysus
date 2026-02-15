@@ -204,6 +204,7 @@ SUBSYSTEM_DEF(zas)
 	var/timer = TICK_USAGE_REAL
 	if (!resumed)
 		processing_edges = active_edges.Copy()
+		processing_zones = zones.Copy()
 		processing_hotspots = active_hotspots.Copy()
 		processing_exposure = zones_with_sensitive_contents.Copy()
 
@@ -370,7 +371,7 @@ SUBSYSTEM_DEF(zas)
 
 /////////ATMOS EXPOSE//////
 
-	last_process = "ATMOS EXPOSE"
+	last_process = "ZONE CONTENTS ATMOS EXPOSE"
 	timer = TICK_USAGE_REAL
 	cached_cost = 0
 	while(curr_sensitive_zones.len)
@@ -386,6 +387,18 @@ SUBSYSTEM_DEF(zas)
 	cached_cost += TICK_USAGE_REAL - timer
 	cost_exposure = MC_AVERAGE(cost_exposure, TICK_DELTA_TO_MS(cached_cost))
 
+// border exposure
+
+	last_process = "ZONE BORDER ATMOS EXPOSE"
+	timer = TICK_USAGE_REAL
+	cached_cost = 0
+	while(processing_zones.len)
+		var/zone/Z = processing_zones[processing_zones.len]
+		processing_zones.len--
+		for(var/turf/T as anything in Z.border_turfs_idx_nbr)
+			T.atmos_expose(Z.air, Z.air.temperature)
+			if(MC_TICK_CHECK)
+				return
 
 ///Adds a zone to the subsystem, gives it's identifer, and marks it for update.
 /datum/controller/subsystem/zas/proc/add_zone(zone/z)

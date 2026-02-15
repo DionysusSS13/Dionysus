@@ -12,7 +12,7 @@
 	var/list/current_state
 	var/width = 10
 	var/height = 10
-	var/list/type_map = list(/turf/open/floor/plating, /turf/closed/wall)
+	var/list/type_map = list(/turf/open/floor/plating, /turf/closed/constructed_wall)
 	var/turf/start = null
 
 /datum/map_generator/ca/defineRegion(turf/Start, turf/End, replace = 0)

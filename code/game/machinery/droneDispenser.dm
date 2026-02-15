@@ -50,10 +50,10 @@
 
 /obj/machinery/drone_dispenser/Initialize(mapload)
 	. = ..()
-	var/datum/component/material_container/materials = AddComponent(/datum/component/material_container, list(/datum/material/iron, /datum/material/glass), MINERAL_MATERIAL_AMOUNT * MAX_STACK_SIZE * 2, MATCONTAINER_EXAMINE|BREAKDOWN_FLAGS_DRONE_DISPENSER, allowed_items=/obj/item/stack)
+	var/datum/component/material_container/materials = AddComponent(/datum/component/material_container, list(/datum/material/steel, /datum/material/glass), MINERAL_MATERIAL_AMOUNT * MAX_STACK_SIZE * 2, MATCONTAINER_EXAMINE|BREAKDOWN_FLAGS_DRONE_DISPENSER, allowed_items=/obj/item/stack)
 	materials.insert_amount_mat(starting_amount)
 	materials.precise_insertion = TRUE
-	using_materials = list(/datum/material/iron = iron_cost, /datum/material/glass = glass_cost)
+	using_materials = list(/datum/material/steel = iron_cost, /datum/material/glass = glass_cost)
 
 /obj/machinery/drone_dispenser/preloaded
 	starting_amount = 5000
@@ -242,7 +242,7 @@
 
 /obj/machinery/drone_dispenser/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/iron(loc, 5)
+		new /obj/item/stack/sheet/steel(loc, 5)
 	qdel(src)
 
 #undef DRONE_PRODUCTION

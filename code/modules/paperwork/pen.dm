@@ -11,7 +11,7 @@
  * Pens
  */
 TYPEINFO_DEF(/obj/item/pen)
-	default_materials = list(/datum/material/iron=10)
+	default_materials = list(/datum/material/steel=10)
 
 /obj/item/pen
 	desc = "It's a normal black ink pen."
@@ -311,7 +311,7 @@ TYPEINFO_DEF(/obj/item/pen/fountain/captain)
 	hidden_icon = "eprototypedagger"
 
 TYPEINFO_DEF(/obj/item/pen/survival)
-	default_materials = list(/datum/material/iron=10, /datum/material/diamond=100, /datum/material/titanium = 10)
+	default_materials = list(/datum/material/steel=10, /datum/material/diamond=100, /datum/material/titanium = 10)
 
 /obj/item/pen/survival
 	name = "survival pen"

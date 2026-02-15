@@ -1102,15 +1102,6 @@
 	turf_type = /turf/open/floor/bronze/filled
 	merge_type = /obj/item/stack/tile/bronze/filled
 
-/obj/item/stack/tile/cult
-	name = "engraved tile"
-	singular_name = "engraved floor tile"
-	desc = "A strange tile made from runed metal. Doesn't seem to actually have any paranormal powers."
-	icon_state = "tile_cult"
-	turf_type = /turf/open/floor/cult
-	mats_per_unit = list(/datum/material/runedmetal=500)
-	merge_type = /obj/item/stack/tile/cult
-
 /// Floor tiles used to test emissive turfs.
 /obj/item/stack/tile/emissive_test
 	name = "emissive test tile"
@@ -1162,7 +1153,7 @@
 	inhand_icon_state = "tile-rglass"
 	turf_type = /turf/open/floor/glass/reinforced
 	merge_type = /obj/item/stack/tile/rglass
-	mats_per_unit = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT * 0.125, /datum/material/glass=MINERAL_MATERIAL_AMOUNT * 0.25) // 4 tiles per sheet
+	mats_per_unit = list(/datum/material/steel=MINERAL_MATERIAL_AMOUNT * 0.125, /datum/material/glass=MINERAL_MATERIAL_AMOUNT * 0.25) // 4 tiles per sheet
 	replace_plating = TRUE
 
 /obj/item/stack/tile/rglass/sixty

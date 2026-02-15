@@ -12,24 +12,6 @@
 	log_combat(user, src, "attacked", mecha_attacker, "(COMBAT MODE: [uppertext(user.combat_mode)] (DAMTYPE: [uppertext(mecha_attacker.damtype)])")
 	return 0
 
-/turf/closed/wall/mech_melee_attack(obj/vehicle/sealed/mecha/mecha_attacker, mob/living/user)
-	mecha_attacker.do_attack_animation(src)
-	switch(mecha_attacker.damtype)
-		if(BRUTE)
-			playsound(src, 'sound/weapons/punch4.ogg', 50, TRUE)
-		if(BURN)
-			playsound(src, 'sound/items/welder.ogg', 50, TRUE)
-		else
-			return 0
-	mecha_attacker.visible_message(span_danger("[mecha_attacker] hits [src]!"), span_danger("You hit [src]!"), null, COMBAT_MESSAGE_RANGE)
-	if(prob(hardness + mecha_attacker.force) && mecha_attacker.force > 20)
-		dismantle_wall(1)
-		playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)
-	else
-		add_dent(WALL_DENT_HIT)
-	..()
-	return 100 //this is an arbitrary "damage" number since the actual damage is rng dismantle
-
 /obj/mech_melee_attack(obj/vehicle/sealed/mecha/mecha_attacker, mob/living/user)
 	mecha_attacker.do_attack_animation(src)
 	switch(mecha_attacker.damtype)

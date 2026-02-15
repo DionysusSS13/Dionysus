@@ -3,16 +3,14 @@
 /*
 	Each tile is divided in 4 corners, each corner has an appearance associated to it; the tile is then overlayed by these 4 appearances
 	To use this, just set your atom's 'smoothing_flags' var to 1. If your atom can be moved/unanchored, set its 'can_be_unanchored' var to 1.
-	If you don't want your atom's icon to smooth with anything but atoms of the same type, set the list 'canSmoothWith' to null;
-	Otherwise, put all the smoothing groups you want the atom icon to smooth with in 'canSmoothWith', including the group of the atom itself.
-	Smoothing groups are just shared flags between objects. If one of the 'canSmoothWith' of A matches one of the `smoothing_groups` of B, then A will smooth with B.
+	If you don't want your atom's icon to smooth with anything but atoms of the same type, set the list 'smoothing_groups_with' to null;
+	Otherwise, put all the smoothing groups you want the atom icon to smooth with in 'smoothing_groups_with', including the group of the atom itself.
+	Smoothing groups are just shared flags between objects. If one of the 'smoothing_groups_with' of A matches one of the `smoothing_groups` of B, then A will smooth with B.
 
 	Each atom has its own icon file with all the possible corner states. See 'smooth_wall.dmi' for a template.
 
 	For turfs, what appears under the diagonal corners depends on the turf that was in the same position previously: if you make a wall on
 	a plating floor, you will see plating under the diagonal wall corner, if it was space, you will see space.
-
-	To see an example of a diagonal wall, see '/turf/closed/wall/mineral/titanium' and its subtypes.
 */
 
 #define NO_ADJ_FOUND 0
@@ -201,6 +199,8 @@
 	if(new_overlays)
 		add_overlay(new_overlays)
 
+/atom/proc/can_smooth(atom/other)
+	return TRUE
 
 ///Scans direction to find targets to smooth with.
 /atom/proc/find_type_in_direction(direction)
@@ -213,15 +213,23 @@
 	if(isnull(can_area_smooth))
 		return NO_ADJ_FOUND
 
-	if(isnull(canSmoothWith)) //special case in which it will only smooth with itself
+	if(isnull(smoothing_groups_with)) //special case in which it will only smooth with itself
 		if(isturf(src))
-			return (type == target_turf.type) ? ADJ_FOUND : NO_ADJ_FOUND
+			if(type != target_turf.type)
+				return NO_ADJ_FOUND
+			if(!can_smooth(target_turf))
+				return NO_ADJ_FOUND
+			return ADJ_FOUND
 		var/atom/matching_obj = locate(type) in target_turf
-		return (matching_obj && matching_obj.type == type) ? ADJ_FOUND : NO_ADJ_FOUND
+		if(!matching_obj || matching_obj.type != type || !can_smooth(matching_obj))
+			return NO_ADJ_FOUND
+		return ADJ_FOUND
 
 	if(!isnull(target_turf.smoothing_groups))
-		for(var/target in canSmoothWith)
-			if(!(canSmoothWith[target] & target_turf.smoothing_groups[target]))
+		for(var/target in smoothing_groups_with)
+			if(!(smoothing_groups_with[target] & target_turf.smoothing_groups[target]))
+				continue
+			if(!can_smooth(target_turf))
 				continue
 			return ADJ_FOUND
 
@@ -229,8 +237,10 @@
 		for(var/atom/movable/thing as anything in target_turf)
 			if(!thing.anchored || isnull(thing.smoothing_groups))
 				continue
-			for(var/target in canSmoothWith)
-				if(!(canSmoothWith[target] & thing.smoothing_groups[target]))
+			for(var/target in smoothing_groups_with)
+				if(!(smoothing_groups_with[target] & thing.smoothing_groups[target]))
+					continue
+				if(!can_smooth(thing))
 					continue
 				return ADJ_FOUND
 
@@ -245,7 +255,7 @@
 /atom/proc/bitmask_smooth()
 	var/new_junction = NONE
 	// cache for sanic speed
-	var/canSmoothWith = src.canSmoothWith
+	var/smoothing_groups_with = src.smoothing_groups_with
 
 	var/smooth_border = (smoothing_flags & SMOOTH_BORDER)
 	var/smooth_obj = (smoothing_flags & SMOOTH_OBJ)
@@ -259,8 +269,11 @@
 					if(neighbor && can_area_smooth) { \
 						var/neighbor_smoothing_groups = neighbor.smoothing_groups; \
 						if(neighbor_smoothing_groups) { \
-							for(var/target in canSmoothWith) { \
-								if(canSmoothWith[target] & neighbor_smoothing_groups[target]) { \
+							for(var/target in smoothing_groups_with) { \
+								if(smoothing_groups_with[target] & neighbor_smoothing_groups[target]) { \
+									if(!can_smooth(neighbor)) { \
+										continue; \
+									}; \
 									new_junction |= direction_flag; \
 									break set_adj_in_dir; \
 								}; \
@@ -272,8 +285,11 @@
 								if(!thing.anchored || isnull(thing_smoothing_groups)) { \
 									continue; \
 								}; \
-								for(var/target in canSmoothWith) { \
-									if(canSmoothWith[target] & thing_smoothing_groups[target]) { \
+								for(var/target in smoothing_groups_with) { \
+									if(smoothing_groups_with[target] & thing_smoothing_groups[target]) { \
+										if(!can_smooth(thing)) { \
+											continue; \
+										}; \
 										new_junction |= direction_flag; \
 										break set_adj_in_dir; \
 									}; \
@@ -409,16 +425,6 @@
 			return SOUTHEAST
 		else
 			return NONE
-
-
-//Example smooth wall
-/turf/closed/wall/smooth
-	name = "smooth wall"
-	icon = 'icons/turf/smooth_wall.dmi'
-	icon_state = "smooth"
-	smoothing_flags = SMOOTH_CORNERS|SMOOTH_BORDER
-	smoothing_groups = null
-	canSmoothWith = null
 
 #undef NO_ADJ_FOUND
 #undef ADJ_FOUND

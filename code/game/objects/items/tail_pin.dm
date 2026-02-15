@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/tail_pin)
-	default_materials = list(/datum/material/iron=1000)
+	default_materials = list(/datum/material/steel=1000)
 
 /obj/item/tail_pin
 	icon_state = "tailpin"

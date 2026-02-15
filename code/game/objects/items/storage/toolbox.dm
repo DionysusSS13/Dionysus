@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/storage/toolbox)
-	default_materials = list(/datum/material/iron = 500)
+	default_materials = list(/datum/material/steel = 500)
 
 /obj/item/storage/toolbox
 	name = "toolbox"

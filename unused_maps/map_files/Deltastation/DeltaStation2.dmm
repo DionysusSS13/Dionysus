@@ -501,7 +501,7 @@
 "adG" = (
 /obj/item/stack/rods/fifty,
 /obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/target,
 /obj/item/target/syndicate,
 /obj/item/target/alien,
@@ -1235,7 +1235,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/item/stack/sheet/iron/twenty,
+/obj/item/stack/sheet/steel/twenty,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stack/sheet/glass{
 	amount = 20;
@@ -9367,7 +9367,7 @@
 /turf/open/floor/iron,
 /area/maintenance/starboard)
 "clw" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/maintenance/starboard)
@@ -10387,7 +10387,7 @@
 /turf/open/floor/iron,
 /area/security/checkpoint/escape)
 "cwc" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -10399,7 +10399,7 @@
 /turf/open/floor/plating,
 /area/maintenance/port/greater)
 "cwj" = (
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/wrench,
 /obj/structure/table/reinforced,
@@ -10649,7 +10649,7 @@
 /area/maintenance/starboard)
 "czb" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/girder,
+/obj/structure/girderold,
 /turf/open/floor/plating,
 /area/maintenance/starboard)
 "czd" = (
@@ -11207,7 +11207,7 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "cIX" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "cJa" = (
@@ -13394,7 +13394,7 @@
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
 "cYm" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
@@ -15715,7 +15715,7 @@
 /turf/open/floor/iron/dark,
 /area/service/theater/abandoned)
 "dmf" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -16386,7 +16386,7 @@
 /turf/open/floor/iron,
 /area/maintenance/department/crew_quarters/bar)
 "drq" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -18865,7 +18865,7 @@
 	},
 /area/maintenance/port/aft)
 "dLU" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -19007,7 +19007,7 @@
 /area/ai_monitored/aisat/exterior)
 "dMP" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/girder,
+/obj/structure/girderold,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
 	},
@@ -19682,7 +19682,7 @@
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "dSD" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/maintenance/port/aft)
@@ -20554,7 +20554,7 @@
 /turf/open/floor/iron,
 /area/hallway/secondary/command)
 "dZg" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -22264,7 +22264,7 @@
 "emM" = (
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/stack/sheet/iron{
+/obj/item/stack/sheet/steel{
 	amount = 30
 	},
 /obj/item/stack/sheet/glass{
@@ -27380,7 +27380,7 @@
 /area/maintenance/starboard)
 "fQa" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /turf/open/floor/iron/dark,
 /area/engineering/atmos/hfr_room)
@@ -28597,7 +28597,7 @@
 /area/command/bridge)
 "gig" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/analyzer{
 	pixel_x = 7;
 	pixel_y = 3
@@ -31931,7 +31931,7 @@
 /turf/open/floor/iron/dark,
 /area/service/chapel/funeral)
 "hei" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/maintenance/fore)
@@ -33909,7 +33909,7 @@
 /obj/item/stack/sheet/glass{
 	amount = 30
 	},
-/obj/item/stack/sheet/iron{
+/obj/item/stack/sheet/steel{
 	amount = 30
 	},
 /obj/item/stack/cable_coil,
@@ -35401,7 +35401,7 @@
 /area/medical/medbay/central)
 "ieW" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/sheet/glass{
 	amount = 30
 	},
@@ -38781,7 +38781,7 @@
 /area/commons/locker)
 "jcq" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/structure/grille,
 /turf/open/floor/plating,
 /area/maintenance/department/crew_quarters/bar)
@@ -39793,7 +39793,7 @@
 /turf/open/floor/plating,
 /area/commons/toilet/locker)
 "jrZ" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /turf/open/floor/plating,
 /area/maintenance/port/greater)
 "jsa" = (
@@ -42099,7 +42099,7 @@
 /area/maintenance/fore)
 "kbN" = (
 /obj/structure/table,
-/obj/item/stack/sheet/iron/five,
+/obj/item/stack/sheet/steel/five,
 /obj/effect/turf_decal/tile/brown{
 	dir = 4
 	},
@@ -46883,7 +46883,7 @@
 /area/ai_monitored/turret_protected/ai)
 "lyg" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/iron{
+/obj/item/stack/sheet/steel{
 	amount = 30
 	},
 /obj/item/stack/sheet/glass/fifty,
@@ -49131,7 +49131,7 @@
 /area/hallway/primary/fore)
 "mcx" = (
 /obj/structure/table,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/wrench,
 /obj/item/clothing/glasses/welding,
@@ -52351,7 +52351,7 @@
 /area/science/server)
 "ndp" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/girder,
+/obj/structure/girderold,
 /turf/open/floor/plating,
 /area/maintenance/port/greater)
 "ndr" = (
@@ -56162,7 +56162,7 @@
 /area/medical/virology)
 "ojg" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/assembly/flash/handheld,
 /obj/effect/turf_decal/bot,
@@ -59156,9 +59156,9 @@
 /turf/open/floor/wood,
 /area/maintenance/port/fore)
 "ped" = (
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
+/obj/item/stack/sheet/steel/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/structure/table/reinforced,
 /obj/machinery/requests_console/directional/north{
@@ -59697,8 +59697,8 @@
 /area/ai_monitored/turret_protected/ai_upload)
 "pnH" = (
 /obj/structure/table,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/construction/plumbing,
 /obj/item/construction/plumbing,
 /obj/machinery/light/directional/south,
@@ -60926,7 +60926,7 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/stack/sheet/iron/ten,
+/obj/item/stack/sheet/steel/ten,
 /obj/item/stack/rods/ten,
 /obj/item/stack/cable_coil,
 /obj/effect/turf_decal/tile/neutral,
@@ -64763,7 +64763,7 @@
 /area/engineering/storage)
 "qLe" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/iron{
+/obj/item/stack/sheet/steel{
 	amount = 30
 	},
 /obj/item/stack/sheet/glass{
@@ -67076,7 +67076,7 @@
 /turf/open/floor/iron,
 /area/command/teleporter)
 "ruM" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment{
@@ -68973,7 +68973,7 @@
 /area/commons/fitness/recreation)
 "rVM" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/iron{
+/obj/item/stack/sheet/steel{
 	amount = 30
 	},
 /obj/item/stack/sheet/glass{
@@ -74220,7 +74220,7 @@
 /area/service/library)
 "tte" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 20
@@ -75310,8 +75310,8 @@
 /area/service/chapel)
 "tLk" = (
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/crowbar,
@@ -75785,7 +75785,7 @@
 	dir = 10
 	},
 /obj/structure/table/reinforced,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/dark,
@@ -77520,7 +77520,7 @@
 /turf/open/floor/iron,
 /area/security/checkpoint)
 "uwd" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/disposalpipe/segment{
@@ -77909,7 +77909,7 @@
 /turf/open/floor/iron,
 /area/security/range)
 "uCh" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -78369,7 +78369,7 @@
 "uKe" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/table,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/rods/fifty,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/yellow{
@@ -78869,7 +78869,7 @@
 /turf/open/floor/iron,
 /area/commons/dorms)
 "uTK" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
@@ -79304,7 +79304,7 @@
 /turf/open/floor/iron/dark,
 /area/service/hydroponics)
 "van" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
@@ -81672,7 +81672,7 @@
 /turf/open/floor/iron,
 /area/cargo/office)
 "vLZ" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -82000,7 +82000,7 @@
 /area/hallway/primary/central/aft)
 "vRV" = (
 /obj/structure/closet/crate,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/rods{
 	amount = 25
 	},
@@ -87045,7 +87045,7 @@
 /turf/open/floor/wood,
 /area/service/library/abandoned)
 "xvE" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -88187,7 +88187,7 @@
 /area/hallway/secondary/command)
 "xOe" = (
 /obj/structure/rack,
-/obj/item/stack/sheet/iron{
+/obj/item/stack/sheet/steel{
 	amount = 30
 	},
 /obj/item/stack/package_wrap,
@@ -89775,7 +89775,7 @@
 /area/security/office)
 "ylh" = (
 /obj/structure/table,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/package_wrap,
 /obj/machinery/light/directional/south,

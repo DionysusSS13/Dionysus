@@ -81,9 +81,9 @@ Burning extracts:
 	effect_desc = "Instantly destroys walls around you."
 
 /obj/item/slimecross/burning/metal/do_effect(mob/user)
-	for(var/turf/closed/wall/W in range(1,get_turf(user)))
-		W.dismantle_wall(1)
-		playsound(W, 'sound/effects/break_stone.ogg', 50, TRUE)
+	for(var/turf/closed/constructed_wall/wall in range(1,get_turf(user)))
+		wall.destroy_wall(and_girder = TRUE)
+		playsound(wall, 'sound/effects/break_stone.ogg', 50, TRUE)
 	user.visible_message(span_danger("[src] pulses violently, and shatters the walls around it!"))
 	..()
 

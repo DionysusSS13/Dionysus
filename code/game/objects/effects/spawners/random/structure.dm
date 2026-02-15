@@ -22,15 +22,6 @@
 	spawn_loot_chance = 20
 	loot = list(/obj/structure/closet/crate/secure/loot)
 
-/obj/effect/spawner/random/structure/girder
-	name = "girder spawner"
-	icon_state = "girder"
-	spawn_loot_chance = 90
-	loot = list( // 80% chance normal girder, 10% chance of displaced, 10% chance of nothing
-		/obj/structure/girder = 8,
-		/obj/structure/girder/displaced = 1,
-	)
-
 /obj/effect/spawner/random/structure/grille
 	name = "grille spawner"
 	icon_state = "grille"
@@ -46,7 +37,6 @@
 	loot = list(
 		/obj/structure/table_frame,
 		/obj/structure/table_frame/wood,
-		/obj/item/rack_parts,
 	)
 
 /obj/effect/spawner/random/structure/table_or_rack
@@ -54,7 +44,6 @@
 	icon_state = "rack_parts"
 	loot = list(
 		/obj/effect/spawner/random/structure/table,
-		/obj/structure/rack,
 	)
 
 /obj/effect/spawner/random/structure/table

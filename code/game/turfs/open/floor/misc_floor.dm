@@ -277,18 +277,3 @@ TYPEINFO_DEF(/turf/open/floor/plastic)
 	name = "sandstone floor"
 	icon_state = "sandstonevault"
 	base_icon_state = "sandstonevault"
-
-/turf/open/floor/cult
-	name = "engraved floor"
-	icon_state = "cult"
-	base_icon_state = "cult"
-	floor_tile = /obj/item/stack/tile/cult
-
-/turf/open/floor/cult/setup_broken_states()
-	return list("cultdamage","cultdamage2","cultdamage3","cultdamage4","cultdamage5","cultdamage6","cultdamage7")
-
-/turf/open/floor/cult/narsie_act()
-	return
-
-/turf/open/floor/cult/airless
-	initial_gas = AIRLESS_ATMOS

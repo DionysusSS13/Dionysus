@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/extinguisher)
-	default_materials = list(/datum/material/iron = 90)
+	default_materials = list(/datum/material/steel = 90)
 
 /obj/item/extinguisher
 	name = "fire extinguisher"
@@ -39,7 +39,7 @@ TYPEINFO_DEF(/obj/item/extinguisher)
 	var/random_overlay = 0
 
 TYPEINFO_DEF(/obj/item/extinguisher/mini)
-	default_materials = list(/datum/material/iron = 50, /datum/material/glass = 40)
+	default_materials = list(/datum/material/steel = 50, /datum/material/glass = 40)
 
 /obj/item/extinguisher/mini
 	name = "pocket fire extinguisher"
@@ -57,7 +57,7 @@ TYPEINFO_DEF(/obj/item/extinguisher/mini)
 	dog_fashion = null
 
 TYPEINFO_DEF(/obj/item/extinguisher/crafted)
-	default_materials = list(/datum/material/iron = 50, /datum/material/glass = 40)
+	default_materials = list(/datum/material/steel = 50, /datum/material/glass = 40)
 
 /obj/item/extinguisher/crafted
 	name = "Improvised cooling spray"

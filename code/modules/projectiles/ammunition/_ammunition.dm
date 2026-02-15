@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/ammo_casing)
-	default_materials = list(/datum/material/iron = 500)
+	default_materials = list(/datum/material/steel = 500)
 
 /obj/item/ammo_casing
 	name = "bullet casing"

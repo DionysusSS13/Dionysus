@@ -173,11 +173,6 @@
 		src.camera_type = construct_from.type
 	src.is_bot = isbot(construct_from)
 
-	if(isflockdrone(construct_from))
-		var/mob/living/simple_animal/flock/drone/bird = construct_from
-		if(HAS_TRAIT(bird, TRAIT_FLOCKPHASE) || bird.resources.has_points(10))
-			able_to_flockphase = TRUE
-
 /// List of vars on /datum/can_pass_info to use when checking two instances for equality
 GLOBAL_LIST_INIT(can_pass_info_vars, GLOBAL_PROC_REF(can_pass_check_vars))
 

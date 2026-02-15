@@ -114,7 +114,7 @@
 		return TRUE
 	to_chat(user, span_notice("You detach the wheels and deconstruct the chair."))
 	new /obj/item/stack/rods(drop_location(), 8)
-	new /obj/item/stack/sheet/iron(drop_location(), 10)
+	new /obj/item/stack/sheet/steel(drop_location(), 10)
 	var/turf/T = get_turf(src)
 	for(var/atom/movable/atom_content as anything in contents)
 		atom_content.forceMove(T)

@@ -50,7 +50,7 @@ TYPEINFO_DEF(/obj/structure/sign/barsign)
 		broken = TRUE
 
 /obj/structure/sign/barsign/deconstruct(disassembled = TRUE)
-	new /obj/item/stack/sheet/iron(drop_location(), 2)
+	new /obj/item/stack/sheet/steel(drop_location(), 2)
 	new /obj/item/stack/cable_coil(drop_location(), 2)
 	qdel(src)
 

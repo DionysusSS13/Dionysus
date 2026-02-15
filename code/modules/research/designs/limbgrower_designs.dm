@@ -220,7 +220,7 @@
 	desc = "Contains designs for various limbs."
 	id = "limbdesign_parent"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 300, /datum/material/glass = 100)
+	materials = list(/datum/material/steel = 300, /datum/material/glass = 100)
 	build_path = /obj/item/disk/data/fabricator/limbs
 	category = list(DCAT_MEDICAL)
 	mapload_design_flags = DESIGN_FAB_MEDICAL

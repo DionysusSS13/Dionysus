@@ -303,7 +303,7 @@
  * Trays - Agouri
  */
 TYPEINFO_DEF(/obj/item/storage/bag/tray)
-	default_materials = list(/datum/material/iron=3000)
+	default_materials = list(/datum/material/steel=3000)
 
 /obj/item/storage/bag/tray
 	name = "serving tray"

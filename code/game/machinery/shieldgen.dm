@@ -66,27 +66,6 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	layer = ABOVE_MOB_LAYER
 
-/obj/structure/emergency_shield/cult/barrier
-	density = FALSE //toggled on right away by the parent rune
-	can_atmos_pass = CANPASS_DENSITY
-	///The rune that created the shield itself. Used to delete the rune when the shield is destroyed.
-	var/obj/effect/rune/parent_rune
-
-/obj/structure/emergency_shield/cult/barrier/attack_hand(mob/living/user, list/modifiers)
-	parent_rune.attack_hand(user, modifiers)
-
-/obj/structure/emergency_shield/cult/barrier/attack_animal(mob/living/simple_animal/user, list/modifiers)
-	if(IS_CULTIST(user))
-		parent_rune.attack_animal(user)
-	else
-		..()
-
-/obj/structure/emergency_shield/cult/barrier/Destroy()
-	if(parent_rune)
-		parent_rune.visible_message(span_danger("The [parent_rune] fades away as [src] is destroyed!"))
-		QDEL_NULL(parent_rune)
-	return ..()
-
 /**
 *Turns the shield on and off.
 *

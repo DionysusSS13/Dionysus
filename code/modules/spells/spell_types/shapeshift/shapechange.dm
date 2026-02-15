@@ -17,5 +17,4 @@
 		/mob/living/simple_animal/pet/dog/corgi,
 		/mob/living/simple_animal/hostile/carp/ranged/chaos,
 		/mob/living/simple_animal/bot/secbot/ed209,
-		/mob/living/simple_animal/hostile/construct/juggernaut/mystic,
 	)

@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/gun/syringe)
-	default_materials = list(/datum/material/iron=2000)
+	default_materials = list(/datum/material/steel=2000)
 
 /obj/item/gun/syringe
 	name = "medical syringe gun"

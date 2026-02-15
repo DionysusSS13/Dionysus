@@ -252,7 +252,7 @@ TYPEINFO_DEF(/obj/item/clothing/gloves/color/captain)
 	supports_variations_flags = CLOTHING_TESHARI_VARIATION | CLOTHING_VOX_VARIATION
 
 TYPEINFO_DEF(/obj/item/clothing/gloves/color/latex/engineering)
-	default_materials = list(/datum/material/iron=2000, /datum/material/silver=1500, /datum/material/gold = 1000)
+	default_materials = list(/datum/material/steel=2000, /datum/material/silver=1500, /datum/material/gold = 1000)
 
 /obj/item/clothing/gloves/color/latex/engineering
 	name = "tinker's gloves"

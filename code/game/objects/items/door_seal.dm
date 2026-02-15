@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/door_seal)
-	default_materials = list(/datum/material/iron=5000,/datum/material/plasma=500)
+	default_materials = list(/datum/material/steel=5000,/datum/material/plasma=500)
 
 /obj/item/door_seal
 	name = "pneumatic airlock seal"

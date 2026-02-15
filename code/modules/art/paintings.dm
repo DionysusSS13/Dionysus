@@ -639,7 +639,7 @@ TYPEINFO_DEF(/obj/item/wallframe/painting/large)
 		return
 	var/our_dir = get_dir(user, on_wall)
 	var/check_dir = our_dir & (EAST|WEST) ? NORTH : EAST
-	var/turf/closed/wall/second_wall = get_step(on_wall, check_dir)
+	var/turf/closed/constructed_wall/second_wall = get_step(on_wall, check_dir)
 	if(!istype(second_wall) || !second_wall.IsReachableBy(user))
 		to_chat(user, span_warning("You need a reachable wall to the [check_dir == EAST ? "right" : "left"] of this one to mount this frame!"))
 		return FALSE

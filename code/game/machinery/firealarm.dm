@@ -400,7 +400,7 @@ TYPEINFO_DEF(/obj/machinery/firealarm)
 
 /obj/machinery/firealarm/deconstruct(disassembled = TRUE)
 	if(!(flags_1 & NODECONSTRUCT_1))
-		new /obj/item/stack/sheet/iron(loc, 1)
+		new /obj/item/stack/sheet/steel(loc, 1)
 		if(!(machine_stat & BROKEN))
 			var/obj/item/item = new /obj/item/electronics/firealarm(loc)
 			if(!disassembled)

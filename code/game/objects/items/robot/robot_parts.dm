@@ -148,8 +148,8 @@
 //ADD
 /obj/item/robot_suit/attackby(obj/item/W, mob/user, params)
 
-	if(istype(W, /obj/item/stack/sheet/iron))
-		var/obj/item/stack/sheet/iron/M = W
+	if(istype(W, /obj/item/stack/sheet/steel))
+		var/obj/item/stack/sheet/steel/M = W
 		if(!l_arm && !r_arm && !l_leg && !r_leg && !chest && !head)
 			if (M.use(1))
 				var/obj/item/bot_assembly/ed209/B = new

@@ -166,10 +166,10 @@ TYPEINFO_DEF(/atom)
 	var/tmp/bottom_left_corner
 	///Smoothing variable
 	var/tmp/bottom_right_corner
-	///What smoothing groups does this atom belongs to, to match canSmoothWith. If null, nobody can smooth with it. Must be sorted.
+	///What smoothing groups does this atom belongs to, to match smoothing_groups_with. If null, nobody can smooth with it. Must be sorted.
 	var/tmp/list/smoothing_groups = null
 	///List of smoothing groups this atom can smooth with. If this is null and atom is smooth, it smooths only with itself. Must be sorted.
-	var/tmp/list/canSmoothWith = null
+	var/tmp/list/smoothing_groups_with = null
 
 	///AI controller that controls this atom. type on init, then turned into an instance during runtime.
 	///Note: If you are for some reason giving this to a non-mob, it needs to create it's own in Initialize()
@@ -1111,14 +1111,6 @@ TYPEINFO_DEF(/atom)
  */
 /atom/proc/emag_act(mob/user, obj/item/card/emag/emag_card)
 	SEND_SIGNAL(src, COMSIG_ATOM_EMAG_ACT, user, emag_card)
-
-/**
- * Respond to narsie eating our atom
- *
- * Default behaviour is to send [COMSIG_ATOM_NARSIE_ACT] and return
- */
-/atom/proc/narsie_act()
-	SEND_SIGNAL(src, COMSIG_ATOM_NARSIE_ACT)
 
 
 ///Return the values you get when an RCD eats you?

@@ -361,7 +361,7 @@ TYPEINFO_DEF(/obj/item/clothing/glasses/science)
 	supports_variations_flags = NONE
 
 TYPEINFO_DEF(/obj/item/clothing/glasses/welding)
-	default_materials = list(/datum/material/iron = 250)
+	default_materials = list(/datum/material/steel = 250)
 
 /obj/item/clothing/glasses/welding
 	name = "welding goggles"

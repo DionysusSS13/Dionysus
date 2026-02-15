@@ -467,7 +467,7 @@
 	stamina_cost = 5
 	stamina_critical_chance = 10
 
-	mats_per_unit = list(/datum/material/iron=10, /datum/material/glass=5)
+	mats_per_unit = list(/datum/material/steel=10, /datum/material/glass=5)
 	flags_1 = CONDUCT_1
 	slot_flags = ITEM_SLOT_BELT
 	attack_verb_continuous = list("whips", "lashes", "disciplines", "flogs")

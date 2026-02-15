@@ -2,7 +2,7 @@
 #define FLAMETHROWER_RELEASE_RATIO 0.05
 
 TYPEINFO_DEF(/obj/item/flamethrower)
-	default_materials = list(/datum/material/iron=500)
+	default_materials = list(/datum/material/steel=500)
 
 /obj/item/flamethrower
 	name = "flamethrower"

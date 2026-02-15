@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/taperecorder)
-	default_materials = list(/datum/material/iron=60, /datum/material/glass=30)
+	default_materials = list(/datum/material/steel=60, /datum/material/glass=30)
 
 /obj/item/taperecorder
 	name = "\improper Fony Strideman R03"

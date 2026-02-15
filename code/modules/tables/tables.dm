@@ -7,7 +7,7 @@
  */
 
 TYPEINFO_DEF(/obj/structure/table)
-	default_materials = list(/datum/material/iron = 2000)
+	default_materials = list(/datum/material/steel = 2000)
 
 /obj/structure/table
 	name = "table"
@@ -23,7 +23,7 @@ TYPEINFO_DEF(/obj/structure/table)
 	integrity_failure = 0.33
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_TABLES
-	canSmoothWith = SMOOTH_GROUP_TABLES
+	smoothing_groups_with = SMOOTH_GROUP_TABLES
 	flags_1 = BUMP_PRIORITY_1
 	mouse_drop_pointer = TRUE
 
@@ -32,7 +32,7 @@ TYPEINFO_DEF(/obj/structure/table)
 
 	var/frame = /obj/structure/table_frame
 	var/framestack = /obj/item/stack/rods
-	var/buildstack = /obj/item/stack/sheet/iron
+	var/buildstack = /obj/item/stack/sheet/steel
 	var/busy = FALSE
 	var/buildstackamount = 1
 	var/framestackamount = 2
@@ -90,12 +90,6 @@ TYPEINFO_DEF(/obj/structure/table)
 	if((updates & UPDATE_SMOOTHING))
 		QUEUE_SMOOTH(src)
 		QUEUE_SMOOTH_NEIGHBORS(src)
-
-
-/obj/structure/table/narsie_act()
-	var/atom/A = loc
-	qdel(src)
-	new /obj/structure/table/wood(A)
 
 /obj/structure/table/attack_paw(mob/user, list/modifiers)
 	return attack_hand(user, modifiers)
@@ -190,10 +184,6 @@ TYPEINFO_DEF(/obj/structure/table)
 
 	var/obj/structure/table/T = locate() in get_turf(mover)
 	if(T && !T.is_flipped())
-		return TRUE
-
-	var/obj/structure/low_wall/L = locate() in get_turf(mover)
-	if(L)
 		return TRUE
 
 	if(is_flipped() && !(border_dir & dir))
@@ -571,7 +561,7 @@ TYPEINFO_DEF(/obj/structure/table)
 	anchored = FALSE
 	smoothing_flags = NONE
 	smoothing_groups = null
-	canSmoothWith = null
+	smoothing_groups_with = null
 	icon = 'icons/obj/smooth_structures/rollingtable.dmi'
 	icon_state = "rollingtable"
 	var/list/attached_items = list()
@@ -614,7 +604,7 @@ TYPEINFO_DEF(/obj/structure/table/glass)
 	base_icon_state = "glass_table"
 	buildstack = /obj/item/stack/sheet/glass
 	smoothing_groups = SMOOTH_GROUP_GLASS_TABLES
-	canSmoothWith = SMOOTH_GROUP_GLASS_TABLES
+	smoothing_groups_with = SMOOTH_GROUP_GLASS_TABLES
 	max_integrity = 70
 	resistance_flags = ACID_PROOF
 	var/glass_shard_type = /obj/item/shard
@@ -680,9 +670,6 @@ TYPEINFO_DEF(/obj/structure/table/glass)
 			shard.color = color
 	qdel(src)
 
-/obj/structure/table/glass/narsie_act()
-	color = NARSIE_WINDOW_COLOUR
-
 TYPEINFO_DEF(/obj/structure/table/glass/plasmaglass)
 	default_materials = list(/datum/material/alloy/plasmaglass = 2000)
 
@@ -712,11 +699,7 @@ TYPEINFO_DEF(/obj/structure/table/glass/plasmaglass)
 	resistance_flags = FLAMMABLE
 	max_integrity = 70
 	smoothing_groups = SMOOTH_GROUP_WOOD_TABLES //Don't smooth with SMOOTH_GROUP_TABLES
-	canSmoothWith = SMOOTH_GROUP_WOOD_TABLES
-
-/obj/structure/table/wood/narsie_act(total_override = TRUE)
-	if(!total_override)
-		..()
+	smoothing_groups_with = SMOOTH_GROUP_WOOD_TABLES
 
 /obj/structure/table/wood/poker //No specialties, Just a mapping object.
 	name = "gambling table"
@@ -725,9 +708,6 @@ TYPEINFO_DEF(/obj/structure/table/glass/plasmaglass)
 	icon_state = "poker_table-0"
 	base_icon_state = "poker_table"
 	buildstack = /obj/item/stack/tile/carpet
-
-/obj/structure/table/wood/poker/narsie_act()
-	..(FALSE)
 
 /obj/structure/table/wood/fancy
 	name = "fancy table"
@@ -739,7 +719,7 @@ TYPEINFO_DEF(/obj/structure/table/glass/plasmaglass)
 	framestack = /obj/item/stack/rods
 	buildstack = /obj/item/stack/tile/carpet
 	smoothing_groups = SMOOTH_GROUP_FANCY_WOOD_TABLES //Don't smooth with SMOOTH_GROUP_TABLES or SMOOTH_GROUP_WOOD_TABLES
-	canSmoothWith = SMOOTH_GROUP_FANCY_WOOD_TABLES // see Initialize()
+	smoothing_groups_with = SMOOTH_GROUP_FANCY_WOOD_TABLES // see Initialize()
 
 /obj/structure/table/wood/fancy/black
 	icon_state = "fancy_table_black-0"
@@ -846,14 +826,14 @@ TYPEINFO_DEF(/obj/structure/table/reinforced)
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	buildstack = /obj/item/stack/sheet/bronze
 	smoothing_groups = SMOOTH_GROUP_BRONZE_TABLES //Don't smooth with SMOOTH_GROUP_TABLES
-	canSmoothWith = SMOOTH_GROUP_BRONZE_TABLES
+	smoothing_groups_with = SMOOTH_GROUP_BRONZE_TABLES
 
 /obj/structure/table/bronze/tablepush(mob/living/user, mob/living/pushed_mob)
 	..()
 	playsound(src, 'sound/magic/clockwork/fellowship_armory.ogg', 50, TRUE)
 
 TYPEINFO_DEF(/obj/structure/table/reinforced/rglass)
-	default_materials = list(/datum/material/glass = 2000, /datum/material/iron = 2000)
+	default_materials = list(/datum/material/glass = 2000, /datum/material/steel = 2000)
 
 /obj/structure/table/reinforced/rglass
 	name = "reinforced glass table"
@@ -865,7 +845,7 @@ TYPEINFO_DEF(/obj/structure/table/reinforced/rglass)
 	max_integrity = 150
 
 TYPEINFO_DEF(/obj/structure/table/reinforced/plasmarglass)
-	default_materials = list(/datum/material/alloy/plasmaglass = 2000, /datum/material/iron = 2000)
+	default_materials = list(/datum/material/alloy/plasmaglass = 2000, /datum/material/steel = 2000)
 
 /obj/structure/table/reinforced/plasmarglass
 	name = "reinforced plasma glass table"
@@ -915,7 +895,7 @@ TYPEINFO_DEF(/obj/structure/table/optable)
 	buildstack = /obj/item/stack/sheet/mineral/silver
 	smoothing_flags = NONE
 	smoothing_groups = null
-	canSmoothWith = null
+	smoothing_groups_with = null
 	can_buckle = 1
 	buckle_lying = NO_BUCKLE_LYING
 	buckle_requires_restraints = TRUE

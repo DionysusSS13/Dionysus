@@ -92,7 +92,7 @@
 		icon_state = no_charge_state
 
 TYPEINFO_DEF(/obj/item/gun/energy/recharge/ebow)
-	default_materials = list(/datum/material/iron=2000)
+	default_materials = list(/datum/material/steel=2000)
 
 /obj/item/gun/energy/recharge/ebow
 	name = "mini energy crossbow"
@@ -120,7 +120,7 @@ TYPEINFO_DEF(/obj/item/gun/energy/recharge/ebow)
 	ammo_type = list(/obj/item/ammo_casing/energy/bolt/halloween)
 
 TYPEINFO_DEF(/obj/item/gun/energy/recharge/ebow/large)
-	default_materials = list(/datum/material/iron=4000)
+	default_materials = list(/datum/material/steel=4000)
 
 /obj/item/gun/energy/recharge/ebow/large
 	name = "energy crossbow"

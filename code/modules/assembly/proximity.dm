@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/assembly/prox_sensor)
-	default_materials = list(/datum/material/iron=800, /datum/material/glass=200)
+	default_materials = list(/datum/material/steel=800, /datum/material/glass=200)
 
 /obj/item/assembly/prox_sensor
 	name = "proximity sensor"

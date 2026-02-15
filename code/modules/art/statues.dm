@@ -270,7 +270,7 @@ TYPEINFO_DEF(/obj/structure/statue/elder_atmosian)
 	can_be_carved = FALSE //Created by a crafting recipe instead of the standard system.
 
 TYPEINFO_DEF(/obj/item/chisel)
-	default_materials = list(/datum/material/iron=75)
+	default_materials = list(/datum/material/steel=75)
 
 /obj/item/chisel
 	name = "chisel"

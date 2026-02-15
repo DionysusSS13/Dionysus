@@ -380,7 +380,7 @@ TYPEINFO_DEF(/obj/machinery/space_heater)
 	var/static/bonus_junk = list(
 		/obj/item/stack/cable_coil = 2,
 		/obj/item/stack/sheet/glass = 2,
-		/obj/item/stack/sheet/iron = 2,
+		/obj/item/stack/sheet/steel = 2,
 		)
 	for(var/item in bonus_junk)
 		if(prob(80))

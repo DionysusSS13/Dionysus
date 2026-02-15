@@ -359,7 +359,7 @@
 	var/count = 0
 	var/maxcount = 1
 	for(var/tempdir in GLOB.cardinals)
-		var/turf/closed/wall = get_step(user.loc, tempdir)
+		var/turf/closed/constructed_wall/wall = get_step(user.loc, tempdir)
 		if(istype(wall))
 			maxcount++
 

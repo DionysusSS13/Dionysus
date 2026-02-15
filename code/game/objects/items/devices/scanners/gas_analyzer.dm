@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/analyzer)
-	default_materials = list(/datum/material/iron=30, /datum/material/glass=20)
+	default_materials = list(/datum/material/steel=30, /datum/material/glass=20)
 
 /obj/item/analyzer
 	desc = "A hand-held environmental scanner which reports current gas levels."

@@ -25,7 +25,7 @@
 */
 TYPEINFO_DEF(/obj/item/restraints/handcuffs)
 	default_armor = list(BLUNT = 0, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 50)
-	default_materials = list(/datum/material/iron=500)
+	default_materials = list(/datum/material/steel=500)
 
 /obj/item/restraints/handcuffs
 	name = "handcuffs"
@@ -144,7 +144,7 @@ TYPEINFO_DEF(/obj/item/restraints/handcuffs)
  * Ghetto handcuffs. Removing those is faster.
 */
 TYPEINFO_DEF(/obj/item/restraints/handcuffs/cable)
-	default_materials = list(/datum/material/iron=150, /datum/material/glass=75)
+	default_materials = list(/datum/material/steel=150, /datum/material/glass=75)
 
 /obj/item/restraints/handcuffs/cable
 	name = "cable restraints"

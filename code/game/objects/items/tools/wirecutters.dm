@@ -1,6 +1,6 @@
 TYPEINFO_DEF(/obj/item/wirecutters)
 	default_armor = list(BLUNT = 0, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 30)
-	default_materials = list(/datum/material/iron=80)
+	default_materials = list(/datum/material/steel=80)
 
 /obj/item/wirecutters
 	name = "wirecutters"
@@ -66,7 +66,7 @@ TYPEINFO_DEF(/obj/item/wirecutters)
 	return (BRUTELOSS)
 
 TYPEINFO_DEF(/obj/item/wirecutters/abductor)
-	default_materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
+	default_materials = list(/datum/material/steel = 5000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
 
 /obj/item/wirecutters/abductor
 	name = "alien wirecutters"

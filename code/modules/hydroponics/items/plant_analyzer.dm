@@ -1,6 +1,6 @@
 // Plant analyzer
 TYPEINFO_DEF(/obj/item/plant_analyzer)
-	default_materials = list(/datum/material/iron = 30, /datum/material/glass = 20)
+	default_materials = list(/datum/material/steel = 30, /datum/material/glass = 20)
 
 /obj/item/plant_analyzer
 	name = "plant analyzer"

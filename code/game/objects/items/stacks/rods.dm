@@ -1,5 +1,5 @@
 GLOBAL_LIST_INIT(rod_recipes, list ( \
-	new/datum/stack_recipe("grille", /obj/structure/grille, 2, time = 10, one_per_turf = TRUE, on_floor = FALSE), \
+	new/datum/stack_recipe("grille", /obj/structure/grillen, 2, time = 10, one_per_turf = TRUE, on_floor = FALSE), \
 	new/datum/stack_recipe("table frame", /obj/structure/table_frame, 2, time = 10, one_per_turf = TRUE, on_floor = TRUE), \
 	new/datum/stack_recipe("scooter frame", /obj/item/scooter_frame, 10, time = 25, one_per_turf = FALSE), \
 	new/datum/stack_recipe("linen bin", /obj/structure/bedsheetbin/empty, 2, time = 5, one_per_turf = FALSE), \
@@ -20,7 +20,7 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 	force = 9
 	throwforce = 10
 	throw_range = 7
-	mats_per_unit = list(/datum/material/iron=1000)
+	mats_per_unit = list(/datum/material/steel=1000)
 	max_amount = 50
 	attack_verb_continuous = list("hits", "bludgeons", "whacks")
 	attack_verb_simple = list("hit", "bludgeon", "whack")
@@ -64,7 +64,7 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 			return
 
 		if(W.use_tool(src, user, 0, volume=40))
-			var/obj/item/stack/sheet/iron/new_item = new(usr.loc)
+			var/obj/item/stack/sheet/steel/new_item = new(usr.loc)
 			user.visible_message(span_notice("[user.name] shaped [src] into iron sheets with [W]."), \
 				span_notice("You shape [src] into iron sheets with [W]."), \
 				span_hear("You hear welding."))
@@ -102,7 +102,7 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 	color = "#5286b9ff"
 	flags_1 = CONDUCT_1
 	w_class = WEIGHT_CLASS_NORMAL
-	mats_per_unit = list(/datum/material/iron=1000, /datum/material/plasma=500, /datum/material/titanium=2000)
+	mats_per_unit = list(/datum/material/steel=1000, /datum/material/plasma=500, /datum/material/titanium=2000)
 	max_amount = 30
 	resistance_flags = FIRE_PROOF | LAVA_PROOF
 	merge_type = /obj/item/stack/rods/lava

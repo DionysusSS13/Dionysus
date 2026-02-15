@@ -20,6 +20,7 @@ TYPEINFO_DEF(/obj/structure/window)
 	set_dir_on_move = FALSE
 	flags_ricochet = RICOCHET_HARD
 	receive_ricochet_chance_mod = 0.5
+	var/list/icon/icons //! The icons used for the window. In order of the window's damage level from destroyed to max durability.
 	var/state = WINDOW_OUT_OF_FRAME
 	var/reinf = FALSE
 	var/heat_resistance = 800
@@ -28,7 +29,6 @@ TYPEINFO_DEF(/obj/structure/window)
 	var/fulltile = FALSE
 	var/glass_type = /obj/item/stack/sheet/glass
 	var/glass_amount = 1
-
 	var/real_explosion_block //ignore this, just use explosion_block
 	var/break_sound = SFX_SHATTER
 	var/knock_sound = 'sound/effects/glassknock.ogg'
@@ -87,6 +87,17 @@ TYPEINFO_DEF(/obj/structure/window)
 		else
 			. += span_notice("The window is <i>unscrewed</i> from the floor, and could be deconstructed by <b>wrenching</b>.")
 
+/obj/structure/window/update_integrity(new_value)
+	. = ..()
+	update_appearance()
+
+/obj/structure/window/update_icon(updates)
+	if(!length(icons))
+		return ..()
+	var/integrity_pct = atom_integrity / max_integrity
+	icon = icons[MAP(integrity_pct, 0, 1, 1, length(icons))]
+	return ..()
+
 /obj/structure/window/disco_flavor(mob/living/carbon/human/user, nearby = FALSE, is_station_level = FALSE)
 	. = ..()
 	if(!nearby || !is_station_level)
@@ -119,9 +130,6 @@ TYPEINFO_DEF(/obj/structure/window)
 			qdel(src)
 			return TRUE
 	return FALSE
-
-/obj/structure/window/narsie_act()
-	add_atom_colour(NARSIE_WINDOW_COLOUR, FIXED_COLOUR_PRIORITY)
 
 /obj/structure/window/singularity_pull(S, current_size)
 	..()
@@ -638,9 +646,9 @@ TYPEINFO_DEF(/obj/structure/window/reinforced/plasma)
 /* Full Tile Windows (more atom_integrity) */
 
 /obj/structure/window/fulltile
-	icon = 'icons/obj/smooth_structures/window.dmi'
-	icon_state = "window-0"
-	base_icon_state = "window"
+	icon = 'icons/construction/wall/glass/wall/wall_0.dmi'
+	icon_state = "wall-0"
+	base_icon_state = "wall"
 	color = "#AFD3E6"
 	alpha = 180
 	max_integrity = 50
@@ -648,8 +656,18 @@ TYPEINFO_DEF(/obj/structure/window/reinforced/plasma)
 	flags_1 = PREVENT_CLICK_UNDER_1
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WINDOW_FULLTILE
-	canSmoothWith = SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
+	smoothing_groups_with = SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
 	glass_amount = 2
+	icons = list(
+		'icons/construction/wall/glass/wall/wall_5.dmi',
+		'icons/construction/wall/glass/wall/wall_4.dmi',
+		'icons/construction/wall/glass/wall/wall_3.dmi',
+		'icons/construction/wall/glass/wall/wall_2.dmi',
+		'icons/construction/wall/glass/wall/wall_1.dmi',
+		'icons/construction/wall/glass/wall/wall_0.dmi',
+	)
+
+
 
 /obj/structure/window/fulltile/unanchored
 	anchored = FALSE
@@ -665,7 +683,7 @@ TYPEINFO_DEF(/obj/structure/window/reinforced/plasma)
 	flags_1 = PREVENT_CLICK_UNDER_1
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WINDOW_FULLTILE
-	canSmoothWith = SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
+	smoothing_groups_with = SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
 	glass_amount = 2
 	melting_point = 25000
 
@@ -684,7 +702,7 @@ TYPEINFO_DEF(/obj/structure/window/reinforced/plasma)
 	flags_1 = PREVENT_CLICK_UNDER_1
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WINDOW_FULLTILE
-	canSmoothWith = SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
+	smoothing_groups_with = SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
 	glass_amount = 2
 	melting_point = 28000
 
@@ -693,9 +711,9 @@ TYPEINFO_DEF(/obj/structure/window/reinforced/plasma)
 	state = WINDOW_OUT_OF_FRAME
 
 /obj/structure/window/reinforced/fulltile
-	icon = 'icons/obj/smooth_structures/window_reinforced.dmi'
-	icon_state = "window-0"
-	base_icon_state = "window"
+	icon = 'icons/construction/wall/glass_reinforced/wall/wall_0.dmi'
+	icon_state = "wall-0"
+	base_icon_state = "wall"
 	color = "#829eb5"
 	alpha = 180
 	max_integrity = 150
@@ -704,8 +722,17 @@ TYPEINFO_DEF(/obj/structure/window/reinforced/plasma)
 	state = WINDOW_SCREWED_TO_FRAME
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WINDOW_FULLTILE
-	canSmoothWith = SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
+	smoothing_groups_with = SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
 	glass_amount = 2
+	icons = list(
+		'icons/construction/wall/glass_reinforced/wall/wall_5.dmi',
+		'icons/construction/wall/glass_reinforced/wall/wall_4.dmi',
+		'icons/construction/wall/glass_reinforced/wall/wall_3.dmi',
+		'icons/construction/wall/glass_reinforced/wall/wall_2.dmi',
+		'icons/construction/wall/glass_reinforced/wall/wall_1.dmi',
+		'icons/construction/wall/glass_reinforced/wall/wall_0.dmi',
+	)
+
 
 /obj/structure/window/reinforced/fulltile/unanchored
 	anchored = FALSE
@@ -713,15 +740,15 @@ TYPEINFO_DEF(/obj/structure/window/reinforced/plasma)
 
 /obj/structure/window/reinforced/tinted/fulltile
 	icon = 'icons/obj/smooth_structures/window_reinforced.dmi'
-	icon_state = "window-0"
-	base_icon_state = "window"
+	icon_state = "wall-0"
+	base_icon_state = "wall"
 	color = "#3b5461"
 	alpha = 180
 	fulltile = TRUE
 	flags_1 = PREVENT_CLICK_UNDER_1
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WINDOW_FULLTILE
-	canSmoothWith = SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
+	smoothing_groups_with = SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
 	glass_amount = 2
 
 /obj/structure/window/reinforced/fulltile/ice
@@ -750,7 +777,7 @@ TYPEINFO_DEF(/obj/structure/window/reinforced/shuttle)
 	heat_resistance = 1600
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE
-	canSmoothWith = SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_WALLS
+	smoothing_groups_with = SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_WALLS
 	explosion_block = 3
 	glass_type = /obj/item/stack/sheet/titaniumglass
 	glass_amount = 2
@@ -767,9 +794,6 @@ TYPEINFO_DEF(/obj/structure/window/reinforced/shuttle)
 		. += new /obj/item/stack/rods(location, (fulltile ? 2 : 1))
 	if (fulltile)
 		. += new /obj/item/shard/titanium(location)
-
-/obj/structure/window/reinforced/shuttle/narsie_act()
-	add_atom_colour("#3C3434", FIXED_COLOUR_PRIORITY)
 
 /obj/structure/window/reinforced/shuttle/tinted
 	opacity = TRUE
@@ -795,7 +819,7 @@ TYPEINFO_DEF(/obj/structure/window/reinforced/plasma/plastitanium)
 	heat_resistance = 1600
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WINDOW_FULLTILE
-	canSmoothWith = SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
+	smoothing_groups_with = SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
 	explosion_block = 3
 	damage_deflection = 21 //The same as reinforced plasma windows.3
 	glass_type = /obj/item/stack/sheet/plastitaniumglass
@@ -831,7 +855,7 @@ TYPEINFO_DEF(/obj/structure/window/paperframe)
 	flags_1 = PREVENT_CLICK_UNDER_1
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_PAPERFRAME
-	canSmoothWith = SMOOTH_GROUP_PAPERFRAME
+	smoothing_groups_with = SMOOTH_GROUP_PAPERFRAME
 	glass_amount = 2
 	glass_type = /obj/item/stack/sheet/paperframes
 	heat_resistance = 233
@@ -919,7 +943,7 @@ TYPEINFO_DEF(/obj/structure/window/paperframe)
 	alpha = 180
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WINDOW_FULLTILE
-	canSmoothWith = SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
+	smoothing_groups_with = SMOOTH_GROUP_SHUTTERS_BLASTDOORS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
 	fulltile = TRUE
 	flags_1 = PREVENT_CLICK_UNDER_1
 	max_integrity = 50

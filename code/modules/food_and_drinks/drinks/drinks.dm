@@ -167,7 +167,7 @@
 
 
 TYPEINFO_DEF(/obj/item/reagent_containers/food/drinks/trophy)
-	default_materials = list(/datum/material/iron=100)
+	default_materials = list(/datum/material/steel=100)
 
 /obj/item/reagent_containers/food/drinks/trophy
 	name = "pewter cup"
@@ -212,7 +212,7 @@ TYPEINFO_DEF(/obj/item/reagent_containers/food/drinks/trophy/silver_cup)
 
 
 TYPEINFO_DEF(/obj/item/reagent_containers/food/drinks/trophy/bronze_cup)
-	default_materials = list(/datum/material/iron=400)
+	default_materials = list(/datum/material/steel=400)
 
 /obj/item/reagent_containers/food/drinks/trophy/bronze_cup
 	name = "bronze cup"
@@ -559,7 +559,7 @@ TYPEINFO_DEF(/obj/item/reagent_containers/food/drinks/colocup)
 // icon states.
 
 TYPEINFO_DEF(/obj/item/reagent_containers/food/drinks/shaker)
-	default_materials = list(/datum/material/iron=1500)
+	default_materials = list(/datum/material/steel=1500)
 
 /obj/item/reagent_containers/food/drinks/shaker
 	name = "shaker"
@@ -570,7 +570,7 @@ TYPEINFO_DEF(/obj/item/reagent_containers/food/drinks/shaker)
 	isGlass = FALSE
 
 TYPEINFO_DEF(/obj/item/reagent_containers/food/drinks/flask)
-	default_materials = list(/datum/material/iron=250)
+	default_materials = list(/datum/material/steel=250)
 
 /obj/item/reagent_containers/food/drinks/flask
 	name = "flask"

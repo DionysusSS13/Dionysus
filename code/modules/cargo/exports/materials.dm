@@ -81,9 +81,9 @@
 
 /datum/export/material/iron
 	message = "cm3 of iron"
-	material_path = /datum/material/iron
+	material_path = /datum/material/steel
 	export_types = list(
-		/obj/item/stack/sheet/iron, /obj/item/stack/tile/iron,
+		/obj/item/stack/sheet/steel, /obj/item/stack/tile/iron,
 		/obj/item/stack/rods, /obj/item/stack/ore, /obj/item/coin)
 
 /datum/export/material/glass

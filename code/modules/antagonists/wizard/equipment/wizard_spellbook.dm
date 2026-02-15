@@ -255,7 +255,6 @@
 			)
 		if(WIZARD_LOADOUT_WIZARMY) //(Soulstones>2, Staff of Change>2, A Necromantic Stone>2, Teleport>2, Ethereal Jaunt>2) = 10
 			wanted_spells = list(
-				/datum/spellbook_entry/item/soulstones = 1,
 				/datum/spellbook_entry/item/staffchange = 1,
 				/datum/spellbook_entry/item/necrostone = 1,
 				/datum/spellbook_entry/teleport = 1,

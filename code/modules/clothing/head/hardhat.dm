@@ -68,7 +68,7 @@ TYPEINFO_DEF(/obj/item/clothing/head/hardhat)
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
 
 TYPEINFO_DEF(/obj/item/clothing/head/hardhat/red/upgraded)
-	default_materials = list(/datum/material/iron = 4000, /datum/material/glass = 1000, /datum/material/plastic = 3000, /datum/material/silver = 500)
+	default_materials = list(/datum/material/steel = 4000, /datum/material/glass = 1000, /datum/material/plastic = 3000, /datum/material/silver = 500)
 
 /obj/item/clothing/head/hardhat/red/upgraded
 	name = "workplace-ready firefighter helmet"

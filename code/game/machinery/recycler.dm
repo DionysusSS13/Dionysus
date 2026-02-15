@@ -19,7 +19,7 @@
 
 /obj/machinery/recycler/Initialize(mapload)
 	var/list/allowed_materials = list(
-		/datum/material/iron,
+		/datum/material/steel,
 		/datum/material/glass,
 		/datum/material/silver,
 		/datum/material/plasma,

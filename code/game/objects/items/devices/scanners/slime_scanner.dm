@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/slime_scanner)
-	default_materials = list(/datum/material/iron=30, /datum/material/glass=20)
+	default_materials = list(/datum/material/steel=30, /datum/material/glass=20)
 
 /obj/item/slime_scanner
 	name = "slime scanner"

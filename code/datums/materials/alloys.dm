@@ -33,20 +33,38 @@
 	desc = "The heavy duty result of infusing iron with plasma."
 	color = "#706374"
 	greyscale_colors = "#706374"
-	value_per_unit = ((/datum/material/iron::value_per_unit * 0.5) + (/datum/material/plasma::value_per_unit * 0.5)) * 1.1
+	value_per_unit = ((/datum/material/steel::value_per_unit * 0.5) + (/datum/material/plasma::value_per_unit * 0.5)) * 1.1
 	strength_modifier = 1.25
 	integrity_modifier = 1.5 // Heavy duty.
 	armor_modifiers = list(BLUNT = 1.4, PUNCTURE = 1.4, SLASH = 0, LASER = 1.1, ENERGY = 1.1, BOMB = 1.5, BIO = 1, FIRE = 1.1, ACID = 1)
 	sheet_type = /obj/item/stack/sheet/plasteel
 	categories = list(MAT_CATEGORY_RIGID=TRUE, MAT_CATEGORY_BASE_RECIPES=TRUE, MAT_CATEGORY_ITEM_MATERIAL=TRUE)
-	composition = list(/datum/material/iron=1, /datum/material/plasma=1)
-	reinforced_wall_icon = 'icons/turf/walls/solid_wall_reinforced.dmi'
-	//This creates legacy r_walls so that I don't have to recode a shitload of stuff
-	wall_type = /turf/closed/wall/r_wall
-	false_wall_type = /obj/structure/falsewall/reinforced
-	wall_name = "bulkhead"
-	wall_color = "#57575c"
-	hard_wall_decon = TRUE
+	composition = list(/datum/material/steel=1, /datum/material/plasma=1)
+	wall_name = "plasteel"
+	wall_icons = list(
+		'icons/construction/wall/plasteel/wall/wall_5.dmi',
+		'icons/construction/wall/plasteel/wall/wall_4.dmi',
+		'icons/construction/wall/plasteel/wall/wall_3.dmi',
+		'icons/construction/wall/plasteel/wall/wall_2.dmi',
+		'icons/construction/wall/plasteel/wall/wall_1.dmi',
+		'icons/construction/wall/plasteel/wall/wall_0.dmi',
+	)
+	wall_icons_trim_top = list(
+		'icons/construction/wall/plasteel/trim_top/trim_top_5.dmi',
+		'icons/construction/wall/plasteel/trim_top/trim_top_4.dmi',
+		'icons/construction/wall/plasteel/trim_top/trim_top_3.dmi',
+		'icons/construction/wall/plasteel/trim_top/trim_top_2.dmI',
+		'icons/construction/wall/plasteel/trim_top/trim_top_1.dmi',
+		'icons/construction/wall/plasteel/trim_top/trim_top_0.dmi',
+	)
+	wall_icons_trim_bottom = list(
+		'icons/construction/wall/plasteel/trim_bottom/trim_bottom_5.dmi',
+		'icons/construction/wall/plasteel/trim_bottom/trim_bottom_4.dmi',
+		'icons/construction/wall/plasteel/trim_bottom/trim_bottom_3.dmi',
+		'icons/construction/wall/plasteel/trim_bottom/trim_bottom_2.dmI',
+		'icons/construction/wall/plasteel/trim_bottom/trim_bottom_1.dmi',
+		'icons/construction/wall/plasteel/trim_bottom/trim_bottom_0.dmi',
+	)
 
 /datum/material/alloy/plasteel/on_applied_obj(obj/item/target_item, amount, material_flags)
 	. = ..()
@@ -79,12 +97,6 @@
 	sheet_type = /obj/item/stack/sheet/mineral/plastitanium
 	categories = list(MAT_CATEGORY_RIGID=TRUE, MAT_CATEGORY_BASE_RECIPES=TRUE, MAT_CATEGORY_ITEM_MATERIAL=TRUE)
 	composition = list(/datum/material/titanium=1, /datum/material/plasma=1)
-	wall_icon = 'icons/turf/walls/metal_wall.dmi'
-	reinforced_wall_icon = 'icons/turf/walls/solid_wall_reinforced.dmi'
-	wall_type = /turf/closed/wall/mineral/plastitanium
-	false_wall_type = /obj/structure/falsewall/plastitanium
-	hard_wall_decon = TRUE
-	wall_color = "#423b3b"
 
 /** Plasmaglass
  *
@@ -103,7 +115,6 @@
 	value_per_unit = ((/datum/material/glass::value_per_unit * 1) + (/datum/material/plasma::value_per_unit * 0.5)) * 1.1
 	categories = list(MAT_CATEGORY_RIGID=TRUE, MAT_CATEGORY_BASE_RECIPES=TRUE, MAT_CATEGORY_ITEM_MATERIAL=TRUE)
 	composition = list(/datum/material/glass=1, /datum/material/plasma=0.5)
-	wall_type = null
 
 /** Titaniumglass
  *
@@ -121,7 +132,6 @@
 	value_per_unit = ((/datum/material/glass::value_per_unit * 1) + (/datum/material/titanium::value_per_unit * 0.5)) * 1.04
 	categories = list(MAT_CATEGORY_RIGID=TRUE, MAT_CATEGORY_BASE_RECIPES=TRUE, MAT_CATEGORY_ITEM_MATERIAL=TRUE)
 	composition = list(/datum/material/glass=1, /datum/material/titanium=0.5)
-	wall_type = null
 
 /** Plastitanium Glass
  *
@@ -158,10 +168,7 @@
 	sheet_type = /obj/item/stack/sheet/mineral/abductor
 	value_per_unit = 1
 	categories = list(MAT_CATEGORY_RIGID=TRUE, MAT_CATEGORY_BASE_RECIPES=TRUE, MAT_CATEGORY_ITEM_MATERIAL=TRUE)
-	composition = list(/datum/material/iron=2, /datum/material/plasma=2)
-	reinforced_wall_icon = 'icons/turf/walls/solid_wall_reinforced.dmi'
-	wall_name = "hull"
-	hard_wall_decon = TRUE
+	composition = list(/datum/material/steel=2, /datum/material/plasma=2)
 
 /datum/material/alloy/alien/on_applied_obj(obj/item/target_item, amount, material_flags)
 	. = ..()

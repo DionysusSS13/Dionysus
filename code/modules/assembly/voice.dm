@@ -4,7 +4,7 @@
 #define VOICE_SENSOR_MODE 4
 
 TYPEINFO_DEF(/obj/item/assembly/voice)
-	default_materials = list(/datum/material/iron=500, /datum/material/glass=50)
+	default_materials = list(/datum/material/steel=500, /datum/material/glass=50)
 
 /obj/item/assembly/voice
 	name = "voice analyzer"

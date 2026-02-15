@@ -26,7 +26,7 @@ TYPEINFO_DEF(/obj/vehicle/ridden/wheelchair)
 
 /obj/vehicle/ridden/wheelchair/atom_destruction(damage_flag)
 	new /obj/item/stack/rods(drop_location(), 1)
-	new /obj/item/stack/sheet/iron(drop_location(), 1)
+	new /obj/item/stack/sheet/steel(drop_location(), 1)
 	return ..()
 
 /obj/vehicle/ridden/wheelchair/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
@@ -48,7 +48,7 @@ TYPEINFO_DEF(/obj/vehicle/ridden/wheelchair)
 	if(I.use_tool(src, user, 40, volume=50))
 		to_chat(user, span_notice("You detach the wheels and deconstruct the chair."))
 		new /obj/item/stack/rods(drop_location(), 6)
-		new /obj/item/stack/sheet/iron(drop_location(), 4)
+		new /obj/item/stack/sheet/steel(drop_location(), 4)
 		qdel(src)
 	return TRUE
 
@@ -77,7 +77,7 @@ TYPEINFO_DEF(/obj/vehicle/ridden/wheelchair/gold)
 	foldabletype = /obj/item/wheelchair/gold
 
 TYPEINFO_DEF(/obj/item/wheelchair)
-	default_materials = list(/datum/material/iron = 10000)
+	default_materials = list(/datum/material/steel = 10000)
 
 /obj/item/wheelchair
 	name = "wheelchair"

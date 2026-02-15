@@ -1,5 +1,5 @@
 TYPEINFO_DEF(/obj/item/reagent_containers/syringe)
-	default_materials = list(/datum/material/iron=10, /datum/material/glass=20)
+	default_materials = list(/datum/material/steel=10, /datum/material/glass=20)
 
 /obj/item/reagent_containers/syringe
 	name = "syringe"

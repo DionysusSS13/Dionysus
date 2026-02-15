@@ -63,23 +63,6 @@
 	bar_material = WOOD
 	var/drop_amount = 3
 
-/obj/structure/barricade/wooden/attackby(obj/item/I, mob/user)
-	if(istype(I,/obj/item/stack/sheet/mineral/wood))
-		var/obj/item/stack/sheet/mineral/wood/W = I
-		if(W.amount < 5)
-			to_chat(user, span_warning("You need at least five wooden planks to make a wall!"))
-			return
-		else
-			to_chat(user, span_notice("You start adding [I] to [src]..."))
-			if(do_after(user, src, 5 SECONDS, DO_PUBLIC))
-				W.use(5)
-				var/turf/T = get_turf(src)
-				T.PlaceOnTop(/turf/closed/wall/mineral/wood/nonmetal)
-				qdel(src)
-				return
-	return ..()
-
-
 /obj/structure/barricade/wooden/crude
 	name = "crude plank barricade"
 	desc = "This space is blocked off by a crude assortment of planks."
@@ -108,7 +91,7 @@
 	bar_material = SAND
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_SANDBAGS
-	canSmoothWith = SMOOTH_GROUP_SANDBAGS + SMOOTH_GROUP_SECURITY_BARRICADE + SMOOTH_GROUP_WALLS
+	smoothing_groups_with = SMOOTH_GROUP_SANDBAGS + SMOOTH_GROUP_SECURITY_BARRICADE + SMOOTH_GROUP_WALLS
 
 /obj/structure/barricade/sandbags/Initialize(mapload)
 	. = ..()

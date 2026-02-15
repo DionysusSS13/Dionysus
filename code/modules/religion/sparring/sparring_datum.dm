@@ -294,10 +294,3 @@
 			if(!loser_account || !winner_account)//the winner is pretty owned in this case but whatever shoulda read the fine print of the contract
 				return
 			winner_account.transfer_money(loser_account, loser_account.account_balance)
-		if(STAKES_YOUR_SOUL)
-			var/turf/shard_turf = get_turf(loser)
-			if(!shard_turf)
-				return
-			to_chat(loser, span_userdanger("You've lost ownership over your soul to [winner]!"))
-			var/obj/item/soulstone/anybody/chaplain/sparring/shard = new(shard_turf)
-			shard.capture_soul(loser, winner, forced = TRUE)

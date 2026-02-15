@@ -10,7 +10,7 @@
 	can_be_unanchored = FALSE
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_ALIEN_NEST
-	canSmoothWith = SMOOTH_GROUP_ALIEN_NEST
+	smoothing_groups_with = SMOOTH_GROUP_ALIEN_NEST
 	buildstacktype = null
 	flags_1 = NODECONSTRUCT_1
 	bolts = FALSE

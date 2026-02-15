@@ -21,7 +21,7 @@
 	desc = "The kit for a high-tech cannon that fires internal, reusable bolt cartridges in a revolving cylinder. The cartridges can be recharged using conventional rechargers."
 	id = "stunrevolver"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 10000, /datum/material/glass = 10000, /datum/material/silver = 10000)
+	materials = list(/datum/material/steel = 10000, /datum/material/glass = 10000, /datum/material/silver = 10000)
 	build_path = /obj/item/weaponcrafting/gunkit/tesla
 	category = list(DCAT_WEAPON)
 	mapload_design_flags = DESIGN_FAB_SECURITY
@@ -31,7 +31,7 @@
 	desc = "The kit for an energy gun with an experimental miniaturized reactor."
 	id = "nuclear_gun"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 10000, /datum/material/glass = 2000, /datum/material/uranium = 3000, /datum/material/titanium = 1000)
+	materials = list(/datum/material/steel = 10000, /datum/material/glass = 2000, /datum/material/uranium = 3000, /datum/material/titanium = 1000)
 	build_path = /obj/item/weaponcrafting/gunkit/nuclear
 	category = list(DCAT_WEAPON)
 	mapload_design_flags = DESIGN_FAB_SECURITY
@@ -41,7 +41,7 @@
 	desc = "A tool that discharges controlled radiation which induces mutation in plant cells. Harmless to other organic life."
 	id = "flora_gun"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 2000, /datum/material/glass = 500, /datum/material/uranium = 2000)
+	materials = list(/datum/material/steel = 2000, /datum/material/glass = 500, /datum/material/uranium = 2000)
 	build_path = /obj/item/gun/energy/floragun
 	category = list(DCAT_BOTANICAL)
 	mapload_design_flags = DESIGN_FAB_SERVICE
@@ -51,7 +51,7 @@
 	desc = "A grenade that affects a larger area and use larger containers."
 	id = "large_Grenade"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 3000)
+	materials = list(/datum/material/steel = 3000)
 	build_path = /obj/item/grenade/chem_grenade/large
 	category = list(DCAT_WEAPON)
 	mapload_design_flags = DESIGN_FAB_MEDICAL | DESIGN_FAB_OMNI
@@ -61,7 +61,7 @@
 	desc = "An advanced grenade that is able to self ignite its mixture."
 	id = "pyro_Grenade"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 2000, /datum/material/plasma = 500)
+	materials = list(/datum/material/steel = 2000, /datum/material/plasma = 500)
 	build_path = /obj/item/grenade/chem_grenade/pyro
 	category = list(DCAT_WEAPON)
 	mapload_design_flags = DESIGN_FAB_SECURITY | DESIGN_FAB_MEDICAL | DESIGN_FAB_OMNI
@@ -71,7 +71,7 @@
 	desc = "An advanced grenade that rapidly cools its contents upon detonation."
 	id = "cryo_Grenade"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 2000, /datum/material/silver = 500)
+	materials = list(/datum/material/steel = 2000, /datum/material/silver = 500)
 	build_path = /obj/item/grenade/chem_grenade/cryo
 	category = list(DCAT_WEAPON)
 	mapload_design_flags = DESIGN_FAB_SECURITY | DESIGN_FAB_MEDICAL | DESIGN_FAB_OMNI
@@ -81,7 +81,7 @@
 	desc = "An advanced grenade that can be detonated several times, best used with a repeating igniter."
 	id = "adv_Grenade"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 3000, /datum/material/glass = 500)
+	materials = list(/datum/material/steel = 3000, /datum/material/glass = 500)
 	build_path = /obj/item/grenade/chem_grenade/adv_release
 	category = list(DCAT_WEAPON)
 	mapload_design_flags = DESIGN_FAB_SECURITY | DESIGN_FAB_MEDICAL | DESIGN_FAB_OMNI
@@ -91,7 +91,7 @@
 	desc = "A stunning shell for a shotgun."
 	id = "stunshell"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 200)
+	materials = list(/datum/material/steel = 200)
 	build_path = /obj/item/ammo_casing/shotgun/stunslug
 	category = list(DCAT_AMMO)
 	mapload_design_flags = DESIGN_FAB_SECURITY
@@ -101,7 +101,7 @@
 	desc = "A reverse-engineered suppressor that fits on most small arms with threaded barrels."
 	id = "suppressor"
 	build_type = FABRICATOR
-	materials = list(/datum/material/iron = 2000, /datum/material/silver = 500)
+	materials = list(/datum/material/steel = 2000, /datum/material/silver = 500)
 	build_path = /obj/item/suppressor
 	category = list(DCAT_WEAPON)
 

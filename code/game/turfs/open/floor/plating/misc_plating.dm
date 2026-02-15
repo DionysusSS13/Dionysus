@@ -58,7 +58,7 @@
 	base_icon_state = "snow_turf"
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_FLOOR_SNOWED
-	canSmoothWith = SMOOTH_GROUP_FLOOR_SNOWED
+	smoothing_groups_with = SMOOTH_GROUP_FLOOR_SNOWED
 
 /turf/open/floor/plating/snowed/temperatre
 	temperature = 255.37

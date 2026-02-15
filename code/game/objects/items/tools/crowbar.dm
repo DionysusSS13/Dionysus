@@ -1,6 +1,6 @@
 TYPEINFO_DEF(/obj/item/crowbar)
 	default_armor = list(BLUNT = 0, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 50, ACID = 30)
-	default_materials = list(/datum/material/iron=70)
+	default_materials = list(/datum/material/steel=70)
 
 /obj/item/crowbar
 	name = "crowbar"
@@ -52,7 +52,7 @@ TYPEINFO_DEF(/obj/item/crowbar)
 	return (BRUTELOSS)
 
 TYPEINFO_DEF(/obj/item/crowbar/abductor)
-	default_materials = list(/datum/material/iron = 5000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
+	default_materials = list(/datum/material/steel = 5000, /datum/material/silver = 2500, /datum/material/plasma = 1000, /datum/material/titanium = 2000, /datum/material/diamond = 2000)
 
 /obj/item/crowbar/abductor
 	name = "alien crowbar"
@@ -65,7 +65,7 @@ TYPEINFO_DEF(/obj/item/crowbar/abductor)
 
 
 TYPEINFO_DEF(/obj/item/crowbar/pocket)
-	default_materials = list(/datum/material/iron=50)
+	default_materials = list(/datum/material/steel=50)
 
 /obj/item/crowbar/pocket
 	name = "compact crowbar"
@@ -95,7 +95,7 @@ TYPEINFO_DEF(/obj/item/crowbar/pocket)
 		icon_state = "crowbar_powergame"
 
 TYPEINFO_DEF(/obj/item/crowbar/power)
-	default_materials = list(/datum/material/iron = 4500, /datum/material/silver = 2500, /datum/material/titanium = 3500)
+	default_materials = list(/datum/material/steel = 4500, /datum/material/silver = 2500, /datum/material/titanium = 3500)
 
 /obj/item/crowbar/power
 	name = "jaws of life"

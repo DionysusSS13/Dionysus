@@ -457,8 +457,8 @@ TYPEINFO_DEF(/obj/item/gun/energy/beam_rifle)
 	if(isclosedturf(A) && (wall_pierce < wall_pierce_amount))
 		if(prob(wall_devastate))
 			if(iswallturf(A))
-				var/turf/closed/wall/W = A
-				W.dismantle_wall(TRUE, TRUE)
+				var/turf/closed/constructed_wall/wall = A
+				wall.destroy_wall(and_girder = TRUE)
 			else
 				EX_ACT(A, EXPLODE_HEAVY)
 		++wall_pierce

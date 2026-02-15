@@ -2451,7 +2451,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/structure/girder/displaced,
+/obj/structure/girderold/displaced,
 /obj/structure/grille/broken,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable/smart_cable/color/yellow,
@@ -5621,7 +5621,7 @@
 /turf/open/space,
 /area/space/nearstation)
 "aEg" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "aEi" = (
@@ -6007,7 +6007,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/starboard)
 "aHV" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/structure/grille/broken,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
@@ -7482,7 +7482,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
 "aRQ" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
 	},
@@ -9371,7 +9371,7 @@
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
 "bdN" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/starboard)
@@ -10667,8 +10667,8 @@
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/pickaxe,
@@ -11297,7 +11297,7 @@
 /turf/closed/wall,
 /area/station/maintenance/port/greater)
 "bxq" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
 	},
@@ -11520,7 +11520,7 @@
 /turf/open/floor/iron/dark,
 /area/station/medical/pharmacy)
 "bzO" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
@@ -12162,7 +12162,7 @@
 /area/station/maintenance/aft)
 "bEI" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/girder/displaced,
+/obj/structure/girderold/displaced,
 /obj/structure/grille/broken,
 /turf/open/floor/plating{
 	icon_state = "platingdmg1"
@@ -12372,7 +12372,7 @@
 /turf/open/floor/iron/dark,
 /area/station/maintenance/aft)
 "bFY" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/structure/grille,
 /obj/structure/barricade/wooden,
 /turf/open/floor/plating,
@@ -12758,7 +12758,7 @@
 /turf/open/floor/iron,
 /area/station/cargo/miningoffice)
 "bJs" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable/smart_cable/color/yellow,
@@ -13157,7 +13157,7 @@
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
 "bOb" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
@@ -13793,7 +13793,7 @@
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/exit/departure_lounge)
 "bTS" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
@@ -14291,7 +14291,7 @@
 /turf/open/floor/iron,
 /area/station/security/brig)
 "bWK" = (
-/obj/structure/girder/displaced,
+/obj/structure/girderold/displaced,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/maintenance/port/aft)
@@ -15085,7 +15085,7 @@
 /turf/open/floor/iron/dark,
 /area/station/maintenance/port/lesser)
 "caN" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 4
@@ -15160,7 +15160,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
 "cbj" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
@@ -17864,7 +17864,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
 "cpX" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
@@ -17995,7 +17995,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
 "cqD" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/turf_decal/stripes/corner,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating{
@@ -18007,7 +18007,7 @@
 /turf/closed/wall/rust,
 /area/station/maintenance/port/lesser)
 "cqL" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/turf_decal/stripes/corner,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/plating{
@@ -18806,7 +18806,7 @@
 /turf/open/floor/iron/dark,
 /area/station/maintenance/port/fore)
 "cwS" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
@@ -18973,7 +18973,7 @@
 /turf/open/floor/iron/dark,
 /area/station/maintenance/port/fore)
 "cxy" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
@@ -18996,7 +18996,7 @@
 /turf/open/floor/engine/o2,
 /area/station/engineering/atmos)
 "cxC" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
@@ -19154,7 +19154,7 @@
 /area/station/security/checkpoint/engineering)
 "cyl" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/girder/displaced,
+/obj/structure/girderold/displaced,
 /obj/structure/grille/broken,
 /turf/open/floor/plating{
 	icon_state = "platingdmg1"
@@ -19631,7 +19631,7 @@
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/entry)
 "cAF" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
@@ -20309,7 +20309,7 @@
 /turf/open/floor/iron/dark,
 /area/station/cargo/storage)
 "cFy" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
@@ -20334,7 +20334,7 @@
 /area/station/hallway/secondary/exit/departure_lounge)
 "cFL" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/structure/grille/broken,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
@@ -20361,7 +20361,7 @@
 	},
 /area/station/maintenance/port/lesser)
 "cFT" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/grille/broken,
 /turf/open/floor/plating{
@@ -20873,7 +20873,7 @@
 /turf/open/floor/iron/dark,
 /area/station/construction/mining/aux_base)
 "cJx" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/structure/grille/broken,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
@@ -21278,7 +21278,7 @@
 /turf/closed/wall/rust,
 /area/station/maintenance/starboard)
 "cMG" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/turf_decal/stripes/corner{
@@ -21360,7 +21360,7 @@
 /area/station/security/detectives_office)
 "cNC" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/girder/displaced,
+/obj/structure/girderold/displaced,
 /obj/structure/grille/broken,
 /turf/open/floor/plating{
 	icon_state = "platingdmg1"
@@ -21451,7 +21451,7 @@
 /area/space)
 "cOe" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/structure/grille,
 /turf/open/floor/plating,
 /area/station/maintenance/department/cargo)
@@ -21624,7 +21624,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/port/lesser)
 "cPH" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/plating,
 /area/station/maintenance/port/greater)
@@ -26810,9 +26810,9 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 8
 	},
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
+/obj/item/stack/sheet/steel/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/storage/belt/utility,
 /obj/item/clothing/head/welding,
@@ -29672,7 +29672,7 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/clothing/glasses/welding,
 /obj/item/radio/intercom/directional/east,
@@ -30174,8 +30174,8 @@
 /area/station/engineering/supermatter)
 "fKo" = (
 /obj/structure/table,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/clothing/head/welding{
 	pixel_x = 4;
 	pixel_y = 4
@@ -38055,7 +38055,7 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/fore)
 "ixJ" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /turf/open/floor/plating,
 /area/station/maintenance/port/lesser)
 "ixU" = (
@@ -38319,7 +38319,7 @@
 "iBB" = (
 /obj/effect/turf_decal/stripes/corner,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/girder,
+/obj/structure/girderold,
 /turf/open/floor/plating{
 	icon_state = "platingdmg1"
 	},
@@ -46310,7 +46310,7 @@
 /area/station/engineering/supermatter/room)
 "leW" = (
 /obj/structure/closet/crate,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/rods/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/electronics/airlock,
@@ -49166,7 +49166,7 @@
 /obj/item/stack/sheet/glass{
 	amount = 20
 	},
-/obj/item/stack/sheet/iron/twenty,
+/obj/item/stack/sheet/steel/twenty,
 /turf/open/floor/iron/dark,
 /area/station/service/bar)
 "mbo" = (
@@ -51498,7 +51498,7 @@
 /area/station/security/interrogation)
 "mPo" = (
 /obj/structure/table,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/mineral/plasma{
 	amount = 5
@@ -52109,7 +52109,7 @@
 "mXp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rack,
-/obj/item/stack/sheet/iron/twenty,
+/obj/item/stack/sheet/steel/twenty,
 /obj/item/stack/sheet/glass{
 	amount = 20
 	},
@@ -53731,7 +53731,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/girder/displaced,
+/obj/structure/girderold/displaced,
 /obj/structure/grille/broken,
 /obj/structure/cable/smart_cable/color/yellow,
 /obj/effect/turf_decal/stripes/corner{
@@ -55179,7 +55179,7 @@
 	dir = 8
 	},
 /obj/structure/table,
-/obj/item/stack/sheet/iron/ten,
+/obj/item/stack/sheet/steel/ten,
 /obj/item/stack/cable_coil,
 /obj/item/storage/backpack/duffelbag/sec/surgery{
 	pixel_y = 5
@@ -64013,7 +64013,7 @@
 /area/station/service/bar/atrium)
 "qVM" = (
 /obj/structure/lattice,
-/obj/structure/girder/reinforced,
+/obj/structure/girderold/reinforced,
 /turf/open/space/basic,
 /area/space/nearstation)
 "qVZ" = (
@@ -64712,9 +64712,9 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
+/obj/item/stack/sheet/steel/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/stack/sheet/glass/fifty,
@@ -65003,7 +65003,7 @@
 /turf/open/floor/iron,
 /area/station/service/chapel/storage)
 "rhY" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/plating{
@@ -65583,7 +65583,7 @@
 "rrF" = (
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/girder/displaced,
+/obj/structure/girderold/displaced,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
 	},
@@ -66159,7 +66159,7 @@
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "rCp" = (
-/obj/structure/girder/displaced,
+/obj/structure/girderold/displaced,
 /obj/structure/grille/broken,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/stripes/corner,
@@ -66438,7 +66438,7 @@
 "rFn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/rack,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/effect/spawner/random/maintenance/two,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
@@ -70363,7 +70363,7 @@
 /turf/open/floor/iron/dark,
 /area/station/service/library)
 "sTQ" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /turf/open/floor/plating,
 /area/station/maintenance/department/security)
 "sUj" = (
@@ -73887,8 +73887,8 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/cobweb/cobweb2,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/pipe_dispenser,
 /obj/structure/extinguisher_cabinet/directional/north,
 /obj/machinery/status_display/evac/directional/east,
@@ -76268,9 +76268,9 @@
 "uZg" = (
 /obj/structure/table,
 /obj/effect/turf_decal/tile/neutral,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
+/obj/item/stack/sheet/steel/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/stack/sheet/glass/fifty,
 /obj/item/storage/belt/utility,
 /obj/item/clothing/head/welding,
@@ -76924,7 +76924,7 @@
 /turf/open/floor/iron,
 /area/station/service/theater)
 "vkY" = (
-/obj/structure/girder/reinforced,
+/obj/structure/girderold/reinforced,
 /turf/open/space/basic,
 /area/space/nearstation)
 "vlM" = (
@@ -77155,8 +77155,8 @@
 	dir = 1
 	},
 /obj/structure/table,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/steel/fifty,
+/obj/item/stack/sheet/steel/fifty,
 /obj/item/construction/plumbing,
 /obj/item/construction/plumbing,
 /obj/machinery/light_switch/directional/north,
@@ -78381,7 +78381,7 @@
 "vIb" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/table,
-/obj/item/stack/sheet/iron/ten{
+/obj/item/stack/sheet/steel/ten{
 	amount = 5
 	},
 /obj/item/assembly/prox_sensor,
@@ -82384,7 +82384,7 @@
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "wWY" = (
-/obj/structure/girder/displaced,
+/obj/structure/girderold/displaced,
 /obj/effect/turf_decal/stripes/corner{
 	dir = 1
 	},
@@ -85583,7 +85583,7 @@
 /turf/open/floor/plating,
 /area/station/commons/storage/primary)
 "yaG" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
@@ -86169,7 +86169,7 @@
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
 "ykB" = (
-/obj/structure/girder,
+/obj/structure/girderold,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/grille/broken,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,

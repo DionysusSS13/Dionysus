@@ -14,7 +14,6 @@ GLOBAL_LIST_INIT(typecache_elevated_structures, typecacheof(list(
 	/obj/machinery/conveyor,
 	/obj/machinery/stasis,
 	/obj/structure/closet,
-	/obj/structure/rack,
 	/obj/structure/table,
 )))
 

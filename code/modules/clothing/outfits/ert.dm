@@ -256,7 +256,6 @@
 	suit_store = /obj/item/tank/internals/oxygen
 	back = /obj/item/mod/control/pre_equipped/responsory/chaplain
 	l_hand = /obj/item/gun/energy/e_gun
-	belt = /obj/item/storage/belt/soulstone
 	glasses = /obj/item/clothing/glasses/hud/health
 	backpack_contents = list(
 		/obj/item/nullrod = 1,
@@ -280,7 +279,6 @@
 		/obj/item/nullrod = 1,
 		/obj/item/storage/box/survival/engineer = 1,
 	)
-	belt = /obj/item/storage/belt/soulstone/full/chappy
 
 /datum/outfit/centcom/ert/janitor
 	name = "ERT Janitor"
@@ -455,7 +453,7 @@
 		/obj/item/etherealballdeployer = 1,
 		/obj/item/stack/light_w = 30,
 		/obj/item/stack/sheet/glass/fifty = 1,
-		/obj/item/stack/sheet/iron/fifty = 1,
+		/obj/item/stack/sheet/steel/fifty = 1,
 		/obj/item/stack/sheet/plasteel/twenty = 1,
 		/obj/item/storage/box/survival/engineer = 1,
 	)

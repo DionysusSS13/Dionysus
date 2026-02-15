@@ -3,7 +3,7 @@
 	item_flags = NEEDS_PERMIT
 
 TYPEINFO_DEF(/obj/item/melee/chainofcommand)
-	default_materials = list(/datum/material/iron = 1000)
+	default_materials = list(/datum/material/steel = 1000)
 
 /obj/item/melee/chainofcommand
 	name = "chain of command"
@@ -47,7 +47,7 @@ TYPEINFO_DEF(/obj/item/melee/chainofcommand)
 	AddComponent(/datum/component/butchering, 60, 80) //very imprecise
 
 TYPEINFO_DEF(/obj/item/melee/sabre)
-	default_materials = list(/datum/material/iron = 1000)
+	default_materials = list(/datum/material/steel = 1000)
 
 /obj/item/melee/sabre
 	name = "officer's sabre"
@@ -415,7 +415,7 @@ TYPEINFO_DEF(/obj/item/melee/sabre)
 
 
 TYPEINFO_DEF(/obj/item/melee/cleric_mace)
-	default_materials = list(/datum/material/iron = 12000)
+	default_materials = list(/datum/material/steel = 12000)
 
 /obj/item/melee/cleric_mace
 	name = "cleric mace"

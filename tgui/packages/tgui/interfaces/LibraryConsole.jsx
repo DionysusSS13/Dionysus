@@ -774,6 +774,7 @@ const ForbiddenModal = (props) => {
             content="Assent"
             color="good"
             fontSize="20px"
+            disabled
             onClick={() => act('lore_spawn')}
             lineHeight={2}
           />

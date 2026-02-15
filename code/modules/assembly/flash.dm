@@ -6,7 +6,7 @@
 #define DEVIATION_FULL 2
 
 TYPEINFO_DEF(/obj/item/assembly/flash)
-	default_materials = list(/datum/material/iron = 300, /datum/material/glass = 300)
+	default_materials = list(/datum/material/steel = 300, /datum/material/glass = 300)
 
 /obj/item/assembly/flash
 	name = "flash"

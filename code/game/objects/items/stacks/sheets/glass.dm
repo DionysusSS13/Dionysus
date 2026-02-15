@@ -10,7 +10,6 @@
  */
 GLOBAL_LIST_INIT(glass_recipes, list ( \
 	new/datum/stack_recipe("directional window", /obj/structure/window/unanchored, time = 0, on_floor = TRUE, window_checks = TRUE), \
-	new/datum/stack_recipe("fulltile window", /obj/structure/window/fulltile/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE), \
 	new/datum/stack_recipe("glass shard", /obj/item/shard, time = 0, on_floor = TRUE), \
 	new/datum/stack_recipe("glass tile", /obj/item/stack/tile/glass, 1, 4, 20) \
 ))
@@ -34,7 +33,6 @@ TYPEINFO_DEF(/obj/item/stack/sheet/glass)
 	matter_amount = 4
 	cost = 500
 	source = /datum/robot_energy_storage/glass
-	window_type = /obj/structure/window/fulltile
 
 /obj/item/stack/sheet/glass/suicide_act(mob/living/carbon/user)
 	user.visible_message(span_suicide("[user] begins to slice [user.p_their()] neck with \the [src]! It looks like [user.p_theyre()] trying to commit suicide!"))
@@ -79,7 +77,6 @@ TYPEINFO_DEF(/obj/item/stack/sheet/glass)
 
 GLOBAL_LIST_INIT(pglass_recipes, list ( \
 	new/datum/stack_recipe("directional window", /obj/structure/window/plasma/unanchored, time = 0, on_floor = TRUE, window_checks = TRUE), \
-	new/datum/stack_recipe("fulltile window", /obj/structure/window/plasma/fulltile/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE), \
 	new/datum/stack_recipe("plasma glass shard", /obj/item/shard/plasma, time = 20, on_floor = TRUE) \
 ))
 
@@ -99,7 +96,6 @@ TYPEINFO_DEF(/obj/item/stack/sheet/plasmaglass)
 	grind_results = list(/datum/reagent/silicon = 20, /datum/reagent/toxin/plasma = 10)
 	material_flags = NONE
 	tableVariant = /obj/structure/table/glass/plasmaglass
-	window_type = /obj/structure/window/plasma/fulltile
 
 /obj/item/stack/sheet/plasmaglass/fifty
 	amount = 50
@@ -135,7 +131,6 @@ GLOBAL_LIST_INIT(reinforced_glass_recipes, list ( \
 	new/datum/stack_recipe("windoor frame", /obj/structure/windoor_assembly, 5, time = 0, on_floor = TRUE, window_checks = TRUE), \
 	null, \
 	new/datum/stack_recipe("directional reinforced window", /obj/structure/window/reinforced/unanchored, time = 0, on_floor = TRUE, window_checks = TRUE), \
-	new/datum/stack_recipe("fulltile reinforced window", /obj/structure/window/reinforced/fulltile/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE), \
 	new/datum/stack_recipe("glass shard", /obj/item/shard, time = 10, on_floor = TRUE), \
 	new/datum/stack_recipe("reinforced glass tile", /obj/item/stack/tile/rglass, 1, 4, 20) \
 ))
@@ -150,14 +145,13 @@ TYPEINFO_DEF(/obj/item/stack/sheet/rglass)
 	singular_name = "reinforced glass sheet"
 	icon_state = "sheet-rglass"
 	inhand_icon_state = "sheet-rglass"
-	mats_per_unit = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT * 0.5, /datum/material/glass=MINERAL_MATERIAL_AMOUNT)
+	mats_per_unit = list(/datum/material/steel=MINERAL_MATERIAL_AMOUNT * 0.5, /datum/material/glass=MINERAL_MATERIAL_AMOUNT)
 	resistance_flags = ACID_PROOF
 	merge_type = /obj/item/stack/sheet/rglass
 	grind_results = list(/datum/reagent/silicon = 20, /datum/reagent/iron = 10)
 	point_value = 4
 	matter_amount = 6
 	tableVariant = /obj/structure/table/reinforced/rglass
-	window_type = /obj/structure/window/reinforced/fulltile
 
 /obj/item/stack/sheet/rglass/attackby(obj/item/W, mob/user, params)
 	add_fingerprint(user)
@@ -192,7 +186,6 @@ TYPEINFO_DEF(/obj/item/stack/sheet/rglass)
 
 GLOBAL_LIST_INIT(prglass_recipes, list ( \
 	new/datum/stack_recipe("directional reinforced window", /obj/structure/window/reinforced/plasma/unanchored, time = 0, on_floor = TRUE, window_checks = TRUE), \
-	new/datum/stack_recipe("fulltile reinforced window", /obj/structure/window/reinforced/plasma/fulltile/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE), \
 	new/datum/stack_recipe("plasma glass shard", /obj/item/shard/plasma, time = 40, on_floor = TRUE) \
 ))
 
@@ -205,7 +198,7 @@ TYPEINFO_DEF(/obj/item/stack/sheet/plasmarglass)
 	singular_name = "reinforced plasma glass sheet"
 	icon_state = "sheet-prglass"
 	inhand_icon_state = "sheet-prglass"
-	mats_per_unit = list(/datum/material/alloy/plasmaglass=MINERAL_MATERIAL_AMOUNT, /datum/material/iron = MINERAL_MATERIAL_AMOUNT * 0.5)
+	mats_per_unit = list(/datum/material/alloy/plasmaglass=MINERAL_MATERIAL_AMOUNT, /datum/material/steel = MINERAL_MATERIAL_AMOUNT * 0.5)
 	resistance_flags = ACID_PROOF
 	material_flags = NONE
 	merge_type = /obj/item/stack/sheet/plasmarglass
@@ -213,14 +206,12 @@ TYPEINFO_DEF(/obj/item/stack/sheet/plasmarglass)
 	point_value = 23
 	matter_amount = 8
 	tableVariant = /obj/structure/table/reinforced/plasmarglass
-	window_type = /obj/structure/window/reinforced/plasma/fulltile
 
 /obj/item/stack/sheet/plasmarglass/get_main_recipes()
 	. = ..()
 	. += GLOB.prglass_recipes
 
 GLOBAL_LIST_INIT(titaniumglass_recipes, list(
-	new/datum/stack_recipe("shuttle window", /obj/structure/window/reinforced/shuttle/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE), \
 	new/datum/stack_recipe("titanium glass shard", /obj/item/shard/titanium, time = 40, on_floor = TRUE) \
 	))
 
@@ -238,18 +229,9 @@ TYPEINFO_DEF(/obj/item/stack/sheet/titaniumglass)
 	resistance_flags = ACID_PROOF
 	merge_type = /obj/item/stack/sheet/titaniumglass
 	tableVariant = /obj/structure/table/reinforced/titaniumglass
-	window_type = /obj/structure/window/reinforced/shuttle
 
 /obj/item/stack/sheet/titaniumglass/fifty
 	amount = 50
-
-/obj/item/stack/sheet/titaniumglass/get_main_recipes()
-	. = ..()
-	. += GLOB.titaniumglass_recipes
-
-GLOBAL_LIST_INIT(plastitaniumglass_recipes, list(
-	new/datum/stack_recipe("plastitanium window", /obj/structure/window/reinforced/plasma/plastitanium/unanchored, 2, time = 0, on_floor = TRUE, window_checks = TRUE) \
-	))
 
 TYPEINFO_DEF(/obj/item/stack/sheet/plastitaniumglass)
 	default_armor = list(BLUNT = 0, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 80, ACID = 100)
@@ -266,11 +248,6 @@ TYPEINFO_DEF(/obj/item/stack/sheet/plastitaniumglass)
 	resistance_flags = ACID_PROOF
 	merge_type = /obj/item/stack/sheet/plastitaniumglass
 	tableVariant = /obj/structure/table/reinforced/plastitaniumglass
-	window_type = /obj/structure/window/reinforced/plasma/plastitanium
-
-/obj/item/stack/sheet/plastitaniumglass/get_main_recipes()
-	. = ..()
-	. += GLOB.plastitaniumglass_recipes
 
 /obj/item/stack/sheet/gnesis_glass
 	name = "transculent wafers"
@@ -444,4 +421,3 @@ TYPEINFO_DEF(/obj/item/shard/gnesis_glass)
 
 	weld_material = /obj/item/stack/sheet/gnesis_glass
 	craft_time = 7 SECONDS
-

@@ -9,7 +9,7 @@
 // Powersink - used to drain station power
 
 TYPEINFO_DEF(/obj/item/powersink)
-	default_materials = list(/datum/material/iron=750)
+	default_materials = list(/datum/material/steel=750)
 
 /obj/item/powersink
 	name = "power sink"
