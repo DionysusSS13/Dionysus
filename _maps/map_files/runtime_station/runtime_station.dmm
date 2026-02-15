@@ -5,43 +5,67 @@
 "e" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "f" = (
 /turf/closed/constructed_wall/bronze,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "h" = (
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "k" = (
 /turf/closed/constructed_wall/wood_oak,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "n" = (
 /turf/closed/constructed_wall/wood_cherry,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "o" = (
 /turf/closed/constructed_wall/silver,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "r" = (
 /turf/closed/constructed_wall/plasteel,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "s" = (
 /turf/open/floor/iron,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "v" = (
 /turf/open/floor/light,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "w" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/light,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "x" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "y" = (
 /turf/closed/constructed_wall/shielded,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "A" = (
 /obj/docking_port/mobile/emergency{
 	width = 3;
@@ -57,54 +81,80 @@
 /area/shuttle)
 "B" = (
 /turf/closed/constructed_wall/wood_dark_oak,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "F" = (
 /turf/closed/constructed_wall/marble_black,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "G" = (
 /obj/effect/landmark/observer_start,
 /turf/open/floor/iron,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "H" = (
 /turf/closed/constructed_wall/stellar,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "I" = (
 /turf/open/floor/light,
 /area/shuttle)
 "K" = (
 /turf/closed/constructed_wall/steel,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "L" = (
 /turf/closed/constructed_wall/wood_teak,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "M" = (
 /obj/machinery/announcement_system,
 /turf/open/floor/iron,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "R" = (
 /obj/effect/landmark/error,
 /turf/open/floor/iron,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "S" = (
 /turf/closed/constructed_wall/wood_mahogany,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "T" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "V" = (
 /obj/effect/landmark/start,
 /turf/open/floor/iron,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "X" = (
 /turf/closed/constructed_wall/marble_white,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 "Y" = (
 /turf/closed/constructed_wall/stellar,
 /area/shuttle)
 "Z" = (
 /turf/closed/constructed_wall/steel/steel,
-/area/centcom/central_command_areas)
+/area/station/maintenance{
+	requires_power = 0
+	})
 
 (1,1,1) = {"
 a

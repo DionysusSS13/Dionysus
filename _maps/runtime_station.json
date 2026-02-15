@@ -1,7 +1,7 @@
 {
 	"version": 1,
 	"map_name": "Runtime Station",
-	"map_path": "map_files",
+	"map_path": "map_files/runtime_station",
 	"map_file": "runtime_station.dmm",
 	"space_ruin_levels": 1,
 	"shuttles": {},
