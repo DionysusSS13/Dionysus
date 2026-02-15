@@ -1,5 +1,5 @@
 // replace runtimestation with another valid _maps .json if not present
-#define VALID_TEST_MAP "runtimestation"
+#define VALID_TEST_MAP "runtime_station"
 
 /// Tests to ensure we can load a map from a whitelisted directory (_maps), but not a non-whitelisted directory (i.e "fartyShitPants")
 /datum/unit_test/load_map_security
