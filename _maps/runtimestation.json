@@ -4,5 +4,6 @@
 	"map_path": "map_files",
 	"map_file": "runtime_station.dmm",
 	"space_ruin_levels": 1,
-	"shuttles": {}
+	"shuttles": {},
+	"traits": {}
 }
