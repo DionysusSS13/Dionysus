@@ -5,67 +5,43 @@
 "e" = (
 /obj/machinery/light/directional/east,
 /turf/open/floor/iron,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "f" = (
 /turf/closed/constructed_wall/bronze,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "h" = (
 /obj/machinery/light/directional/south,
 /turf/open/floor/iron,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "k" = (
 /turf/closed/constructed_wall/wood_oak,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "n" = (
 /turf/closed/constructed_wall/wood_cherry,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "o" = (
 /turf/closed/constructed_wall/silver,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "r" = (
 /turf/closed/constructed_wall/plasteel,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "s" = (
 /turf/open/floor/iron,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "v" = (
 /turf/open/floor/light,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "w" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/light,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "x" = (
 /obj/machinery/light/directional/north,
 /turf/open/floor/iron,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "y" = (
 /turf/closed/constructed_wall/shielded,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "A" = (
 /obj/docking_port/mobile/emergency{
 	width = 3;
@@ -81,80 +57,54 @@
 /area/shuttle)
 "B" = (
 /turf/closed/constructed_wall/wood_dark_oak,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "F" = (
 /turf/closed/constructed_wall/marble_black,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "G" = (
 /obj/effect/landmark/observer_start,
 /turf/open/floor/iron,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "H" = (
 /turf/closed/constructed_wall/stellar,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "I" = (
 /turf/open/floor/light,
 /area/shuttle)
 "K" = (
 /turf/closed/constructed_wall/steel,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "L" = (
 /turf/closed/constructed_wall/wood_teak,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "M" = (
 /obj/machinery/announcement_system,
 /turf/open/floor/iron,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "R" = (
 /obj/effect/landmark/error,
 /turf/open/floor/iron,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "S" = (
 /turf/closed/constructed_wall/wood_mahogany,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "T" = (
 /obj/machinery/light/directional/west,
 /turf/open/floor/iron,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "V" = (
 /obj/effect/landmark/start,
 /turf/open/floor/iron,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "X" = (
 /turf/closed/constructed_wall/marble_white,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 "Y" = (
 /turf/closed/constructed_wall/stellar,
 /area/shuttle)
 "Z" = (
 /turf/closed/constructed_wall/steel/steel,
-/area/station/maintenance{
-	requires_power = 0
-	})
+/area/station/maintenance/_powered)
 
 (1,1,1) = {"
 a
