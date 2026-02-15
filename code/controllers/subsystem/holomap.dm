@@ -43,7 +43,7 @@ SUBSYSTEM_DEF(holomap)
 					continue
 				var/pixel_x = T.x + offset_x
 				var/pixel_y = T.y + offset_y
-				Draw spacebound airlocks
+				// Draw spacebound airlocks
 				if(locate(/obj/machinery/door/airlock/external, T))
 					for(var/dir in GLOB.cardinals)
 						var/turf/other = get_step(T, dir)
@@ -57,11 +57,11 @@ SUBSYSTEM_DEF(holomap)
 						if(isnull(other))
 							continue
 						var/area/other_area = other.loc
-						This check is for "Is the area bordering a non-station turf OR a different area color?"
+						// This check is for "Is the area bordering a non-station turf OR a different area color?"
 						if(!istype(other_area, /area/station) || (other_area.holomap_color != A.holomap_color))
 							canvas.DrawBox(HOLOMAP_COLOR_WALL, pixel_x, pixel_y)
 							continue turfloop
-				Draw pixel according to the area
+				// Draw pixel according to the area
 				canvas.DrawBox(A.holomap_color, pixel_x, pixel_y)
 		generate_minimaps(canvas, z_value)
 		var/icon/backdrop = icon('icons/hud/holomap/holomap_480x480.dmi', "stationmap")
