@@ -12,7 +12,7 @@ let dmPath;
 const BYOND_PATH_LINUX = "./tools/byond_install/byond";
 const getDmPathLinux = async () => {
   const dreammakerPath = BYOND_PATH_LINUX + "/bin/DreamMaker";
-  if (fs.existsSync(BYOND_PATH_LINUX)) {
+  if (fs.existsSync(dreammakerPath)) {
     return dreammakerPath;
   }
   Juke.logger.warn(
