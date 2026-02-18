@@ -170,6 +170,11 @@
 		. += trim_overlay_top()
 	if(material_trim_bottom)
 		. += trim_overlay_bottom()
+	var/turf/closed/constructed_wall/south_connection = get_step(src, SOUTH)
+	if(!istype(south_connection))
+		return
+	if(south_connection.material_plating != src.material_plating)
+		. += mutable_appearance(south_connection.icon, "extension")
 
 /turf/closed/constructed_wall/update_name(updates)
 	. = ..()
