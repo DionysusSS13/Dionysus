@@ -83,6 +83,8 @@
 	var/visual_delay = 0
 	///Current area of the controlled mob
 	var/area = null
+	/// The inventory panel for the client
+	var/atom/movable/screen/map_view/inventory/inventory_panel
 
 		///////////////
 		//SOUND STUFF//

@@ -248,6 +248,9 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	stat_panel = new(src, "statbrowser")
 	stat_panel.subscribe(src, PROC_REF(on_stat_panel_message))
 
+	// Instantiate inventory panel
+	inventory_panel = new
+
 	// Instantiate tgui panel
 	tgui_panel = new(src, "browseroutput")
 
@@ -577,6 +580,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 	if(persistent_client)
 		persistent_client.SetClient(null)
 
+	QDEL_NULL(inventory_panel)
 	GLOB.clients -= src
 	GLOB.directory -= ckey
 	log_access("Logout: [key_name(src)]")

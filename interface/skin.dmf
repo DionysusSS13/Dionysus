@@ -8,21 +8,21 @@ macro "default"
 
 
 menu "menu"
-	elem
+	elem 
 		name = "&File"
 		command = ""
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = "&Quick screenshot\tF2"
 		command = ".screenshot auto"
 		category = "&File"
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = "&Save screenshot as...\tShift+F2"
 		command = ".screenshot"
 		category = "&File"
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = ""
 		command = ""
 		category = "&File"
@@ -32,7 +32,7 @@ menu "menu"
 		command = ".reconnect"
 		category = "&File"
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = "&Quit\tAlt-F4"
 		command = ".quit"
 		category = "&File"
@@ -41,37 +41,71 @@ menu "menu"
 		name = "&Help"
 		command = ""
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = "&Admin Help\tF1"
 		command = "adminhelp"
 		category = "&Help"
 		saved-params = "is-checked"
-	elem
+	elem 
 		name = "&Hotkeys"
 		command = "Hotkeys-Help"
 		category = "&Help"
 		saved-params = "is-checked"
 
 
+window "inventory-pane"
+	elem "inventory-pane"
+		type = MAIN
+		pos = 281,39
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		drop-zone = true
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Inventory"
+		is-pane = true
+		outer-size = 648x532
+		outer-pos = 281,39
+		inner-pos = 4,30
+		screen-size = 1920x1048
+		screen-pos = 0,32
+	elem "inventory_map"
+		type = MAP
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		right-click = true
+		saved-params = "zoom;letterbox;zoom-mode"
+
 window "mainwindow"
 	elem "mainwindow"
 		type = MAIN
-		pos = 281,0
+		pos = 630,277
 		size = 640x440
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
 		icon = 'icons\\ui_icons\\common\\ss13_32.png'
 		macro = "default"
 		menu = "menu"
+		outer-size = 648x493
+		outer-pos = 630,277
+		inner-size = 640x440
+		inner-pos = 4,49
+		screen-size = 1920x1048
+		screen-pos = 0,32
 	elem "split"
 		type = CHILD
 		pos = 3,0
 		size = 634x440
 		anchor1 = 0,0
 		anchor2 = 100,100
+		background-color = none
 		saved-params = "splitter"
 		left = "mapwindow"
 		right = "info_and_buttons"
@@ -82,6 +116,7 @@ window "mainwindow"
 		size = 200x200
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		is-visible = false
 		saved-params = ""
 	elem "tooltip"
@@ -90,6 +125,7 @@ window "mainwindow"
 		size = 999x999
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		is-visible = false
 		saved-params = ""
 
@@ -168,21 +204,14 @@ window "infobuttons"
 		size = 640x30
 		anchor1 = 0,0
 		anchor2 = 100,100
-		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
-		outer-size = 656x88
-		outer-pos = 382,280
-		inner-size = 640x30
-		inner-pos = 8,31
-		screen-size = 1920x1040
 	elem "changelog"
 		type = BUTTON
 		pos = 17,0
 		size = 79x30
 		anchor1 = 0,0
 		anchor2 = 15,100
-		background-color = none
 		saved-params = "is-checked"
 		text = "Changelog"
 		command = "changelog"
@@ -192,7 +221,6 @@ window "infobuttons"
 		size = 100x30
 		anchor1 = 15,0
 		anchor2 = 30,100
-		background-color = none
 		saved-params = "is-checked"
 		text = "Report Issue"
 		command = "report-issue"
@@ -202,7 +230,6 @@ window "infobuttons"
 		size = 50x30
 		anchor1 = 70,0
 		anchor2 = 77,100
-		background-color = none
 		saved-params = "is-checked"
 		text = "Codex"
 		command = "Codex"
@@ -212,7 +239,6 @@ window "infobuttons"
 		size = 75x30
 		anchor1 = 85,0
 		anchor2 = 97,100
-		background-color = none
 		saved-params = "is-checked"
 		text = "Webmap"
 		command = "webmap"
@@ -222,7 +248,6 @@ window "infobuttons"
 		size = 50x30
 		anchor1 = 62,0
 		anchor2 = 70,100
-		background-color = none
 		saved-params = "is-checked"
 		text = "Rules"
 		command = "rules"
@@ -232,7 +257,6 @@ window "infobuttons"
 		size = 50x30
 		anchor1 = 77,0
 		anchor2 = 85,100
-		background-color = none
 		saved-params = "is-checked"
 		text = "Wiki"
 		command = "wiki"
@@ -242,7 +266,6 @@ window "infobuttons"
 		size = 100x30
 		anchor1 = 46,0
 		anchor2 = 62,100
-		background-color = none
 		saved-params = "is-checked"
 		text = "Forum"
 		command = "forum"
@@ -252,7 +275,6 @@ window "infobuttons"
 		size = 100x30
 		anchor1 = 30,0
 		anchor2 = 46,100
-		background-color = none
 		saved-params = "is-checked"
 		text = "Github"
 		command = "github"
@@ -297,24 +319,32 @@ window "outputwindow"
 		left = "output_selector"
 		right = "input_and_buttons"
 		is-vert = false
-		splitter = 94.9
+		splitter = 94.900002
 		show-splitter = false
 
 window "output_selector"
 	elem "output_selector"
 		type = MAIN
-		pos = 0,0
+		pos = 760,182
 		size = 640x475
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
+		outer-size = 648x527
+		outer-pos = 760,182
+		inner-size = 640x475
+		inner-pos = 4,30
+		screen-size = 1920x1048
+		screen-pos = 0,32
 	elem "legacy_output_selector"
 		type = CHILD
 		pos = 0,0
 		size = 640x475
 		anchor1 = 0,0
 		anchor2 = 100,100
+		background-color = none
 		saved-params = "splitter"
 		left = "output_legacy"
 		is-vert = false
@@ -483,21 +513,56 @@ window "preferences_window"
 		right-click = true
 		saved-params = "zoom;letterbox;zoom-mode"
 
-window "statwindow"
-	elem "statwindow"
+window "statbrowser-pane"
+	elem "statbrowser-pane"
 		type = MAIN
-		pos = 281,0
+		pos = 281,39
 		size = 640x480
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Stat Browser"
 		is-pane = true
+		outer-size = 648x532
+		outer-pos = 281,39
+		inner-pos = 4,30
+		screen-size = 1920x1048
+		screen-pos = 0,32
 	elem "statbrowser"
 		type = BROWSER
 		pos = 0,0
 		size = 640x480
 		anchor1 = 0,0
 		anchor2 = 100,100
-		is-visible = false
+		background-color = none
 		saved-params = ""
+		auto-format = true
+
+window "statwindow"
+	elem "statwindow"
+		type = MAIN
+		pos = 281,39
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = "pos;size;is-minimized;is-maximized"
+		is-pane = true
+		outer-size = 648x532
+		outer-pos = 281,39
+		inner-pos = 4,30
+		screen-size = 1920x1048
+		screen-pos = 0,32
+	elem "statwindow-tabs"
+		type = TAB
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = none
+		saved-params = ""
+		tabs = "statbrowser-pane,inventory-pane"
+		current-tab = "inventory-pane"
+		multi-line = false
 

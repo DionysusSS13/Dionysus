@@ -7,6 +7,28 @@
 	layer = GAME_PLANE
 	plane = GAME_PLANE
 
+/atom/movable/screen/map_view/inventory
+	assigned_map = "inventory_map"
+	screen_loc = "inventory_map:1:0,1:0"
+	del_on_map_removal = FALSE
+	var/list/my_plane_masters
+
+/atom/movable/screen/map_view/inventory/Initialize(mapload)
+	. = ..()
+	my_plane_masters = list()
+	for(var/plane in subtypesof(/atom/movable/screen/plane_master) - /atom/movable/screen/plane_master/blackness)
+		var/atom/movable/screen/plane_master/instance = new plane
+		if(instance.blend_mode_override)
+			instance.blend_mode = instance.blend_mode_override
+		instance.assigned_map = "inventory_map"
+		instance.screen_loc = "inventory_map:CENTER"
+		instance.del_on_map_removal = FALSE
+		my_plane_masters += instance
+
+/atom/movable/screen/map_view/inventory/Destroy()
+	QDEL_LIST(my_plane_masters)
+	return ..()
+
 /**
  * A generic background object.
  * It is also implicitly used to allocate a rectangle on the map, which will
