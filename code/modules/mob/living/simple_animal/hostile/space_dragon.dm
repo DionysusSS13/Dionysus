@@ -307,8 +307,6 @@
 	for(var/turf/T in turfs)
 		if(istype(T, /turf/closed))
 			return
-		for(var/obj/structure/window/W in T.contents)
-			return
 		delayFire += 1.5
 		addtimer(CALLBACK(src, PROC_REF(dragon_fire_line), T), delayFire)
 

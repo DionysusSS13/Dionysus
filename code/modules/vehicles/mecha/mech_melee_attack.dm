@@ -25,11 +25,6 @@
 	..()
 	return take_damage(mecha_attacker.force * 3, mecha_attacker.damtype, BLUNT, FALSE, get_dir(src, mecha_attacker)) // multiplied by 3 so we can hit objs hard but not be overpowered against mobs.
 
-/obj/structure/window/mech_melee_attack(obj/vehicle/sealed/mecha/mecha_attacker, mob/living/user)
-	if(!can_be_reached())
-		return 0
-	return ..()
-
 /mob/living/mech_melee_attack(obj/vehicle/sealed/mecha/mecha_attacker, mob/living/user)
 	if(!user.combat_mode)
 		step_away(src, mecha_attacker)

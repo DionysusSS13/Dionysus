@@ -239,9 +239,6 @@ TYPEINFO_DEF(/obj/item/construction)
 	var/ranged = FALSE
 	var/computer_dir = 1
 	var/airlock_glass = FALSE // So the floor's rcd_act knows how much ammo to use
-	var/window_type = /obj/structure/window/fulltile
-	var/window_glass = RCD_WINDOW_NORMAL
-	var/window_size = RCD_WINDOW_FULLTILE
 	var/furnish_type = /obj/structure/chair
 	var/furnish_cost = 8
 	var/furnish_delay = 10
@@ -364,57 +361,6 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 
 	user.visible_message(span_suicide("[user] pulls the trigger... But there is not enough ammo!"))
 	return SHAME
-
-/obj/item/construction/rcd/verb/toggle_window_glass_verb()
-	set name = "RCD : Toggle Window Glass"
-	set category = "Object"
-	set src in view(1)
-
-	if(!usr.canUseTopic(src, USE_CLOSE))
-		return
-
-	toggle_window_glass(usr)
-
-/obj/item/construction/rcd/verb/toggle_window_size_verb()
-	set name = "RCD : Toggle Window Size"
-	set category = "Object"
-	set src in view(1)
-
-	if(!usr.canUseTopic(src, USE_CLOSE))
-		return
-
-	toggle_window_size(usr)
-
-/// Toggles the usage of reinforced or normal glass
-/obj/item/construction/rcd/proc/toggle_window_glass(mob/user)
-	if (window_glass != RCD_WINDOW_REINFORCED)
-		set_window_type(user, RCD_WINDOW_REINFORCED, window_size)
-		return
-	set_window_type(user, RCD_WINDOW_NORMAL, window_size)
-
-/// Toggles the usage of directional or full tile windows
-/obj/item/construction/rcd/proc/toggle_window_size(mob/user)
-	if (window_size != RCD_WINDOW_DIRECTIONAL)
-		set_window_type(user, window_glass, RCD_WINDOW_DIRECTIONAL)
-		return
-	set_window_type(user, window_glass, RCD_WINDOW_FULLTILE)
-
-/// Sets the window type to be created based on parameters
-/obj/item/construction/rcd/proc/set_window_type(mob/user, glass, size)
-	window_glass = glass
-	window_size = size
-	if(window_glass == RCD_WINDOW_REINFORCED)
-		if(window_size == RCD_WINDOW_DIRECTIONAL)
-			window_type = /obj/structure/window/reinforced
-		else
-			window_type = /obj/structure/window/reinforced/fulltile
-	else
-		if(window_size == RCD_WINDOW_DIRECTIONAL)
-			window_type = /obj/structure/window
-		else
-			window_type = /obj/structure/window/fulltile
-
-	to_chat(user, span_notice("You change \the [src]'s window mode to [window_size] [window_glass] window."))
 
 /obj/item/construction/rcd/proc/toggle_silo_link(mob/user)
 	if(silo_mats)
@@ -570,12 +516,6 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 			construction_mode = RCD_COMPUTER
 			change_computer_dir(user)
 			return
-		if("Change Window Glass")
-			toggle_window_glass(user)
-			return
-		if("Change Window Size")
-			toggle_window_size(user)
-			return
 		if("Change Furnishing Type")
 			change_furnishing_type(user)
 			return
@@ -588,7 +528,7 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 	to_chat(user, span_notice("You change RCD's mode to '[choice]'."))
 
 /obj/item/construction/rcd/proc/target_check(atom/A, mob/user) // only returns true for stuff the device can actually work with
-	if((isturf(A) && A.density && mode==RCD_DECONSTRUCT) || (isturf(A) && !A.density) || istype(A, /obj/structure/grille) || (istype(A, /obj/structure/window) && mode==RCD_DECONSTRUCT))
+	if((isturf(A) && A.density && mode==RCD_DECONSTRUCT) || (isturf(A) && !A.density) || istype(A, /obj/structure/grille))
 		return TRUE
 	else
 		return FALSE

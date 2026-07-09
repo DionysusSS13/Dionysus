@@ -82,7 +82,6 @@
 	var/sturdy = list(
 	/turf/closed,
 	/obj/vehicle/sealed/mecha,
-	/obj/structure/window,
 	/obj/structure/grille
 	)
 

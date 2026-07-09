@@ -44,8 +44,7 @@ SUBSYSTEM_DEF(holomap)
 				var/pixel_x = T.x + offset_x
 				var/pixel_y = T.y + offset_y
 				// Draw spacebound airlocks
-				var/obj/structure/window/W
-				if(iswallturf(T) || ((W = locate(/obj/structure/window, T)) && W.fulltile) || locate(/obj/structure/plasticflaps, T))
+				if(iswallturf(T) || locate(/obj/structure/plasticflaps, T))
 					for(var/dir in GLOB.cardinals)
 						var/turf/other = get_step(T, dir)
 						if(isnull(other))

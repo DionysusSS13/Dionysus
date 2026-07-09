@@ -135,17 +135,12 @@
 			rotated_obj.balloon_alert(user, "need a wrench!")
 			return FALSE
 	if(!(rotation_flags & ROTATION_IGNORE_ANCHORED) && rotated_obj.anchored)
-		if(istype(rotated_obj, /obj/structure/window))
-			rotated_obj.balloon_alert(user, "need to unscrew!")
-		else
-			rotated_obj.balloon_alert(user, "need to unwrench!")
+		rotated_obj.balloon_alert(user, "need to unwrench!")
 		return FALSE
 
 	if(rotation_flags & ROTATION_NEEDS_ROOM)
 		var/target_dir = turn(rotated_obj.dir, degrees)
-		var/obj/structure/window/rotated_window = rotated_obj
-		var/fulltile = istype(rotated_window) ? rotated_window.fulltile : FALSE
-		if(!valid_window_location(rotated_obj.loc, target_dir, is_fulltile = fulltile))
+		if(!valid_window_location(rotated_obj.loc, target_dir, is_fulltile = TRUE))
 			rotated_obj.balloon_alert(user, "can't rotate in that direction!")
 			return FALSE
 	return TRUE

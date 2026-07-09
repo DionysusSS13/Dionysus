@@ -67,10 +67,6 @@ TYPEINFO_DEF(/obj/structure/grille)
 			var/cost = 8
 			var/delay = 2 SECONDS
 
-			if(the_rcd.window_glass == RCD_WINDOW_REINFORCED)
-				delay = 4 SECONDS
-				cost = 12
-
 			return rcd_result_with_memory(
 				list("mode" = RCD_WINDOWGRILLE, "delay" = delay, "cost" = cost),
 				get_turf(src), RCD_MEMORY_WINDOWGRILLE,
@@ -82,23 +78,6 @@ TYPEINFO_DEF(/obj/structure/grille)
 		if(RCD_DECONSTRUCT)
 			to_chat(user, span_notice("You deconstruct the grille."))
 			qdel(src)
-			return TRUE
-		if(RCD_WINDOWGRILLE)
-			if(!isturf(loc))
-				return FALSE
-			var/turf/T = loc
-
-			if(repair_grille())
-				to_chat(user, span_notice("You rebuild the broken grille."))
-
-			if(!ispath(the_rcd.window_type, /obj/structure/window))
-				CRASH("Invalid window path type in RCD: [the_rcd.window_type]")
-			var/obj/structure/window/window_path = the_rcd.window_type
-			if(!valid_window_location(T, user.dir, is_fulltile = initial(window_path.fulltile)))
-				return FALSE
-			to_chat(user, span_notice("You construct the window."))
-			var/obj/structure/window/WD = new the_rcd.window_type(T, user.dir)
-			WD.set_anchored(TRUE)
 			return TRUE
 	return FALSE
 

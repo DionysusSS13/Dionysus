@@ -360,7 +360,6 @@ GLOBAL_LIST_INIT(phobia_objs, list(
 		/obj/item/throwing_star,
 		/obj/item/toy/katana,
 		/obj/structure/mineral_door/paperframe,
-		/obj/structure/window/paperframe,
 	)),
 
 	"birds" = typecacheof(list(
@@ -422,7 +421,6 @@ GLOBAL_LIST_INIT(phobia_objs, list(
 		/obj/item/throwing_star,
 		/obj/item/toy/katana,
 		/obj/structure/mineral_door/paperframe,
-		/obj/structure/window/paperframe,
 	)),
 
 	"blood" = typecacheof(list(

@@ -7,8 +7,3 @@
 	debris_icon_state = DEBRIS_SPARKS
 	debris_velocity = -10
 	debris_amount = 5
-
-/obj/structure/window
-	debris_icon_state = DEBRIS_SPARKS
-	debris_velocity = -10
-	debris_amount = 5

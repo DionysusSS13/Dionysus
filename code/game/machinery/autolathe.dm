@@ -502,7 +502,6 @@
 		/datum/design/plastic_box,
 		/datum/design/sticky_tape,
 		/datum/design/chisel,
-		/datum/design/control,
 		/datum/design/paperroll,
 		/datum/design/beacon,
 		/datum/design/plasticducky,

@@ -186,10 +186,6 @@
 
 	eventstarted = TRUE
 
-	for(var/obj/structure/window/W in currentarea)
-		if(W.flags_1&NODECONSTRUCT_1) // Just in case: only holo-windows
-			qdel(W)
-
 	for(var/mob/M in currentarea)
 		to_chat(M, span_userdanger("FIGHT!"))
 

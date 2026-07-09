@@ -427,7 +427,7 @@ TYPEINFO_DEF(/obj/item/pipe_dispenser)
 	//make sure what we're clicking is valid for the current category
 	var/static/list/make_pipe_whitelist
 	if(!make_pipe_whitelist)
-		make_pipe_whitelist = typecacheof(list(/obj/structure/lattice, /obj/item/pipe, /obj/structure/window, /obj/structure/grille))
+		make_pipe_whitelist = typecacheof(list(/obj/structure/lattice, /obj/item/pipe, /obj/structure/grille))
 	if(istype(attack_target, /obj/machinery/atmospherics) && mode & BUILD_MODE)
 		attack_target = get_turf(attack_target)
 	var/can_make_pipe = (isturf(attack_target) || is_type_in_typecache(attack_target, make_pipe_whitelist))

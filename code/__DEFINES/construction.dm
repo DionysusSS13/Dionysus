@@ -17,21 +17,6 @@
 #define SUPPORT_RODS 5
 #define SHEATH 6
 
-//window construction states
-#define WINDOW_OUT_OF_FRAME 0
-#define WINDOW_IN_FRAME 1
-#define WINDOW_SCREWED_TO_FRAME 2
-
-//airlock assembly construction states
-#define AIRLOCK_ASSEMBLY_NEEDS_WIRES 0
-#define AIRLOCK_ASSEMBLY_NEEDS_ELECTRONICS 1
-#define AIRLOCK_ASSEMBLY_NEEDS_SCREWDRIVER 2
-
-//blast door (de)construction states
-#define BLASTDOOR_NEEDS_WIRES 0
-#define BLASTDOOR_NEEDS_ELECTRONICS 1
-#define BLASTDOOR_FINISHED 2
-
 //default_unfasten_wrench() return defines
 #define CANT_UNFASTEN 0
 #define FAILED_UNFASTEN 1

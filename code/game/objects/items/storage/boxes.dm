@@ -327,24 +327,6 @@
 	for(var/i in 1 to 6)
 		new /obj/item/assembly/flash/handheld(src)
 
-/obj/item/storage/box/wall_flash
-	name = "wall-mounted flash kit"
-	desc = "This box contains everything necessary to build a wall-mounted flash. <B>WARNING: Flashes can cause serious eye damage, protective eyewear is required.</B>"
-	icon_state = "secbox"
-	illustration = "flash"
-
-/obj/item/storage/box/wall_flash/PopulateContents()
-	var/id = rand(1000, 9999)
-	// FIXME what if this conflicts with an existing one?
-
-	var/obj/item/assembly/control/flasher/remote = new(src)
-	remote.id = id
-	var/obj/item/wallframe/flasher/frame = new(src)
-	frame.id = id
-	new /obj/item/assembly/flash/handheld(src)
-	new /obj/item/screwdriver(src)
-
-
 /obj/item/storage/box/teargas
 	name = "box of tear gas grenades (WARNING)"
 	desc = "<B>WARNING: These devices are extremely dangerous and can cause blindness and skin irritation.</B>"

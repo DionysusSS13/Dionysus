@@ -546,15 +546,9 @@
 		qdel(src)
 
 /obj/effect/decal/cleanable/blood/hitsplatter/Bump(atom/bumped_atom)
-	if(!iswallturf(bumped_atom) && !istype(bumped_atom, /obj/structure/window))
+	if(!iswallturf(bumped_atom))
 		qdel(src)
 		return
-
-	if(istype(bumped_atom, /obj/structure/window))
-		var/obj/structure/window/bumped_window = bumped_atom
-		if(!bumped_window.fulltile)
-			qdel(src)
-			return
 
 	hit_endpoint = TRUE
 	if(isturf(prev_loc))
@@ -563,24 +557,12 @@
 		abstract_move(bumped_atom)
 		skip = TRUE
 		//Adjust pixel offset to make splatters appear on the wall
-		if(istype(bumped_atom, /obj/structure/window))
-			land_on_window(bumped_atom)
-		else
-			var/obj/effect/decal/cleanable/blood/splatter/over_window/final_splatter = new(prev_loc, null, blood_dna_info)
-			final_splatter.pixel_x = (dir == EAST ? 32 : (dir == WEST ? -32 : 0))
-			final_splatter.pixel_y = (dir == NORTH ? 32 : (dir == SOUTH ? -32 : 0))
+		var/obj/effect/decal/cleanable/blood/splatter/over_window/final_splatter = new(prev_loc, null, blood_dna_info)
+		final_splatter.pixel_x = (dir == EAST ? 32 : (dir == WEST ? -32 : 0))
+		final_splatter.pixel_y = (dir == NORTH ? 32 : (dir == SOUTH ? -32 : 0))
 	else // This will only happen if prev_loc is not even a turf, which is highly unlikely.
 		abstract_move(bumped_atom)
 		qdel(src)
-
-/// A special case for hitsplatters hitting windows, since those can actually be moved around, store it in the window and slap it in the vis_contents
-/obj/effect/decal/cleanable/blood/hitsplatter/proc/land_on_window(obj/structure/window/the_window)
-	if(!the_window.fulltile)
-		return
-	var/obj/effect/decal/cleanable/blood/splatter/over_window/final_splatter = new(the_window, null, blood_dna_info)
-	the_window.add_viscontents(final_splatter)
-	the_window.bloodied = TRUE
-	qdel(src)
 
 /obj/effect/decal/cleanable/blood/squirt
 	name = "blood trail"

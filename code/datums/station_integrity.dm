@@ -49,9 +49,7 @@
 
 
 			for(var/obj/O in T.contents)
-				if(istype(O, /obj/structure/window))
-					window += 1
-				else if(istype(O, /obj/structure/grille))
+				if(istype(O, /obj/structure/grille))
 					var/obj/structure/grille/GR = O
 					if(!GR.broken)
 						grille += 1

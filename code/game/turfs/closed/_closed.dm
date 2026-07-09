@@ -73,7 +73,7 @@ INITIALIZE_IMMEDIATE(/turf/closed/indestructible/splashscreen)
 	icon = 'icons/turf/walls/solid_wall_reinforced.dmi'
 	icon_state = "wall-0"
 	base_icon_state = "wall"
-	smoothing_groups_with = SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
+	smoothing_groups_with = SMOOTH_GROUP_WALLS
 	color = "#3a3a4f"
 
 /turf/closed/indestructible/riveted
@@ -91,7 +91,7 @@ INITIALIZE_IMMEDIATE(/turf/closed/indestructible/splashscreen)
 	color = "#423b3b"
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS
-	smoothing_groups_with = SMOOTH_GROUP_WINDOW_FULLTILE_PLASTITANIUM + SMOOTH_GROUP_WALLS
+	smoothing_groups_with = SMOOTH_GROUP_WALLS
 
 /turf/closed/indestructible/riveted/uranium
 	icon = 'icons/turf/walls/cult_wall.dmi'
@@ -100,7 +100,7 @@ INITIALIZE_IMMEDIATE(/turf/closed/indestructible/splashscreen)
 	color = "#174207"
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS
-	smoothing_groups_with = SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
+	smoothing_groups_with = SMOOTH_GROUP_WALLS
 
 /turf/closed/indestructible/riveted/plastinum
 	name = "plastinum wall"
@@ -116,7 +116,7 @@ INITIALIZE_IMMEDIATE(/turf/closed/indestructible/splashscreen)
 	color = "#93662C"
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS
-	smoothing_groups_with = SMOOTH_GROUP_WINDOW_FULLTILE_PLASTITANIUM + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
+	smoothing_groups_with = SMOOTH_GROUP_WALLS
 
 /turf/closed/indestructible/alien
 	name = "alien wall"
@@ -154,8 +154,7 @@ INITIALIZE_IMMEDIATE(/turf/closed/indestructible/splashscreen)
 	color = "#a885b8"
 	opacity = FALSE
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups =SMOOTH_GROUP_WINDOW_FULLTILE
-	smoothing_groups_with = SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
+	smoothing_groups_with = SMOOTH_GROUP_WALLS
 
 /turf/closed/indestructible/fakeglass/Initialize(mapload, inherited_virtual_z)
 	. = ..()
@@ -170,8 +169,8 @@ INITIALIZE_IMMEDIATE(/turf/closed/indestructible/splashscreen)
 	color = "#a2a2a2"
 	opacity = FALSE
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_WINDOW_FULLTILE_PLASTITANIUM
-	smoothing_groups_with = SMOOTH_GROUP_WINDOW_FULLTILE_PLASTITANIUM + SMOOTH_GROUP_WALLS
+	smoothing_groups = SMOOTH_GROUP_SHUTTLE_PARTS
+	smoothing_groups_with = SMOOTH_GROUP_WALLS
 
 /turf/closed/indestructible/opsglass/Initialize(mapload, inherited_virtual_z)
 	. = ..()

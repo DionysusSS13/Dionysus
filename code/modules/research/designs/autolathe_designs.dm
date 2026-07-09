@@ -942,14 +942,6 @@
 	build_path = /obj/item/chisel
 	category = list(DCAT_MISC_TOOL)
 
-/datum/design/control
-	name = "Blast Door Controller"
-	id = "blast"
-	build_type = AUTOLATHE
-	materials = list(/datum/material/steel = 100, /datum/material/glass = 50)
-	build_path = /obj/item/assembly/control
-	category = list(DCAT_ASSEMBLY)
-
 /datum/design/razor
 	name = "Electric Razor"
 	id = "razor"

@@ -424,16 +424,6 @@
 					/obj/item/melee/baton/security/loaded)
 	crate_name = "stun baton crate"
 
-/datum/supply_pack/security/wall_flash
-	name = "Wall-Mounted Flash Crate"
-	desc = "Contains four wall-mounted flashes. Requires Security access to open."
-	cost = CARGO_CRATE_VALUE * 2
-	contains = list(/obj/item/storage/box/wall_flash,
-					/obj/item/storage/box/wall_flash,
-					/obj/item/storage/box/wall_flash,
-					/obj/item/storage/box/wall_flash)
-	crate_name = "wall-mounted flash crate"
-
 /datum/supply_pack/security/constable
 	name = "Traditional Equipment Crate"
 	desc = "Spare equipment found in a warehouse."

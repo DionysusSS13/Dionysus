@@ -14,10 +14,6 @@
 	//atmos_sensitive applies connect_loc which 1. reacts to movement in order to 2. unregister and register signals to
 	//the old and new locs. we dont want that, pretend these grilles and windows are plastic or something idk
 
-/obj/structure/window/reinforced/shuttle/tram/Initialize(mapload, direct)
-	. = ..()
-	//RemoveElement(/datum/element/atmos_sensitive, mapload)
-
 /obj/structure/shuttle/engine/propulsion/in_wall/tram
 	//if this has opacity, then every movement of the tram causes lighting updates
 	//DO NOT put something on the tram roundstart that has opacity, it WILL overload SSlighting

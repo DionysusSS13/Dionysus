@@ -43,7 +43,7 @@ TYPEINFO_DEF(/obj/item/fireaxe)
 	if(!proximity)
 		return
 	if(wielded) //destroys windows and grilles in one hit
-		if(istype(A, /obj/structure/window) || istype(A, /obj/structure/grille))
+		if(istype(A, /obj/structure/grille))
 			var/obj/structure/W = A
 			W.atom_destruction("fireaxe")
 

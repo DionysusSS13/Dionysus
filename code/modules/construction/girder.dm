@@ -14,7 +14,7 @@
 	density = FALSE
 	can_atmos_pass = CANPASS_ALWAYS
 	smoothing_groups = SMOOTH_GROUP_WALLS
-	smoothing_groups_with = SMOOTH_GROUP_GRILLE + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WALLS
+	smoothing_groups_with = SMOOTH_GROUP_GRILLE + SMOOTH_GROUP_WALLS
 	uses_integrity = TRUE
 	max_integrity = /datum/material/steel::wall_integrity * 0.5
 	/// The material that the girder walls are made of.

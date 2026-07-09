@@ -415,19 +415,6 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 /turf/open/space/apply_fire_protection()
 	return
 
-/turf/fire_act(exposed_temperature, exposed_volume, turf/adjacent)
-	return
-
-/turf/open/floor/fire_act(exposed_temperature, exposed_volume, turf/adjacent)
-	if(!adjacent)
-		return
-
-	var/dir_to = get_dir(src, adjacent)
-
-	for(var/obj/structure/window/W in src)
-		if(W.dir == dir_to || W.fulltile) //Same direction or diagonal (full tile)
-			W.fire_act(exposed_temperature, exposed_volume, adjacent)
-
 /turf/closed/constructed_wall/fire_act(exposed_temperature, exposed_volume, turf/adjacent)
 	if(!uses_integrity)
 		burn(exposed_temperature)

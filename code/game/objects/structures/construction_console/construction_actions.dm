@@ -76,16 +76,6 @@
 	base_console.internal_rcd.construction_mode = buildlist[buildmode]
 	to_chat(owner, "Build mode is now [buildmode].")
 
-/datum/action/innate/construction/window_type
-	name = "Select Window Glass"
-	button_icon_state = "window_select"
-
-/datum/action/innate/construction/window_type/Activate()
-	if(..())
-		return
-	check_rcd()
-	base_console.internal_rcd.toggle_window_glass(owner)
-
 ///Generic action used with base construction consoles to build anything that can't be built with an RCD
 /datum/action/innate/construction/place_structure
 	name = "Place Generic Structure"

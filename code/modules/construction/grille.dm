@@ -56,10 +56,6 @@
 /obj/structure/grillen/screwdriver_act(mob/living/user, obj/item/tool)
 	if(!Adjacent(user))
 		return ..()
-	var/obj/structure/window/window = locate() in get_turf(src)
-	if(!isnull(window))
-		balloon_alert(user, "cannot reach!")
-		return TRUE
 	if(shock(user, 75))
 		return TRUE
 	balloon_alert_to_viewers("adjusting anchors...")
@@ -116,36 +112,6 @@
 	if(shock(user, 70))
 		return
 	. = ..()
-
-/obj/structure/grillen/attackby(obj/item/attacking_item, mob/user, params)
-	if(!istype(attacking_item, /obj/item/stack/sheet))
-		return ..()
-	if(atom_integrity < (max_integrity * 0.7))
-		balloon_alert(user, "grille is too damaged to attach a window!")
-		return TRUE
-	var/obj/item/stack/sheet/sheet = attacking_item
-	var/datum/material/material_instance = GET_MATERIAL_REF(sheet.material_type)
-	if(!material_instance)
-		stack_trace("null material_type: [sheet.material_type]")
-		return
-	var/obj/structure/window/window_type = material_instance.window_type
-	if(!window_type)
-		balloon_alert(user, "This cannot make a window!")
-		return TRUE
-	if(!isfloorturf(loc))
-		balloon_alert(user, "what floor?")
-		return TRUE
-	for(var/atom/movable/other in loc)
-		if(other == src)
-			continue
-		if(other.density)
-			balloon_alert(user, "no room!")
-			return TRUE
-	var/obj/structure/window/window = new window_type(loc)
-	window.anchored = TRUE
-	window.state = WINDOW_OUT_OF_FRAME
-	window.setDir(dir)
-	return TRUE
 
 /obj/structure/grillen/attack_hand(mob/living/user, list/modifiers)
 	. = ..()

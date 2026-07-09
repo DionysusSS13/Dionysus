@@ -17,7 +17,6 @@
 	var/phase_in_time = 2 SECONDS
 	/// Static typecache of types that are counted as reflective.
 	var/static/list/special_reflective_surfaces = typecacheof(list(
-		/obj/structure/window,
 		/obj/structure/mirror,
 	))
 

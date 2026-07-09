@@ -303,13 +303,6 @@
 		now_pushing = FALSE
 		return
 
-	if(istype(AM, /obj/structure/window))
-		var/obj/structure/window/W = AM
-		if(W.fulltile)
-			for(var/obj/structure/window/win in get_step(W, dir_to_target))
-				now_pushing = FALSE
-				return
-
 	release_grabs(AM)
 
 	var/current_dir
