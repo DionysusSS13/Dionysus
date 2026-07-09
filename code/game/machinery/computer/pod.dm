@@ -45,20 +45,11 @@
 		say("Cannot locate mass driver connector. Cancelling firing sequence!")
 		return
 
-	for(var/obj/machinery/door/poddoor/M in range(range, src))
-		if(M.id == id)
-			M.open()
-
 	sleep(20)
 	for(var/obj/machinery/mass_driver/M in range(range, src))
 		if(M.id == id)
 			M.power = connected.power
 			M.drive()
-
-	sleep(50)
-	for(var/obj/machinery/door/poddoor/M in range(range, src))
-		if(M.id == id)
-			M.close()
 
 /obj/machinery/computer/pod/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()
@@ -77,10 +68,6 @@
 	data["timing"] = timing
 	data["power"] = connected ? connected.power : 0.25
 	data["poddoor"] = FALSE
-	for(var/obj/machinery/door/poddoor/door in range(range, src))
-		if(door.id == id)
-			data["poddoor"] = TRUE
-			break
 	return data
 
 /obj/machinery/computer/pod/ui_act(action, list/params)
@@ -120,14 +107,6 @@
 				return
 			value = round(time + value)
 			time = clamp(value, 0, 120)
-			return TRUE
-		if("door")
-			for(var/obj/machinery/door/poddoor/M in range(range, src))
-				if(M.id == id)
-					if(M.density)
-						M.open()
-					else
-						M.close()
 			return TRUE
 		if("driver_test")
 			for(var/obj/machinery/mass_driver/M in range(range, src))

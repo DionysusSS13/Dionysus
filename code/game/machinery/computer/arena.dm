@@ -249,13 +249,6 @@
 
 
 /obj/machinery/computer/arena/proc/set_doors(closed = FALSE)
-	for(var/obj/machinery/door/poddoor/D in INSTANCES_OF(/obj/machinery/door)) //I really dislike pathing of these
-		if(D.id != arena_id)
-			continue
-		if(closed)
-			INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door/poddoor, close))
-		else
-			INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door/poddoor, open))
 
 /obj/machinery/computer/arena/Topic(href, href_list)
 	if(..())

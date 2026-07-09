@@ -405,13 +405,6 @@
  * * close: boolean, the state you want the curtains in.
  */
 /datum/mafia_controller/proc/toggle_night_curtains(close)
-	for(var/obj/machinery/door/poddoor/D in INSTANCES_OF(/obj/machinery/door)) //I really dislike pathing of these
-		if(D.id != "mafia") //so as to not trigger shutters on station, lol
-			continue
-		if(close)
-			INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door/poddoor, close))
-		else
-			INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door/poddoor, open))
 
 /**
  * The actual start of night for players. Mostly info is given at the start of the night as the end of the night is when votes and actions are submitted and tried.

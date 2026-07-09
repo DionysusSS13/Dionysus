@@ -198,11 +198,6 @@
 		if (teamSpawned)
 			message_admins("[ertemplate.polldesc] has spawned with the mission: [ertemplate.mission]")
 
-		//Open the Armory doors
-		if(ertemplate.opendoors)
-			for(var/obj/machinery/door/poddoor/ert/door in INSTANCES_OF(/obj/machinery/door))
-				door.open()
-				CHECK_TICK
 		return TRUE
 
 	return

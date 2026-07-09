@@ -21,15 +21,9 @@
 	to_chat(user, span_notice("You change the ID to [id]."))
 
 /obj/item/assembly/control/activate()
-	var/openclose
 	if(cooldown)
 		return
 	cooldown = TRUE
-	for(var/obj/machinery/door/poddoor/M in INSTANCES_OF(/obj/machinery/door))
-		if(M.id == src.id)
-			if(openclose == null || !sync_doors)
-				openclose = M.density
-			INVOKE_ASYNC(M, openclose ? TYPE_PROC_REF(/obj/machinery/door/poddoor, open) : TYPE_PROC_REF(/obj/machinery/door/poddoor, close))
 	addtimer(VARSET_CALLBACK(src, cooldown, FALSE), 10)
 
 /obj/item/assembly/control/curtain
@@ -107,21 +101,10 @@
 	if(cooldown)
 		return
 	cooldown = TRUE
-	for(var/obj/machinery/door/poddoor/M in INSTANCES_OF(/obj/machinery/door))
-		if (M.id == src.id)
-			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/door/poddoor, open))
-
-	sleep(10)
 
 	for(var/obj/machinery/mass_driver/M as anything in INSTANCES_OF(/obj/machinery/mass_driver))
 		if(M.id == src.id)
 			M.drive()
-
-	sleep(60)
-
-	for(var/obj/machinery/door/poddoor/M in INSTANCES_OF(/obj/machinery/door))
-		if (M.id == src.id)
-			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/door/poddoor, close))
 
 	addtimer(VARSET_CALLBACK(src, cooldown, FALSE), 10)
 
