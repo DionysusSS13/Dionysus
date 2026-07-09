@@ -149,38 +149,6 @@
 /atom/proc/AICtrlShiftClick()
 	return
 
-/* Airlocks */
-/obj/machinery/door/airlock/AICtrlClick() // Bolts doors
-	if(obj_flags & EMAGGED)
-		return
-
-	toggle_bolt(usr)
-	log_touch(usr)
-
-/obj/machinery/door/airlock/AIAltClick() // Eletrifies doors.
-	if(obj_flags & EMAGGED)
-		return
-
-	if(!secondsElectrified)
-		shock_perm(usr)
-	else
-		shock_restore(usr)
-
-/obj/machinery/door/airlock/AIShiftClick()  // Opens and closes doors!
-	if(obj_flags & EMAGGED)
-		return FALSE
-
-	user_toggle_open(usr)
-	log_touch(usr)
-	return TRUE
-
-/obj/machinery/door/airlock/AICtrlShiftClick()  // Sets/Unsets Emergency Access Override
-	if(obj_flags & EMAGGED)
-		return
-
-	toggle_emergency(usr)
-	log_touch(usr)
-
 /* APC */
 /obj/machinery/power/apc/AICtrlClick() // turns off/on APCs.
 	if(can_use(usr, 1))

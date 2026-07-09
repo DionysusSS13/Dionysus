@@ -48,12 +48,6 @@
 				var/obj/structure/closet/secure_closet/temp = O
 				temp.locked = FALSE
 				temp.update_appearance()
-			else if(istype(O, /obj/machinery/door/airlock))
-				var/obj/machinery/door/airlock/temp = O
-				if(temp.critical_machine) //Skip doors in critical positions, such as the SM chamber.
-					continue
-				temp.prison_open()
 			else if(istype(O, /obj/machinery/door_timer))
 				var/obj/machinery/door_timer/temp = O
 				temp.timer_end(forced = TRUE)
-

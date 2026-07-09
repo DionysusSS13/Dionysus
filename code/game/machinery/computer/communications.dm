@@ -393,21 +393,6 @@
 
 			state = STATE_MAIN
 			playsound(src, 'sound/machines/terminal_on.ogg', 50, FALSE)
-		if ("toggleEmergencyAccess")
-			if(emergency_access_cooldown(usr)) //if were in cooldown, dont allow the following code
-				return
-			if (!authenticated_as_silicon_or_captain(usr))
-				return
-			if (GLOB.emergency_access)
-				revoke_maint_all_access()
-				log_game("[key_name(usr)] disabled emergency maintenance access.")
-				message_admins("[ADMIN_LOOKUPFLW(usr)] disabled emergency maintenance access.")
-				deadchat_broadcast(" disabled emergency maintenance access at [span_name("[get_area_name(usr, TRUE)]")].", span_name("[usr.real_name]"), usr, message_type = DEADCHAT_ANNOUNCEMENT)
-			else
-				make_maint_all_access()
-				log_game("[key_name(usr)] enabled emergency maintenance access.")
-				message_admins("[ADMIN_LOOKUPFLW(usr)] enabled emergency maintenance access.")
-				deadchat_broadcast(" enabled emergency maintenance access at [span_name("[get_area_name(usr, TRUE)]")].", span_name("[usr.real_name]"), usr, message_type = DEADCHAT_ANNOUNCEMENT)
 		// Request codes for the Captain's Spare ID safe.
 		if("requestSafeCodes")
 			if(SSjob.assigned_captain)
@@ -539,7 +524,6 @@
 
 				if (authenticated_as_silicon_or_captain(user))
 					data["canToggleEmergencyAccess"] = TRUE
-					data["emergencyAccess"] = GLOB.emergency_access
 
 					data["alertLevelTick"] = alert_level_tick
 					data["canMakeAnnouncement"] = TRUE

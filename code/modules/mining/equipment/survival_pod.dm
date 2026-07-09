@@ -105,22 +105,6 @@
 	icon = 'icons/obj/lavaland/survival_pod.dmi'
 	icon_state = "pwindow"
 
-//Door
-/obj/machinery/door/airlock/survival_pod
-	name = "airlock"
-	assemblytype = /obj/structure/door_assembly/door_assembly_pod
-	smoothing_groups = SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_SURVIVAL_TITANIUM_POD
-
-/obj/machinery/door/airlock/survival_pod/glass
-	opacity = FALSE
-	glass = TRUE
-
-/obj/structure/door_assembly/door_assembly_pod
-	name = "pod airlock assembly"
-	base_name = "pod airlock"
-	airlock_type = /obj/machinery/door/airlock/survival_pod
-	glass_type = /obj/machinery/door/airlock/survival_pod/glass
-
 //Windoor
 /obj/machinery/door/window/survival_pod
 	icon = 'icons/obj/lavaland/survival_pod.dmi'

@@ -128,10 +128,6 @@
 		return
 	if (QDELETED(target))
 		return
-	if(istype(target, /obj/machinery/door/airlock) && !opening_airlock)
-		pry_door(target)
-		return
-
 	if (target.reagents && target.is_injectable(src, allowmobs = TRUE) && !istype(target, /obj/item/food/cheese))
 		src.visible_message(span_warning("[src] starts licking [target] passionately!"),span_notice("You start licking [target]..."))
 		if (do_after(src, target, 2 SECONDS, interaction_key = REGALRAT_INTERACTION))
@@ -168,8 +164,8 @@
  * accessible doors, something which is common in certain rat king spawn points.
  */
 /mob/living/simple_animal/hostile/regalrat/proc/pry_door(target)
-	var/obj/machinery/door/airlock/prying_door = target
-	if(!prying_door.density || prying_door.locked || prying_door.welded || prying_door.seal)
+	var/obj/machinery/door/prying_door = target
+	if(!prying_door.density || prying_door.locked || prying_door.welded)
 		return FALSE
 	opening_airlock = TRUE
 	visible_message(

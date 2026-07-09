@@ -170,30 +170,6 @@ All ShuttleMove procs go here
 
 /************************************Machinery move procs************************************/
 
-/obj/machinery/door/airlock/beforeShuttleMove(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
-	. = ..()
-	for(var/obj/machinery/door/airlock/other_airlock in range(2, src))  // includes src, extended because some escape pods have 1 plating turf exposed to space
-		other_airlock.shuttledocked = FALSE
-		other_airlock.air_tight = TRUE
-		spawn(-1)
-			if((other_airlock.close(FALSE, TRUE) || other_airlock.density) && other_airlock == src && moving_dock.bolt_doors) // force crush
-				if(locate(/turf/open/space) in orange(1, other_airlock))
-					other_airlock.bolt()
-
-/obj/machinery/door/airlock/onShuttleMove(turf/newT, turf/oldT, list/movement_force, move_dir, obj/docking_port/stationary/old_dock, obj/docking_port/mobile/moving_dock)
-	. = ..()
-	if(istype(old_dock, /obj/docking_port/stationary/transit) && locked && moving_dock.bolt_doors)
-		unbolt()
-
-/obj/machinery/door/airlock/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
-	. = ..()
-	var/current_area = get_area(src)
-	for(var/obj/machinery/door/airlock/other_airlock in orange(2, src))  // does not include src, extended because some escape pods have 1 plating turf exposed to space
-		if(get_area(other_airlock) != current_area)  // does not include double-wide airlocks unless actually docked
-			// Cycle linking is only disabled if we are actually adjacent to another airlock
-			shuttledocked = TRUE
-			other_airlock.shuttledocked = TRUE
-
 /obj/machinery/camera/beforeShuttleMove(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
 	. = ..()
 	if(. & MOVE_AREA)

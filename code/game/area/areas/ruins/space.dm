@@ -16,7 +16,6 @@
 	area_flags = UNIQUE_AREA | AREA_USES_STARLIGHT
 	flags_1 = NONE
 	ambience_index = AMBIENCE_ENGI
-	airlock_wires = /datum/wires/airlock/engineering
 	sound_environment = SOUND_AREA_SPACE
 	area_lighting = AREA_LIGHTING_STATIC
 
@@ -377,7 +376,6 @@
 	name = "\improper Abandoned Satellite"
 	ambientsounds = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg', 'sound/ambience/ambitech.ogg',\
 											'sound/ambience/ambitech2.ogg', 'sound/ambience/ambitech3.ogg', 'sound/ambience/ambimystery.ogg')
-	airlock_wires = /datum/wires/airlock/engineering
 
 //ABANDONED BOX WHITESHIP
 

@@ -102,35 +102,6 @@
 			smoke.set_up(0, location = t)
 			smoke.start()
 
-/obj/projectile/magic/door
-	name = "bolt of door creation"
-	icon_state = "energy"
-	damage = 0
-	damage_type = OXY
-	nodamage = TRUE
-	var/list/door_types = list(/obj/structure/mineral_door/wood, /obj/structure/mineral_door/iron, /obj/structure/mineral_door/silver, /obj/structure/mineral_door/gold, /obj/structure/mineral_door/uranium, /obj/structure/mineral_door/sandstone, /obj/structure/mineral_door/transparent/plasma, /obj/structure/mineral_door/transparent/diamond)
-
-/obj/projectile/magic/door/on_hit(atom/target)
-	. = ..()
-	if(istype(target, /obj/machinery/door))
-		OpenDoor(target)
-	else
-		var/turf/T = get_turf(target)
-		if(isclosedturf(T) && !isindestructiblewall(T))
-			CreateDoor(T)
-
-/obj/projectile/magic/door/proc/CreateDoor(turf/T)
-	var/door_type = pick(door_types)
-	var/obj/structure/mineral_door/D = new door_type(T)
-	T.ChangeTurf(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
-	D.Open()
-
-/obj/projectile/magic/door/proc/OpenDoor(obj/machinery/door/D)
-	if(istype(D, /obj/machinery/door/airlock))
-		var/obj/machinery/door/airlock/A = D
-		A.locked = FALSE
-	D.open()
-
 /obj/projectile/magic/change
 	name = "bolt of change"
 	icon_state = "ice_1"

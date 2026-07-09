@@ -36,10 +36,3 @@
 	item_path = /obj/item/warpwhistle
 	category = "Mobility"
 	cost = 1
-
-/datum/spellbook_entry/item/staffdoor
-	name = "Staff of Door Creation"
-	desc = "A particular staff that can mold solid walls into ornate doors. Useful for getting around in the absence of other transportation. Does not work on glass."
-	item_path = /obj/item/gun/magic/staff/door
-	cost = 1
-	category = "Mobility"

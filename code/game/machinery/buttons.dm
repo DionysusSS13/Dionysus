@@ -200,14 +200,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/door, 24)
 
 /obj/machinery/button/door/setup_device()
 	if(!device)
-		if(normaldoorcontrol)
-			var/obj/item/assembly/control/airlock/A = new(src)
-			A.specialfunctions = specialfunctions
-			device = A
-		else
-			var/obj/item/assembly/control/C = new(src)
-			C.sync_doors = sync_doors
-			device = C
+		var/obj/item/assembly/control/C = new(src)
+		C.sync_doors = sync_doors
+		device = C
 	..()
 
 /obj/machinery/button/door/incinerator_vent_ordmix

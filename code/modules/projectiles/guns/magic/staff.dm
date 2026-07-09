@@ -114,7 +114,7 @@
 	no_den_usage = 1
 	school = SCHOOL_FORBIDDEN //this staff is evil. okay? it just is. look at this projectile type list. this is wrong.
 	var/allowed_projectile_types = list(/obj/projectile/magic/change, /obj/projectile/magic/animate, /obj/projectile/magic/resurrection,
-	/obj/projectile/magic/death, /obj/projectile/magic/teleport, /obj/projectile/magic/door, /obj/projectile/magic/fireball,
+	/obj/projectile/magic/death, /obj/projectile/magic/teleport, /obj/projectile/magic/fireball,
 	/obj/projectile/magic/spellblade, /obj/projectile/magic/arcane_barrage, /obj/projectile/magic/locker, /obj/projectile/magic/flying,
 	/obj/projectile/magic/bounty, /obj/projectile/magic/antimagic, /obj/projectile/magic/fetch, /obj/projectile/magic/sapping,
 	/obj/projectile/magic/necropotence, /obj/projectile/magic, /obj/projectile/temp/chill, /obj/projectile/magic/wipe)
@@ -137,18 +137,6 @@
 	user.dropItemToGround(src, TRUE)
 	do_fire_gun(user, user, FALSE)
 	return FALSE
-
-/obj/item/gun/magic/staff/door
-	name = "staff of door creation"
-	desc = "An artefact that spits bolts of transformative magic that can create doors in walls."
-	fire_sound = 'sound/magic/staff_door.ogg'
-	ammo_type = /obj/item/ammo_casing/magic/door
-	icon_state = "staffofdoor"
-	inhand_icon_state = "staffofdoor"
-	max_charges = 10
-	recharge_rate = 2
-	no_den_usage = 1
-	school = SCHOOL_TRANSMUTATION
 
 /obj/item/gun/magic/staff/honk
 	name = "staff of the honkmother"

@@ -12,7 +12,6 @@
 	name = "Generic Maintenance"
 	ambience_index = AMBIENCE_MAINT
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | CULT_PERMITTED | SHOW_NAME | PERSISTENT_ENGRAVINGS
-	airlock_wires = /datum/wires/airlock/maint
 	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	forced_ambience = TRUE
 	ambient_buzz = 'sound/ambience/source_corridor2.ogg'
@@ -358,7 +357,6 @@
 	name = "Command"
 	icon_state = "Bridge"
 	ambientsounds = list('sound/ambience/signal.ogg')
-	airlock_wires = /datum/wires/airlock/command
 	sound_environment = SOUND_AREA_STANDARD_STATION
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 
@@ -551,7 +549,6 @@
 //Service
 
 /area/station/service
-	airlock_wires = /datum/wires/airlock/service
 	holomap_color = HOLOMAP_AREACOLOR_GENERIC_ROOM
 
 /area/station/service/cafeteria
@@ -578,7 +575,6 @@
 /area/station/service/bar
 	name = "\improper Bar"
 	icon_state = "bar"
-	airlock_wires = /datum/wires/airlock/service
 	sound_environment = SOUND_AREA_WOODFLOOR
 
 /area/station/service/bar/Initialize(mapload)
@@ -690,7 +686,6 @@
 /area/station/service/hydroponics
 	name = "Hydroponics"
 	icon_state = "hydro"
-	airlock_wires = /datum/wires/airlock/service
 	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/station/service/hydroponics/upper
@@ -714,7 +709,6 @@
 
 /area/station/engineering
 	ambience_index = AMBIENCE_ENGI
-	airlock_wires = /datum/wires/airlock/engineering
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
@@ -852,7 +846,6 @@
 	area_flags = UNIQUE_AREA | AREA_USES_STARLIGHT
 	flags_1 = NONE
 	ambience_index = AMBIENCE_ENGI
-	airlock_wires = /datum/wires/airlock/engineering
 	sound_environment = SOUND_AREA_SPACE
 
 /area/station/solars/fore
@@ -937,7 +930,6 @@
 	name = "\improper Ward"
 	icon_state = "medbay"
 	ambience_index = AMBIENCE_MEDICAL
-	airlock_wires = /datum/wires/airlock/medbay
 	sound_environment = SOUND_AREA_STANDARD_STATION
 	min_ambience_cooldown = 90 SECONDS
 	max_ambience_cooldown = 180 SECONDS
@@ -1087,7 +1079,6 @@
 	name = "Security"
 	icon_state = "security"
 	ambience_index = AMBIENCE_DANGER
-	airlock_wires = /datum/wires/airlock/security
 	sound_environment = SOUND_AREA_STANDARD_STATION
 	holomap_color = HOLOMAP_AREACOLOR_SECURITY
 
@@ -1279,7 +1270,6 @@
 /area/station/cargo
 	name = "Quartermasters"
 	icon_state = "quart"
-	airlock_wires = /datum/wires/airlock/service
 	sound_environment = SOUND_AREA_STANDARD_STATION
 	holomap_color = HOLOMAP_AREACOLOR_CARGO
 
@@ -1358,7 +1348,6 @@
 /area/station/science
 	name = "\improper Science Division"
 	icon_state = "science"
-	airlock_wires = /datum/wires/airlock/science
 	sound_environment = SOUND_AREA_STANDARD_STATION
 	holomap_color = HOLOMAP_AREACOLOR_SCIENCE
 
@@ -1464,7 +1453,6 @@
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 	ambientsounds = list('sound/ambience/ambisin2.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/signal.ogg', 'sound/ambience/ambigen10.ogg', 'sound/ambience/ambitech.ogg',\
 											'sound/ambience/ambitech2.ogg', 'sound/ambience/ambitech3.ogg', 'sound/ambience/ambimystery.ogg')
-	airlock_wires = /datum/wires/airlock/engineering
 
 /area/station/tcommsat/computer
 	name = "\improper Telecomms Control Room"

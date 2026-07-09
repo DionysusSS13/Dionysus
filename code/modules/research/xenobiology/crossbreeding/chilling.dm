@@ -304,17 +304,3 @@ Chilling extracts:
 	user.visible_message(span_notice("[src] blooms into a beautiful flower!"))
 	new /obj/item/clothing/head/peaceflower(get_turf(user))
 	..()
-
-/obj/item/slimecross/chilling/rainbow
-	colour = "rainbow"
-	effect_desc = "Makes an unpassable wall in every door in the area."
-
-/obj/item/slimecross/chilling/rainbow/do_effect(mob/user)
-	var/area/area = get_area(user)
-	if(area.outdoors)
-		to_chat(user, span_warning("[src] can't affect such a large area."))
-		return
-	user.visible_message(span_warning("[src] reflects an array of dazzling colors and light, energy rushing to nearby doors!"))
-	for(var/obj/machinery/door/airlock/door in area)
-		new /obj/effect/forcefield/slimewall/rainbow(door.loc)
-	return ..()

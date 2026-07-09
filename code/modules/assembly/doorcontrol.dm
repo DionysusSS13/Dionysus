@@ -48,51 +48,6 @@
 	addtimer(VARSET_CALLBACK(src, cooldown, FALSE), 5)
 
 
-/obj/item/assembly/control/airlock
-	name = "airlock controller"
-	desc = "A small electronic device able to control an airlock remotely."
-	id = "badmin" // Set it to null for MEGAFUN.
-	var/specialfunctions = OPEN
-	/*
-	Bitflag, 1= open (OPEN)
-				2= idscan (IDSCAN)
-				4= bolts (BOLTS)
-				8= shock (SHOCK)
-				16= door safties (SAFE)
-	*/
-
-/obj/item/assembly/control/airlock/activate()
-	if(cooldown)
-		return
-	cooldown = TRUE
-	var/doors_need_closing = FALSE
-	var/list/obj/machinery/door/airlock/open_or_close = list()
-	for(var/obj/machinery/door/airlock/D in INSTANCES_OF(/obj/machinery/door))
-		if(D.id_tag == src.id)
-			if(specialfunctions & OPEN)
-				open_or_close += D
-				if(!D.density)
-					doors_need_closing = TRUE
-			if(specialfunctions & IDSCAN)
-				D.aiDisabledIdScanner = !D.aiDisabledIdScanner
-			if(specialfunctions & BOLTS)
-				if(!D.wires.is_cut(WIRE_BOLTS) && D.hasPower())
-					D.locked = !D.locked
-					D.update_appearance()
-			if(specialfunctions & SHOCK)
-				if(D.secondsElectrified)
-					D.set_electrified(MACHINE_ELECTRIFIED_PERMANENT, usr)
-				else
-					D.set_electrified(MACHINE_NOT_ELECTRIFIED, usr)
-			if(specialfunctions & SAFE)
-				D.dont_close_on_dense_objects = !D.dont_close_on_dense_objects
-
-	for(var/D in open_or_close)
-		INVOKE_ASYNC(D, doors_need_closing ? TYPE_PROC_REF(/obj/machinery/door/airlock, close) : TYPE_PROC_REF(/obj/machinery/door/airlock, open))
-
-	addtimer(VARSET_CALLBACK(src, cooldown, FALSE), 10)
-
-
 /obj/item/assembly/control/massdriver
 	name = "mass driver controller"
 	desc = "A small electronic device able to control a mass driver."

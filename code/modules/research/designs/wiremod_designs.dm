@@ -486,18 +486,6 @@
 	build_type = FABRICATOR | COMPONENT_PRINTER
 	category = list(DCAT_WIREMOD, "Shells")
 
-/datum/design/airlock_shell
-	name = "Airlock Shell"
-	desc = "A door shell that cannot be moved around when assembled."
-	id = "door_shell"
-	materials = list(
-		/datum/material/glass = 5000,
-		/datum/material/steel = 15000,
-	)
-	build_path = /obj/item/shell/airlock
-	build_type = FABRICATOR | COMPONENT_PRINTER
-	category = list(DCAT_WIREMOD, "Shells")
-
 /datum/design/dispenser_shell
 	name = "Dispenser Shell"
 	desc = "A dispenser shell that can dispense items."

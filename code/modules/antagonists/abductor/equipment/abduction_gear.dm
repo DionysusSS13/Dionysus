@@ -855,13 +855,6 @@ TYPEINFO_DEF(/obj/structure/table/abductor)
 	door_anim_time = 0
 	material_drop = /obj/item/stack/sheet/mineral/abductor
 
-/obj/structure/door_assembly/door_assembly_abductor
-	name = "alien airlock assembly"
-	base_name = "alien airlock"
-	airlock_type = /obj/machinery/door/airlock/abductor
-	material_type = /obj/item/stack/sheet/mineral/abductor
-	noglass = TRUE
-
 TYPEINFO_DEF(/obj/item/clothing/under/abductor)
 	default_armor = list(BLUNT = 0, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 10, BIO = 10, FIRE = 0, ACID = 0)
 

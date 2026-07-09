@@ -55,7 +55,6 @@
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 	atom_storage.max_total_storage = 21
 	atom_storage.set_holdable(list(
-		/obj/item/airlock_painter,
 		/obj/item/analyzer,
 		/obj/item/assembly/signaler,
 		/obj/item/clothing/gloves,
@@ -84,7 +83,6 @@
 		/obj/item/pipe_dispenser,
 		/obj/item/inducer,
 		/obj/item/plunger,
-		/obj/item/airlock_painter,
 		/obj/item/paint_sprayer,
 		))
 
@@ -645,7 +643,6 @@ TYPEINFO_DEF(/obj/item/storage/belt/champion)
 	new /obj/item/gun/magic/wand/resurrection(src)
 	new /obj/item/gun/magic/wand/polymorph(src)
 	new /obj/item/gun/magic/wand/teleport(src)
-	new /obj/item/gun/magic/wand/door(src)
 	new /obj/item/gun/magic/wand/fireball(src)
 
 	for(var/obj/item/gun/magic/wand/W in contents) //All wands in this pack come in the best possible condition

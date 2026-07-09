@@ -127,16 +127,6 @@
 //COMMUNICATIONS CONSOLE//
 /obj/machinery/computer/communications/ninjadrain_act(obj/item/clothing/suit/space/space_ninja/ninja_suit, mob/living/carbon/human/ninja, obj/item/clothing/gloves/space_ninja/ninja_gloves)
 
-
-//AIRLOCK//
-/obj/machinery/door/airlock/ninjadrain_act(obj/item/clothing/suit/space/space_ninja/ninja_suit, mob/living/carbon/human/ninja, obj/item/clothing/gloves/space_ninja/ninja_gloves)
-	if(!ninja_suit || !ninja || !ninja_gloves)
-		return INVALID_DRAIN
-
-	if(!operating && density && hasPower() && !(obj_flags & EMAGGED))
-		emag_act()
-		ninja_gloves.door_hack_counter++
-
 //WIRE//
 /obj/structure/cable/ninjadrain_act(obj/item/clothing/suit/space/space_ninja/ninja_suit, mob/living/carbon/human/ninja, obj/item/clothing/gloves/space_ninja/ninja_gloves)
 	if(!ninja_suit || !ninja || !ninja_gloves)

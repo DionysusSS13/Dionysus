@@ -57,11 +57,6 @@
 
 	else if(isobj(target))
 		var/obj/clamptarget = target
-		if(istype(clamptarget, /obj/machinery/door/airlock/))
-			var/obj/machinery/door/airlock/targetairlock = clamptarget
-			playsound(chassis, clampsound, 50, FALSE, -6)
-			targetairlock.try_to_crowbar(src, source)
-			return
 		if(clamptarget.anchored)
 			to_chat(source, "[icon2html(src, source)][span_warning("[target] is firmly secured!")]")
 			return
@@ -292,7 +287,7 @@
 		return TRUE
 
 /obj/item/mecha_parts/mecha_equipment/rcd/action(mob/source, atom/target, list/modifiers)
-	if(!isturf(target) && !istype(target, /obj/machinery/door/airlock))
+	if(!isturf(target))
 		target = get_turf(target)
 	if(!action_checks(target) || get_dist(chassis, target)>3 || istype(target, /turf/open/space/transit))
 		return
@@ -311,10 +306,6 @@
 				if(!do_after_cooldown(target, source))
 					return
 				F.ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
-			else if (istype(target, /obj/machinery/door/airlock))
-				if(!do_after_cooldown(target, source))
-					return
-				qdel(target)
 		if(MODE_WALL)
 			if(isspaceturf(target))
 				var/turf/open/space/S = target
@@ -328,14 +319,6 @@
 				if(!do_after_cooldown(F, source))
 					return
 				F.PlaceOnTop(/turf/closed/constructed_wall)
-		if(MODE_AIRLOCK)
-			if(isfloorturf(target))
-				to_chat(source, "[icon2html(src, source)][span_notice("Building Airlock...")]")
-				if(!do_after_cooldown(target, source))
-					return
-				var/obj/machinery/door/airlock/T = new /obj/machinery/door/airlock(target)
-				T.autoclose = TRUE
-				playsound(target, 'sound/effects/sparks2.ogg', 50, TRUE)
 	chassis.spark_system.start()
 	playsound(target, 'sound/items/deconstruct.ogg', 50, TRUE)
 	return ..()

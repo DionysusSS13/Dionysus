@@ -140,7 +140,6 @@
 											  /obj/projectile/bullet/honker = 15,
 											  /obj/projectile/temp = 15,
 											  /obj/projectile/ion = 15,
-											  /obj/projectile/magic/door = 15,
 											  /obj/projectile/magic/locker = 15,
 											  /obj/projectile/magic/fetch = 15,
 											  /obj/projectile/beam/emitter = 15,

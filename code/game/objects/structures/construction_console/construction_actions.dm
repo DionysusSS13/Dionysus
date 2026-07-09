@@ -76,16 +76,6 @@
 	base_console.internal_rcd.construction_mode = buildlist[buildmode]
 	to_chat(owner, "Build mode is now [buildmode].")
 
-/datum/action/innate/construction/airlock_type
-	name = "Select Airlock Type"
-	button_icon_state = "airlock_select"
-
-/datum/action/innate/construction/airlock_type/Activate()
-	if(..())
-		return
-	check_rcd()
-	base_console.internal_rcd.change_airlock_setting(owner, remote_eye)
-
 /datum/action/innate/construction/window_type
 	name = "Select Window Glass"
 	button_icon_state = "window_select"

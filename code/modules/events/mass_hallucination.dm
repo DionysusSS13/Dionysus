@@ -45,7 +45,6 @@
 	)
 	/// Pool for generic hallucinations. Types can't key lists, so we need to invert the accesses.
 	var/list/generic_pool = list(
-		"Fake bolted airlocks" = /datum/hallucination/bolts,
 		"Imagined messages" = /datum/hallucination/chat,
 		"Fake minor message" = /datum/hallucination/message,
 		"Fake gas flood" = /datum/hallucination/fake_flood,

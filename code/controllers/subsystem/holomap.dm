@@ -44,12 +44,6 @@ SUBSYSTEM_DEF(holomap)
 				var/pixel_x = T.x + offset_x
 				var/pixel_y = T.y + offset_y
 				// Draw spacebound airlocks
-				if(locate(/obj/machinery/door/airlock/external, T))
-					for(var/dir in GLOB.cardinals)
-						var/turf/other = get_step(T, dir)
-						if(!istype(other.loc, /area/station))
-							canvas.DrawBox(HOLOMAP_COLOR_EXTERNAL_AIRLOCK, pixel_x, pixel_y)
-							continue turfloop
 				var/obj/structure/window/W
 				if(iswallturf(T) || ((W = locate(/obj/structure/window, T)) && W.fulltile) || locate(/obj/structure/plasticflaps, T))
 					for(var/dir in GLOB.cardinals)
