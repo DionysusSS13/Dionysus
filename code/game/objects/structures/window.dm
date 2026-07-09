@@ -153,9 +153,6 @@ TYPEINFO_DEF(/obj/structure/window)
 		var/obj/structure/window/moved_window = mover
 		return valid_window_location(loc, moved_window.dir, is_fulltile = moved_window.fulltile)
 
-	if(istype(mover, /obj/structure/windoor_assembly) || istype(mover, /obj/machinery/door/window))
-		return valid_window_location(loc, mover.dir, is_fulltile = FALSE)
-
 	return TRUE
 
 /obj/structure/window/proc/knock_on(mob/user)

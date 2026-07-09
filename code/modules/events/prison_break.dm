@@ -48,6 +48,3 @@
 				var/obj/structure/closet/secure_closet/temp = O
 				temp.locked = FALSE
 				temp.update_appearance()
-			else if(istype(O, /obj/machinery/door_timer))
-				var/obj/machinery/door_timer/temp = O
-				temp.timer_end(forced = TRUE)
