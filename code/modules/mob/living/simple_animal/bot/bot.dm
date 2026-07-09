@@ -882,14 +882,6 @@ Pass a positive integer as an argument to override a bot's default speed.
 	calc_summon_path()
 	tries = 0
 
-/mob/living/simple_animal/bot/Bump(atom/A) //Leave no door unopened!
-	. = ..()
-	if((istype(A, /obj/machinery/door/window)) && (!isnull(access_card)))
-		var/obj/machinery/door/D = A
-		if(D.check_access(access_card))
-			D.open()
-			frustration = 0
-
 /mob/living/simple_animal/bot/ui_data(mob/user)
 	var/list/data = list()
 	data["can_hack"] = (issilicon(user) || isAdminGhostAI(user))

@@ -525,14 +525,3 @@ Diagnostic HUDs!
 		new_state = "hudnobatt"
 
 	set_hud_image_vars(DIAG_BATT_HUD, new_state)
-
-/*~~~~~~~~~~~~
-	Airlocks!
-~~~~~~~~~~~~~*/
-/obj/machinery/door/airlock/proc/diag_hud_set_electrified()
-	if(secondsElectrified == MACHINE_NOT_ELECTRIFIED)
-		set_hud_image_inactive(DIAG_AIRLOCK_HUD)
-		return
-
-	set_hud_image_vars(DIAG_AIRLOCK_HUD, "electrified")
-	set_hud_image_active(DIAG_AIRLOCK_HUD)

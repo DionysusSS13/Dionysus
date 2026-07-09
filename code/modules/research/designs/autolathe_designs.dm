@@ -165,15 +165,6 @@
 	category = list( "Electronics")
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
 
-/datum/design/airlock_board
-	name = "Airlock Electronics"
-	id = "airlock_board"
-	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/steel = 50, /datum/material/glass = 50)
-	build_path = /obj/item/electronics/airlock
-	category = list( "Electronics")
-	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
-
 /datum/design/airalarm_electronics
 	name = "Air Alarm Electronics"
 	id = "airalarm_electronics"

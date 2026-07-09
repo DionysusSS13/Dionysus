@@ -22,24 +22,3 @@
 	desc = "A grey keycard with Lopez's Information on it. This is your ticket into the Fridge in Firebase Balthazord."
 	color = "#636363"
 	puzzle_id = "syndicate_fridge"
-
-//keycard doors
-/obj/machinery/door/puzzle/keycard/syndicate_bomb
-	name = "Syndicate Ordinance Laboratory"
-	desc = "Locked. Looks like you'll need a special access key to get in."
-	puzzle_id = "syndicate_bomb"
-
-/obj/machinery/door/puzzle/keycard/syndicate_bio
-	name = "Syndicate Bio-Weapon Laboratory"
-	desc = "Locked. Looks like you'll need a special access key to get in."
-	puzzle_id = "syndicate_bio"
-
-/obj/machinery/door/puzzle/keycard/syndicate_chem
-	name = "Syndicate Chemical Manufacturing Plant"
-	desc = "Locked. Looks like you'll need a special access key to get in"
-	puzzle_id = "syndicate_chem"
-
-/obj/machinery/door/puzzle/keycard/syndicate_fridge
-	name = "The Walk-In Fridge"
-	desc = "Locked. Lopez sure runs a tight galley."
-	puzzle_id = "syndicate_fridge"

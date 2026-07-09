@@ -81,14 +81,6 @@
 #define COMSIG_AIRLOCK_SHELL_ALLOWED "airlock_shell_try_allowed"
 	#define COMPONENT_AIRLOCK_SHELL_ALLOW (1<<0)
 
-// /obj/machinery/door/airlock signals
-
-//from /obj/machinery/door/airlock/open(): (forced)
-#define COMSIG_AIRLOCK_OPEN "airlock_open"
-//from /obj/machinery/door/airlock/close(): (forced)
-#define COMSIG_AIRLOCK_CLOSE "airlock_close"
-///from /obj/machinery/door/airlock/set_bolt():
-#define COMSIG_AIRLOCK_SET_BOLT "airlock_set_bolt"
 // /obj/item signals
 
 ///from base of obj/item/equipped(): (/mob/equipper, slot)

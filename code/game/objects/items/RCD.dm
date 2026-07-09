@@ -238,7 +238,6 @@ TYPEINFO_DEF(/obj/item/construction)
 	var/construction_mode = RCD_FLOORWALL
 	var/ranged = FALSE
 	var/computer_dir = 1
-	var/airlock_type = /obj/machinery/door/airlock
 	var/airlock_glass = FALSE // So the floor's rcd_act knows how much ammo to use
 	var/window_type = /obj/structure/window/fulltile
 	var/window_glass = RCD_WINDOW_NORMAL
@@ -512,13 +511,9 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 
 /obj/item/construction/rcd/Initialize(mapload)
 	. = ..()
-	airlock_electronics = new(src)
-	airlock_electronics.name = "Access Control"
-	airlock_electronics.holder = src
 	SET_TRACKING(TRACKING_KEY_RCD)
 
 /obj/item/construction/rcd/Destroy()
-	QDEL_NULL(airlock_electronics)
 	UNSET_TRACKING(TRACKING_KEY_RCD)
 	. = ..()
 
@@ -575,9 +570,6 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 			construction_mode = RCD_COMPUTER
 			change_computer_dir(user)
 			return
-		if("Change Access")
-			airlock_electronics.ui_interact(user)
-			return
 		if("Change Window Glass")
 			toggle_window_glass(user)
 			return
@@ -596,7 +588,7 @@ GLOBAL_VAR_INIT(icon_holographic_window, init_holographic_window())
 	to_chat(user, span_notice("You change RCD's mode to '[choice]'."))
 
 /obj/item/construction/rcd/proc/target_check(atom/A, mob/user) // only returns true for stuff the device can actually work with
-	if((isturf(A) && A.density && mode==RCD_DECONSTRUCT) || (isturf(A) && !A.density) || (istype(A, /obj/machinery/door/airlock) && mode==RCD_DECONSTRUCT) || istype(A, /obj/structure/grille) || (istype(A, /obj/structure/window) && mode==RCD_DECONSTRUCT))
+	if((isturf(A) && A.density && mode==RCD_DECONSTRUCT) || (isturf(A) && !A.density) || istype(A, /obj/structure/grille) || (istype(A, /obj/structure/window) && mode==RCD_DECONSTRUCT))
 		return TRUE
 	else
 		return FALSE

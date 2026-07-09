@@ -267,30 +267,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 	QDEL_NULL(alarm_manager)
 	return ..()
 
-/**
- * Close and lock a door passed into this proc
- *
- * Does this need to exist on area? probably not
- */
-/area/proc/close_and_lock_door(obj/machinery/door/DOOR)
-	set waitfor = FALSE
-	DOOR.close()
-	if(DOOR.density)
-		DOOR.lock()
-
-/**
- * Raise a burglar alert for this area
- *
- * Close and locks all doors in the area and alerts silicon mobs of a break in
- *
- * Alarm auto resets after 600 ticks
- */
-/area/proc/burglaralert(obj/trigger)
-	if (area_flags & NO_ALERTS)
-		return
-	//Lockdown airlocks
-	for(var/obj/machinery/door/door in src)
-		close_and_lock_door(door)
 
 /**
  * Update the icon of the area (overridden to always be null for space

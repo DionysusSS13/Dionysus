@@ -932,11 +932,6 @@
 
 	if(engines.len > 0)
 		distant_source = engines[1]
-	else
-		for(var/A in areas)
-			distant_source = locate(/obj/machinery/door) in A
-			if(distant_source)
-				break
 
 	if(distant_source)
 		for(var/mob/M in SSmobs.clients_by_zlevel[z])

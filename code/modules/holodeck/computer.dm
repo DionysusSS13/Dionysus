@@ -304,10 +304,6 @@ GLOBAL_LIST_INIT(typecache_holodeck_linked_floorcheck_ok, typecacheof(list(/turf
 				holo_machine.flags_1 |= NODECONSTRUCT_1
 				holo_machine.power_change()
 
-				if(istype(holo_machine, /obj/machinery/button))
-					var/obj/machinery/button/holo_button = holo_machine
-					holo_button.setup_device()
-
 	spawning_simulation = FALSE
 
 ///this qdels holoitems that should no longer exist for whatever reason

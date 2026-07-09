@@ -12,8 +12,6 @@
 ///from base of mob/living/update_transform()
 #define COMSIG_MOB_POST_UPDATE_TRANSFORM "mob_post_update_transform"
 
-///from /obj/structure/door/crush(): (mob/living/crushed, /obj/machinery/door/crushing_door)
-#define COMSIG_LIVING_DOORCRUSHED "living_doorcrush"
 ///from base of mob/living/resist() (/mob/living)
 #define COMSIG_LIVING_RESIST "living_resist"
 ///from base of mob/living/ignite_mob() (/mob/living)

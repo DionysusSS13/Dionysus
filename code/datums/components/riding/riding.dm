@@ -62,7 +62,6 @@
 	RegisterSignal(parent, COMSIG_MOVABLE_UNBUCKLE, PROC_REF(vehicle_mob_unbuckle))
 	RegisterSignal(parent, COMSIG_MOVABLE_BUCKLE, PROC_REF(vehicle_mob_buckle))
 	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(vehicle_moved))
-	RegisterSignal(parent, COMSIG_MOVABLE_BUMP, PROC_REF(vehicle_bump))
 	RegisterSignal(parent, COMSIG_BUCKLED_CAN_Z_MOVE, PROC_REF(riding_can_z_move))
 
 /**
@@ -223,14 +222,6 @@
 	SIGNAL_HANDLER
 	SHOULD_CALL_PARENT(TRUE)
 	movable_parent.set_glide_size(DELAY_TO_GLIDE_SIZE(vehicle_move_delay))
-
-/// So we can check all occupants when we bump a door to see if anyone has access
-/datum/component/riding/proc/vehicle_bump(atom/movable/movable_parent, obj/machinery/door/possible_bumped_door)
-	SIGNAL_HANDLER
-	if(!istype(possible_bumped_door))
-		return
-	for(var/occupant in movable_parent.buckled_mobs)
-		INVOKE_ASYNC(possible_bumped_door, TYPE_PROC_REF(/obj/machinery/door, bumpopen), occupant)
 
 /datum/component/riding/proc/Unbuckle(atom/movable/M)
 	addtimer(CALLBACK(parent, TYPE_PROC_REF(/atom/movable, unbuckle_mob), M), 0, TIMER_UNIQUE)

@@ -44,15 +44,12 @@ TYPEINFO_DEF(/obj/structure/displaycase)
 		update_appearance()
 
 /obj/structure/displaycase/handle_atom_del(atom/A)
-	if(A == electronics)
-		electronics = null
 	if(A == showpiece)
 		showpiece = null
 		update_appearance()
 	return ..()
 
 /obj/structure/displaycase/Destroy()
-	QDEL_NULL(electronics)
 	QDEL_NULL(showpiece)
 	QDEL_NULL(alarm_manager)
 	return ..()
@@ -102,8 +99,6 @@ TYPEINFO_DEF(/obj/structure/displaycase)
 /obj/structure/displaycase/proc/trigger_alarm()
 	if(!alert)
 		return
-	var/area/alarmed = get_area(src)
-	alarmed.burglaralert(src)
 
 	alarm_manager.send_alarm(ALARM_BURGLAR)
 	addtimer(CALLBACK(alarm_manager, TYPE_PROC_REF(/datum/alarm_handler, clear_alarm), ALARM_BURGLAR), 1 MINUTES)
@@ -233,25 +228,11 @@ TYPEINFO_DEF(/obj/structure/displaycase)
 			new /obj/item/stack/sheet/mineral/wood(get_turf(src), 5)
 			qdel(src)
 
-	else if(istype(I, /obj/item/electronics/airlock))
-		to_chat(user, span_notice("You start installing the electronics into [src]..."))
-		I.play_tool_sound(src)
-		if(do_after(user, src, 30) && user.transferItemToLoc(I,src))
-			electronics = I
-			to_chat(user, span_notice("You install the airlock electronics."))
-
 	else if(istype(I, /obj/item/stock_parts/card_reader))
 		var/obj/item/stock_parts/card_reader/C = I
 		to_chat(user, span_notice("You start adding [C] to [src]..."))
 		if(do_after(user, src, 20))
-			var/obj/structure/displaycase/forsale/sale = new(src.loc)
-			if(electronics)
-				electronics.forceMove(sale)
-				sale.electronics = electronics
-				if(electronics.one_access)
-					sale.req_one_access = electronics.accesses
-				else
-					sale.req_access = electronics.accesses
+			new /obj/structure/displaycase/forsale(src.loc)
 			qdel(src)
 			qdel(C)
 
@@ -263,14 +244,7 @@ TYPEINFO_DEF(/obj/structure/displaycase)
 		to_chat(user, span_notice("You start adding [G] to [src]..."))
 		if(do_after(user, src, 20))
 			G.use(10)
-			var/obj/structure/displaycase/noalert/display = new(src.loc)
-			if(electronics)
-				electronics.forceMove(display)
-				display.electronics = electronics
-				if(electronics.one_access)
-					display.req_one_access = electronics.accesses
-				else
-					display.req_access = electronics.accesses
+			new /obj/structure/displaycase/noalert(src.loc)
 			qdel(src)
 	else
 		return ..()
@@ -595,4 +569,3 @@ TYPEINFO_DEF(/obj/structure/displaycase)
 /obj/structure/displaycase/forsale/kitchen
 	desc = "A display case with an ID-card swiper. Use your ID to purchase the contents. Meant for the bartender and chef."
 	req_one_access = list(ACCESS_KITCHEN, ACCESS_BAR)
-

@@ -22,18 +22,3 @@
 	//if this has opacity, then every movement of the tram causes lighting updates
 	//DO NOT put something on the tram roundstart that has opacity, it WILL overload SSlighting
 	opacity = FALSE
-
-/obj/machinery/door/window/left/tram
-/obj/machinery/door/window/right/tram
-
-/obj/machinery/door/window/left/tram/Initialize(mapload, set_dir, unres_sides)
-	. = ..()
-	//RemoveElement(/datum/element/atmos_sensitive, mapload)
-
-/obj/machinery/door/window/right/tram/Initialize(mapload, set_dir, unres_sides)
-	. = ..()
-	//RemoveElement(/datum/element/atmos_sensitive, mapload)
-
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/door/window/left/tram, 0)
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/door/window/right/tram, 0)
-

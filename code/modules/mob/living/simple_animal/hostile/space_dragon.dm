@@ -309,9 +309,6 @@
 			return
 		for(var/obj/structure/window/W in T.contents)
 			return
-		for(var/obj/machinery/door/D in T.contents)
-			if(D.density)
-				return
 		delayFire += 1.5
 		addtimer(CALLBACK(src, PROC_REF(dragon_fire_line), T), delayFire)
 

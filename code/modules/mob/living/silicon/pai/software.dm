@@ -86,14 +86,6 @@
 				return FALSE
 		if("crew_manifest")
 			show_crew_manifest(src)
-		if("door_jack")
-			if(params["jack"] == "jack")
-				if(hacking_cable?.machine)
-					hack_door()
-			if(params["jack"]  == "cancel")
-				QDEL_NULL(hacking_cable)
-			if(params["jack"]  == "cable")
-				extendcable()
 		if("encryption_keys")
 			to_chat(src, span_notice("You have [!encryptmod ? "enabled" : "disabled"] encrypted radio frequencies."))
 			encryptmod = !encryptmod
@@ -215,38 +207,6 @@
 		return
 	hacking_cable.forceMove(drop_location())
 	hacking_cable.visible_message(span_warning("A port on [src] opens to reveal \a [hacking_cable], which promptly falls to the floor."), span_hear("You hear the soft click of something light and hard falling to the ground."))
-
-/**
- * Door jacking supporting proc
- *
- * This will, after alerting any AIs on station, begin to hack open a door.
- * After a 10 second timer, the door will crack open, provided they don't move out of the way.
- */
-
-/mob/living/silicon/pai/proc/hack_door()
-	var/turf/turf = get_turf(src)
-	playsound(src, 'sound/machines/airlock_alien_prying.ogg', 50, TRUE)
-	to_chat(usr, span_boldnotice("You begin overriding the airlock security protocols."))
-	for(var/mob/living/silicon/ai/all_ais in GLOB.player_list)
-		if(!all_ais.stat)
-			continue
-		if(turf.loc)
-			to_chat(all_ais, span_boldannounce("Network Alert: Brute-force security override in progress in [turf.loc]."))
-		else
-			to_chat(all_ais, span_boldannounce("Network Alert: Brute-force security override in progress. Unable to pinpoint location."))
-	//Now begin hacking
-	if(!do_after(src, hacking_cable.machine, 10 SECONDS, timed_action_flags = NONE, progress = TRUE))
-		to_chat(src, span_notice("Door Jack: Connection to airlock has been lost. Hack aborted."))
-		hacking_cable.visible_message(
-			span_warning("[hacking_cable] rapidly retracts back into its spool."),\
-			span_hear("You hear a click and the sound of wire spooling rapidly."))
-		QDEL_NULL(hacking_cable)
-		if(!QDELETED(card))
-			card.update_appearance()
-		return
-	var/obj/machinery/door/door = hacking_cable.machine
-	door.open()
-	QDEL_NULL(hacking_cable)
 
 /**
  * Proc that switches whether a pAI can refresh

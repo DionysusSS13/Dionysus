@@ -26,14 +26,6 @@
 	if(ismob(gone))
 		remove_occupant(gone)
 
-// so that we can check the access of the vehicle's occupants. Ridden vehicles do this in the riding component, but these don't have that
-/obj/vehicle/sealed/Bump(atom/A)
-	. = ..()
-	if(istype(A, /obj/machinery/door))
-		var/obj/machinery/door/conditionalwall = A
-		for(var/occupant in occupants)
-			conditionalwall.bumpopen(occupant)
-
 /obj/vehicle/sealed/after_add_occupant(mob/M)
 	. = ..()
 	ADD_TRAIT(M, TRAIT_HANDS_BLOCKED, VEHICLE_TRAIT)

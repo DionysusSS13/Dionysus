@@ -353,12 +353,6 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	uses = 1
 
 /datum/action/innate/ai/lockdown/Activate()
-	for(var/obj/machinery/door/D in INSTANCES_OF(/obj/machinery/door))
-		if(!is_station_level(D.z))
-			continue
-		INVOKE_ASYNC(D, TYPE_PROC_REF(/obj/machinery/door, hostile_lockdown), owner)
-		addtimer(CALLBACK(D, TYPE_PROC_REF(/obj/machinery/door, disable_lockdown)), 900)
-
 	var/obj/machinery/computer/communications/C = locate() in INSTANCES_OF(/obj/machinery/computer/communications)
 	if(C)
 		C.post_status("alert", "lockdown")

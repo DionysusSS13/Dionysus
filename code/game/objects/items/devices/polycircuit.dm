@@ -7,8 +7,8 @@
 	max_amount = 8
 	merge_type = /obj/item/stack/circuit_stack
 	singular_name = "circuit aggregate"
-	var/circuit_type = /obj/item/electronics/airlock
-	var/chosen_circuit = "airlock"
+	var/circuit_type = /obj/item/electronics/airalarm
+	var/chosen_circuit = "air alarm"
 
 /obj/item/stack/circuit_stack/attack_self(mob/user)// Prevents the crafting menu, and tells you how to use it.
 	to_chat(user, span_warning("You can't use [src] by itself, you'll have to try and remove one of these circuits by hand... carefully."))
@@ -29,8 +29,6 @@
 		if(loc != user)
 			return
 		switch(chosen_circuit)
-			if("airlock")
-				circuit_type = /obj/item/electronics/airlock
 			if("air alarm")
 				circuit_type = /obj/item/electronics/airalarm
 			if("APC")

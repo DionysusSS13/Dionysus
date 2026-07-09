@@ -515,10 +515,6 @@ GLOBAL_VAR_INIT(hhMysteryRoomNumber, rand(1, 999999))
 	color = "#aa00cc"
 	puzzle_id = "hilbert_office"
 
-/obj/machinery/door/puzzle/keycard/hilbert
-	name = "secure airlock"
-	puzzle_id = "hilbert_office"
-
 /datum/outfit/doctorhilbert
 	id = /obj/item/card/id/advanced/silver
 	uniform = /obj/item/clothing/under/rank/rnd/research_director/doctor_hilbert

@@ -7,4 +7,3 @@
 
 #include "enforce_count\_enforce_count.dm"
 #include "enforce_count\lights.dm"
-#include "enforce_count\doors.dm"

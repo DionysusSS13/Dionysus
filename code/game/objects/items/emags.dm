@@ -55,10 +55,6 @@
 	. = ..()
 	playsound(src, 'sound/items/bikehorn.ogg', 50, TRUE)
 
-/obj/item/card/emag/Initialize(mapload)
-	. = ..()
-	type_blacklist = list(typesof(/obj/machinery/door/airlock), typesof(/obj/machinery/door/window/)) //list of all typepaths that require a specialized emag to hack.
-
 /obj/item/card/emag/attack()
 	return
 
@@ -78,54 +74,6 @@
 			to_chat(user, span_warning("The [target] cannot be affected by the [src]! A more specialized hacking device is required."))
 			return FALSE
 	return TRUE
-
-/*
- * DOORMAG
- */
-/obj/item/card/emag/doorjack
-	desc = "Commonly known as a \"doorjack\", this device is a specialized cryptographic sequencer specifically designed to override station airlock access codes. Uses self-refilling charges to hack airlocks."
-	name = "airlock authentication override card"
-	icon_state = "doorjack"
-	worn_icon_state = "doorjack"
-	var/type_whitelist //List of types
-	var/charges = 3
-	var/max_charges = 3
-	var/list/charge_timers = list()
-	var/charge_time = 1800 //three minutes
-
-/obj/item/card/emag/doorjack/Initialize(mapload)
-	. = ..()
-	type_whitelist = list(typesof(/obj/machinery/door/airlock), typesof(/obj/machinery/door/window/)) //list of all acceptable typepaths that this device can affect
-
-/obj/item/card/emag/doorjack/proc/use_charge(mob/user)
-	charges --
-	to_chat(user, span_notice("You use [src]. It now has [charges] charge[charges == 1 ? "" : "s"] remaining."))
-	charge_timers.Add(addtimer(CALLBACK(src, PROC_REF(recharge)), charge_time, TIMER_STOPPABLE))
-
-/obj/item/card/emag/doorjack/proc/recharge(mob/user)
-	charges = min(charges+1, max_charges)
-	playsound(src,'sound/machines/twobeep.ogg',10,TRUE, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_distance = 0)
-	charge_timers.Remove(charge_timers[1])
-
-/obj/item/card/emag/doorjack/examine(mob/user)
-	. = ..()
-	. += span_notice("It has [charges] charges remaining.")
-	if (length(charge_timers))
-		. += "[span_notice("<b>A small display on the back reads:")]</b>"
-	for (var/i in 1 to length(charge_timers))
-		var/timeleft = timeleft(charge_timers[i])
-		var/loadingbar = num2loadingbar(timeleft/charge_time)
-		. += span_notice("<b>CHARGE #[i]: [loadingbar] ([timeleft*0.1]s)</b>")
-
-/obj/item/card/emag/doorjack/can_emag(atom/target, mob/user)
-	if (charges <= 0)
-		to_chat(user, span_warning("[src] is recharging!"))
-		return FALSE
-	for (var/list/subtypelist in type_whitelist)
-		if (target.type in subtypelist)
-			return TRUE
-	to_chat(user, span_warning("[src] is unable to interface with this. It only seems to fit into airlock electronics."))
-	return FALSE
 
 /*
  * Battlecruiser Access

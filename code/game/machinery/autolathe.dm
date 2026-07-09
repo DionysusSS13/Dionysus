@@ -441,7 +441,6 @@
 		/datum/design/welding_helmet,
 		/datum/design/cable_coil,
 		/datum/design/apc_board,
-		/datum/design/airlock_board,
 		/datum/design/airalarm_electronics,
 		/datum/design/paint_sprayer,
 		/datum/design/emergency_oxygen,

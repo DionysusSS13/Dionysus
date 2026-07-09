@@ -97,7 +97,6 @@ TYPEINFO_DEF(/obj/structure/closet)
 
 /obj/structure/closet/Destroy()
 	QDEL_NULL(door_obj)
-	QDEL_NULL(electronics)
 	return ..()
 
 /obj/structure/closet/update_appearance(updates=ALL)
@@ -362,10 +361,6 @@ TYPEINFO_DEF(/obj/structure/closet)
 	if (!(flags_1 & NODECONSTRUCT_1))
 		if(ispath(material_drop) && material_drop_amount)
 			new material_drop(loc, material_drop_amount)
-		if (electronics)
-			var/obj/item/electronics/airlock/electronics_ref = electronics
-			electronics = null
-			electronics_ref.forceMove(drop_location())
 	dump_contents()
 	qdel(src)
 
@@ -423,50 +418,6 @@ TYPEINFO_DEF(/obj/structure/closet)
 							span_hear("You hear welding."))
 			log_game("[key_name(user)] [welded ? "welded":"unwelded"] closet [src] with [W] at [AREACOORD(src)]")
 			update_appearance()
-	else if (can_install_electronics && istype(W, /obj/item/electronics/airlock)\
-			&& !secure && !electronics && !locked && (welded || !can_weld_shut) && !broken)
-		user.visible_message(span_notice("[user] installs the electronics into the [src]."),\
-			span_notice("You start to install electronics into the [src]..."))
-		if (!do_after(user, src, 4 SECONDS))
-			return FALSE
-		if (electronics || secure)
-			return FALSE
-		if (!user.transferItemToLoc(W, src))
-			return FALSE
-		W.moveToNullspace()
-		to_chat(user, span_notice("You install the electronics."))
-		electronics = W
-		if (electronics.one_access)
-			req_one_access = electronics.accesses
-		else
-			req_access = electronics.accesses
-		secure = TRUE
-		update_appearance()
-	else if (can_install_electronics && W.tool_behaviour == TOOL_SCREWDRIVER\
-			&& (secure || electronics) && !locked && (welded || !can_weld_shut))
-		user.visible_message(span_notice("[user] begins to remove the electronics from the [src]."),\
-			span_notice("You begin to remove the electronics from the [src]..."))
-		var/had_electronics = !!electronics
-		var/was_secure = secure
-		if (!do_after(user, src, 4 SECONDS))
-			return FALSE
-		if ((had_electronics && !electronics) || (was_secure && !secure))
-			return FALSE
-		var/obj/item/electronics/airlock/electronics_ref
-		if (!electronics)
-			electronics_ref = new /obj/item/electronics/airlock(loc)
-			gen_access()
-			if (req_one_access.len)
-				electronics_ref.one_access = 1
-				electronics_ref.accesses = req_one_access
-			else
-				electronics_ref.accesses = req_access
-		else
-			electronics_ref = electronics
-			electronics = null
-			electronics_ref.forceMove(drop_location())
-		secure = FALSE
-		update_appearance()
 	else if(!user.combat_mode)
 		var/item_is_id = W.GetID()
 		if(!item_is_id)

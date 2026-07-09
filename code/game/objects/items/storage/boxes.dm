@@ -337,8 +337,6 @@
 	var/id = rand(1000, 9999)
 	// FIXME what if this conflicts with an existing one?
 
-	new /obj/item/wallframe/button(src)
-	new /obj/item/electronics/airlock(src)
 	var/obj/item/assembly/control/flasher/remote = new(src)
 	remote.id = id
 	var/obj/item/wallframe/flasher/frame = new(src)

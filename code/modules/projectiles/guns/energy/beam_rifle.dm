@@ -473,8 +473,6 @@ TYPEINFO_DEF(/obj/item/gun/energy/beam_rifle)
 	return ..()
 
 /obj/projectile/beam/beam_rifle/proc/get_damage_coeff(atom/target)
-	if(istype(target, /obj/machinery/door))
-		return 0.4
 	if(istype(target, /obj/structure/window))
 		return 0.5
 	return 1

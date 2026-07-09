@@ -55,8 +55,6 @@
 					var/obj/structure/grille/GR = O
 					if(!GR.broken)
 						grille += 1
-				else if(istype(O, /obj/machinery/door))
-					door += 1
 				else if(ismachinery(O))
 					mach += 1
 				CHECK_TICK

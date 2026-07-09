@@ -103,7 +103,6 @@ This entire system is an absolute mess.
 ///The typecache of objects airflow can't push objects into the same tile of
 GLOBAL_LIST_INIT(airflow_step_blacklist, typecacheof(list(
 	/obj/structure,
-	/obj/machinery/door
 	)))
 
 /atom/movable/Bump(atom/A)
