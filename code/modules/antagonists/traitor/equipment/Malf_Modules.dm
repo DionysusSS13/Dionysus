@@ -665,37 +665,6 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 	to_chat(owner, span_notice("All air alarm safeties on the station have been overridden. Air alarms may now use the Flood environmental mode."))
 	owner.playsound_local(owner, 'sound/machines/terminal_off.ogg', 50, 0)
 
-/// Thermal Sensor Override: Unlocks the ability to disable all fire alarms from doing their job.
-/datum/ai_module/utility/break_fire_alarms
-	name = "Thermal Sensor Override"
-	description = "Gives you the ability to override the thermal sensors on all fire alarms. This will remove their ability to scan for fire and thus their ability to alert."
-	one_purchase = TRUE
-	cost = 25
-	power_type = /datum/action/innate/ai/break_fire_alarms
-	unlock_text = "<span class='notice'>You replace the thermal sensing capabilities of all fire alarms with a manual override, allowing you to turn them off at will.</span>"
-	unlock_sound = 'sound/machines/FireAlarm1.ogg'
-
-/datum/action/innate/ai/break_fire_alarms
-	name = "Override Thermal Sensors"
-	desc = "Disables the automatic temperature sensing on all fire alarms, making them effectively useless."
-	button_icon_state = "break_fire_alarms"
-	uses = 1
-
-/datum/action/innate/ai/break_fire_alarms/Activate()
-	for(var/obj/machinery/firealarm/bellman as anything in INSTANCES_OF(/obj/machinery/firealarm))
-		if(!is_station_level(bellman.z))
-			continue
-		bellman.obj_flags |= EMAGGED
-		bellman.update_appearance()
-
-	for(var/obj/machinery/door/firedoor/firelock in INSTANCES_OF(/obj/machinery/door))
-		if(!is_station_level(firelock.z))
-			continue
-
-		firelock.emag_act(owner_AI, src)
-	to_chat(owner, span_notice("All thermal sensors on the station have been disabled. Fire alerts will no longer be recognized."))
-	owner.playsound_local(owner, 'sound/machines/terminal_off.ogg', 50, 0)
-
 /// Disable Emergency Lights
 /datum/ai_module/utility/emergency_lights
 	name = "Disable Emergency Lights"

@@ -36,7 +36,7 @@ DEFINE_INTERACTABLE(/obj/machinery/door)
 	var/operating = FALSE
 	var/glass = FALSE
 	var/welded = FALSE
-	var/heat_proof = FALSE // For rglass-windowed airlocks and firedoors
+	var/heat_proof = FALSE // For rglass-windowed airlocks
 	var/emergency = FALSE // Emergency access override
 	var/sub_door = FALSE // true if it's meant to go under another door.
 	var/closingLayer = CLOSED_DOOR_LAYER

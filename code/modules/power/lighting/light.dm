@@ -74,8 +74,6 @@ DEFINE_INTERACTABLE(/obj/machinery/light)
 	var/constant_flickering = FALSE
 	var/flicker_timer = null
 	var/roundstart_flicker = FALSE
-	/// Should this turn red when a firealarm is on in the area?
-	var/firealarm = FALSE
 	var/maploaded = FALSE
 
 /obj/machinery/light/Move()
@@ -130,7 +128,7 @@ DEFINE_INTERACTABLE(/obj/machinery/light)
 /obj/machinery/light/update_icon_state()
 	switch(status) // set icon_states
 		if(LIGHT_OK)
-			if(emergency_mode || firealarm)
+			if(emergency_mode)
 				icon_state = "[base_state]_emergency"
 			else
 				icon_state = "[base_state]"
@@ -150,7 +148,7 @@ DEFINE_INTERACTABLE(/obj/machinery/light)
 	if(!overlay_icon)
 		return
 
-	if(emergency_mode || firealarm)
+	if(emergency_mode)
 		. += mutable_appearance(overlay_icon, "[base_state]_emergency")
 		return
 	. += mutable_appearance(overlay_icon, base_state)
@@ -513,8 +511,6 @@ DEFINE_INTERACTABLE(/obj/machinery/light)
 	var/FC = bulb_falloff
 	if(color)
 		CO = color
-	if (firealarm)
-		CO = bulb_emergency_colour
 
 	var/matching = light && OR == light.light_outer_range && IR == light.light_inner_range && PO == light.light_power && CO == light.light_color && FC == light.light_falloff_curve
 	if(!matching)
@@ -569,18 +565,6 @@ DEFINE_INTERACTABLE(/obj/machinery/light)
 /obj/machinery/light/proc/flicker_off()
 	alter_flicker(FALSE)
 	flicker_timer = addtimer(CALLBACK(src, PROC_REF(flicker_on)), rand(5, 50), TIMER_STOPPABLE|TIMER_DELETE_ME)
-
-/obj/machinery/light/proc/firealarm_on()
-	SIGNAL_HANDLER
-
-	firealarm = TRUE
-	update()
-
-/obj/machinery/light/proc/firealarm_off()
-	SIGNAL_HANDLER
-
-	firealarm = FALSE
-	update()
 
 // ai attack - make lights flicker, because why not
 

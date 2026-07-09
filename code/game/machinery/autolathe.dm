@@ -442,9 +442,7 @@
 		/datum/design/cable_coil,
 		/datum/design/apc_board,
 		/datum/design/airlock_board,
-		/datum/design/firelock_board,
 		/datum/design/airalarm_electronics,
-		/datum/design/firealarm_electronics,
 		/datum/design/airlock_painter,
 		/datum/design/airlock_painter/decal,
 		/datum/design/airlock_painter/decal/tile,
@@ -516,4 +514,3 @@
 		/datum/design/oven_tray,
 		/datum/design/data,
 	)
-

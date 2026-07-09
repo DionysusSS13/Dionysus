@@ -174,30 +174,12 @@
 	category = list( "Electronics")
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
 
-/datum/design/firelock_board
-	name = "Firelock Circuitry"
-	id = "firelock_board"
-	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/steel = 50, /datum/material/glass = 50)
-	build_path = /obj/item/electronics/firelock
-	category = list( "Electronics")
-	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
-
 /datum/design/airalarm_electronics
 	name = "Air Alarm Electronics"
 	id = "airalarm_electronics"
 	build_type = AUTOLATHE | FABRICATOR
 	materials = list(/datum/material/steel = 50, /datum/material/glass = 50)
 	build_path = /obj/item/electronics/airalarm
-	category = list( "Electronics")
-	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
-
-/datum/design/firealarm_electronics
-	name = "Fire Alarm Electronics"
-	id = "firealarm_electronics"
-	build_type = AUTOLATHE | FABRICATOR
-	materials = list(/datum/material/steel = 50, /datum/material/glass = 50)
-	build_path = /obj/item/electronics/firealarm
 	category = list( "Electronics")
 	mapload_design_flags = DESIGN_FAB_ENGINEERING | DESIGN_FAB_OMNI
 

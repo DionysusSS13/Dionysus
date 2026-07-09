@@ -1,4 +1,4 @@
-// The severity of explosions. Why are these inverted? I have no idea, but git blame doesn't go back far enough for me to find out.
+// The severity of explosions. Why are these inverted? I have no idea, but git blame doesn't go back far enough for me to find out. BOLD FACED LIE. I CHECKED GIT BLAME. YOU INVERTED IT!!
 /// The (current) highest possible explosion severity.
 #define EXPLODE_DEVASTATE 3
 /// The (current) middling explosion severity.

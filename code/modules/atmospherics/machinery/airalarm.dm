@@ -104,8 +104,6 @@ TYPEINFO_DEF(/obj/machinery/airalarm)
 	var/alert_type = FIRE_CLEAR
 	///A reference to the area we are in
 	var/area/my_area
-	///The loopingsound for when there's shit fucky
-	var/datum/looping_sound/firealarm/soundloop
 
 	var/locked = TRUE
 	var/aidisabled = 0
@@ -167,7 +165,6 @@ TYPEINFO_DEF(/obj/machinery/airalarm)
 		name = "[get_area_name(src)] Air Alarm"
 
 	alarm_manager = new(src)
-	soundloop = new(src, FALSE)
 	RegisterSignal(src, COMSIG_FIRE_ALERT, PROC_REF(handle_alert))
 	update_appearance()
 
@@ -190,7 +187,6 @@ TYPEINFO_DEF(/obj/machinery/airalarm)
 	SSairmachines.stop_processing_machine(src)
 	QDEL_NULL(wires)
 	QDEL_NULL(alarm_manager)
-	QDEL_NULL(soundloop)
 	return ..()
 
 /obj/machinery/airalarm/Moved(atom/OldLoc, Dir, list/old_locs, momentum_change = TRUE)
@@ -465,10 +461,6 @@ TYPEINFO_DEF(/obj/machinery/airalarm)
 		if("reset")
 			if(alarm_manager.clear_alarm(ALARM_ATMOS))
 				post_alert(0)
-			usr.animate_interact(src)
-			. = TRUE
-		if("fire_alarm")
-			my_area.communicate_fire_alert(alert_type ? FIRE_CLEAR : FIRE_RAISED_GENERIC)
 			usr.animate_interact(src)
 			. = TRUE
 
@@ -773,21 +765,7 @@ TYPEINFO_DEF(/obj/machinery/airalarm)
 		current_tlv = cached_tlv[gas_id]
 		gas_dangerlevel = max(gas_dangerlevel, current_tlv.get_danger_level(environment.gas[gas_id]))
 
-	var/old_danger_level = danger_level
 	danger_level = max(pressure_dangerlevel, temperature_dangerlevel, gas_dangerlevel)
-
-	if(old_danger_level != danger_level)
-		INVOKE_ASYNC(src, PROC_REF(apply_danger_level))
-		if(alert_type)
-			if(!danger_level)
-				my_area.communicate_fire_alert(FIRE_CLEAR)
-		else if(danger_level)
-			if(temperature_dangerlevel > 1)
-				my_area.communicate_fire_alert(environment.temperature >= cached_tlv["temperature"].hazard_max ? FIRE_RAISED_HOT : FIRE_RAISED_COLD)
-			else if(pressure_dangerlevel > 1)
-				my_area.communicate_fire_alert(FIRE_RAISED_PRESSURE)
-			else
-				my_area.communicate_fire_alert(FIRE_RAISED_GENERIC)
 
 	if(mode == AALARM_MODE_REPLACEMENT && environment_pressure < ONE_ATMOSPHERE * 0.05)
 		mode = AALARM_MODE_SCRUBBING
@@ -1124,10 +1102,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/airalarm, 21)
 
 	if(code)
 		alarm_manager.send_alarm(ALARM_FIRE)
-		soundloop.start()
 	else
 		alarm_manager.clear_alarm(ALARM_FIRE)
-		soundloop.stop()
 
 	alert_type = code
 

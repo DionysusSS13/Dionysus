@@ -26,12 +26,6 @@
 
 	var/holomap_color = null
 
-	///A var for whether the area allows for detecting fires/etc. Disabled or enabled at a fire alarm.
-	var/fire_detect = TRUE
-	///A list of all fire locks in this area and on the border of this area.
-	var/list/firedoors
-	///A list of all fire alarms in this area OR ADJACENT TO IT
-	var/list/firealarms
 	///A list of all air alarms in this area
 	var/list/airalarms
 	///Alarm type to count of sources. Not usable for ^ because we handle fires differently
@@ -297,8 +291,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 /area/proc/burglaralert(obj/trigger)
 	if (area_flags & NO_ALERTS)
 		return
-	//Trigger alarm effect
-	communicate_fire_alert(FIRE_RAISED_GENERIC, TRUE)
 	//Lockdown airlocks
 	for(var/obj/machinery/door/door in src)
 		close_and_lock_door(door)
@@ -503,14 +495,6 @@ GLOBAL_LIST_EMPTY(teleportlocs)
 		var/datum/roll_result/result = H.get_examine_result(flavor_text_key, modifier = 999)
 		to_chat(H, result.create_tooltip(get_flavor_string()))
 		result.do_skill_sound(H)
-
-///Called by airalarms and firealarms to communicate the status of the area to relevant machines
-/area/proc/communicate_fire_alert(code)
-	for(var/obj/machinery/light/L as anything in lights)
-		L.update()
-
-	for(var/datum/listener in airalarms + firealarms + firedoors)
-		SEND_SIGNAL(listener, COMSIG_FIRE_ALERT, code)
 
 /area/add_viscontents(atom/A)
 	CRASH("Tried to mutate area vis_contents.")

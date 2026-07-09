@@ -51,7 +51,7 @@
 		'icons/construction/wall/girder_reinforced/wall/wall_2.dmi',
 	)
 	var/integrity_pct = atom_integrity / max_integrity
-	var/wanted_state = MAP(integrity_pct, 0, 1, 0, 2)
+	var/wanted_state = round(MAP(integrity_pct, 0, 1, 0, 2))
 	if(material_reinforcement)
 		icon = reinforced_icons[wanted_state]
 		// icon_state should be set by smoothing

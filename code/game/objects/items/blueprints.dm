@@ -241,7 +241,4 @@
 
 	for(var/obj/machinery/door/door in area)
 		door.name = replacetext(door.name,oldtitle,title)
-
-	for(var/obj/machinery/firealarm/firepanel in area)
-		firepanel.name = replacetext(firepanel.name,oldtitle,title)
 	//TODO: much much more. Unnamed airlocks, cameras, etc.

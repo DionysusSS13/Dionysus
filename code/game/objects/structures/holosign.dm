@@ -109,17 +109,10 @@ TYPEINFO_DEF(/obj/structure/holosign)
 
 /obj/structure/holosign/barrier/atmos/Initialize(mapload)
 	. = ..()
-	var/turf/local = get_turf(loc)
-	ADD_TRAIT(local, TRAIT_FIREDOOR_STOP, TRAIT_GENERIC)
 	zas_update_loc()
 
 /obj/structure/holosign/barrier/atmos/block_superconductivity() //Didn't used to do this, but it's "normal", and will help ease heat flow transitions with the players.
 	return TRUE
-
-/obj/structure/holosign/barrier/atmos/Destroy()
-	var/turf/local = get_turf(loc)
-	REMOVE_TRAIT(local, TRAIT_FIREDOOR_STOP, TRAIT_GENERIC)
-	return ..()
 
 /obj/structure/holosign/barrier/cyborg
 	name = "Energy Field"

@@ -31,10 +31,6 @@
 		switch(chosen_circuit)
 			if("airlock")
 				circuit_type = /obj/item/electronics/airlock
-			if("firelock")
-				circuit_type = /obj/item/electronics/firelock
-			if("fire alarm")
-				circuit_type = /obj/item/electronics/firealarm
 			if("air alarm")
 				circuit_type = /obj/item/electronics/airalarm
 			if("APC")

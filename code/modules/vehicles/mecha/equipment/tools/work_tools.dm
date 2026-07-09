@@ -57,11 +57,6 @@
 
 	else if(isobj(target))
 		var/obj/clamptarget = target
-		if(istype(clamptarget, /obj/machinery/door/firedoor))
-			var/obj/machinery/door/firedoor/targetfiredoor = clamptarget
-			playsound(chassis, clampsound, 50, FALSE, -6)
-			targetfiredoor.try_to_crowbar(src, source)
-			return
 		if(istype(clamptarget, /obj/machinery/door/airlock/))
 			var/obj/machinery/door/airlock/targetairlock = clamptarget
 			playsound(chassis, clampsound, 50, FALSE, -6)

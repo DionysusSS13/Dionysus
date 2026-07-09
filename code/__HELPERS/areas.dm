@@ -93,9 +93,6 @@ GLOBAL_LIST_INIT(typecache_powerfailure_safe_areas, typecacheof(/area/station/en
 
 	newA.reg_in_areas_in_z()
 
-	for(var/thing2move in oldA.firedoors + oldA.firealarms + oldA.airalarms)
-		thing2move:set_area(get_area(thing2move)) //Dude trust me
-
 	if(!isarea(area_choice) && (newA.area_lighting == AREA_LIGHTING_DYNAMIC))
 		newA.create_area_lighting_objects()
 

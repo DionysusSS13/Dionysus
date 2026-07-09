@@ -35,6 +35,18 @@
 	QUEUE_SMOOTH(src)
 	QUEUE_SMOOTH_NEIGHBORS(src)
 
+/turf/closed/constructed_wall/ex_act(severity, target)
+	// TODO: ARMOR REFACTOR TO ACTUALLY MATTER FOR WALLS. kthx bai
+	if(!isnull(target))
+		CRASH("I DIDNT TRAIN FOR THIS AT THE ACADEMY.")
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			take_damage(max_integrity)
+		if(EXPLODE_HEAVY)
+			take_damage(max(FLOOR(max_integrity * 0.50, 1), 30))
+		if(EXPLODE_LIGHT)
+			take_damage(FLOOR(max_integrity * 0.10, 1))
+
 /turf/closed/constructed_wall/proc/update_material_resistances()
 	var/new_heat_resistance = material_plating.heat_resistance
 	var/new_max_integrity = material_plating.wall_integrity
@@ -58,6 +70,8 @@
 		visible_message(span_warning("\The [src] seems to warp slightly!"))
 
 /turf/closed/constructed_wall/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armor_penetration)
+	if(material_plating == /datum/material/centcomnium)
+		return 0 // dont feel like it champ
 	last_damage = damage_amount
 	return ..()
 

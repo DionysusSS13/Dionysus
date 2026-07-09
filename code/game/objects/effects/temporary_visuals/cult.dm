@@ -34,7 +34,7 @@
 /obj/effect/temp_visual/cult/door
 	name = "unholy glow"
 	icon_state = "doorglow"
-	layer = CLOSED_FIREDOOR_LAYER //above closed doors
+	layer = CLOSED_DOOR_LAYER + 0.1 //above closed doors
 	plane = GAME_PLANE
 
 /obj/effect/temp_visual/cult/door/unruned

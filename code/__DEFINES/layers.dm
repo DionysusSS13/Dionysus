@@ -83,7 +83,6 @@ Specifically: ZMIMIC_MAX_PLANE to (ZMIMIC_MAX_PLANE - ZMIMIC_MAX_DEPTH)
 
 //#define OBJ_LAYER 3 //For easy recordkeeping; this is a byond define
 #define CLOSED_DOOR_LAYER 3.1
-#define CLOSED_FIREDOOR_LAYER 3.11
 #define ABOVE_OBJ_LAYER 3.2
 #define SHUTTER_LAYER_CLOSED 3.21
 #define CLOSED_BLASTDOOR_LAYER 3.22

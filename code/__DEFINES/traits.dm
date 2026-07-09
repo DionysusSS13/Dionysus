@@ -673,9 +673,6 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 /// Trait put on [/mob/living/carbon/human]. If that mob has a crystal core, also known as an ethereal heart, it will not try to revive them if the mob dies.
 #define TRAIT_CANNOT_CRYSTALIZE "cannot_crystalize"
 
-///Trait applied to turfs when an atmos holosign is placed on them. It will stop firedoors from closing.
-#define TRAIT_FIREDOOR_STOP "firedoor_stop"
-
 /// Trait applied when the MMI component is added to an [/obj/item/integrated_circuit]
 #define TRAIT_COMPONENT_MMI "component_mmi"
 /// Trait applied when the MMI component is added to an [/obj/item/integrated_circuit]
