@@ -104,7 +104,6 @@
 			/datum/species = TRUE,
 			// Some types to remove them and their subtypes
 			/mob/living/carbon/human/species = FALSE,
-			/mob/living/simple_animal/hostile/syndicate/mecha_pilot = FALSE,
 		))
 		// Some particular types to disallow if they're too broad/abstract
 		// Not in the above typecache generator because it includes subtypes and this doesn't.

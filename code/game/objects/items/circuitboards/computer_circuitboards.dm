@@ -365,16 +365,6 @@
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/computer/launchpad
 
-/obj/item/circuitboard/computer/mech_bay_power_console
-	name = "Mech Bay Power Control Console (Computer Board)"
-	greyscale_colors = CIRCUIT_COLOR_SCIENCE
-	build_path = /obj/machinery/computer/mech_bay_power_console
-
-/obj/item/circuitboard/computer/mecha_control
-	name = "Exosuit Control Console (Computer Board)"
-	greyscale_colors = CIRCUIT_COLOR_SCIENCE
-	build_path = /obj/machinery/computer/mecha
-
 /obj/item/circuitboard/computer/research
 	name = "Research Monitor (Computer Board)"
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE

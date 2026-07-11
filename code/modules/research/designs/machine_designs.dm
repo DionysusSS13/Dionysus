@@ -214,13 +214,6 @@
 	build_path = /obj/item/circuitboard/machine/cyborgrecharger
 	mapload_design_flags = DESIGN_IMPRINTER
 
-/datum/design/board/mech_recharger
-	name = "Machine Board (Mechbay Recharger Board)"
-	desc = "The circuit board for a Mechbay Recharger."
-	id = "mech_recharger"
-	build_path = /obj/item/circuitboard/machine/mech_recharger
-	mapload_design_flags = DESIGN_IMPRINTER
-
 // /datum/design/board/dnascanner
 // 	name = "Machine Board (DNA Scanner)"
 // 	desc = "The circuit board for a DNA Scanner."

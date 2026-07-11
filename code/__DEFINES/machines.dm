@@ -34,13 +34,6 @@
 #define START_PROCESSING_ON_INIT (1<<0) /// Indicates the machine will automatically start processing right after it's `Initialize()` is ran.
 #define START_PROCESSING_MANUALLY (1<<1) /// Machines with this flag will not start processing when it's spawned. Use this if you want to manually control when a machine starts processing.
 
-//bitflags for door switches.
-#define OPEN (1<<0)
-#define IDSCAN (1<<1)
-#define BOLTS (1<<2)
-#define SHOCK (1<<3)
-#define SAFE (1<<4)
-
 //used in design to specify which machine can build it
 #define FABRICATOR (1<<0) //For circuits. Uses glass/chemicals.
 #define AUTOLATHE (1<<1) //Prints basic designs without research

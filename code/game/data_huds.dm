@@ -439,44 +439,6 @@ Diagnostic HUDs!
 		set_hud_image_vars(DIAG_TRACK_HUD, "hudtrackingai")
 		set_hud_image_active(DIAG_TRACK_HUD)
 
-/*~~~~~~~~~~~~~~~~~~~~
-	BIG STOMPY MECHS
-~~~~~~~~~~~~~~~~~~~~~*/
-/obj/vehicle/sealed/mecha/proc/diag_hud_set_mechhealth()
-	set_hud_image_vars(DIAG_MECH_HUD, "huddiag[RoundDiagBar(atom_integrity/max_integrity)]")
-
-
-/obj/vehicle/sealed/mecha/proc/diag_hud_set_mechcell()
-	var/new_state
-	if(cell)
-		var/chargelvl = cell.charge/cell.maxcharge
-		new_state = "hudbatt[RoundDiagBar(chargelvl)]"
-	else
-		new_state = "hudnobatt"
-
-	set_hud_image_vars(DIAG_BATT_HUD, new_state)
-
-/obj/vehicle/sealed/mecha/proc/diag_hud_set_mechstat()
-	if(internal_damage)
-		set_hud_image_vars(DIAG_STAT_HUD, "hudwarn")
-		set_hud_image_active(DIAG_STAT_HUD)
-		return
-
-	set_hud_image_vars(DIAG_STAT_HUD, null)
-	set_hud_image_inactive(DIAG_STAT_HUD)
-
-///Shows tracking beacons on the mech
-/obj/vehicle/sealed/mecha/proc/diag_hud_set_mechtracking()
-	var/new_icon_state //This var exists so that the holder's icon state is set only once in the event of multiple mech beacons.
-	for(var/obj/item/mecha_parts/mecha_tracking/T in trackers)
-		if(T.ai_beacon) //Beacon with AI uplink
-			new_icon_state = "hudtrackingai"
-			break //Immediately terminate upon finding an AI beacon to ensure it is always shown over the normal one, as mechs can have several trackers.
-		else
-			new_icon_state = "hudtracking"
-
-	set_hud_image_vars(DIAG_TRACK_HUD, new_icon_state)
-
 /*~~~~~~~~~
 	Bots!
 ~~~~~~~~~~*/

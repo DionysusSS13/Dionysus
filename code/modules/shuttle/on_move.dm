@@ -180,10 +180,6 @@ All ShuttleMove procs go here
 	. = ..()
 	GLOB.cameranet.addCamera(src)
 
-/obj/machinery/mech_bay_recharge_port/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir)
-	. = ..()
-	recharging_turf = get_step(loc, dir)
-
 /obj/machinery/computer/auxiliary_base/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
 	. = ..()
 	if(is_mining_level(z)) //Avoids double logging and landing on other Z-levels due to badminnery

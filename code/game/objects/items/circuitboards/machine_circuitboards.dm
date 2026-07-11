@@ -358,9 +358,6 @@
 /obj/item/circuitboard/machine/circuit_imprinter/robotics
 	name = "Circuit Imprinter (Machine Board)"
 	build_path = /obj/machinery/rnd/production/circuit_imprinter/offstation
-	def_components = list(
-		/obj/item/disk/data = /obj/item/disk/data/fabricator/imprinter/robotics
-	)
 
 /obj/item/circuitboard/machine/holopad
 	name = "AI Holopad (Machine Board)"
@@ -820,14 +817,6 @@
 		/obj/item/stock_parts/manipulator = 1,
 		/obj/item/stock_parts/micro_laser = 1,
 	)
-
-/obj/item/circuitboard/machine/mech_recharger
-	name = "Mechbay Recharger (Machine Board)"
-	greyscale_colors = CIRCUIT_COLOR_SCIENCE
-	build_path = /obj/machinery/mech_bay_recharge_port
-	req_components = list(
-		/obj/item/stack/cable_coil = 2,
-		/obj/item/stock_parts/capacitor = 5)
 
 /obj/item/circuitboard/machine/monkey_recycler
 	name = "Monkey Recycler (Machine Board)"

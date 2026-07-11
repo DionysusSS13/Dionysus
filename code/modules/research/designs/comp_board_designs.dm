@@ -126,17 +126,6 @@
 	desc = "Allows for the construction of circuit boards used to build a prisoner management console."
 	id = "prisonmanage"
 	build_path = /obj/item/circuitboard/computer/prisoner
-/datum/design/board/mechacontrol
-	name = "Circuit Board (Exosuit Control Console)"
-	desc = "Allows for the construction of circuit boards used to build an exosuit control console."
-	id = "mechacontrol"
-	build_path = /obj/item/circuitboard/computer/mecha_control
-
-/datum/design/board/mechapower
-	name = "Circuit Board (Mech Bay Power Control Console)"
-	desc = "Allows for the construction of circuit boards used to build a mech bay power control console."
-	id = "mechapower"
-	build_path = /obj/item/circuitboard/computer/mech_bay_power_console
 
 /datum/design/board/cargo
 	name = "Circuit Board (Supply Console)"

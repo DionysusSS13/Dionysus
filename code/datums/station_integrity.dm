@@ -11,8 +11,6 @@
 	var/floor = 0
 	var/wall = 0
 	var/r_wall = 0
-	var/window = 0
-	var/door = 0
 	var/grille = 0
 	var/mach = 0
 
@@ -20,8 +18,6 @@
 	floor = 0
 	wall = 0
 	r_wall = 0
-	window = 0
-	door = 0
 	grille = 0
 	mach = 0
 	for(var/Z in SSmapping.levels_by_trait(ZTRAIT_STATION))
@@ -66,8 +62,6 @@
 	output += (result.floor / max(floor,1))
 	output += (result.r_wall/ max(r_wall,1))
 	output += (result.wall / max(wall,1))
-	output += (result.window / max(window,1))
-	output += (result.door / max(door,1))
 	output += (result.grille / max(grille,1))
 	output += (result.mach / max(mach,1))
 	return (output/7)

@@ -254,7 +254,6 @@ GLOBAL_LIST_INIT(job_display_order, list(
 
 	if(pinpad_key)
 		var/pin = SSid_access.get_static_pincode(pinpad_key)
-		spawned.mind.set_note(NOTES_DOOR_CODES, "The pin to your doors is [pin]")
 		to_chat(player_client, span_obviousnotice("You remember the pin to your doors: <b>[pin]</b>"))
 
 /datum/job/proc/announce_job(mob/living/joining_mob)

@@ -165,35 +165,6 @@
 
 	return drain_total
 
-//MECH//
-/obj/vehicle/sealed/mecha/ninjadrain_act(obj/item/clothing/suit/space/space_ninja/ninja_suit, mob/living/carbon/human/ninja, obj/item/clothing/gloves/space_ninja/ninja_gloves)
-	if(!ninja_suit || !ninja || !ninja_gloves)
-		return INVALID_DRAIN
-
-	var/maxcapacity = FALSE //Safety check
-	var/drain = 0 //Drain amount
-	var/drain_total = 0
-
-	to_chat(occupants, "[icon2html(src, occupants)][span_danger("Warning: Unauthorized access through sub-route 4, block H, detected.")]")
-	if(get_charge())
-		while(cell.charge > 0 && !maxcapacity)
-			drain = rand(ninja_gloves.mindrain, ninja_gloves.maxdrain)
-			if(cell.charge < drain)
-				drain = cell.charge
-			if(ninja_suit.cell.charge + drain > ninja_suit.cell.maxcharge)
-				drain = ninja_suit.cell.maxcharge - ninja_suit.cell.charge
-				maxcapacity = TRUE
-			if (do_after(ninja, src, 10))
-				spark_system.start()
-				playsound(loc, SFX_SPARKS, 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-				cell.use(drain)
-				ninja_suit.cell.give(drain)
-				drain_total += drain
-			else
-				break
-
-	return drain_total
-
 //BORG//
 /mob/living/silicon/robot/ninjadrain_act(obj/item/clothing/suit/space/space_ninja/ninja_suit, mob/living/carbon/human/ninja, obj/item/clothing/gloves/space_ninja/ninja_gloves)
 	if(!ninja_suit || !ninja || !ninja_gloves || (ROLE_SPACE_NINJA in faction))

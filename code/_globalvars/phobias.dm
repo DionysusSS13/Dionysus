@@ -145,10 +145,8 @@ GLOBAL_LIST_INIT(phobia_objs, list(
 		/obj/item/toy/mecha/darkhonk,
 		/obj/item/toy/mecha/honk,
 		/obj/item/trash/cheesie,
-		/obj/structure/mecha_wreckage/honker,
 		/obj/structure/statue/bananium,
 		/obj/vehicle/sealed/car/clowncar,
-		/obj/vehicle/sealed/mecha/combat/honker,
 	)),
 
 	"greytide" = (typecacheof(list(
@@ -386,9 +384,6 @@ GLOBAL_LIST_INIT(phobia_objs, list(
 		/obj/item/gun/energy,
 		/obj/item/gun/grenadelauncher,
 		/obj/item/gun/syringe,
-		/obj/item/mecha_ammo,
-		/obj/item/mecha_parts/mecha_equipment/weapon/ballistic,
-		/obj/item/mecha_parts/mecha_equipment/weapon/energy,
 		/obj/item/storage/belt/bandolier,
 		/obj/item/storage/belt/holster,
 		/obj/machinery/porta_turret,

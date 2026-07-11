@@ -25,7 +25,7 @@ SUBSYSTEM_DEF(id_access)
 	/// Helper list containing all station groups.
 	var/list/station_groups = list()
 
-	/// Database of referenceable pincodes (Usually door codes.)
+	/// Database of referenceable pincodes
 	var/list/static_pincodes = list()
 
 /datum/controller/subsystem/id_access/Initialize(timeofday)

@@ -407,20 +407,6 @@
 	purchasable_from = UPLINK_NUKE_OPS
 	illegal_tech = FALSE
 
-/datum/uplink_item/ammo/mech/bag
-	name = "Mech Support Kit Bag"
-	desc = "A duffel bag containing ammo for four full reloads of the scattershotm which is equipped on standard Dark Gygax and Mauler exosuits. Also comes with some support equipment for maintaining the mech, including tools and an inducer."
-	item = /obj/item/storage/backpack/duffelbag/syndie/ammo/mech
-	cost = 4
-	purchasable_from = UPLINK_NUKE_OPS
-
-/datum/uplink_item/ammo/mauler/bag
-	name = "Mauler Ammo Bag"
-	desc = "A duffel bag containing ammo for three full reloads of the LMG, scattershot carbine, and SRM-8 missile laucher that are equipped on a standard Mauler exosuit."
-	item = /obj/item/storage/backpack/duffelbag/syndie/ammo/mauler
-	cost = 6
-	purchasable_from = UPLINK_NUKE_OPS
-
 /datum/uplink_item/explosives/bioterrorfoam
 	name = "Bioterror Foam Grenade"
 	desc = "A powerful chemical foam grenade which creates a deadly torrent of foam that will mute, blind, confuse, \
@@ -564,27 +550,6 @@
 	refundable = TRUE
 	cost = 35
 	restricted = TRUE
-
-/datum/uplink_item/support/gygax
-	name = "Dark Gygax Exosuit"
-	desc = "A lightweight exosuit, painted in a dark scheme. Its speed and equipment selection make it excellent \
-			for hit-and-run style attacks. Features a scattershot shotgun, armor boosters against melee and ranged attacks, ion thrusters and a Tesla energy array."
-	item = /obj/vehicle/sealed/mecha/combat/gygax/dark/loaded
-	cost = 80
-
-/datum/uplink_item/support/honker
-	name = "Dark H.O.N.K."
-	desc = "A clown combat mech equipped with bombanana peel and tearstache grenade launchers, as well as the ubiquitous HoNkER BlAsT 5000."
-	item = /obj/vehicle/sealed/mecha/combat/honker/dark/loaded
-	cost = 80
-	purchasable_from = UPLINK_CLOWN_OPS
-
-/datum/uplink_item/support/mauler
-	name = "Mauler Exosuit"
-	desc = "A massive and incredibly deadly military-grade exosuit. Features long-range targeting, thrust vectoring \
-			and deployable smoke. Comes equipped with an LMG, scattershot carbine, missile rack, an antiprojectile armor booster and a Tesla energy array."
-	item = /obj/vehicle/sealed/mecha/combat/marauder/mauler/loaded
-	cost = 140
 
 /datum/uplink_item/support/turretbox
 	name = "Disposable Sentry Gun"
