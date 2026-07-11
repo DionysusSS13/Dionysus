@@ -11,8 +11,6 @@
 
 	/// 'normal' sound keys, index by them to get the friendly name.
 	var/list/sound_pool = list(
-		"airlock" = "Door",
-		"airlock_pry" = "Door Prying",
 		"console" = "Computer",
 		"explosion" = "Explosion",
 		"far_explosion" = "Distant Explosion",
@@ -21,7 +19,6 @@
 		"alarm" = "Alarm",
 		"beepsky" = "Securiton",
 		"wall_decon" = "Wall Deconstruction",
-		"door_hack" = "Door Hacking",
 		"tesla" = "Tesla Ball"
 		)
 	/// 'Weird' sound keys, index by them to get the friendly name.

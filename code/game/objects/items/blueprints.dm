@@ -159,8 +159,6 @@
 		/area/centcom/asteroid,
 		/area/centcom/tdome,
 		/area/centcom/wizard_station,
-		/area/misc/hilbertshotel,
-		/area/misc/hilbertshotelstorage
 	)
 	for (var/type in SPECIALS)
 		if ( istype(A,type) )

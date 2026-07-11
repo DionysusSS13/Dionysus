@@ -77,8 +77,6 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	ignore += typesof(/obj/effect/timestop)
 	//Invoke async in init, skippppp
 	ignore += typesof(/mob/living/silicon/robot/model)
-	//This lad also sleeps
-	ignore += typesof(/obj/item/hilbertshotel)
 	//Stacks baseturfs, can't be tested here
 	ignore += typesof(/obj/effect/landmark/ctf)
 	//Our system doesn't support it without warning spam from unregister calls on things that never registered
