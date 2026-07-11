@@ -114,10 +114,6 @@
 	if(current_size >= STAGE_FOUR)
 		deconstruct(TRUE)
 
-/obj/structure/overfloor_catwalk/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
-	if(the_rcd.mode == RCD_FLOORWALL)
-		return list("mode" = RCD_FLOORWALL, "delay" = 0, "cost" = 2)
-
 //Reskins! More fitting with most of our tiles, and appear as a radial on the base type
 /obj/structure/overfloor_catwalk/iron
 	name = "iron plated catwalk floor cover"

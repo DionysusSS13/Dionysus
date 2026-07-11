@@ -22,15 +22,6 @@
 	spawn_loot_chance = 20
 	loot = list(/obj/structure/closet/crate/secure/loot)
 
-/obj/effect/spawner/random/structure/grille
-	name = "grille spawner"
-	icon_state = "grille"
-	spawn_loot_chance = 90
-	loot = list( // 80% chance normal grille, 10% chance of broken, 10% chance of nothing
-		/obj/structure/grille = 8,
-		/obj/structure/grille/broken = 1,
-	)
-
 /obj/effect/spawner/random/structure/furniture_parts
 	name = "furniture parts spawner"
 	icon_state = "table_parts"

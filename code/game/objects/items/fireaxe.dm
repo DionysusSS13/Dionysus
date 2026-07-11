@@ -38,15 +38,6 @@ TYPEINFO_DEF(/obj/item/fireaxe)
 	user.visible_message(span_suicide("[user] axes [user.p_them()]self from head to toe! It looks like [user.p_theyre()] trying to commit suicide!"))
 	return (BRUTELOSS)
 
-/obj/item/fireaxe/afterattack(atom/A, mob/user, proximity)
-	. = ..()
-	if(!proximity)
-		return
-	if(wielded) //destroys windows and grilles in one hit
-		if(istype(A, /obj/structure/grille))
-			var/obj/structure/W = A
-			W.atom_destruction("fireaxe")
-
 /*
  * Bone Axe
  */

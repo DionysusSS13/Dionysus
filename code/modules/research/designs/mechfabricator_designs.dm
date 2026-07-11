@@ -641,13 +641,6 @@
 	build_path = /obj/item/mod/module/gps
 	department_type = MODULE_SUPPLY
 
-/datum/design/module/mod_constructor
-	name = "MOD Module: Constructor"
-	id = "mod_constructor"
-	materials = list(/datum/material/steel = 1000, /datum/material/titanium = 500)
-	build_path = /obj/item/mod/module/constructor
-	department_type = MODULE_ENGINEERING
-
 /datum/design/module/mod_quick_carry
 	name = "MOD Module: Quick Carry"
 	id = "mod_quick_carry"

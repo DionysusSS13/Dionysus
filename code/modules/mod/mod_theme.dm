@@ -233,7 +233,6 @@
 	allowed_suit_storage = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals,
-		/obj/item/construction/rcd,
 		/obj/item/storage/bag/construction,
 	)
 	variants = list(
@@ -289,7 +288,6 @@
 		/obj/item/tank/internals,
 		/obj/item/analyzer,
 		/obj/item/t_scanner,
-		/obj/item/pipe_dispenser,
 	)
 	variants = list(
 		"atmospheric" = list(
@@ -347,8 +345,6 @@
 		/obj/item/tank/internals,
 		/obj/item/analyzer,
 		/obj/item/t_scanner,
-		/obj/item/pipe_dispenser,
-		/obj/item/construction/rcd,
 		/obj/item/storage/bag/construction,
 	)
 	variants = list(
@@ -1266,8 +1262,6 @@
 		/obj/item/tank/internals,
 		/obj/item/analyzer,
 		/obj/item/t_scanner,
-		/obj/item/pipe_dispenser,
-		/obj/item/construction/rcd,
 	)
 	variants = list(
 		"prototype" = list(
@@ -1676,4 +1670,3 @@
 			),
 		),
 	)
-

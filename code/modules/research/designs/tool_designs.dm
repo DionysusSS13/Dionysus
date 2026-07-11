@@ -33,15 +33,6 @@
 	category = list(DCAT_BASIC_TOOL)
 	mapload_design_flags = DESIGN_FAB_ENGINEERING
 
-/datum/design/rpd
-	name = "Rapid Pipe Dispenser (RPD)"
-	id = "rpd_loaded"
-	build_type = FABRICATOR
-	materials = list(/datum/material/steel = 75000, /datum/material/glass = 37500)
-	build_path = /obj/item/pipe_dispenser
-	category = list(DCAT_CONSTRUCTION)
-	mapload_design_flags = DESIGN_FAB_ENGINEERING
-
 /datum/design/wirebrush
 	name = "Wirebrush"
 	desc = "A tool to remove rust from walls."

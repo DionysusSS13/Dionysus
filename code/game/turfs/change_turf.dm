@@ -90,7 +90,6 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	var/old_opacity = opacity
 	var/old_directional_opacity = directional_opacity
 	var/old_dynamic_lumcount = dynamic_lumcount
-	var/old_rcd_memory = rcd_memory
 	var/old_above = above
 	var/old_fire = active_hotspot
 	var/old_explosion_details = explosion_throw_details
@@ -144,7 +143,6 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		W.AfterChange(flags, old_type)
 
 	W.blueprint_data = old_bp
-	W.rcd_memory = old_rcd_memory
 	W.explosion_throw_details = old_explosion_details
 
 	lighting_corner_NE = old_lighting_corner_NE

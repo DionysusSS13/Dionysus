@@ -29,7 +29,6 @@ TYPEINFO_DEF(/obj/item/stack/sheet/glass)
 	material_type = /datum/material/glass
 	point_value = 1
 	tableVariant = /obj/structure/table/glass
-	matter_amount = 4
 	cost = 500
 	source = /datum/robot_energy_storage/glass
 
@@ -145,7 +144,6 @@ TYPEINFO_DEF(/obj/item/stack/sheet/rglass)
 	merge_type = /obj/item/stack/sheet/rglass
 	grind_results = list(/datum/reagent/silicon = 20, /datum/reagent/iron = 10)
 	point_value = 4
-	matter_amount = 6
 	tableVariant = /obj/structure/table/reinforced/rglass
 
 /obj/item/stack/sheet/rglass/attackby(obj/item/W, mob/user, params)
@@ -198,7 +196,6 @@ TYPEINFO_DEF(/obj/item/stack/sheet/plasmarglass)
 	merge_type = /obj/item/stack/sheet/plasmarglass
 	grind_results = list(/datum/reagent/silicon = 20, /datum/reagent/toxin/plasma = 10, /datum/reagent/iron = 10)
 	point_value = 23
-	matter_amount = 8
 	tableVariant = /obj/structure/table/reinforced/plasmarglass
 
 /obj/item/stack/sheet/plasmarglass/get_main_recipes()

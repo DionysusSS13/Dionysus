@@ -54,7 +54,7 @@ GLOBAL_LIST_EMPTY(silo_access_logs)
 		return
 	if(I.item_flags & ABSTRACT)
 		return
-	if(!istype(I) || (I.flags_1 & HOLOGRAM_1) || (I.item_flags & NO_MAT_REDEMPTION))
+	if(!istype(I) || (I.flags_1 & HOLOGRAM_1))
 		to_chat(user, span_warning("[M] won't accept [I]!"))
 		return
 	var/item_mats = materials.get_item_material_amount(I, breakdown_flags)

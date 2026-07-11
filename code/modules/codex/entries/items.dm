@@ -17,11 +17,3 @@
 	name = "Reagent Cartridge"
 	associated_paths = list(/obj/item/reagent_containers/chem_cartridge)
 	controls_text = "Use Pen - Change label."
-
-/datum/codex_entry/item/pipe_dispenser
-	name = "Rapid Pipe Dispenser"
-	associated_paths = list(/obj/item/pipe_dispenser)
-	controls_text = {"
-	Right Click on Pipe - Set color and layer.<br>
-	Scroll Wheel - Cycle pipe layer.
-	"}

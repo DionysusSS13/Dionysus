@@ -121,10 +121,7 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 					output += "<li>Overlapping cameras at [ADMIN_VERBOSEJMP(C1)] Networks: [json_encode(C1.network)] and [json_encode(C2.network)]</li>"
 		var/turf/T = get_step(C1,C1.dir)
 		if(!T || !isturf(T) || !T.density )
-			if(!(locate(/obj/structure/grille) in T))
-				var/window_check = 0
-				if(!window_check)
-					output += "<li><font color='red'>Camera not connected to wall at [ADMIN_VERBOSEJMP(C1)] Network: [json_encode(C1.network)]</font></li>"
+			output += "<li><font color='red'>Camera not connected to wall at [ADMIN_VERBOSEJMP(C1)] Network: [json_encode(C1.network)]</font></li>"
 
 	output += "</ul>"
 	usr << browse(output,"window=airreport;size=1000x500")

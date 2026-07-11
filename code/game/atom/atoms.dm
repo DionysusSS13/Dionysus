@@ -1112,21 +1112,6 @@ TYPEINFO_DEF(/atom)
 /atom/proc/emag_act(mob/user, obj/item/card/emag/emag_card)
 	SEND_SIGNAL(src, COMSIG_ATOM_EMAG_ACT, user, emag_card)
 
-
-///Return the values you get when an RCD eats you?
-/atom/proc/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
-	return FALSE
-
-
-/**
- * Respond to an RCD acting on our item
- *
- * Default behaviour is to send [COMSIG_ATOM_RCD_ACT] and return FALSE
- */
-/atom/proc/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
-	SEND_SIGNAL(src, COMSIG_ATOM_RCD_ACT, user, the_rcd, passed_mode)
-	return FALSE
-
 /**
  * Respond to an electric bolt action on our item
  *

@@ -71,8 +71,6 @@
 	/// How much this stack reduces blood flow, multiplier
 	var/absorption_rate_modifier = 1
 
-	/// Amount of matter for RCD
-	var/matter_amount = 0
 	/// Does this stack require a unique girder in order to make a wall?
 	var/has_unique_girder = FALSE
 
@@ -453,8 +451,6 @@
 			return FALSE
 
 		for(var/obj/object in dest_turf)
-			if(istype(object, /obj/structure/grille))
-				continue
 			if(istype(object, /obj/structure/table))
 				continue
 			if(object.density || NO_BUILD & object.obj_flags)

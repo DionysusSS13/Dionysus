@@ -65,7 +65,7 @@
 	icon_state = "carry"
 	complexity = 1
 	idle_power_cost = DEFAULT_CHARGE_DRAIN * 0.3
-	incompatible_modules = list(/obj/item/mod/module/quick_carry, /obj/item/mod/module/constructor)
+	incompatible_modules = list(/obj/item/mod/module/quick_carry)
 	required_slots = list(ITEM_SLOT_GLOVES)
 
 /obj/item/mod/module/quick_carry/on_suit_activation()

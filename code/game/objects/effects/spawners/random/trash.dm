@@ -78,7 +78,6 @@
 	name = "grille or waste spawner"
 	icon_state = "grille"
 	loot = list(
-		/obj/structure/grille = 5,
 		/obj/effect/spawner/random/trash/food_packaging = 3,
 		/obj/effect/spawner/random/trash/cigbutt = 1,
 		/obj/item/food/deadmouse = 1,

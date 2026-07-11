@@ -67,8 +67,6 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	ignore += typesof(/mob/living/simple_animal/pet/gondola/gondolapod)
 	//No heart to give
 	ignore += typesof(/obj/structure/ethereal_crystal)
-	//No linked console
-	ignore += typesof(/mob/camera/ai_eye/remote/base_construction)
 	//See above
 	ignore += typesof(/mob/camera/ai_eye/remote/shuttle_docker)
 	//Hangs a ref post invoke async, which we don't support. Could put a qdeleted check but it feels hacky

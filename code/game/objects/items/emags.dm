@@ -14,7 +14,7 @@
 	inhand_icon_state = "card-id"
 	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
-	item_flags = NO_MAT_REDEMPTION | NOBLUDGEON
+	item_flags = NOBLUDGEON
 	slot_flags = ITEM_SLOT_ID
 	worn_icon_state = "emag"
 	var/prox_check = TRUE //If the emag requires you to be in range

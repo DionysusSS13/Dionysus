@@ -178,17 +178,6 @@
 		else
 			to_chat(user, span_danger("You hit [src], to no effect!"))
 
-/turf/open/floor/plating/foam/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
-	if(the_rcd.mode == RCD_FLOORWALL)
-		return list("mode" = RCD_FLOORWALL, "delay" = 0, "cost" = 1)
-
-/turf/open/floor/plating/foam/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
-	if(passed_mode == RCD_FLOORWALL)
-		to_chat(user, span_notice("You build a floor."))
-		ChangeTurf(/turf/open/floor/plating, flags = CHANGETURF_INHERIT_AIR)
-		return TRUE
-	return FALSE
-
 /turf/open/floor/plating/foam/ex_act()
 	. = ..()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
@@ -201,16 +190,13 @@
 #define PLATE_BOLTS_LOOSENED 1
 #define PLATE_CUT 2
 
-/turf/open/floor/plating/reinforced //RCD Proof plating designed to be used on Multi-Z maps to protect the rooms below
+/turf/open/floor/plating/reinforced
 	name = "reinforced plating"
 	desc = "Thick, tough flooring created with multiple layers of metal."
 	icon_state = "r_plate-0"
-
 	heat_capacity = INFINITY
-
 	baseturfs = /turf/open/floor/plating
 	allow_replacement = FALSE
-	rcd_proof = TRUE
 	upgradable = FALSE
 
 	//Used to track which stage of deconstruction the plate is currently in, Intact > Bolts Loosened > Cut

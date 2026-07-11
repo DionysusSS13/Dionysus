@@ -112,7 +112,7 @@ DEFINE_BITFIELD(smoothing_flags, list(
 
 #define SMOOTH_GROUP_LATTICE  S_OBJ(30) ///obj/structure/lattice
 #define SMOOTH_GROUP_CATWALK  S_OBJ(31) ///obj/structure/lattice/catwalk
-#define SMOOTH_GROUP_GRILLE  S_OBJ(32) ///obj/structure/grille
+#define SMOOTH_GROUP_GRILLE  S_OBJ(32) ///obj/structure/grillen
 
 #define SMOOTH_GROUP_TABLES S_OBJ(50) ///obj/structure/table
 #define SMOOTH_GROUP_WOOD_TABLES S_OBJ(51) ///obj/structure/table/wood

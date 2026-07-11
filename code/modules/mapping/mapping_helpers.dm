@@ -723,9 +723,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)
 	var/obj/machinery/power/terminal/terminal = locate() in my_turf
 	if(terminal)
 		return TRUE
-	var/obj/structure/grille/grille = locate() in my_turf
-	if(grille)
-		return TRUE
 	var/obj/machinery/power/smes/smes = locate() in my_turf
 	if(smes)
 		return TRUE

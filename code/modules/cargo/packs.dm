@@ -1015,16 +1015,6 @@
 	contains = list(/obj/item/stack/sheet/mineral/wood/fifty)
 	crate_name = "wood planks crate"
 
-/datum/supply_pack/materials/rcd_ammo
-	name = "RCD Ammo"
-	desc = "Contains four raw material cartridges that can be used to quickly recharge any RCD."
-	cost = CARGO_CRATE_VALUE * 8.5
-	contains = list(/obj/item/rcd_ammo,
-					/obj/item/rcd_ammo,
-					/obj/item/rcd_ammo/large,
-					/obj/item/rcd_ammo/large,)
-	crate_name = "rcd ammo crate"
-
 /datum/supply_pack/materials/foamtank
 	name = "Firefighting Foam Tank Crate"
 	desc = "Contains a tank of firefighting foam."

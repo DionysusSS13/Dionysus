@@ -13,7 +13,6 @@ TYPEINFO_DEF(/obj/item/stack/tile/iron)
 	flags_1 = CONDUCT_1
 	turf_type = /turf/open/floor/iron
 	resistance_flags = FIRE_PROOF
-	matter_amount = 1
 	cost = 125
 	source = /datum/robot_energy_storage/iron
 	merge_type = /obj/item/stack/tile/iron

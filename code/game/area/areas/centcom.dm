@@ -313,7 +313,3 @@ The areas used here are STRICTLY on the CC Z level.
 /turf/open/lava/plasma/snow_air
 	initial_gas = OPENTURF_LOW_PRESSURE
 	temperature = 180
-
-/obj/structure/grille/indestructable
-	flags_1 = CONDUCT_1 | NODECONSTRUCT_1
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF

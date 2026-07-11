@@ -1,7 +1,7 @@
 /////////////////////////////////////////////
 //SPARK SYSTEM (like steam system)
 // The attach(atom/atom) proc is optional, and can be called to attach the effect
-// to something, like the RCD, so then you can just call start() and the sparks
+// to something so then you can just call start() and the sparks
 // will always spawn at the items location.
 /////////////////////////////////////////////
 

@@ -5,7 +5,7 @@
 	icon_state = "staff"
 	lefthand_file = 'icons/mob/inhands/weapons/staves_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/staves_righthand.dmi'
-	item_flags = NEEDS_PERMIT | NO_MAT_REDEMPTION
+	item_flags = NEEDS_PERMIT
 	var/allow_intruder_use = FALSE
 
 /obj/item/gun/magic/staff/proc/is_wizard_or_friend(mob/user)

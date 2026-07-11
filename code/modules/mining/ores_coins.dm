@@ -339,7 +339,6 @@ TYPEINFO_DEF(/obj/item/coin)
 	var/cooldown = 0
 	var/value
 	var/coinflip
-	item_flags = NO_MAT_REDEMPTION //You know, it's kind of a problem that money is worth more extrinsicly than intrinsically in this universe.
 
 /obj/item/coin/Initialize(mapload)
 	. = ..()

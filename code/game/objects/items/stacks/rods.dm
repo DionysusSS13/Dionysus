@@ -27,7 +27,6 @@ GLOBAL_LIST_INIT(rod_recipes, list ( \
 	hitsound = 'sound/weapons/gun/general/grenade_launch.ogg'
 	embedding = list(embed_chance = 50)
 	novariants = TRUE
-	matter_amount = 2
 	cost = 250
 	source = /datum/robot_energy_storage/iron
 	merge_type = /obj/item/stack/rods

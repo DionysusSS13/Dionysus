@@ -50,12 +50,6 @@
 	contents_cost = CARGO_CRATE_VALUE * 3.5
 	export_types = list(/obj/structure/reagent_dispensers/beerkeg)
 
-
-/datum/export/large/pipedispenser
-	cost = CARGO_CRATE_VALUE * 2.5
-	unit_name = "pipe dispenser"
-	export_types = list(/obj/machinery/pipedispenser)
-
 /datum/export/large/emitter
 	cost = CARGO_CRATE_VALUE * 2.75
 	unit_name = "emitter"

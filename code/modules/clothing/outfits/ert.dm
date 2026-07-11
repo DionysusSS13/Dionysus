@@ -150,14 +150,11 @@
 	back = /obj/item/mod/control/pre_equipped/responsory/engineer
 	l_hand = /obj/item/gun/energy/e_gun
 	backpack_contents = list(
-		/obj/item/construction/rcd/loaded/upgraded = 1,
 		/obj/item/melee/baton/security/loaded = 1,
-		/obj/item/pipe_dispenser = 1,
 		/obj/item/storage/box/survival/engineer = 1,
 	)
 	belt = /obj/item/storage/belt/utility/full/powertools
 	glasses = /obj/item/clothing/glasses/meson/engine
-	l_pocket = /obj/item/rcd_ammo/large
 
 /datum/outfit/centcom/ert/engineer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	..()
@@ -173,10 +170,8 @@
 	name = "ERT Engineer - High Alert"
 
 	backpack_contents = list(
-		/obj/item/construction/rcd/combat = 1,
 		/obj/item/gun/energy/pulse/pistol = 1,
 		/obj/item/melee/baton/security/loaded = 1,
-		/obj/item/pipe_dispenser = 1,
 		/obj/item/storage/box/survival/engineer = 1,
 	)
 
@@ -230,7 +225,6 @@
 	suit_store = /obj/item/tank/internals/oxygen
 	back = /obj/item/mod/control/pre_equipped/responsory/inquisitory/security
 	backpack_contents = list(
-		/obj/item/construction/rcd/loaded = 1,
 		/obj/item/melee/baton/security/loaded = 1,
 		/obj/item/storage/box/handcuffs = 1,
 		/obj/item/storage/box/survival/engineer = 1,
@@ -449,7 +443,6 @@
 	suit_store = null
 	back = /obj/item/storage/backpack/ert/engineer
 	backpack_contents = list(
-		/obj/item/construction/rcd/loaded = 1,
 		/obj/item/etherealballdeployer = 1,
 		/obj/item/stack/light_w = 30,
 		/obj/item/stack/sheet/glass/fifty = 1,

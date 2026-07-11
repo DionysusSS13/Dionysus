@@ -181,32 +181,6 @@
 	perceived_threat_level = get_perceived_radiation_danger(pulse_information, insulation_to_target)
 	addtimer(VARSET_CALLBACK(src, perceived_threat_level, null), TIME_WITHOUT_RADIATION_BEFORE_RESET, TIMER_UNIQUE | TIMER_OVERRIDE)
 
-///Constructor - Lets you build quicker and create RCD holograms.
-/obj/item/mod/module/constructor
-	name = "MOD constructor module"
-	desc = "This module entirely occupies the wearer's forearm, notably causing conflict with \
-		advanced arm servos meant to carry crewmembers. However, it functions as an \
-		extremely advanced construction hologram scanner, as well as containing the \
-		latest engineering schematics combined with inbuilt memory to help the user build walls."
-	icon_state = "constructor"
-	module_type = MODULE_USABLE
-	complexity = 2
-	idle_power_cost = DEFAULT_CHARGE_DRAIN * 0.2
-	use_power_cost = DEFAULT_CHARGE_DRAIN * 2
-	incompatible_modules = list(/obj/item/mod/module/constructor, /obj/item/mod/module/quick_carry)
-	cooldown_time = 11 SECONDS
-	required_slots = list(ITEM_SLOT_GLOVES)
-
-/obj/item/mod/module/constructor/on_suit_activation()
-	ADD_TRAIT(mod.wearer, TRAIT_QUICK_BUILD, MOD_TRAIT)
-
-/obj/item/mod/module/constructor/on_suit_deactivation(deleting = FALSE)
-	REMOVE_TRAIT(mod.wearer, TRAIT_QUICK_BUILD, MOD_TRAIT)
-
-/obj/item/mod/module/constructor/on_use()
-	rcd_scan(src, fade_time = 10 SECONDS)
-	drain_power(use_power_cost)
-
 ///Mister - Sprays water over an area.
 /obj/item/mod/module/mister
 	name = "MOD water mister module"

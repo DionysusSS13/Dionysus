@@ -415,31 +415,6 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module))
 
 	new /mob/living/simple_animal/hostile/mimic/copy/machine(get_turf(to_animate), to_animate, invoker, TRUE)
 
-/// Destroy RCDs: Detonates all non-cyborg RCDs on the station.
-/datum/ai_module/destructive/destroy_rcd
-	name = "Destroy RCDs"
-	description = "Send a specialised pulse to detonate all hand-held and exosuit Rapid Construction Devices on the station."
-	cost = 25
-	one_purchase = TRUE
-	power_type = /datum/action/innate/ai/destroy_rcds
-	unlock_text = "<span class='notice'>After some improvisation, you rig your onboard radio to be able to send a signal to detonate all RCDs.</span>"
-	unlock_sound = 'sound/items/timer.ogg'
-
-/datum/action/innate/ai/destroy_rcds
-	name = "Destroy RCDs"
-	desc = "Detonate all non-cyborg RCDs on the station."
-	button_icon_state = "detonate_rcds"
-	uses = 1
-	cooldown_period = 100
-
-/datum/action/innate/ai/destroy_rcds/Activate()
-	for(var/I in INSTANCES_OF(TRACKING_KEY_RCD))
-		if(!istype(I, /obj/item/construction/rcd/borg)) //Ensures that cyborg RCDs are spared.
-			var/obj/item/construction/rcd/RCD = I
-			RCD.detonate_pulse()
-	to_chat(owner, span_danger("RCD detonation pulse emitted."))
-	owner.playsound_local(owner, 'sound/machines/twobeep.ogg', 50, 0)
-
 /// Overload Machine: Allows the AI to overload a machine, detonating it after a delay. Two uses per purchase.
 /datum/ai_module/destructive/overload_machine
 	name = "Machine Overload"

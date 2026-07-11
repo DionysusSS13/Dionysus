@@ -233,7 +233,6 @@
 		/obj/machinery/disposal/delivery_chute = FALSE,
 		/obj/structure/sign = FALSE,
 		/obj/structure/lattice = FALSE,
-		/obj/structure/grille = FALSE,
 		/obj/structure/frame/machine = FALSE,
 	))
 

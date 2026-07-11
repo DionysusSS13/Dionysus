@@ -161,7 +161,6 @@
 #include "preferences.dm"
 #include "projectiles.dm"
 #include "quirks.dm"
-#include "rcd.dm"
 #include "resist.dm"
 #include "say.dm"
 #include "serving_tray.dm"

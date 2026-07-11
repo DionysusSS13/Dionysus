@@ -73,10 +73,6 @@ GLOBAL_LIST_EMPTY(station_turfs)
 	///the holodeck can load onto this turf if TRUE
 	var/holodeck_compatible = FALSE
 
-	/// If this turf contained an RCD'able object (or IS one, for walls)
-	/// but is now destroyed, this will preserve the value.
-	/// See __DEFINES/construction.dm for RCD_MEMORY_*.
-	var/rcd_memory
 	///whether or not this turf forces movables on it to have no gravity (unless they themselves have forced gravity)
 	var/force_no_gravity = FALSE
 

@@ -921,21 +921,6 @@ TYPEINFO_DEF(/obj/machinery/airalarm)
 	togglelock(user)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-/obj/machinery/airalarm/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
-	if((buildstage == AIRALARM_BUILD_NO_CIRCUIT) && (the_rcd.upgrade & RCD_UPGRADE_SIMPLE_CIRCUITS))
-		return list("mode" = RCD_UPGRADE_SIMPLE_CIRCUITS, "delay" = 20, "cost" = 1)
-	return FALSE
-
-/obj/machinery/airalarm/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
-	switch(passed_mode)
-		if(RCD_UPGRADE_SIMPLE_CIRCUITS)
-			user.visible_message(span_notice("[user] fabricates a circuit and places it into [src]."), \
-			span_notice("You adapt an air alarm circuit and slot it into the assembly."))
-			buildstage = AIRALARM_BUILD_NO_WIRES
-			update_appearance()
-			return TRUE
-	return FALSE
-
 /obj/machinery/airalarm/proc/togglelock(mob/living/user)
 	if(machine_stat & (NOPOWER|BROKEN))
 		to_chat(user, span_warning("It does nothing!"))

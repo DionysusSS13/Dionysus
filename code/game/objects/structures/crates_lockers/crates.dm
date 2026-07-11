@@ -220,17 +220,6 @@
 /obj/structure/closet/crate/engineering/electrical
 	icon_state = "engi_e_crate"
 
-/obj/structure/closet/crate/rcd
-	desc = "A crate for the storage of an RCD."
-	name = "\improper RCD crate"
-	icon_state = "engi_crate"
-
-/obj/structure/closet/crate/rcd/PopulateContents()
-	..()
-	for(var/i in 1 to 4)
-		new /obj/item/rcd_ammo(src)
-	new /obj/item/construction/rcd(src)
-
 /obj/structure/closet/crate/science
 	name = "science crate"
 	desc = "A science crate."

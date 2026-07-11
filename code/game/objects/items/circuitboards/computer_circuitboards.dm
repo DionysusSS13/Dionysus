@@ -167,16 +167,6 @@
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/computer/auxiliary_base
 
-/obj/item/circuitboard/computer/base_construction
-	name = "circuit board (Generic Base Construction Console)"
-	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
-	build_path = /obj/machinery/computer/camera_advanced/base_construction
-
-/obj/item/circuitboard/computer/base_construction/centcom
-	name = "circuit board (Centcom Base Construction Console)"
-	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
-	build_path = /obj/machinery/computer/camera_advanced/base_construction/centcom
-
 /obj/item/circuitboard/computer/comm_monitor
 	name = "Telecommunications Monitor (Computer Board)"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING

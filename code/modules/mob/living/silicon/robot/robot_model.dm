@@ -312,8 +312,6 @@
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
 		/obj/item/borg/sight/meson,
-		/obj/item/construction/rcd/borg,
-		/obj/item/pipe_dispenser,
 		/obj/item/extinguisher,
 		/obj/item/weldingtool/largetank/cyborg,
 		/obj/item/screwdriver/cyborg,
@@ -654,7 +652,6 @@
 	name = "Peacekeeper"
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
-		/obj/item/rsf/cookiesynth,
 		/obj/item/harmalarm,
 		/obj/item/reagent_containers/borghypo/peace,
 		/obj/item/holosign_creator/cyborg,
@@ -715,7 +712,6 @@
 		/obj/item/extinguisher/mini,
 		/obj/item/hand_labeler/borg,
 		/obj/item/razor,
-		/obj/item/rsf,
 		/obj/item/instrument/guitar,
 		/obj/item/instrument/piano_synth,
 		/obj/item/reagent_containers/dropper,
@@ -802,8 +798,6 @@
 	basic_modules = list(
 		/obj/item/assembly/flash/cyborg,
 		/obj/item/borg/sight/thermal,
-		/obj/item/construction/rcd/borg/syndicate,
-		/obj/item/pipe_dispenser,
 		/obj/item/restraints/handcuffs/cable/zipties,
 		/obj/item/extinguisher,
 		/obj/item/weldingtool/largetank/cyborg,

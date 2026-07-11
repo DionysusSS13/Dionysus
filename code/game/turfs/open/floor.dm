@@ -32,8 +32,6 @@
 	var/floor_tile = null
 	var/list/broken_states
 	var/list/burnt_states
-	/// Determines if you can deconstruct this with a RCD
-	var/rcd_proof = FALSE
 
 /turf/open/floor/Initialize(mapload)
 	. = ..()
@@ -252,76 +250,6 @@
 
 /turf/open/floor/acid_melt()
 	ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
-
-/turf/open/floor/rcd_vals(mob/user, obj/item/construction/rcd/the_rcd)
-	switch(the_rcd.mode)
-		if(RCD_FLOORWALL)
-			return rcd_result_with_memory(
-				list("mode" = RCD_FLOORWALL, "delay" = 2 SECONDS, "cost" = 16),
-				src, RCD_MEMORY_WALL,
-			)
-		if(RCD_AIRLOCK)
-			if(the_rcd.airlock_glass)
-				return list("mode" = RCD_AIRLOCK, "delay" = 50, "cost" = 20)
-			else
-				return list("mode" = RCD_AIRLOCK, "delay" = 50, "cost" = 16)
-		if(RCD_DECONSTRUCT)
-			return list("mode" = RCD_DECONSTRUCT, "delay" = 50, "cost" = 33)
-		if(RCD_WINDOWGRILLE)
-			return rcd_result_with_memory(
-				list("mode" = RCD_WINDOWGRILLE, "delay" = 1 SECONDS, "cost" = 4),
-				src, RCD_MEMORY_WINDOWGRILLE,
-			)
-		if(RCD_MACHINE)
-			return list("mode" = RCD_MACHINE, "delay" = 20, "cost" = 25)
-		if(RCD_COMPUTER)
-			return list("mode" = RCD_COMPUTER, "delay" = 20, "cost" = 25)
-		if(RCD_FURNISHING)
-			return list("mode" = RCD_FURNISHING, "delay" = the_rcd.furnish_delay, "cost" = the_rcd.furnish_cost)
-	return FALSE
-
-/turf/open/floor/rcd_act(mob/user, obj/item/construction/rcd/the_rcd, passed_mode)
-	switch(passed_mode)
-		if(RCD_DECONSTRUCT)
-			if(rcd_proof)
-				balloon_alert(user, "it's too thick!")
-				return FALSE
-			else
-				var/old_turf_name = name
-				if(!ScrapeAway(flags = CHANGETURF_INHERIT_AIR))
-					return FALSE
-				to_chat(user, span_notice("You deconstruct the [old_turf_name]."))
-				return TRUE
-		if(RCD_WINDOWGRILLE)
-			if(locate(/obj/structure/grille) in src)
-				return FALSE
-			to_chat(user, span_notice("You construct the grille."))
-			var/obj/structure/grille/new_grille = new(src)
-			new_grille.set_anchored(TRUE)
-			return TRUE
-		if(RCD_MACHINE)
-			if(locate(/obj/structure/frame/machine) in src)
-				return FALSE
-			var/obj/structure/frame/machine/new_machine = new(src)
-			new_machine.state = 2
-			new_machine.icon_state = "box_1"
-			new_machine.set_anchored(TRUE)
-			return TRUE
-		if(RCD_COMPUTER)
-			if(locate(/obj/structure/frame/computer) in src)
-				return FALSE
-			var/obj/structure/frame/computer/new_computer = new(src)
-			new_computer.set_anchored(TRUE)
-			new_computer.state = 1
-			new_computer.setDir(the_rcd.computer_dir)
-			return TRUE
-		if(RCD_FURNISHING)
-			if(locate(the_rcd.furnish_type) in src)
-				return FALSE
-			var/atom/new_furnish = new the_rcd.furnish_type(src)
-			new_furnish.setDir(user.dir)
-			return TRUE
-	return FALSE
 
 /turf/open/floor/material
 	name = "floor"

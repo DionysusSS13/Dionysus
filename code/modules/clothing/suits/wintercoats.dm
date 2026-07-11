@@ -371,8 +371,6 @@ TYPEINFO_DEF(/obj/item/clothing/suit/hooded/wintercoat/engineering)
 	zmm_flags = ZMM_MANGLE_PLANES
 	allowed = list(
 		/obj/item/analyzer,
-		/obj/item/construction/rcd,
-		/obj/item/pipe_dispenser,
 		/obj/item/t_scanner,
 		/obj/item/storage/bag/construction,
 	)

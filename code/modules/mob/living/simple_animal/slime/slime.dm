@@ -168,30 +168,6 @@
 	if(mod)
 		add_or_update_variable_movespeed_modifier(/datum/movespeed_modifier/slime_tempmod, slowdown = mod)
 
-/mob/living/simple_animal/slime/ObjBump(obj/O)
-	if(!client && powerlevel > 0)
-		var/probab = 10
-		switch(powerlevel)
-			if(1 to 2)
-				probab = 20
-			if(3 to 4)
-				probab = 30
-			if(5 to 6)
-				probab = 40
-			if(7 to 8)
-				probab = 60
-			if(9)
-				probab = 70
-			if(10)
-				probab = 95
-		if(prob(probab))
-			if(istype(O, /obj/structure/grille))
-				if(nutrition <= get_hunger_nutrition() && !Atkcool)
-					if (is_adult || prob(5))
-						O.attack_slime(src)
-						Atkcool = TRUE
-						addtimer(VARSET_CALLBACK(src, Atkcool, FALSE), 4.5 SECONDS)
-
 /mob/living/simple_animal/slime/Process_Spacemove(movement_dir = 0, continuous_move = FALSE)
 	return 2
 

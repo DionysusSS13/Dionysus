@@ -45,11 +45,7 @@
 
 
 			for(var/obj/O in T.contents)
-				if(istype(O, /obj/structure/grille))
-					var/obj/structure/grille/GR = O
-					if(!GR.broken)
-						grille += 1
-				else if(ismachinery(O))
+				if(ismachinery(O))
 					mach += 1
 				CHECK_TICK
 			CHECK_TICK

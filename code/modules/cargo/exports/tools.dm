@@ -110,31 +110,6 @@
 	unit_name = "hand drill"
 	export_types = list(/obj/item/screwdriver/power)
 
-/datum/export/rld_mini
-	cost = CARGO_CRATE_VALUE * 0.75
-	unit_name = "mini rapid lighting device"
-	export_types = list(/obj/item/construction/rld/mini)
-
-/datum/export/rsf
-	cost = CARGO_CRATE_VALUE * 0.5
-	unit_name = "rapid service fabricator"
-	export_types = list(/obj/item/rsf)
-
-/datum/export/rcd
-	cost = CARGO_CRATE_VALUE * 0.5
-	unit_name = "rapid construction device"
-	export_types = list(/obj/item/construction/rcd)
-
-/datum/export/rcd_ammo
-	cost = CARGO_CRATE_VALUE * 0.3
-	unit_name = "compressed matter cardridge"
-	export_types = list(/obj/item/rcd_ammo)
-
-/datum/export/rpd
-	cost = CARGO_CRATE_VALUE * 0.5
-	unit_name = "rapid pipe dispenser"
-	export_types = list(/obj/item/pipe_dispenser)
-
 //artisanal exports for the mom and pops
 /datum/export/soap
 	cost = CARGO_CRATE_VALUE * 0.375

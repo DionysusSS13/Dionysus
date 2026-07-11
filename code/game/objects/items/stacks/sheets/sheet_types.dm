@@ -115,7 +115,6 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	point_value = 2
 	tableVariant = /obj/structure/table
 	material_type = /datum/material/steel
-	matter_amount = 4
 	cost = 500
 	source = /datum/robot_energy_storage/iron
 
@@ -167,7 +166,6 @@ TYPEINFO_DEF(/obj/item/stack/sheet/plasteel)
 	point_value = 23
 	tableVariant = /obj/structure/table/reinforced
 	material_flags = NONE
-	matter_amount = 12
 
 /obj/item/stack/sheet/plasteel/get_main_recipes()
 	. = ..()

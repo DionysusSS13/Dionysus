@@ -13,9 +13,6 @@
 	if(!(flags_1 & CAN_BE_DIRTY_1))
 		return
 
-	if(locate(/obj/structure/grille) in contents)
-		return
-
 	var/area/A = get_area(src)
 
 	if(A && !(A.flags_1 & CAN_BE_DIRTY_1))

@@ -46,7 +46,6 @@
 	icon_state = "bluebodybag_folded"
 	unfoldedbag_path = /obj/structure/closet/body_bag/bluespace
 	w_class = WEIGHT_CLASS_SMALL
-	item_flags = NO_MAT_REDEMPTION
 
 /obj/item/bodybag/bluespace/examine(mob/user)
 	. = ..()

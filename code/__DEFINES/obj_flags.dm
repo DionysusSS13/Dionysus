@@ -25,7 +25,6 @@
 ///Used by security bots to determine if this item is safe for public use.
 #define NEEDS_PERMIT (1<<3)
 #define SLOWS_WHILE_IN_HAND (1<<4)
-#define NO_MAT_REDEMPTION (1<<5) // Stops you from putting things like an RCD or other items into an ORM or protolathe for materials.
 #define DROPDEL (1<<6) // When dropped, it calls qdel on itself
 #define NOBLUDGEON (1<<7) // when an item has this it produces no "X has been hit by Y with Z" message in the default attackby()
 #define ABSTRACT (1<<9) // for all things that are technically items but used for various different stuff <= wow thanks for the fucking insight sherlock

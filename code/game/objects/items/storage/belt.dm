@@ -58,8 +58,6 @@
 		/obj/item/analyzer,
 		/obj/item/assembly/signaler,
 		/obj/item/clothing/gloves,
-		/obj/item/construction/rcd,
-		/obj/item/construction/rld,
 		/obj/item/crowbar,
 		/obj/item/screwdriver,
 		/obj/item/weldingtool,
@@ -79,8 +77,6 @@
 		/obj/item/forcefield_projector,
 		/obj/item/assembly/signaler,
 		/obj/item/lightreplacer,
-		/obj/item/construction/rcd,
-		/obj/item/pipe_dispenser,
 		/obj/item/inducer,
 		/obj/item/plunger,
 		/obj/item/paint_sprayer,
@@ -154,7 +150,6 @@
 	new /obj/item/crowbar/power(src)
 	new /obj/item/weldingtool/experimental(src)
 	new /obj/item/multitool(src)
-	new /obj/item/construction/rcd/loaded/upgraded(src)
 	new /obj/item/extinguisher/mini(src)
 	new /obj/item/stack/cable_coil(src)
 

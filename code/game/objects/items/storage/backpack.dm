@@ -98,7 +98,6 @@
 	righthand_file = 'icons/mob/inhands/equipment/backpack_righthand.dmi'
 	w_class = WEIGHT_CLASS_BULKY
 	resistance_flags = FIRE_PROOF
-	item_flags = NO_MAT_REDEMPTION
 
 TYPEINFO_DEF(/obj/item/storage/backpack/holding)
 	default_armor = list(BLUNT = 0, PUNCTURE = 0, SLASH = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 0, FIRE = 60, ACID = 50)
@@ -109,7 +108,6 @@ TYPEINFO_DEF(/obj/item/storage/backpack/holding)
 	icon_state = "holdingpack"
 	inhand_icon_state = "holdingpack"
 	resistance_flags = FIRE_PROOF
-	item_flags = NO_MAT_REDEMPTION
 
 /obj/item/storage/backpack/holding/Initialize()
 	. = ..()
