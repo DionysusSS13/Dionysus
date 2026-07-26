@@ -146,8 +146,8 @@ export const DreamDaemon = async (dmbFile, ...args) => {
     process.platform === "win32" ? "dreamdaemon.exe" : "DreamDaemon";
   if (process.platform === "linux") {
     Juke.logger.info("Inserting LD_LIBRARY_PATH and BYOND_SYSTEM.");
-    const ldLibrary = byondPathLinux() + "/bin";
-    const byondSystem = byondPathLinux();
+    const ldLibrary = BYOND_PATH_LINUX + "/bin";
+    const byondSystem = BYOND_PATH_LINUX;
     process.env.LD_LIBRARY_PATH = ldLibrary;
     process.env.BYOND_SYSTEM = byondSystem;
   }

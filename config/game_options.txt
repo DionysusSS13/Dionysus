@@ -283,19 +283,23 @@ ROUNDSTART_RACES human
 
 ## Races that are strictly worse than humans that could probably be turned on without balance concerns
 ROUNDSTART_RACES lizard
+
+## Races beyond this point are unfinished and are unsupported by the current codebase. Don't enable these unless you've added preferences related to their features.
+
+## Slightly worse continued...
 #ROUNDSTART_RACES fly
-ROUNDSTART_RACES moth
+#ROUNDSTART_RACES moth
 #ROUNDSTART_RACES shadow
-ROUNDSTART_RACES teshari
-ROUNDSTART_RACES ipc
-ROUNDSTART_RACES saurian
+#ROUNDSTART_RACES teshari
+#ROUNDSTART_RACES ipc
+#ROUNDSTART_RACES saurian
 
 ## Races that are better than humans in some ways, but worse in others
-ROUNDSTART_RACES ethereal
+#ROUNDSTART_RACES ethereal
 #ROUNDSTART_RACES jelly
 #ROUNDSTART_RACES abductor
 #ROUNDSTART_RACES synth
-ROUNDSTART_RACES vox
+#ROUNDSTART_RACES vox
 
 
 ## Races that are straight upgrades. If these are on expect powergamers to always pick them

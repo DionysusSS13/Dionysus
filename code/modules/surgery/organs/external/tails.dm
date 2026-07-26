@@ -81,30 +81,11 @@
 
 	dna_block = DNA_TESHARI_TAIL_BLOCK
 
-	color_source = ORGAN_COLOR_INHERIT_ALL
+	color_source = ORGAN_COLOR_DNA
 	mutcolor_used = MUTCOLORS_KEY_TESHARI_TAIL
 
 /obj/item/organ/tail/teshari/get_global_feature_list()
 	return GLOB.teshari_tails_list
-
-/obj/item/organ/tail/teshari/build_overlays(physique, image_dir)
-	. = ..()
-
-	for(var/image_layer in layers)
-		var/icon2use = sprite_datum.icon
-		var/state2use = build_icon_state(physique, image_layer)
-
-		if(icon_exists(icon2use, "[state2use]_secondary"))
-			var/mutable_appearance/tail_secondary = mutable_appearance(icon2use, "[state2use]_secondary", layer = -image_layer)
-			tail_secondary.color = mutcolors[MUTCOLORS_TESHARI_TAIL_2]
-			. += tail_secondary
-
-		if(icon_exists(icon2use, "[state2use]_tertiary"))
-			var/mutable_appearance/tail_tertiary = mutable_appearance(icon2use, "[state2use]_tertiary", layer = -image_layer)
-
-			tail_tertiary.color = mutcolors[MUTCOLORS_TESHARI_TAIL_3]
-			. += tail_tertiary
-
 
 // Vox tail
 /obj/item/organ/tail/vox

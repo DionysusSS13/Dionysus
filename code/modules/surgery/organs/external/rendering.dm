@@ -1,8 +1,26 @@
-
 GLOBAL_REAL_VAR(layer2text) = list(
 	"[BODY_BEHIND_LAYER]" = "BEHIND",
 	"[BODY_ADJ_LAYER]" = "ADJ",
+	"[FRONT_MUTATIONS_LAYER]" = "FRONT_UNDER",
 	"[BODY_FRONT_LAYER]" = "FRONT",
+)
+GLOBAL_REAL_VAR(layer_text) = list(
+	"BEHIND",
+	"ADJ",
+	"FRONT_UNDER",
+	"FRONT",
+)
+GLOBAL_REAL_VAR(layer_values) = list(
+	BODY_BEHIND_LAYER,
+	BODY_ADJ_LAYER,
+	FRONT_MUTATIONS_LAYER,
+	BODY_FRONT_LAYER,
+)
+
+GLOBAL_REAL_VAR(layer_text_color) = list(
+	"primary",
+	"secondary",
+	"tertiary",
 )
 
 GLOBAL_LIST_EMPTY(organ_overlays_cache)
@@ -35,8 +53,6 @@ GLOBAL_LIST_EMPTY(organ_overlays_cache)
 	///Where does this organ inherit it's color from?
 	var/color_source = ORGAN_COLOR_INHERIT
 
-	///Used by ORGAN_COLOR_INHERIT_ALL, allows full control of the owner's mutcolors
-	var/list/mutcolors = list()
 	///See above
 	var/mutcolor_used
 	///Which index of the mutcolor key list to use. Defaults to 1, so MUTCOLORS_GENERIC_1 if mutcolor_used is MUTCOLORS_KEY_GENERIC
@@ -77,10 +93,13 @@ GLOBAL_LIST_EMPTY(organ_overlays_cache)
 /obj/item/organ/proc/build_overlays(physique, image_dir)
 	RETURN_TYPE(/list)
 	. = list()
-	var/icon/finished_icon = build_icon(physique)
+	var/icon/finished_icon = build_external_organ_icon(render_key || feature_key, sprite_datum, physique, draw_color, color_source, layers, appearance_mods)
 	for(var/image_layer in layers)
 
 		var/image/overlay = image(finished_icon, global.layer2text["[image_layer]"], layer = -image_layer, dir = image_dir)
+
+		if(sprite_datum.em_block)
+			overlay.overlays += emissive_blocker(overlay.icon, overlay.icon_state, overlay.alpha)
 
 		if(sprite_datum.center)
 			center_image(overlay, sprite_datum.dimension_x, sprite_datum.dimension_y)
@@ -88,45 +107,6 @@ GLOBAL_LIST_EMPTY(organ_overlays_cache)
 		. += overlay
 
 	return .
-
-/obj/item/organ/proc/build_icon_state(physique, image_layer)
-	var/gender = (physique == FEMALE) ? "f" : "m"
-	var/list/icon_state_builder = list()
-	icon_state_builder += sprite_datum.gender_specific ? gender : "m" //Male is default because sprite accessories are so ancient they predate the concept of not hardcoding gender
-	icon_state_builder += render_key ? render_key : feature_key
-	icon_state_builder += sprite_datum.icon_state
-	icon_state_builder += global.layer2text["[image_layer]"]
-	return icon_state_builder.Join("_")
-
-/obj/item/organ/proc/build_icon(physique)
-	RETURN_TYPE(/icon)
-	PRIVATE_PROC(TRUE)
-
-	var/dump_error = FALSE
-
-	var/icon/return_icon = icon()
-	for(var/image_layer in layers)
-		var/finished_icon_state = build_icon_state(physique, image_layer)
-		var/layer_text = global.layer2text["[image_layer]"]
-
-		if(!icon_exists(sprite_datum.icon, finished_icon_state))
-			stack_trace("Organ state layer [layer_text] missing from [sprite_datum.type]!")
-			//dump_error = TRUE
-
-		var/icon/temp_icon = icon(sprite_datum.icon, finished_icon_state)
-		if(sprite_datum.color_src && draw_color)
-			temp_icon.Blend(draw_color, ICON_MULTIPLY)
-
-		for(var/datum/appearance_modifier/mod as anything in appearance_mods)
-			if(image_layer in mod.eorgan_layers_affected)
-				mod.BlendOnto(temp_icon)
-		return_icon.Insert(temp_icon, layer_text)
-
-	if(dump_error)
-		if(fexists("data/blenddebug/[sprite_datum.name].dmi"))
-			fdel("data/blenddebug/[sprite_datum.name].dmi")
-		fcopy(return_icon, "data/blenddebug/[sprite_datum.name].dmi")
-	return return_icon
 
 ///Generate a unique key based on our sprites. So that if we've aleady drawn these sprites, they can be found in the cache and wont have to be drawn again (blessing and curse)
 /obj/item/organ/proc/build_cache_key()
@@ -137,10 +117,9 @@ GLOBAL_LIST_EMPTY(organ_overlays_cache)
 
 	. += "[sprite_datum?.icon_state]"
 	. += "[render_key ? render_key : feature_key]"
-	if(color_source == ORGAN_COLOR_INHERIT_ALL)
-		. += "color1:[mutcolors["[mutcolor_used]_1"]]"
-		. += "color2:[mutcolors["[mutcolor_used]_2"]]"
-		. += "color3:[mutcolors["[mutcolor_used]_3"]]"
+	if(islist(draw_color))
+		for(var/index in 1 to length(draw_color))
+			. += "color[index]:[draw_color[index]]"
 	else
 		. += "[draw_color]"
 	for(var/datum/appearance_modifier/mod as anything in appearance_mods)

@@ -585,42 +585,47 @@ GLOBAL_LIST_EMPTY(features_by_species)
  * Handles lipstick, having no eyes, eye color, undergarnments like underwear, undershirts, and socks, and body layers.
  * Calls [handle_mutant_bodyparts][/datum/species/proc/handle_mutant_bodyparts]
  * Arguments:
- * * species_human - Human, whoever we're handling the body for
+ * * target - Human, whoever we're handling the body for
  */
-/datum/species/proc/handle_body(mob/living/carbon/human/species_human)
-	species_human.remove_overlay(BODY_LAYER)
-	if(HAS_TRAIT(species_human, TRAIT_INVISIBLE_MAN))
+/datum/species/proc/handle_body(mob/living/carbon/human/target)
+	target.remove_overlay(BODY_LAYER)
+	target.remove_overlay(BODY_BEHIND_LAYER)
+	target.remove_overlay(BODY_ADJ_LAYER)
+	target.remove_overlay(BODY_FRONT_LAYER)
+	target.remove_overlay(FRONT_MUTATIONS_LAYER)
+
+	if(HAS_TRAIT(target, TRAIT_INVISIBLE_MAN))
 		return
 	var/list/standing = list()
 
-	var/obj/item/bodypart/head/noggin = species_human.get_bodypart(BODY_ZONE_HEAD)
+	var/obj/item/bodypart/head/noggin = target.get_bodypart(BODY_ZONE_HEAD)
 
-	if(noggin && !(HAS_TRAIT(species_human, TRAIT_HUSK)))
+	if(noggin && !(HAS_TRAIT(target, TRAIT_HUSK)))
 		// lipstick
-		if(species_human.lip_style && (LIPS in species_traits))
-			var/mutable_appearance/lip_overlay = mutable_appearance('icons/mob/human_face.dmi', "lips_[species_human.lip_style]", -BODY_LAYER)
-			lip_overlay.color = species_human.lip_color
-			if(OFFSET_FACE in species_human.dna.species.offset_features)
-				lip_overlay.pixel_x += species_human.dna.species.offset_features[OFFSET_FACE][1]
-				lip_overlay.pixel_y += species_human.dna.species.offset_features[OFFSET_FACE][2]
+		if(target.lip_style && (LIPS in species_traits))
+			var/mutable_appearance/lip_overlay = mutable_appearance('icons/mob/human_face.dmi', "lips_[target.lip_style]", -BODY_LAYER)
+			lip_overlay.color = target.lip_color
+			if(OFFSET_FACE in target.dna.species.offset_features)
+				lip_overlay.pixel_x += target.dna.species.offset_features[OFFSET_FACE][1]
+				lip_overlay.pixel_y += target.dna.species.offset_features[OFFSET_FACE][2]
 			standing += lip_overlay
 
 		// blush
-		if (HAS_TRAIT(species_human, TRAIT_BLUSHING)) // Caused by either the *blush emote or the "drunk" mood event
+		if (HAS_TRAIT(target, TRAIT_BLUSHING)) // Caused by either the *blush emote or the "drunk" mood event
 			var/mutable_appearance/blush_overlay = mutable_appearance('icons/mob/human_face.dmi', "blush", -BODY_ADJ_LAYER) //should appear behind the eyes
 			blush_overlay.color = COLOR_BLUSH_PINK
 			standing += blush_overlay
 
 	// organic body markings
 	if(HAS_MARKINGS in species_traits)
-		var/obj/item/bodypart/chest/chest = species_human.get_bodypart(BODY_ZONE_CHEST)
-		var/obj/item/bodypart/arm/right/right_arm = species_human.get_bodypart(BODY_ZONE_R_ARM)
-		var/obj/item/bodypart/arm/left/left_arm = species_human.get_bodypart(BODY_ZONE_L_ARM)
-		var/obj/item/bodypart/leg/right/right_leg = species_human.get_bodypart(BODY_ZONE_R_LEG)
-		var/obj/item/bodypart/leg/left/left_leg = species_human.get_bodypart(BODY_ZONE_L_LEG)
-		var/datum/sprite_accessory/markings = GLOB.moth_markings_list[species_human.dna.features["moth_markings"]]
+		var/obj/item/bodypart/chest/chest = target.get_bodypart(BODY_ZONE_CHEST)
+		var/obj/item/bodypart/arm/right/right_arm = target.get_bodypart(BODY_ZONE_R_ARM)
+		var/obj/item/bodypart/arm/left/left_arm = target.get_bodypart(BODY_ZONE_L_ARM)
+		var/obj/item/bodypart/leg/right/right_leg = target.get_bodypart(BODY_ZONE_R_LEG)
+		var/obj/item/bodypart/leg/left/left_leg = target.get_bodypart(BODY_ZONE_L_LEG)
+		var/datum/sprite_accessory/markings = GLOB.moth_markings_list[target.dna.features["moth_markings"]]
 
-		if(!HAS_TRAIT(species_human, TRAIT_HUSK))
+		if(!HAS_TRAIT(target, TRAIT_HUSK))
 			if(noggin && (IS_ORGANIC_LIMB(noggin)))
 				var/mutable_appearance/markings_head_overlay = mutable_appearance(markings.icon, "[markings.icon_state]_head", -BODY_LAYER)
 				standing += markings_head_overlay
@@ -647,46 +652,40 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 	//Underwear, Undershirts & Socks
 	if(!(NO_UNDERWEAR in species_traits))
-		if(species_human.underwear)
-			var/datum/sprite_accessory/underwear/underwear = GLOB.underwear_list[species_human.underwear]
+		if(target.underwear)
+			var/datum/sprite_accessory/underwear/underwear = GLOB.underwear_list[target.underwear]
 			var/mutable_appearance/underwear_overlay
 			if(underwear)
-				if(species_human.dna.species.sexes && species_human.physique == FEMALE && (underwear.gender == MALE))
+				if(target.dna.species.sexes && target.physique == FEMALE && (underwear.gender == MALE))
 					underwear_overlay = wear_female_version(underwear.icon_state, underwear.icon, BODY_LAYER, FEMALE_UNIFORM_FULL)
 				else
 					underwear_overlay = mutable_appearance(underwear.icon, underwear.icon_state, -BODY_LAYER)
 				if(!underwear.use_static)
-					underwear_overlay.color = species_human.underwear_color
+					underwear_overlay.color = target.underwear_color
 				standing += underwear_overlay
 
-		if(species_human.undershirt)
-			var/datum/sprite_accessory/undershirt/undershirt = GLOB.undershirt_list[species_human.undershirt]
+		if(target.undershirt)
+			var/datum/sprite_accessory/undershirt/undershirt = GLOB.undershirt_list[target.undershirt]
 			if(undershirt)
-				if(species_human.dna.species.sexes && species_human.physique == FEMALE)
+				if(target.dna.species.sexes && target.physique == FEMALE)
 					standing += wear_female_version(undershirt.icon_state, undershirt.icon, BODY_LAYER)
 				else
 					standing += mutable_appearance(undershirt.icon, undershirt.icon_state, -BODY_LAYER)
 
-		if(species_human.socks && species_human.num_legs >= 2 && !(src.bodytype & BODYTYPE_DIGITIGRADE))
-			var/datum/sprite_accessory/socks/socks = GLOB.socks_list[species_human.socks]
+		if(target.socks && target.num_legs >= 2 && !(src.bodytype & BODYTYPE_DIGITIGRADE))
+			var/datum/sprite_accessory/socks/socks = GLOB.socks_list[target.socks]
 			if(socks)
 				standing += mutable_appearance(socks.icon, socks.icon_state, -BODY_LAYER)
 
 	if(standing.len)
-		species_human.overlays_standing[BODY_LAYER] = standing
+		target.overlays_standing[BODY_LAYER] = standing
 
-	species_human.apply_overlay(BODY_LAYER)
-
-//This exists so sprite accessories can still be per-layer without having to include that layer's
-//number in their sprite name, which causes issues when those numbers change.
-/datum/species/proc/mutant_bodyparts_layertext(layer)
-	switch(layer)
-		if(BODY_BEHIND_LAYER)
-			return "BEHIND"
-		if(BODY_ADJ_LAYER)
-			return "ADJ"
-		if(BODY_FRONT_LAYER)
-			return "FRONT"
+	// handle_mutant_bodyparts(target)
+	target.apply_overlay(BODY_LAYER)
+	target.apply_overlay(BODY_BEHIND_LAYER)
+	target.apply_overlay(BODY_ADJ_LAYER)
+	target.apply_overlay(BODY_FRONT_LAYER)
+	target.apply_overlay(FRONT_MUTATIONS_LAYER)
 
 ///Proc that will randomise the hair, or primary appearance element (i.e. for moths wings) of a species' associated mob
 /datum/species/proc/randomize_main_appearance_element(mob/living/carbon/human/human_mob)
@@ -1506,9 +1505,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if (!isnull(preference))
 			features[preference] = GLOB.preference_entries_by_key[preference]
 
-	if(use_skintones)
-		features["skin_tone"] = GLOB.preference_entries[/datum/preference/choiced/skin_tone]
-
 	features += populate_features()
 	#ifdef TESTING
 	for(var/feat in features)
@@ -1528,7 +1524,10 @@ GLOBAL_LIST_EMPTY(features_by_species)
 
 /// Given a human, will adjust it before taking a picture for the preferences UI.
 /// This should create a CONSISTENT result, so the icons don't randomly change.
-/datum/species/proc/prepare_human_for_preview(mob/living/carbon/human/human)
+/// Gender can be MALE or FEMALE. What, your species only has one gender? Not my problem yet! - Rimi
+/// Index goes from 1 to 4 (inclusive)
+/// This is called multiple times. Don't forget.
+/datum/species/proc/prepare_human_for_preview(mob/living/carbon/human/human, gender, index)
 	return
 
 /// Returns the species's scream sound.
@@ -1618,6 +1617,28 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	RETURN_TYPE(/list)
 
 	return list("WIP")
+
+/**
+ * Gets the general physical description of the species. Can be long.
+ * Used in the preference menu.
+ *
+ * Returns a list of strings.
+ * Between each entry in the list, a newline will be inserted, for formatting.
+ */
+/datum/species/proc/get_species_description()
+	SHOULD_CALL_PARENT(FALSE)
+	RETURN_TYPE(/list)
+
+	return list("WIP")
+
+/datum/species/proc/get_notable_traits()
+	SHOULD_CALL_PARENT(FALSE)
+	RETURN_TYPE(/list)
+
+	return list(TRAIT_NEGATIVE = trait_entry("No traits set!", FA_ICON_X, "This is a coder problem!"))
+
+/datum/species/proc/trait_entry(name, icon, description)
+	return list(list("name" = name, "icon" = icon, "description" = description))
 
 /**
  * Translate the species liked foods from bitfields into strings

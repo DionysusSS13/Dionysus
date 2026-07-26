@@ -62,11 +62,6 @@ $bg-map: colors.$bg-map !default;
   user-select: none;
   -ms-user-select: none;
 
-  &:last-child {
-    margin-right: 0;
-    margin-bottom: 0;
-  }
-
   .fa,
   .fas,
   .far {
@@ -78,6 +73,7 @@ $bg-map: colors.$bg-map !default;
 }
 
 .Button--hasContent {
+
   // Add a margin to the icon to keep it separate from the text
   .fa,
   .fas,
@@ -87,6 +83,7 @@ $bg-map: colors.$bg-map !default;
 }
 
 .Button--hasContent.Button--iconPosition--right {
+
   .fa,
   .fas,
   .far {
@@ -113,6 +110,10 @@ $bg-map: colors.$bg-map !default;
 .Button--compact {
   padding: 0 0.25em;
   line-height: 1.333em;
+}
+
+.Button--big {
+  padding: 1rem 2rem;
 }
 
 @each $color-name, $color-value in $bg-map {

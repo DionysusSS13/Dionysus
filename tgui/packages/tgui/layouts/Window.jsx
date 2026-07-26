@@ -43,6 +43,10 @@ export class Window extends Component {
     });
     logger.log('mounting');
     this.updateGeometry();
+
+    if (this.props.onMount) {
+      this.props.onMount();
+    }
   }
 
   componentDidUpdate(prevProps) {

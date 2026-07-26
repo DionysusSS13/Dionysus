@@ -48,7 +48,7 @@
 	)
 
 /datum/preference_middleware/legacy_toggles/get_character_preferences(mob/user)
-	if (preferences.current_window != PREFERENCE_TAB_GAME_PREFERENCES)
+	if (preferences.preferences_menu.current_window != PREFERENCE_TAB_GAME)
 		return list()
 
 	var/static/list/admin_only_legacy_toggles = list(

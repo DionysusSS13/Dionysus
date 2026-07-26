@@ -1,0 +1,94 @@
+@use 'sass:math';
+@use 'sass:meta';
+@use '../functions.scss' as *;
+
+$dio-gold: #724504;
+$dio-black: #202020;
+$dio-red: #941d1b;
+
+// Used for text
+$color-fg: #f1f1f1 !default;
+// The background of the UI
+$color-bg: $dio-black !default;
+$dark-fg: darken($color-fg, 30%);
+
+// Buttons, progress bar default filler, etc.
+$color-primary: $dio-gold;
+/// Complement to the above, active buttons.
+$color-primary-hightlight: #e0e268;
+/// Color for the interior background of progress bars, inputs, etc.
+$color-component-background: rgba(0, 0, 0, 50%);
+
+// Secondary color, things like labels.
+$color-secondary: #c4c4c4;
+
+@use '../base.scss' with ($color-bg: $color-bg,
+  $color-fg: $color-fg);
+
+@use '../colors.scss' with ($bg-lightness: 0%,
+  $fg-lightness: 0%,
+  $primary: $color-primary,
+  $label: $color-secondary);
+
+.theme-dionysus {
+  // Atomic classes
+  @include meta.load-css('../atomic/color.scss');
+
+  // Components
+  @include meta.load-css('../components/Slider.scss',
+    $with: ('cursor-color': darken(base.$color-fg, 20%),
+      'popup-background-color': base.$color-bg,
+      'popup-text-color': base.$color-fg ));
+
+  @include meta.load-css('../layouts/Window.scss');
+
+  @include meta.load-css('../layouts/TitleBar.scss',
+    $with: ('background-color': $dio-red,
+      'text-color': base.$color-fg));
+
+  @include meta.load-css('../layouts/Layout.scss',
+    $with: ('scrollbar-color-multiplier': 0.5));
+
+  @include meta.load-css('../components/Section.scss',
+    $with: ('title-text-color': base.$color-fg, 'separator-color': $dio-gold));
+
+  @include meta.load-css('../components/Button.scss',
+    $with: ('color-default': $color-primary,
+      'color-selected': $color-primary-hightlight));
+
+  @include meta.load-css('../components/ProgressBar.scss',
+    $with: ('color-default-fill': $color-primary,
+      'background-color': rgba(0, 0, 0, 50%)));
+
+  @include meta.load-css('../components/Knob.scss',
+    $with: ('ring-color': $color-primary));
+
+  @include meta.load-css('../components/Input.scss',
+    $with: ('background-color': $color-component-background,
+      'border-color': $color-primary,
+      'text-color': $color-fg ));
+
+  @include meta.load-css('../components/TextArea.scss',
+    $with: ('background-color': $color-component-background,
+      'border-color': $color-primary,
+      'text-color': $color-fg ));
+
+  @include meta.load-css('../components/NumberInput.scss',
+    $with: ('background-color': $color-component-background,
+      'border-color': $color-primary,
+      'text-color': $color-fg ));
+
+  @include meta.load-css('../components/Tabs.scss',
+    $with: ('border-radius': none,
+      'tab-color': darken($color-primary, 10%),
+      'tab-color-hovered': darken($color-primary, 20%),
+      'tab-color-selected': $color-primary-hightlight,
+      'text-color': #000000,
+      'text-color-selected': #000000));
+
+  @include meta.load-css('../interfaces/DioPrefs.scss');
+
+  @include meta.load-css('../components/LoadCursor.scss',
+    $with: ("background-color": $color-primary,
+      "cursor-color": $dio-red));
+}

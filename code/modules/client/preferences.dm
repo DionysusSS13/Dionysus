@@ -34,9 +34,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/chat_toggles = TOGGLES_DEFAULT_CHAT
 	var/ghost_form = "ghost"
 
-	/// The current window, PREFERENCE_TAB_* in [`code/__DEFINES/preferences.dm`]
-	var/current_window = PREFERENCE_TAB_GAME_PREFERENCES
-
 	var/unlock_content = 0
 
 	var/list/ignoring = list()
@@ -52,17 +49,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	///What outfit typepaths we've favorited in the SelectEquipment menu
 	var/list/favorite_outfits = list()
 
-	/// A preview of the current character
-	var/atom/movable/screen/character_preview_view/character_preview_view
-
 	/// A list of instantiated middleware
 	var/list/datum/preference_middleware/middleware = list()
 
 	/// The json savefile for this datum
 	var/datum/json_savefile/savefile
-
-	/// The savefile relating to character preferences, PREFERENCE_CHARACTER
-	var/list/character_data
 
 	/// A list of keys that have been updated since the last save.
 	var/list/recently_updated_keys = list()
@@ -77,16 +68,14 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	/// Preference of how the preview should show the character.
 	var/tmp/preview_pref = PREVIEW_PREF_JOB
 
-	/// Stores the instance of the category we are viewing. (CHARACTER CREATOR)
-	var/tmp/datum/preference_group/category/selected_category
-
 	/// Used by the loadout UI
 	var/tmp/loadout_show_equipped = FALSE
 	var/tmp/loadout_category = LOADOUT_CATEGORY_BACKPACK
 	var/tmp/loadout_subcategory = LOADOUT_SUBCATEGORY_MISC
 
+	var/datum/preferences_menu/preferences_menu
+
 /datum/preferences/Destroy(force, ...)
-	QDEL_NULL(character_preview_view)
 	QDEL_LIST(middleware)
 	value_cache = null
 	return ..()
@@ -95,11 +84,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	if(!C)
 		CRASH("Attempted to create preferences without a client or mock.")
 	parent = C
+	preferences_menu = new(src)
 
 	for (var/middleware_type in subtypesof(/datum/preference_middleware))
 		middleware += new middleware_type(src)
-
-	selected_category = locate(/datum/preference_group/category/general) in GLOB.all_pref_groups
 
 	if(istype(C) || istype(C, /datum/client_interface))
 #ifdef UNIT_TESTS
@@ -134,223 +122,14 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		save_preferences()
 	save_character() //let's save this new random character so it doesn't keep generating new ones.
 
-/datum/preferences/ui_interact(mob/user, datum/tgui/ui)
-	// If you leave and come back, re-register the character preview
-	if (!isnull(character_preview_view) && !(character_preview_view in user.client?.screen))
-		user.client?.register_map_obj(character_preview_view)
-
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "PreferencesMenu")
-		ui.set_autoupdate(FALSE)
-		ui.open()
-
-		// HACK: Without this the character starts out really tiny because of some BYOND bug.
-		// You can fix it by changing a preference, so let's just forcably update the body to emulate this.
-		addtimer(CALLBACK(character_preview_view, TYPE_PROC_REF(/atom/movable/screen/character_preview_view, update_body)), 1 SECONDS)
-
-/datum/preferences/ui_state(mob/user)
-	return GLOB.always_state
-
-// Without this, a hacker would be able to edit other people's preferences if
-// they had the ref to Topic to.
-/datum/preferences/ui_status(mob/user, datum/ui_state/state)
-	return user.client == parent ? UI_INTERACTIVE : UI_CLOSE
-/datum/preferences/ui_data(mob/user)
-	var/list/data = list()
-
-	if (isnull(character_preview_view))
-		character_preview_view = create_character_preview_view(user)
-	else if (character_preview_view.client != parent)
-		// The client re-logged, and doing this when they log back in doesn't seem to properly
-		// carry emissives.
-		character_preview_view.register_to_client(parent)
-
-	if (tainted_character_profiles)
-		data["character_profiles"] = create_character_profiles()
-		tainted_character_profiles = FALSE
-
-	data["preview_options"] = list(PREVIEW_PREF_JOB,PREVIEW_PREF_LOADOUT, PREVIEW_PREF_UNDERWEAR)
-	data["preview_selection"] = preview_pref
-
-	data["character_preferences"] = compile_character_preferences(user)
-
-	data["active_slot"] = default_slot
-
-	for (var/datum/preference_middleware/preference_middleware as anything in middleware)
-		data += preference_middleware.get_ui_data(user)
-
-	return data
-
-/datum/preferences/ui_static_data(mob/user)
-	var/list/data = list()
-
-	data["character_profiles"] = create_character_profiles()
-
-	data["character_preview_view"] = character_preview_view.assigned_map
-	data["overflow_role"] = SSjob.GetJobType(SSjob.overflow_role).id
-	data["window"] = current_window
-
-	data["content_unlocked"] = unlock_content
-
-	for (var/datum/preference_middleware/preference_middleware as anything in middleware)
-		data += preference_middleware.get_ui_static_data(user)
-
-	return data
-
-/datum/preferences/ui_assets(mob/user)
-	var/list/assets = list(
-		get_asset_datum(/datum/asset/spritesheet/preferences),
-		get_asset_datum(/datum/asset/json/preferences),
-	)
-
-	for (var/datum/preference_middleware/preference_middleware as anything in middleware)
-		assets += preference_middleware.get_ui_assets()
-
-	return assets
-
-/datum/preferences/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
-	. = ..()
-	if (.)
-		return
-
-	switch (action)
-		if ("change_slot")
-			// Save existing character
-			save_character()
-
-			// SAFETY: `load_character` performs sanitization the slot number
-			if (!load_character(params["slot"]))
-				tainted_character_profiles = TRUE
-				randomise_appearance_prefs()
-				save_character()
-
-			for (var/datum/preference_middleware/preference_middleware as anything in middleware)
-				preference_middleware.on_new_character(usr)
-
-			character_preview_view.update_body()
-
-			return TRUE
-		if ("rotate")
-			character_preview_view.dir = turn(character_preview_view.dir, -90)
-
-			return TRUE
-		if ("set_preference")
-			var/requested_preference_key = params["preference"]
-			var/value = params["value"]
-
-			for (var/datum/preference_middleware/preference_middleware as anything in middleware)
-				if (preference_middleware.pre_set_preference(usr, requested_preference_key, value))
-					return TRUE
-
-			var/datum/preference/requested_preference = GLOB.preference_entries_by_key[requested_preference_key]
-			if (isnull(requested_preference))
-				return FALSE
-
-			// SAFETY: `update_preference` performs validation checks
-			if (!update_preference(requested_preference, value))
-				return FALSE
-
-			if (istype(requested_preference, /datum/preference/name))
-				tainted_character_profiles = TRUE
-
-			return TRUE
-		if ("set_color_preference")
-			var/requested_preference_key = params["preference"]
-
-			var/datum/preference/requested_preference = GLOB.preference_entries_by_key[requested_preference_key]
-			if (isnull(requested_preference))
-				return FALSE
-
-			if (!istype(requested_preference, /datum/preference/color))
-				return FALSE
-
-			var/default_value = read_preference(requested_preference.type)
-
-			// Yielding
-			var/new_color = input(
-				usr,
-				"Select new color",
-				null,
-				default_value || COLOR_WHITE,
-			) as color | null
-
-			if (!new_color)
-				return FALSE
-
-			if (!update_preference(requested_preference, new_color))
-				return FALSE
-
-			return TRUE
-
-		if ("set_tricolor_preference")
-			var/requested_preference_key = params["preference"]
-			var/index_key = params["value"]
-
-			var/datum/preference/requested_preference = GLOB.preference_entries_by_key[requested_preference_key]
-			if (isnull(requested_preference))
-				return FALSE
-
-			if (!istype(requested_preference, /datum/preference/tri_color))
-				return FALSE
-
-			var/default_value_list = read_preference(requested_preference.type)
-			if (!islist(default_value_list))
-				return FALSE
-			var/default_value = default_value_list[index_key]
-
-			// Yielding
-			var/new_color = input(
-				usr,
-				"Select new color",
-				null,
-				default_value || COLOR_WHITE,
-			) as color | null
-
-			if (!new_color)
-				return FALSE
-
-			default_value_list[index_key] = new_color
-
-			if (!update_preference(requested_preference, default_value_list))
-				return FALSE
-
-			return TRUE
-
-	for (var/datum/preference_middleware/preference_middleware as anything in middleware)
-		var/delegation = preference_middleware.action_delegations[action]
-		if (!isnull(delegation))
-			return call(preference_middleware, delegation)(params, usr)
-
-	return FALSE
-
-/datum/preferences/ui_close(mob/user)
-	save_character()
-	save_preferences()
-	QDEL_NULL(character_preview_view)
-
 /datum/preferences/Topic(href, list/href_list)
 	. = ..()
 	if (.)
 		return
 
-	if(parent != usr.client && !check_rights(show_msg = FALSE))
-		CRASH("Unable to edit prefs that don't belong to you, [usr.key]! (pref owner: [parent?.key || "NULL"])")
-
 	if (href_list["open_keybindings"])
-		current_window = PREFERENCE_TAB_KEYBINDINGS
-		update_static_data(usr)
-		ui_interact(usr)
+		preferences_menu.ui_interact(usr, tab = PREFERENCE_TAB_KEYBINDINGS)
 		return TRUE
-
-	return html_topic(href, href_list)
-
-/datum/preferences/proc/create_character_preview_view(mob/user)
-	character_preview_view = new(null, src, user.client)
-	character_preview_view.update_body()
-	character_preview_view.register_to_client(user.client)
-
-	return character_preview_view
 
 /datum/preferences/proc/compile_character_preferences(mob/user)
 	var/list/preferences = list()
@@ -362,7 +141,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		LAZYINITLIST(preferences[preference.category])
 
 		var/value = read_preference(preference.type)
-		var/data = preference.compile_ui_data(user, value)
+		var/data = preference.compile_ui_data(user, value, src)
 
 		preferences[preference.category][preference.savefile_key] = data
 
@@ -379,159 +158,52 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 	return preferences
 
-/// Applies all PREFERENCE_PLAYER preferences
+/// Applies all PREFERENCE_SAVEFILE_PLAYER preferences
 /datum/preferences/proc/apply_all_client_preferences()
 	for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
-		if (preference.savefile_identifier != PREFERENCE_PLAYER)
+		if (preference.savefile_identifier != PREFERENCE_SAVEFILE_PLAYER)
 			continue
 
 		value_cache -= preference.type
 		preference.apply_to_client(parent, read_preference(preference.type))
 
-// This is necessary because you can open the set preferences menu before
-// the atoms SS is done loading.
-INITIALIZE_IMMEDIATE(/atom/movable/screen/character_preview_view)
-
-/// A preview of a character for use in the preferences menu
-/atom/movable/screen/character_preview_view
-	name = "character_preview"
-	del_on_map_removal = FALSE
-	layer = GAME_PLANE
-	plane = GAME_PLANE
-
-	/// The body that is displayed
-	var/mob/living/carbon/human/dummy/body
-	/// The appearance to display
-	var/mutable_appearance/rendered_appearance
-
-	/// The preferences this refers to
-	var/datum/preferences/preferences
-
-	var/list/plane_masters = list()
-
-	/// The client that is watching this view
-	var/client/client
-
-	var/list/atom/movable/screen/subscreens = list()
-
-/atom/movable/screen/character_preview_view/Initialize(mapload, datum/preferences/preferences, client/client)
-	. = ..()
-
-	assigned_map = "character_preview_map"
-
-	src.preferences = preferences
-
-/atom/movable/screen/character_preview_view/Destroy()
-	QDEL_NULL(body)
-	QDEL_LIST_ASSOC_VAL(subscreens)
-
-	for (var/plane_master in plane_masters)
-		client?.screen -= plane_master
-		qdel(plane_master)
-
-	client?.clear_map(assigned_map)
-
-	preferences?.character_preview_view = null
-
-	client = null
-	plane_masters = null
-	preferences = null
-
-	return ..()
-
-/// Updates the currently displayed body
-/atom/movable/screen/character_preview_view/proc/update_body()
-	if (isnull(body))
-		create_body()
-	else
-		body.wipe_state()
-
-	rendered_appearance = preferences.render_new_preview_appearance(body)
-
-	for(var/index in subscreens)
-		var/atom/movable/screen/subscreen = subscreens[index]
-		var/cache_dir = subscreen.dir
-		subscreen.appearance = rendered_appearance.appearance
-		subscreen.dir = cache_dir
-
-/atom/movable/screen/character_preview_view/proc/create_body()
-	QDEL_NULL(body)
-
-	body = new
-
-	// Without this, it doesn't show up in the menu
-	body.appearance_flags &= ~KEEP_TOGETHER
-
-/// Registers the relevant map objects to a client
-/atom/movable/screen/character_preview_view/proc/register_to_client(client/client)
-	QDEL_LIST(plane_masters)
-
-	src.client = client
-
-	if (!client)
-		return
-
-	for (var/plane_master_type in subtypesof(/atom/movable/screen/plane_master) - /atom/movable/screen/plane_master/blackness)
-		var/atom/movable/screen/plane_master/plane_master = new plane_master_type()
-		plane_master.screen_loc = "[assigned_map]:0,CENTER"
-		client?.screen |= plane_master
-
-		plane_masters += plane_master
-
-	var/pos
-	for(var/dir in GLOB.cardinals)
-		pos++
-		var/atom/movable/screen/subscreen/preview = subscreens["preview-[dir]"]
-		if(!preview)
-			preview = new
-			subscreens["preview-[dir]"] = preview
-			client?.register_map_obj(preview)
-
-		preview.appearance = rendered_appearance.appearance
-		preview.dir = dir
-		preview.set_position(0, pos)
-
-
-	client?.register_map_obj(src)
-
-INITIALIZE_IMMEDIATE(/atom/movable/screen/subscreen)
-/atom/movable/screen/subscreen
-	name = "preview_subscreen"
-	assigned_map = "character_preview_map"
-
 /datum/preferences/proc/create_character_profiles()
 	var/list/profiles = list()
 
 	for (var/index in 1 to max_save_slots)
-		// It won't be updated in the savefile yet, so just read the name directly
-		if (index == default_slot)
-			profiles += read_preference(/datum/preference/name/real_name)
-			continue
-
 		var/tree_key = "character[index]"
 		var/save_data = savefile.get_entry(tree_key)
-		var/name = save_data?["real_name"]
 
-		if (isnull(name))
-			profiles += null
-			continue
+		var/is_default = index == default_slot
 
-		profiles += name
+		var/name = is_default ? read_preference(/datum/preference/name/real_name) : save_data?["real_name"]
+		var/icon = is_default ? read_preference(/datum/preference/stored_appearance) : save_data?["stored_appearance"]
+		if (!icon && is_default)
+			icon = icon2base64(get_flat_existing_human_icon(preferences_menu.character_preview_view.preview1.body, list(SOUTH)))
+			write_preference(
+				GLOB.preference_entries[/datum/preference/stored_appearance],
+				icon
+			)
+
+		var/data = list(
+			list(
+				"name" = name,
+				"image" = icon
+			)
+		)
+		profiles += data
+
 
 	return profiles
-
-/// Sanitizes the preferences, applies the randomization prefs, and then applies the preference to the human mob.
-/datum/preferences/proc/safe_transfer_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE, is_antag = FALSE)
-	apply_prefs_to(character, icon_updates)
 
 /// Applies the given preferences to a human mob.
 /datum/preferences/proc/apply_prefs_to(mob/living/carbon/human/character, icon_updates = TRUE)
 	for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
-		if (preference.savefile_identifier != PREFERENCE_CHARACTER)
+		if (preference.savefile_identifier != PREFERENCE_SAVEFILE_CHARACTER)
 			continue
 		if(preference.requires_accessible && !preference.is_accessible(src))
 			continue
-		preference.apply_to_human(character, read_preference(preference.type))
+		preference.apply_to_human(character, read_preference(preference.type), src)
 
 	character.dna.real_name = character.real_name
 

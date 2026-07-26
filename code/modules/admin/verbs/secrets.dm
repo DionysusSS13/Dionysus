@@ -555,7 +555,7 @@ GLOBAL_DATUM(everyone_a_traitor, /datum/everyone_is_a_traitor_controller)
 		if (length(players))
 			var/mob/chosen = players[1]
 			if (chosen.client)
-				chosen.client.prefs.safe_transfer_prefs_to(spawnedMob, is_antag = TRUE)
+				chosen.client.prefs.apply_prefs_to(spawnedMob)
 				spawnedMob.PossessByPlayer(chosen.key)
 			players -= chosen
 		if (ishuman(spawnedMob) && ispath(humanoutfit, /datum/outfit))

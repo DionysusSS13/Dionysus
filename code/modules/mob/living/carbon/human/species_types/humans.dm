@@ -2,13 +2,18 @@
 	name = "\improper Human"
 	id = SPECIES_HUMAN
 	default_color = "FFFFFF"
-	species_traits = list(EYECOLOR, HAIR, FACEHAIR, LIPS, BODY_RESIZABLE, HAIRCOLOR, FACEHAIRCOLOR)
+	species_traits = list(EYECOLOR, LIPS, BODY_RESIZABLE)
 	inherent_traits = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_CAN_STRIP,
 		TRAIT_CAN_USE_FLIGHT_POTION,
 	)
-	mutant_bodyparts = list("wings" = "None")
+	mutant_bodyparts = list(
+		"tail" = "None",
+		"ears" = "None",
+		"hair" = "None",
+		"facial_hair" = "None", // Omg guys they're getting facial'd
+	)
 	use_skintones = 1
 	skinned_type = /obj/item/stack/sheet/animalhide/human
 	disliked_food = GROSS | RAW | CLOTH
@@ -65,3 +70,18 @@
 		'sound/voice/human/wounded/female_moan_wounded4.ogg',
 		'sound/voice/human/wounded/female_moan_wounded5.ogg',
 	)
+
+/datum/species/human/get_notable_traits()
+	var/list/neutral = list()
+	var/list/positive = list()
+	var/list/negative = list()
+	. = list(TRAIT_NEUTRAL = neutral, TRAIT_POSITIVE = positive, TRAIT_NEGATIVE = negative)
+
+	neutral += trait_entry("Basic as Hell", FA_ICON_QUESTION, "You're pretty basic. Nothing exceptional to see here.")
+	neutral += trait_entry("Medium Lifespan", FA_ICON_PERSON_CANE, "You live to about 100 years, provided unforseen circumstances don't cut that short.")
+
+	negative += trait_entry("Has Blood", FA_ICON_DROPLET, "You can bleed. Don't lose all your blood.")
+	negative += trait_entry("Warm Blooded", FA_ICON_THERMOMETER, "You get hot easily.")
+
+	positive += trait_entry("Blends In", FA_ICON_MASK, "You're so basic that you just blend in with everyone else when chaos gets going.")
+	positive += trait_entry("Blunt Resistance", FA_ICON_BASEBALL, "One of the few things humans have a reputation for. No guarantees on standing up for a while after getting smacked down, though.")

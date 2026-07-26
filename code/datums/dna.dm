@@ -20,8 +20,6 @@ GLOBAL_LIST_INIT(identity_block_lengths, list(
  * (commonly abbreviated with uf) and its blocks. Both ui and uf have a standard block length of 3 ASCII characters.
  */
 GLOBAL_LIST_INIT(features_block_lengths, list(
-		"[DNA_MUTANT_COLOR_BLOCK]" = DNA_BLOCK_SIZE_COLOR,
-		"[DNA_ETHEREAL_COLOR_BLOCK]" = DNA_BLOCK_SIZE_COLOR,
 	))
 
 /**
@@ -58,8 +56,6 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	var/datum/species/species = new /datum/species/human
 	///first value is mutant color //This comment is older than the average tg player
 	var/list/features = list("FFF")
-	///A large list of key:value pairs for mutant colors
-	var/list/mutant_colors = list()
 	///Stores the hashed values of the person's non-human features
 	var/unique_features
 	///Stores the real name of the person who originally got this dna datum. Used primarely for changelings,
@@ -80,6 +76,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	var/scrambled = FALSE
 	///Current body size, used for proper re-sizing and keeping track of that
 	var/current_body_size = BODY_SIZE_NORMAL
+	var/list/inspection_text
 
 /datum/dna/New(mob/living/new_holder)
 	if(istype(new_holder))
@@ -111,7 +108,6 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	destination.dna.features = features.Copy()
 	destination.dna.real_name = real_name
 	destination.dna.temporary_mutations = temporary_mutations.Copy()
-	destination.dna.mutant_colors = mutant_colors.Copy()
 	if(transfer_SE)
 		destination.dna.mutation_index = mutation_index
 		destination.dna.default_mutation_genes = default_mutation_genes
@@ -127,7 +123,6 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	new_dna.species = new species.type
 	new_dna.species.species_traits = species.species_traits
 	new_dna.real_name = real_name
-	new_dna.mutant_colors = mutant_colors.Copy()
 	new_dna.update_body_size() //Must come after features.Copy()
 	// Mutations aren't gc managed, but they still aren't templates
 	// Let's do a proper copy
@@ -195,14 +190,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	. = ""
 	var/list/L = new /list(DNA_FEATURE_BLOCKS)
 
-	if(mutant_colors[MUTCOLORS_GENERIC_1])
-		L[DNA_MUTANT_COLOR_BLOCK] = sanitize_hexcolor(mutant_colors[MUTCOLORS_GENERIC_1], include_crunch = FALSE)
-	if(mutant_colors[MUTCOLORS_GENERIC_2])
-		L[DNA_MUTANT_COLOR_BLOCK_2] = sanitize_hexcolor(mutant_colors[MUTCOLORS_GENERIC_2], include_crunch = FALSE)
-	if(mutant_colors[MUTCOLORS_GENERIC_3])
-		L[DNA_MUTANT_COLOR_BLOCK_3] = sanitize_hexcolor(mutant_colors[MUTCOLORS_GENERIC_3], include_crunch = FALSE)
-	if(features["ethcolor"])
-		L[DNA_ETHEREAL_COLOR_BLOCK] = sanitize_hexcolor(features["ethcolor"], include_crunch = FALSE)
+	// *deathgasp
 	if(features["tail_cat"])
 		L[DNA_TAIL_BLOCK] = construct_block(GLOB.tails_list_human.Find(features["tail_cat"]), GLOB.tails_list_human.len)
 	if(features["tail_lizard"])
@@ -353,14 +341,6 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	if(!ishuman(holder))
 		CRASH("Non-human mobs shouldn't have DNA")
 	switch(blocknumber)
-		if(DNA_MUTANT_COLOR_BLOCK)
-			set_uni_feature_block(blocknumber, sanitize_hexcolor(mutant_colors[MUTCOLORS_GENERIC_1], include_crunch = FALSE))
-		if(DNA_MUTANT_COLOR_BLOCK_2)
-			set_uni_feature_block(blocknumber, sanitize_hexcolor(features[MUTCOLORS_GENERIC_2], include_crunch = FALSE))
-		if(DNA_MUTANT_COLOR_BLOCK_3)
-			set_uni_feature_block(blocknumber, sanitize_hexcolor(features[MUTCOLORS_GENERIC_3], include_crunch = FALSE))
-		if(DNA_ETHEREAL_COLOR_BLOCK)
-			set_uni_feature_block(blocknumber, sanitize_hexcolor(features["ethcolor"], include_crunch = FALSE))
 		if(DNA_TAIL_BLOCK)
 			set_uni_feature_block(blocknumber, construct_block(GLOB.tails_list.Find(features["tail_cat"]), GLOB.tails_list.len))
 		if(DNA_LIZARD_TAIL_BLOCK)
@@ -483,7 +463,6 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	if(!skip_index) //I hate this
 		generate_dna_blocks()
 	features = random_features()
-	mutant_colors = random_mutant_colors()
 	unique_features = generate_unique_features()
 
 
@@ -503,17 +482,6 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 
 /datum/dna/stored/remove_mutation_group(list/group)
 	return
-
-/datum/dna/proc/set_all_mutant_colors(color)
-	for(var/key in GLOB.all_mutant_colors_keys)
-		mutant_colors["[key]_1"] = color
-		mutant_colors["[key]_2"] = color
-		mutant_colors["[key]_3"] = color
-
-/datum/dna/proc/set_all_mutant_colors_of_key(key, color)
-	mutant_colors["[key]_1"] = color
-	mutant_colors["[key]_2"] = color
-	mutant_colors["[key]_3"] = color
 
 /////////////////////////// DNA MOB-PROCS //////////////////////
 /datum/dna/proc/update_body_size()
@@ -644,20 +612,12 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 	var/structure = dna.unique_identity
 	hair_color = sanitize_hexcolor(get_uni_identity_block(structure, DNA_HAIR_COLOR_BLOCK))
 	facial_hair_color = sanitize_hexcolor(get_uni_identity_block(structure, DNA_FACIAL_HAIR_COLOR_BLOCK))
-	skin_tone = GLOB.skin_tones[deconstruct_block(get_uni_identity_block(structure, DNA_SKIN_TONE_BLOCK), GLOB.skin_tones.len)]
+	skin_tone = skintone2hex(GLOB.skin_tones[deconstruct_block(get_uni_identity_block(structure, DNA_SKIN_TONE_BLOCK), GLOB.skin_tones.len)])
 	eye_color_left = sanitize_hexcolor(get_uni_identity_block(structure, DNA_EYE_COLOR_LEFT_BLOCK))
 	eye_color_right = sanitize_hexcolor(get_uni_identity_block(structure, DNA_EYE_COLOR_RIGHT_BLOCK))
 	facial_hairstyle = GLOB.facial_hairstyles_list[deconstruct_block(get_uni_identity_block(structure, DNA_FACIAL_HAIRSTYLE_BLOCK), GLOB.facial_hairstyles_list.len)]
 	hairstyle = GLOB.hairstyles_list[deconstruct_block(get_uni_identity_block(structure, DNA_HAIRSTYLE_BLOCK), GLOB.hairstyles_list.len)]
 	var/features = dna.unique_features
-	if(dna.mutant_colors[MUTCOLORS_GENERIC_1])
-		dna.features[MUTCOLORS_GENERIC_1] = sanitize_hexcolor(get_uni_feature_block(features, DNA_MUTANT_COLOR_BLOCK))
-	if(dna.mutant_colors[MUTCOLORS_GENERIC_2])
-		dna.mutant_colors[MUTCOLORS_GENERIC_2] = sanitize_hexcolor(get_uni_feature_block(features, DNA_MUTANT_COLOR_BLOCK_2))
-	if(dna.mutant_colors[MUTCOLORS_GENERIC_3])
-		dna.mutant_colors[MUTCOLORS_GENERIC_3] = sanitize_hexcolor(get_uni_feature_block(features, DNA_MUTANT_COLOR_BLOCK_3))
-	if(dna.features["ethcolor"])
-		dna.features["ethcolor"] = sanitize_hexcolor(get_uni_feature_block(features, DNA_ETHEREAL_COLOR_BLOCK))
 	if(dna.features["snout"])
 		dna.features["snout"] = GLOB.snouts_list[deconstruct_block(get_uni_feature_block(features, DNA_SNOUT_BLOCK), GLOB.snouts_list.len)]
 	if(dna.features["horns"])

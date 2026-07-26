@@ -23,12 +23,14 @@ import { toInputValue } from './Input';
 type Props = Partial<{
   autoFocus: boolean;
   autoSelect: boolean;
+  disabled: boolean;
   displayedValue: string;
   dontUseTabForIndent: boolean;
   fluid: boolean;
   /** Classname applied to the internal textarea element */
   innerClassName: string;
   maxLength: number;
+  monospace: boolean;
   noborder: boolean;
   /** Fires when user is 'done typing': Clicked out, blur, enter key (but not shift+enter) */
   onChange: (event: SyntheticEvent<HTMLTextAreaElement>, value: string) => void;
@@ -50,9 +52,11 @@ export const TextArea = forwardRef(
     const {
       autoFocus,
       autoSelect,
+      disabled,
       displayedValue,
       dontUseTabForIndent,
       maxLength,
+      monospace,
       noborder,
       onChange,
       onEnter,
@@ -69,6 +73,7 @@ export const TextArea = forwardRef(
 
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const [scrolledAmount, setScrolledAmount] = useState(0);
+    const [valueLength, setValueLength] = useState(value?.length || 0);
 
     const handleKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
       if (event.key === KEY.Enter) {
@@ -165,6 +170,7 @@ export const TextArea = forwardRef(
               className={classes([
                 'TextArea__textarea',
                 'TextArea__textarea_custom',
+                monospace && 'TextArea--monospace',
               ])}
               style={{
                 transform: `translateY(-${scrolledAmount}px)`,
@@ -179,11 +185,21 @@ export const TextArea = forwardRef(
             'TextArea__textarea',
             scrollbar && 'TextArea__textarea--scrollable',
             nowrap && 'TextArea__nowrap',
+            disabled && 'TextArea__textarea--disabled',
+            monospace && 'TextArea--monospace',
             innerClassName,
           ])}
+          disabled={disabled}
           maxLength={maxLength}
-          onBlur={(event) => onChange?.(event, event.target.value)}
-          onChange={(event) => onInput?.(event, event.target.value)}
+          onBlur={(event) => {
+            if (!disabled) {
+              onChange?.(event, event.target.value);
+            }
+          }}
+          onChange={(event) => {
+            setValueLength(event.target.value.length);
+            onInput?.(event, event.target.value);
+          }}
           onKeyDown={handleKeyDown}
           onScroll={() => {
             if (displayedValue && textareaRef.current) {
@@ -196,6 +212,11 @@ export const TextArea = forwardRef(
             color: displayedValue ? 'rgba(0, 0, 0, 0)' : 'inherit',
           }}
         />
+        {props.maxLength && (
+          <Box className="TextArea__maxlength">
+            {valueLength}/{props.maxLength}
+          </Box>
+        )}
       </Box>
     );
   },

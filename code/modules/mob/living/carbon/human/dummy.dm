@@ -101,7 +101,6 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	H.dna.features["ethcolor"] = COLOR_WHITE
 	H.dna.features["frills"] = get_consistent_feature_entry(GLOB.frills_list)
 	H.dna.features["horns"] = get_consistent_feature_entry(GLOB.horns_list)
-	H.dna.set_all_mutant_colors(COLOR_VIBRANT_LIME)
 	H.dna.features["moth_antennae"] = get_consistent_feature_entry(GLOB.moth_antennae_list)
 	H.dna.features["moth_markings"] = get_consistent_feature_entry(GLOB.moth_markings_list)
 	H.dna.features["moth_wings"] = get_consistent_feature_entry(GLOB.wings_list)

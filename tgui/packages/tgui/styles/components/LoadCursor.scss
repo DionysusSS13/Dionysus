@@ -1,0 +1,49 @@
+/*
+ Stolen and heavily tweaked Bootstra.386 load cursor
+*/
+
+$background-color: #000084 !default;
+$cursor-color: #fff !default;
+
+.LoadCursor {
+  position: relative;
+
+  &__wrapper {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 9999999;
+    width: 100%;
+    height: 100%;
+    background: $background-color;
+  }
+
+  &__bar {
+    position: absolute;
+    right: 0;
+    z-index: 9999999;
+    width: 100%;
+    height: 20px;
+    margin-top: -20px;
+    background: $background-color;
+  }
+
+  &__scancursor {
+    position: absolute;
+    height: 20px;
+    width: 10px;
+    left: 0;
+    top: 0;
+    background-color: $cursor-color;
+  }
+
+  &__rescancursor {
+    position: absolute;
+    height: 20px;
+    width: 10px;
+    right: 0;
+    bottom: 0;
+    z-index: 9999999;
+    background-color: $cursor-color;
+  }
+}
