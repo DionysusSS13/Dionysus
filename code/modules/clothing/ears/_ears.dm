@@ -1,5 +1,4 @@
-
-//Ears: currently only used for headsets and earmuffs
+//Ears: currently used for headsets, earmuffs and headphones
 /obj/item/clothing/ears
 	name = "ears"
 	w_class = WEIGHT_CLASS_TINY
