@@ -1,0 +1,11 @@
+template = "bitmask/diagonal_32x32.toml"
+
+# And at the same width/height too
+[output_icon_size]
+x = 32
+y = 48
+
+# Take as input a set of 32x48 blocks
+[icon_size]
+x = 32
+y = 48
