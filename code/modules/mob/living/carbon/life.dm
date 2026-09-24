@@ -150,7 +150,7 @@
 		loc.assume_air(breath)
 
 	if((!forced && . && COOLDOWN_FINISHED(src, mob_cooldowns["breath_sound_cd"]) && environment?.returnPressure() < SOUND_MINIMUM_PRESSURE))
-		playsound(src, 'sound/voice/breathing.ogg', 5, play_directly_to_source = TRUE, channel = CHANNEL_BREATHING)
+		playsound(src, 'sound/voice/breathing.ogg', 3, play_directly_to_source = TRUE, channel = CHANNEL_BREATHING)
 		COOLDOWN_START(src, mob_cooldowns["breath_sound_cd"], 10 SECONDS)
 
 /mob/living/carbon/proc/has_smoke_protection()
