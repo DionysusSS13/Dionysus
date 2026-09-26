@@ -40,9 +40,7 @@
 
 	if(href_list["npp_options"])
 		var/datum/preferences/preferences = parent.client.prefs
-		preferences.current_window = PREFERENCE_TAB_GAME_PREFERENCES
-		preferences.update_static_data(usr)
-		preferences.ui_interact(usr)
+		preferences.preferences_menu.ui_interact(usr, tab = PREFERENCE_TAB_GAME)
 		return TRUE
 
 	if(href_list["view_primer"])
@@ -51,7 +49,7 @@
 
 	if(href_list["character_setup"])
 		var/datum/preferences/preferences = parent.client.prefs
-		preferences.html_show(usr)
+		preferences.preferences_menu.ui_interact(usr, tab = PREFERENCE_TAB_CHARACTER)
 		return TRUE
 
 	if(href_list["ready"])
@@ -87,7 +85,7 @@
 			return
 		LateChoices()
 		return
-	
+
 	if(href_list["observe"])
 		parent.admin_observe()
 		return

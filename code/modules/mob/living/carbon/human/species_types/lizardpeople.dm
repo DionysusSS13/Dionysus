@@ -12,7 +12,13 @@
 		TRAIT_CAN_USE_FLIGHT_POTION,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_REPTILE
-	mutant_bodyparts = list("legs" = "Normal Legs")
+	mutant_bodyparts = list(
+		"legs" = "Normal Legs",
+		"horns" = "None",
+		"frills" = "None",
+		"spines" = "None",
+		"tail_lizard" = "None",
+		)
 	cosmetic_organs = list(
 		/obj/item/organ/horns = "None",
 		/obj/item/organ/frills = "None",

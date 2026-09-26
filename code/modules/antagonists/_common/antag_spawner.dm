@@ -69,7 +69,7 @@
 /obj/item/antag_spawner/contract/spawn_antag(client/C, turf/T, kind, datum/mind/user)
 	new /obj/effect/particle_effect/fluid/smoke(T)
 	var/mob/living/carbon/human/M = new/mob/living/carbon/human(T)
-	C.prefs.safe_transfer_prefs_to(M, is_antag = TRUE)
+	C.prefs.apply_prefs_to(M)
 	M.PossessByPlayer(C.key)
 	var/datum/mind/app_mind = M.mind
 
@@ -142,7 +142,7 @@
 /obj/item/antag_spawner/nuke_ops/spawn_antag(client/C, turf/T, kind, datum/mind/user)
 	var/mob/living/carbon/human/nukie = new()
 	var/obj/structure/closet/supplypod/pod = setup_pod()
-	C.prefs.safe_transfer_prefs_to(nukie, is_antag = TRUE)
+	C.prefs.apply_prefs_to(nukie)
 	nukie.ckey = C.key
 	var/datum/mind/op_mind = nukie.mind
 

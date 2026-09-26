@@ -68,7 +68,7 @@
 
 	dna_block = DNA_EARS_BLOCK
 	feature_key = "ears"
-	layers = list(BODY_FRONT_LAYER, BODY_BEHIND_LAYER)
+	layers = list(BODY_FRONT_LAYER, BODY_ADJ_LAYER, BODY_BEHIND_LAYER)
 	color_source = ORGAN_COLOR_HAIR
 
 /obj/item/organ/ears/cat/can_draw_on_bodypart(mob/living/carbon/human/human)
@@ -78,13 +78,6 @@
 
 /obj/item/organ/ears/cat/get_global_feature_list()
 	return GLOB.ears_list
-
-/obj/item/organ/ears/cat/build_overlays(physique, image_dir)
-	. = ..()
-	if(sprite_datum.hasinner)
-		for(var/image_layer in layers)
-			. += image(sprite_datum.icon, "m_earsinner_[sprite_datum.icon_state]_[global.layer2text["[image_layer]"]]", layer = -image_layer)
-
 
 /obj/item/organ/ears/penguin
 	name = "penguin ears"

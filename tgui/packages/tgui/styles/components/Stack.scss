@@ -14,6 +14,7 @@ $zebra-background-color: base.$color-bg-section !default;
 
 .Stack--horizontal > .Stack__item {
   margin-left: 0.5em;
+  height: 100%;
 
   &:first-child {
     margin-left: 0;
@@ -22,6 +23,7 @@ $zebra-background-color: base.$color-bg-section !default;
 
 .Stack--vertical > .Stack__item {
   margin-top: 0.5em;
+  width: 100%;
 
   &:first-child {
     margin-top: 0;

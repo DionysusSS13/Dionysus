@@ -6,5 +6,5 @@
 #define ORGAN_COLOR_HAIR (1<<2)
 ///Uses a static, pre-defined draw_color
 #define ORGAN_COLOR_STATIC (1<<3)
-///Uses the mutcolor list
-#define ORGAN_COLOR_INHERIT_ALL (1<<4)
+///Uses the color stored in DNA. Look man, I'm not rewriting yet more of the rendering pipeline to make this work, I'm four hours into this and I want to be rid of this, please...
+#define ORGAN_COLOR_DNA (1<<4)

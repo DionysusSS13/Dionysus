@@ -102,18 +102,52 @@
 
 // Values for /datum/preference/savefile_identifier
 /// This preference is character specific.
-#define PREFERENCE_CHARACTER "character"
+#define PREFERENCE_SAVEFILE_CHARACTER "character"
 /// This preference is account specific.
-#define PREFERENCE_PLAYER "player"
+#define PREFERENCE_SAVEFILE_PLAYER "player"
+
+/// Open the character preferences window
+#define PREFERENCE_TAB_CHARACTER 0
 
 /// Open the game preferences window
-#define PREFERENCE_TAB_GAME_PREFERENCES 1
+#define PREFERENCE_TAB_GAME 1
 
 /// Open the keybindings window
 #define PREFERENCE_TAB_KEYBINDINGS 2
 
-/// Will be put under the game preferences window.
-#define PREFERENCE_CATEGORY_GAME_PREFERENCES "game_preferences"
+/// These are rendered by another preference.
+#define PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES "supplemental_features"
+// These will be in the appearance menu.
+#define PREFERENCE_CATEGORY_APPEARANCE_HEAD "head"
+#define PREFERENCE_CATEGORY_APPEARANCE_LEFT_ARM "left_arm"
+#define PREFERENCE_CATEGORY_APPEARANCE_RIGHT_ARM "right_arm"
+#define PREFERENCE_CATEGORY_APPEARANCE_ARMS "arms"
+#define PREFERENCE_CATEGORY_APPEARANCE_GROIN "groin"
+#define PREFERENCE_CATEGORY_APPEARANCE_TORSO "torso"
+#define PREFERENCE_CATEGORY_APPEARANCE_LEFT_LEG "left_leg"
+#define PREFERENCE_CATEGORY_APPEARANCE_RIGHT_LEG "right_leg"
+#define PREFERENCE_CATEGORY_APPEARANCE_LEGS "legs"
+#define PREFERENCE_CATEGORY_APPEARANCE_GENERAL "general"
+// These will be in the employee menu.
+#define PREFERENCE_CATEGORY_EMPLOYEE_PII "pii"
+#define PREFERENCE_CATEGORY_EMPLOYEE_LOYALTIES "loyalties"
+#define PREFERENCE_CATEGORY_EMPLOYEE_ALIASES_AFFILIATIONS "aliases_affiliations"
+#define PREFERENCE_CATEGORY_EMPLOYEE_META "meta"
+/// These will be in the ooc info menu.
+#define PREFERENCE_CATEGORY_OOC "ooc"
+/// These are handled manually on the TGUI side.
+#define PREFERENCE_CATEGORY_MISC "misc"
+
+#define PREFERENCE_CATEGORY_GAME_ACCESSIBILITY "ACCESSIBILITY"
+#define PREFERENCE_CATEGORY_GAME_ADMIN "ADMIN"
+#define PREFERENCE_CATEGORY_GAME_GAMEPLAY "GAMEPLAY"
+#define PREFERENCE_CATEGORY_GAME_GHOST "GHOST"
+#define PREFERENCE_CATEGORY_GAME_SOUND "SOUND"
+#define PREFERENCE_CATEGORY_GAME_CHAT "CHAT"
+#define PREFERENCE_CATEGORY_GAME_RUNECHAT "RUNECHAT"
+#define PREFERENCE_CATEGORY_GAME_TOOLTIPS "TOOLTIPS"
+#define PREFERENCE_CATEGORY_GAME_UI "UI"
+
 
 // Playtime is tracked in minutes
 /// The time needed to unlock hardcore random mode in preferences
@@ -122,3 +156,40 @@
 #define PLAYTIME_VETERAN 300000 // 5,000 hours
 
 #define SPRITE_ACCESSORY_NONE "None"
+
+#define PREFERENCE_FEATURE_NONE "none" // I'm a special boy!
+#define PREFERENCE_FEATURE_COLOR "color"
+#define PREFERENCE_FEATURE_CHECKBOX "checkbox"
+#define PREFERENCE_FEATURE_CHECKBOX_INVERSE "checkbox_inverse"
+#define PREFERENCE_FEATURE_DROPDOWN "dropdown"
+#define PREFERENCE_FEATURE_ICONNED_DROPDOWN "iconned_dropdown"
+#define PREFERENCE_FEATURE_DROPDOWN_SWITCHER "dropdown_switcher"
+#define PREFERENCE_FEATURE_ICONNED_DROPDOWN_SWITCHER "iconned_dropdown_switcher"
+#define PREFERENCE_FEATURE_NUMBER "number"
+#define PREFERENCE_FEATURE_LONG_TEXT "long_text"
+#define PREFERENCE_FEATURE_SHORT_TEXT "short_text"
+#define PREFERENCE_FEATURE_TRI_COLOR "tri_color"
+#define PREFERENCE_FEATURE_ICON_BOX "icon_box"
+
+/// Used on sprite accessories's color_src to allow setting up to three colorable layers for a sprite accessory.
+#define TRI_COLOR_LAYERS "tri_color_layers"
+
+#define PREFERENCES_SET_MUTANT_CHOICE_LIST(name, global_list) /datum/preference/choiced/mutant/##name/New() { \
+	. = ..(); \
+	sprite_accessory = ##global_list; \
+}
+
+#define PREF_CROP_AREA_HEAD list(10, 19, 22, 31)
+
+#define TRAIT_NEGATIVE "negative"
+#define TRAIT_POSITIVE "positive"
+#define TRAIT_NEUTRAL "neutral"
+
+/// Values in this section are only ever used for inspection
+#define INSPECTION_ZONE_GENERAL "broad"
+#define INSPECTION_ZONE_PREVIEW "preview"
+#define INSPECTION_ZONE_ARMS "arms"
+#define INSPECTION_ZONE_LEGS "legs"
+#define INSPECTION_ZONE_HEAD "head"
+#define INSPECTION_ZONE_CHEST "chest"
+#define INSPECTION_ZONE_OOC "ooc"

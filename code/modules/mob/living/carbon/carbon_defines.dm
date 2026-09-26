@@ -128,8 +128,6 @@
 	var/sprinting = FALSE
 	///How many tiles we have continuously moved in the same direction
 	var/sustained_moves = 0
-	//stores flavor text here.
-	var/examine_text = ""
 
 	// TODO: remove and move to mob/var/mob_cooldowns
 	COOLDOWN_DECLARE(bleeding_message_cd)

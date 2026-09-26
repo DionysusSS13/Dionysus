@@ -146,10 +146,12 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 		ownerlimb.remove_organ(src)
 
 	forceMove(limb)
+
+	owner = reciever
+
 	limb.add_organ(src)
 	item_flags |= ABSTRACT
 
-	owner = reciever
 	RegisterSignal(owner, COMSIG_PARENT_EXAMINE, PROC_REF(on_owner_examine))
 	update_organ_traits(reciever)
 	for(var/datum/action/action as anything in actions)

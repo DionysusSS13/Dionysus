@@ -11,195 +11,195 @@
 
 /datum/sprite_accessory/facial_hair/abe
 	name = "Beard (Abraham Lincoln)"
-	icon_state = "facial_abe"
+	icon_state = "abe"
 
 /datum/sprite_accessory/facial_hair/brokenman
 	name = "Beard (Broken Man)"
-	icon_state = "facial_brokenman"
+	icon_state = "brokenman"
 
 /datum/sprite_accessory/facial_hair/chinstrap
 	name = "Beard (Chinstrap)"
-	icon_state = "facial_chin"
+	icon_state = "chin"
 
 /datum/sprite_accessory/facial_hair/dwarf
 	name = "Beard (Dwarf)"
-	icon_state = "facial_dwarf"
+	icon_state = "dwarf"
 
 /datum/sprite_accessory/facial_hair/fullbeard
 	name = "Beard (Full)"
-	icon_state = "facial_fullbeard"
+	icon_state = "fullbeard"
 
 /datum/sprite_accessory/facial_hair/croppedfullbeard
 	name = "Beard (Cropped Fullbeard)"
-	icon_state = "facial_croppedfullbeard"
+	icon_state = "croppedfullbeard"
 
 /datum/sprite_accessory/facial_hair/gt
 	name = "Beard (Goatee)"
-	icon_state = "facial_gt"
+	icon_state = "gt"
 
 /datum/sprite_accessory/facial_hair/hip
 	name = "Beard (Hipster)"
-	icon_state = "facial_hip"
+	icon_state = "hip"
 
 /datum/sprite_accessory/facial_hair/jensen
 	name = "Beard (Jensen)"
-	icon_state = "facial_jensen"
+	icon_state = "jensen"
 
 /datum/sprite_accessory/facial_hair/neckbeard
 	name = "Beard (Neckbeard)"
-	icon_state = "facial_neckbeard"
+	icon_state = "neckbeard"
 
 /datum/sprite_accessory/facial_hair/vlongbeard
 	name = "Beard (Very Long)"
-	icon_state = "facial_wise"
+	icon_state = "wise"
 
 /datum/sprite_accessory/facial_hair/muttonmus
 	name = "Beard (Muttonmus)"
-	icon_state = "facial_muttonmus"
+	icon_state = "muttonmus"
 
 /datum/sprite_accessory/facial_hair/martialartist
 	name = "Beard (Martial Artist)"
-	icon_state = "facial_martialartist"
+	icon_state = "martialartist"
 
 /datum/sprite_accessory/facial_hair/chinlessbeard
 	name = "Beard (Chinless Beard)"
-	icon_state = "facial_chinlessbeard"
+	icon_state = "chinlessbeard"
 
 /datum/sprite_accessory/facial_hair/moonshiner
 	name = "Beard (Moonshiner)"
-	icon_state = "facial_moonshiner"
+	icon_state = "moonshiner"
 
 /datum/sprite_accessory/facial_hair/longbeard
 	name = "Beard (Long)"
-	icon_state = "facial_longbeard"
+	icon_state = "longbeard"
 
 /datum/sprite_accessory/facial_hair/volaju
 	name = "Beard (Volaju)"
-	icon_state = "facial_volaju"
+	icon_state = "volaju"
 
 /datum/sprite_accessory/facial_hair/threeoclock
 	name = "Beard (Three o Clock Shadow)"
-	icon_state = "facial_3oclock"
+	icon_state = "3oclock"
 
 /datum/sprite_accessory/facial_hair/fiveoclock
 	name = "Beard (Five o Clock Shadow)"
-	icon_state = "facial_fiveoclock"
+	icon_state = "fiveoclock"
 
 /datum/sprite_accessory/facial_hair/fiveoclockm
 	name = "Beard (Five o Clock Moustache)"
-	icon_state = "facial_5oclockmoustache"
+	icon_state = "5oclockmoustache"
 
 /datum/sprite_accessory/facial_hair/sevenoclock
 	name = "Beard (Seven o Clock Shadow)"
-	icon_state = "facial_7oclock"
+	icon_state = "7oclock"
 
 /datum/sprite_accessory/facial_hair/sevenoclockm
 	name = "Beard (Seven o Clock Moustache)"
-	icon_state = "facial_7oclockmoustache"
+	icon_state = "7oclockmoustache"
 
 /datum/sprite_accessory/facial_hair/powerful
 	name = "Beard (Powerful)"
-	icon_state = "facial_powerful"
+	icon_state = "powerful"
 
 /datum/sprite_accessory/facial_hair/thecolonel
 	name = "Beard (The Colonel)"
-	icon_state = "facial_thecolonel"
+	icon_state = "thecolonel"
 
 /datum/sprite_accessory/facial_hair/eyebrows
 	name = "Eyebrows"
-	icon_state = "facial_eyebrows"
+	icon_state = "eyebrows"
 
 /datum/sprite_accessory/facial_hair/moustache
 	name = "Moustache"
-	icon_state = "facial_moustache"
+	icon_state = "moustache"
 
 /datum/sprite_accessory/facial_hair/pencilstache
 	name = "Moustache (Pencilstache)"
-	icon_state = "facial_pencilstache"
+	icon_state = "pencilstache"
 
 /datum/sprite_accessory/facial_hair/smallstache
 	name = "Moustache (Smallstache)"
-	icon_state = "facial_smallstache"
+	icon_state = "smallstache"
 
 /datum/sprite_accessory/facial_hair/walrus
 	name = "Moustache (Walrus)"
-	icon_state = "facial_walrus"
+	icon_state = "walrus"
 
 /datum/sprite_accessory/facial_hair/fu
 	name = "Moustache (Fu Manchu)"
-	icon_state = "facial_fumanchu"
+	icon_state = "fumanchu"
 
 /datum/sprite_accessory/facial_hair/hogan
 	name = "Moustache (Hulk Hogan)"
-	icon_state = "facial_hogan" //-Neek
+	icon_state = "hogan" //-Neek
 
 /datum/sprite_accessory/facial_hair/selleck
 	name = "Moustache (Selleck)"
-	icon_state = "facial_selleck"
+	icon_state = "selleck"
 
 /datum/sprite_accessory/facial_hair/chaplin
 	name = "Moustache (Square)"
-	icon_state = "facial_chaplin"
+	icon_state = "chaplin"
 
 /datum/sprite_accessory/facial_hair/vandyke
 	name = "Moustache (Van Dyke)"
-	icon_state = "facial_vandyke"
+	icon_state = "vandyke"
 
 /datum/sprite_accessory/facial_hair/watson
 	name = "Moustache (Watson)"
-	icon_state = "facial_watson"
+	icon_state = "watson"
 
 /datum/sprite_accessory/facial_hair/handlebar
 	name = "Moustache (Handlebar)"
-	icon_state = "facial_handlebar"
+	icon_state = "handlebar"
 
 /datum/sprite_accessory/facial_hair/handlebar2
 	name = "Moustache (Handlebar 2)"
-	icon_state = "facial_handlebar2"
+	icon_state = "handlebar2"
 
 /datum/sprite_accessory/facial_hair/robotnik
 	name = "Moustache (Robotnik)"
-	icon_state = "facial_robotnik"
+	icon_state = "robotnik"
 
 /datum/sprite_accessory/facial_hair/stachenchops
 	name = "Moustache ('Stache 'n Chops)"
-	icon_state = "facial_stachenchops"
+	icon_state = "stachenchops"
 
 /datum/sprite_accessory/facial_hair/elvis
 	name = "Sideburns (Elvis)"
-	icon_state = "facial_elvis"
+	icon_state = "elvis"
 
 /datum/sprite_accessory/facial_hair/mutton
 	name = "Sideburns (Mutton Chops)"
-	icon_state = "facial_mutton"
+	icon_state = "mutton"
 
 /datum/sprite_accessory/facial_hair/sideburn
 	name = "Sideburns"
-	icon_state = "facial_sideburn"
+	icon_state = "sideburn"
 
 /datum/sprite_accessory/facial_hair/sideburns
 	name = "Sideburns"
-	icon_state = "facial_sideburns"
+	icon_state = "sideburns"
 
 /datum/sprite_accessory/facial_hair/goatee
 	name = "Goatee"
-	icon_state = "facial_goatee"
+	icon_state = "goatee"
 
 /datum/sprite_accessory/facial_hair/fiveoclock_alt
 	name = "Beard (Five o Clock ALT)"
-	icon_state = "facial_5oclock"
+	icon_state = "5oclock"
 
 /datum/sprite_accessory/facial_hair/hornadorns
 	name = "Hornadorns"
-	icon_state = "facial_hornadorns"
+	icon_state = "hornadorns"
 
 /datum/sprite_accessory/facial_hair/chinhorns
 	name = "Chin Horns"
-	icon_state = "facial_chinhorns"
+	icon_state = "chinhorns"
 
 /datum/sprite_accessory/facial_hair/tribeard
 	name = "Tri-beard"
-	icon_state = "facial_tribeard"
+	icon_state = "tribeard"
 
 /datum/sprite_accessory/facial_hair/shaved
 	name = "Shaved"
@@ -229,4 +229,3 @@
 /datum/sprite_accessory/facial_vox_hair/vox_mane
 	name = "Vox Mane"
 	icon_state = "mane"
-

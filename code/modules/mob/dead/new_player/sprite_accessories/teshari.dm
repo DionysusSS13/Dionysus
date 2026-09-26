@@ -63,7 +63,7 @@
 /datum/sprite_accessory/teshari_ears
 	icon = 'icons/mob/species/teshari/ears.dmi'
 	em_block = TRUE
-	hasinner = TRUE
+	has_inner = TRUE
 
 /datum/sprite_accessory/teshari_ears/none
 	name = "None"

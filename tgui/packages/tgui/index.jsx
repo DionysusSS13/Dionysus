@@ -7,6 +7,7 @@
 // Themes
 import './styles/main.scss';
 import './styles/themes/rounded_base.scss';
+import './styles/themes/dionysus.scss';
 import './styles/themes/abductor.scss';
 import './styles/themes/book.scss';
 import './styles/themes/cardtable.scss';

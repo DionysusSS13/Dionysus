@@ -1,7 +1,7 @@
 /// Fully randomizes everything in the character.
 /datum/preferences/proc/randomise_appearance_prefs(randomize_flags = ALL)
 	for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
-		if(preference.savefile_identifier == PREFERENCE_PLAYER)
+		if(preference.savefile_identifier == PREFERENCE_SAVEFILE_PLAYER)
 			continue
 		if(istype(preference, /datum/preference/name/real_name) && !(randomize_flags & RANDOMIZE_NAME))
 			continue
@@ -24,7 +24,7 @@
 	return preview_job
 
 /datum/preferences/proc/render_new_preview_appearance(mob/living/carbon/human/dummy/mannequin)
-	var/datum/job/preview_job = get_highest_priority_job()
+	var/datum/job/preview_job = get_highest_priority_job() || SSjob.GetJobType(SSjob.overflow_role)
 
 	// Set up the dummy for its photoshoot
 	mannequin.dna.species.replace_missing_bodyparts(mannequin) // Augments modify bodyparts, so we need to reset them incase augs were removed.
@@ -55,6 +55,4 @@
 			mannequin.add_quirk(quirk_type, parent)
 
 	mannequin.update_body()
-	mannequin.add_overlay(mutable_appearance('icons/turf/floors.dmi', icon_state = "floor", layer = SPACE_LAYER))
 	return mannequin.appearance
-

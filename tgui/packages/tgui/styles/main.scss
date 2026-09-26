@@ -31,6 +31,7 @@
 @include meta.load-css('./components/Input.scss');
 @include meta.load-css('./components/Knob.scss');
 @include meta.load-css('./components/LabeledList.scss');
+@include meta.load-css('./components/LoadCursor.scss');
 @include meta.load-css('./components/Modal.scss');
 @include meta.load-css('./components/NoticeBox.scss');
 @include meta.load-css('./components/NumberInput.scss');
@@ -62,10 +63,12 @@
 @include meta.load-css('./interfaces/Mecha.scss');
 @include meta.load-css('./interfaces/Paper.scss');
 @include meta.load-css('./interfaces/PreferencesMenu.scss');
+@include meta.load-css('./interfaces/DioPrefs.scss');
 @include meta.load-css('./interfaces/Roulette.scss');
 @include meta.load-css('./interfaces/Safe.scss');
 @include meta.load-css('./interfaces/TachyonArray.scss');
 @include meta.load-css('./interfaces/RequestManager.scss');
+@include meta.load-css('./interfaces/ColorPicker.scss');
 
 // Layouts
 @include meta.load-css('./layouts/Layout.scss');

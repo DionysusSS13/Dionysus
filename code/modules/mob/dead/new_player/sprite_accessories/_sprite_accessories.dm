@@ -48,11 +48,11 @@
 	if(add_blank)
 		L[SPRITE_ACCESSORY_NONE] = new /datum/sprite_accessory/blank
 
-	sortTim(L, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
+	sortTim(L, GLOBAL_PROC_REF(cmp_text_none_first_asc))
 	if(male)
-		sortTim(male, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
+		sortTim(male, GLOBAL_PROC_REF(cmp_text_none_first_asc))
 	if(female)
-		sortTim(female, GLOBAL_PROC_REF(cmp_text_asc), FALSE)
+		sortTim(female, GLOBAL_PROC_REF(cmp_text_none_first_asc))
 
 	return L
 
@@ -69,13 +69,11 @@
 	var/gender_specific
 	/// Determines if the accessory will be skipped by color preferences.
 	var/use_static
-	/**
-	 * Currently only used by mutantparts so don't worry about hair and stuff.
-	 * This is the source that this accessory will get its color from. Default is MUTCOLOR, but can also be HAIR, FACEHAIR, EYECOLOR and 0 if none.
-	 */
+	/// This is used by preferences to build previews of the sprite accessory.
+	/// Currently only TRI_COLOR_LAYERS does anything unique, and any other non-false value just shades with one color.
 	var/color_src = MUTCOLORS
 	/// Decides if this sprite has an "inner" part, such as the fleshy parts on ears.
-	var/hasinner
+	var/has_inner
 	/// Is this part locked from roundstart selection? Used for parts that apply effects.
 	var/locked = FALSE
 	/// Should we center the sprite?
@@ -86,6 +84,30 @@
 	var/dimension_y = 32
 	/// Should this sprite block emissives?
 	var/em_block = FALSE
+
+/// Please use static vars to cache your icons.
+/// THIS SHOULD ONLY HAVE ONE FRAME AND STATE
+/// You should have all four directions, however.
+/datum/sprite_accessory/proc/get_base_preview_icon()
+	var/static/icon/human_icon
+	if (!human_icon)
+		var/icon/holding
+		human_icon = icon('icons/mob/human_parts_greyscale.dmi', "human_chest_m")
+		human_icon.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_head_m"), ICON_OVERLAY)
+		human_icon.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_r_arm"), ICON_OVERLAY)
+		human_icon.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_l_arm"), ICON_OVERLAY)
+		human_icon.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_r_hand"), ICON_OVERLAY)
+		human_icon.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_l_hand"), ICON_OVERLAY)
+		human_icon.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_r_leg"), ICON_OVERLAY)
+		human_icon.Blend(icon('icons/mob/human_parts_greyscale.dmi', "human_l_leg"), ICON_OVERLAY)
+		human_icon.Blend(skintone2hex("caucasian1"), ICON_MULTIPLY)
+		holding = icon('icons/mob/human_face.dmi', "eyes_l")
+		holding.Blend("#242424", ICON_MULTIPLY)
+		human_icon.Blend(holding, ICON_OVERLAY)
+		holding = icon('icons/mob/human_face.dmi', "eyes_r")
+		holding.Blend("#242424", ICON_MULTIPLY)
+		human_icon.Blend(holding, ICON_OVERLAY)
+	return human_icon
 
 /datum/sprite_accessory/blank
 	name = "None"
