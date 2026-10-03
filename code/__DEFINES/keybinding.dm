@@ -55,6 +55,14 @@
 #define COMSIG_KB_LIVING_TOGGLE_COMBAT_DOWN "keybinding_living_toggle_combat_down"
 #define COMSIG_KB_LIVING_ENABLE_COMBAT_DOWN "keybinding_living_enable_combat_down"
 #define COMSIG_KB_LIVING_DISABLE_COMBAT_DOWN "keybinding_living_disable_combat_down"
+
+#define COMSIG_KB_LIVING_PIXEL_SHIFT_DOWN "keybinding_living_pixel_shift_down"
+#define COMSIG_KB_LIVING_PIXEL_SHIFT_UP "keybinding_living_pixel_shift_up"
+#define COMSIG_KB_LIVING_ITEM_PIXEL_SHIFT_DOWN "keybinding_living_item_pixelshift_down"
+#define COMSIG_KB_LIVING_ITEM_PIXEL_SHIFT_UP "keybinding_living_item_pixelshift_up"
+#define COMSIG_KB_LIVING_PIXEL_TILT_DOWN "keybinding_living_pixeltilt_down"
+#define COMSIG_KB_LIVING_PIXEL_TILT_UP "keybinding_living_pixeltilt_up"
+
 //Mob
 #define COMSIG_KB_MOB_FACENORTH_DOWN "keybinding_mob_facenorth_down"
 #define COMSIG_KB_MOB_FACEEAST_DOWN "keybinding_mob_faceeast_down"
