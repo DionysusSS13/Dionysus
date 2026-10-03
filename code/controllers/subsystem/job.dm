@@ -67,7 +67,7 @@ SUBSYSTEM_DEF(job)
 	/// Dictionary that maps job priorities to low/medium/high. Keys have to be number-strings as assoc lists cannot be indexed by integers. Set in setup_job_lists.
 	var/list/job_priorities_to_strings
 
-	var/list/department_has_atleast_one_player
+	var/list/department_has_atleast_one_player = list()
 
 	/// A k:v list of department_path : name, where name is the name of the player who was given head access at roundstart
 	var/list/temporary_heads_by_dep = list()
@@ -238,7 +238,7 @@ SUBSYSTEM_DEF(job)
 	if(do_eligibility_checks && (check_job_eligibility(player, job, "AR", add_job_to_log = TRUE) != JOB_AVAILABLE))
 		return FALSE
 
-	JobDebug("Player: [player] is now Rank: [job.get_title(player)], JCP:[job.current_positions], JPL:[latejoin ? job.total_positions : job.spawn_positions]")
+	JobDebug("Player: [player] is now Rank: [job.get_title(player.client)], JCP:[job.current_positions], JPL:[latejoin ? job.total_positions : job.spawn_positions]")
 	player.mind.set_assigned_role(job)
 	unassigned -= player
 	job.current_positions++
@@ -262,7 +262,7 @@ SUBSYSTEM_DEF(job)
 			continue
 
 		// Initial screening check. Does the player even have the job enabled, if they do - Is it at the correct priority level?
-		var/player_job_level = player.client?.prefs.read_preference(/datum/preference/blob/job_priority)[job]
+		var/player_job_level = player.client?.prefs.read_preference(/datum/preference/blob/job_priority)[job.id]
 		if(isnull(player_job_level))
 			JobDebug("FOC player job not enabled, Player: [player]")
 			continue
@@ -1061,7 +1061,7 @@ SUBSYSTEM_DEF(job)
  * * debug_prefix - Logging prefix for the JobDebug log entries. For example, GRJ during GiveRandomJob or DO during DivideOccupations.
  * * add_job_to_log - If TRUE, appends the job type to the log entry. If FALSE, does not. Set to FALSE when check is part of iterating over players for a specific job, set to TRUE when check is part of iterating over jobs for a specific player and you don't want extra log entry spam.
  */
-/datum/controller/subsystem/job/proc/check_job_eligibility(mob/dead/new_player/player, datum/job/possible_job, debug_prefix = "", add_job_to_log = FALSE)
+/datum/controller/subsystem/job/proc/check_job_eligibility(mob/player, datum/job/possible_job, debug_prefix = "", add_job_to_log = FALSE)
 	if(!player.mind)
 		JobDebug("[debug_prefix] player has no mind, Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
 		return JOB_UNAVAILABLE_GENERIC

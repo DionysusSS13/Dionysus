@@ -70,7 +70,7 @@
 		if(skin_tone)
 			spawned_human.skin_tone = skin_tone
 		else
-			spawned_human.skin_tone = random_skin_tone()
+			spawned_human.skin_tone = skintone2hex(random_skin_tone())
 		spawned_human.update_hair()
 		spawned_human.update_body()
 

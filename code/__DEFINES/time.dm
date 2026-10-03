@@ -8,7 +8,7 @@
 #define CURRENT_STATION_YEAR (GLOB.year_integer + STATION_YEAR_OFFSET)
 
 ///How many years into the future (or past, if you're into that) the server is
-#define STATION_YEAR_OFFSET 805
+#define STATION_YEAR_OFFSET 1497
 
 
 #define JANUARY 1

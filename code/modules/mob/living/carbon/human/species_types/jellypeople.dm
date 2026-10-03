@@ -278,8 +278,8 @@
 
 	spare.underwear = "Nude"
 	H.dna.transfer_identity(spare, transfer_SE=1)
-	spare.dna.mutant_colors = random_mutant_colors()
-	spare.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
+	spare.skin_tone = random_color()
+	spare.dna.update_uf_block(DNA_SKIN_TONE_BLOCK)
 	spare.set_real_name(spare.dna.real_name)
 	spare.updateappearance(mutcolor_update=1)
 	spare.domutcheck()
@@ -344,7 +344,7 @@
 			continue
 
 		var/list/L = list()
-		L["htmlcolor"] = body.dna.mutant_colors[MUTCOLORS_GENERIC_1]
+		L["htmlcolor"] = body.skin_tone
 		L["area"] = get_area_name(body, TRUE)
 		var/stat = "error"
 		switch(body.stat)

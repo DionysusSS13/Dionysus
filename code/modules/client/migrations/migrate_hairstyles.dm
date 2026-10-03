@@ -105,4 +105,4 @@
 	if(isnull(new_hairstyle))
 		return
 
-	write_preference(/datum/preference/choiced/hairstyle, new_hairstyle)
+	// write_preference(/datum/preference/choiced/hairstyle, new_hairstyle)

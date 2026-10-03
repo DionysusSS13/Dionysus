@@ -66,3 +66,9 @@ $border-radius: base.$border-radius !default;
 .Input--monospace .Input__input {
   font-family: 'Consolas', monospace;
 }
+
+.Input__input:disabled {
+  cursor: not-allowed;
+  border-color: #777;
+  color: #777;
+}

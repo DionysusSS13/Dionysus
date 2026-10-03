@@ -342,6 +342,18 @@ GLOBAL_LIST_INIT(job_display_order, list(
 		return FALSE
 	return TRUE
 
+/// This is a long description in the form of a list of lines. Avoid in-jokes, this is for new players.
+/datum/job/proc/get_description()
+	return list("None")
+
+/// This is a long flavor text in the form of a list of lines. For lore.
+/datum/job/proc/get_flavor()
+	return list("None")
+
+/// This is a bullet point list. Keep entries short and sweet.
+/datum/job/proc/get_tips()
+	return list("None")
+
 /datum/outfit/job
 	name = "Standard Gear"
 
@@ -538,12 +550,11 @@ GLOBAL_LIST_INIT(job_display_order, list(
 			fully_replace_character_name(null, GLOB.current_anonymous_theme.anonymous_name(src))
 	else
 		var/is_antag = (player_client.mob.mind in GLOB.pre_setup_antags)
-		player_client.prefs.safe_transfer_prefs_to(src, TRUE, is_antag)
+		player_client.prefs.apply_prefs_to(src, TRUE, is_antag)
 
 		if(require_human && !ishumanbasic(src))
 			set_species(/datum/species/human)
 			dna.species.roundstart_changed = TRUE
-			apply_pref_name(/datum/preference/name/backup_human, player_client)
 
 		if(CONFIG_GET(flag/force_random_names))
 			var/species_type = player_client.prefs.read_preference(/datum/preference/choiced/species)
@@ -665,3 +676,6 @@ GLOBAL_LIST_INIT(job_display_order, list(
 		return title.name
 
 	return title.name
+
+/datum/job/proc/prepare_human_for_preview(mob/living/carbon/human/human)
+	human.dress_up_as_job(src, TRUE)

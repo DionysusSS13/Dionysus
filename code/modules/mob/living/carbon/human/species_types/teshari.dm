@@ -92,7 +92,7 @@
 #define TESH_FEATHER_COLOR "#996633"
 
 /datum/species/teshari/prepare_human_for_preview(mob/living/carbon/human/human)
-	human.dna.mutant_colors[MUTCOLORS_GENERIC_1] = TESH_BODY_COLOR
+	human.skin_tone = TESH_BODY_COLOR
 	human.hair_color = TESH_FEATHER_COLOR
 	human.update_body(TRUE)
 

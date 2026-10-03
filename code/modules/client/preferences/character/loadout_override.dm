@@ -1,0 +1,16 @@
+/datum/preference/choiced/loadout_override_preference
+	explanation = "Loadout Items"
+	priority = PREFERENCE_PRIORITY_DEFAULT
+	savefile_key = "loadout_override_preference"
+	savefile_identifier = PREFERENCE_SAVEFILE_CHARACTER
+	feature_identifier = PREFERENCE_FEATURE_DROPDOWN_SWITCHER
+	category = PREFERENCE_CATEGORY_APPEARANCE_GENERAL
+
+/datum/preference/choiced/loadout_override_preference/init_possible_values()
+	return list(LOADOUT_OVERRIDE_BACKPACK, LOADOUT_OVERRIDE_CASE, LOADOUT_OVERRIDE_DISCARD)
+
+/datum/preference/choiced/loadout_override_preference/create_default_value()
+	return LOADOUT_OVERRIDE_BACKPACK
+
+/datum/preference/choiced/loadout_override_preference/apply_to_human(mob/living/carbon/human/target, value)
+	return TRUE

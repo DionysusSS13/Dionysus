@@ -128,6 +128,7 @@
 #include "egg_glands.dm"
 #include "emoting.dm"
 #include "food_edibility_check.dm"
+#include "font_awesome_icons.dm"
 #include "get_turf_pixel.dm"
 #include "grabbing.dm"
 #include "greyscale_config.dm"

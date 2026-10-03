@@ -61,7 +61,7 @@
 	preference = "ipc_antenna"
 
 	dna_block = DNA_IPC_ANTENNA_BLOCK
-	color_source = ORGAN_COLOR_INHERIT_ALL
+	color_source = ORGAN_COLOR_DNA
 	mutcolor_used = MUTCOLORS_KEY_IPC_ANTENNA
 
 /obj/item/organ/ipc_antenna/get_global_feature_list()
@@ -85,7 +85,7 @@
 	preference = "saurian_screen"
 
 	dna_block = DNA_SAURIAN_SCREEN_BLOCK
-	color_source = ORGAN_COLOR_INHERIT_ALL
+	color_source = ORGAN_COLOR_DNA
 	mutcolor_used = MUTCOLORS_KEY_GENERIC
 
 /obj/item/organ/saurian_screen/get_global_feature_list()
@@ -100,12 +100,15 @@
 	. = ..()
 
 	for(var/image_layer in layers)
-		var/state2use = build_icon_state(physique, image_layer)
+		var/state2use = build_sprite_accessory_icon_state(render_key || feature_key, sprite_datum, physique, GLOB.layer2text["[image_layer]"])
 
 		if(!icon_exists(sprite_datum.icon, "[state2use]_secondary", FALSE))
 			continue
-		var/image/secondary = image(sprite_datum.icon, "[state2use]_secondary")
-		secondary.color = mutcolors[MUTCOLORS_GENERIC_2]
+		// Okay I have no clue why this requires BODYPARTS_LOW, but something tells me someone isn't using the right layers somewhere.
+		var/image/secondary = image(sprite_datum.icon, icon_state = "[state2use]_secondary", layer = -BODYPARTS_LOW_LAYER)
+		var/list/colors = owner?.dna?.features["[feature_key]_color"]
+		if (istype(colors) && length(colors))
+			secondary.color = colors[2]
 		. += secondary
 
 	if(!ishuman(owner))
@@ -113,10 +116,11 @@
 
 	var/mob/living/carbon/human/H = owner
 
-	var/image/I = image(sprite_datum.icon, "eyes", layer = -EYE_LAYER)
+	// Ditto here, gotta investigate the weird layering
+	var/image/I = image(sprite_datum.icon, icon_state = "eyes", layer = -BODYPARTS_LOW_LAYER)
 	I.color = H.eye_color_left
 	. += I
-	. += emissive_appearance(sprite_datum.icon, "eyes", -EYE_LAYER, alpha = 90)
+	. += emissive_appearance(sprite_datum.icon, "eyes", layer = -BODYPARTS_LOW_LAYER, alpha = 90)
 
 /obj/item/organ/saurian_tail
 	name = "tail"
@@ -147,59 +151,12 @@
 	feature_key = "saurian_scutes"
 	dna_block = DNA_SAURIAN_SCUTES_BLOCK
 
-	color_source = ORGAN_COLOR_INHERIT_ALL
+	color_source = ORGAN_COLOR_DNA
 	mutcolor_used = MUTCOLORS_KEY_GENERIC
 	mutcolor_index = 3
 
 /obj/item/organ/saurian_scutes/get_global_feature_list()
 	return GLOB.saurian_scutes_list
-
-/obj/item/organ/saurian_screen
-	name = "saurian ipc screen"
-	visual = TRUE
-	cosmetic_only = TRUE
-
-	zone = BODY_ZONE_HEAD
-	slot = ORGAN_SLOT_EXTERNAL_SAURIAN_SCREEN
-	layers = list(BODY_ADJ_LAYER)
-
-	feature_key = "saurian_screen"
-	preference = "saurian_screen"
-
-	dna_block = DNA_SAURIAN_SCREEN_BLOCK
-	color_source = ORGAN_COLOR_INHERIT_ALL
-	mutcolor_used = MUTCOLORS_KEY_GENERIC
-
-/obj/item/organ/saurian_screen/get_global_feature_list()
-	return GLOB.saurian_screens_list
-
-/obj/item/organ/saurian_screen/can_draw_on_bodypart(mob/living/carbon/human/human)
-	if(!(human.obscured_slots & HIDESNOUT))
-		return TRUE
-	return FALSE
-
-/obj/item/organ/saurian_screen/build_overlays(physique, image_dir)
-	. = ..()
-
-	for(var/image_layer in layers)
-		var/state2use = build_icon_state(physique, image_layer)
-
-		if(!icon_exists(sprite_datum.icon, "[state2use]_secondary", FALSE))
-			continue
-		var/image/secondary = image(sprite_datum.icon, "[state2use]_secondary")
-		secondary.color = mutcolors[MUTCOLORS_GENERIC_2]
-		. += secondary
-
-	if(!ishuman(owner))
-		return
-
-	var/mob/living/carbon/human/H = owner
-
-	var/image/I = image(sprite_datum.icon, "eyes", layer = -EYE_LAYER)
-	I.color = H.eye_color_left
-	. += I
-	. += emissive_appearance(sprite_datum.icon, "eyes", -EYE_LAYER, alpha = 90)
-
 
 /obj/item/organ/saurian_antenna
 	name = "saurian_antenna"
@@ -216,7 +173,7 @@
 	render_key = "ipc_antenna_synth"
 
 	dna_block = DNA_SAURIAN_ANTENNA_BLOCK
-	color_source = ORGAN_COLOR_INHERIT_ALL
+	color_source = ORGAN_COLOR_DNA
 	mutcolor_used = MUTCOLORS_KEY_SAURIAN_ANTENNA
 
 /obj/item/organ/saurian_antenna/get_global_feature_list()
@@ -231,10 +188,12 @@
 	. = ..()
 
 	for(var/image_layer in layers)
-		var/state2use = build_icon_state(physique, image_layer)
+		var/state2use = build_sprite_accessory_icon_state(render_key || feature_key, sprite_datum, physique, GLOB.layer2text["[image_layer]"])
 
 		if(!icon_exists(sprite_datum.icon, "[state2use]_secondary", FALSE))
 			continue
 		var/image/secondary = image(sprite_datum.icon, "[state2use]_secondary")
-		secondary.color = mutcolors[MUTCOLORS_GENERIC_2]
+		var/list/colors = owner?.dna?.features["[feature_key]_color"]
+		if (istype(colors) && length(colors))
+			secondary.color = colors[2]
 		. += secondary

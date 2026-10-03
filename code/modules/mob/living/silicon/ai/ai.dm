@@ -650,7 +650,7 @@
 					switch(tgui_alert(usr,"WARNING: Your AI hologram will take the appearance of your currently selected character ([usr.client.prefs?.read_preference(/datum/preference/name/real_name)]). Are you sure you want to proceed?", "Customize", list("Yes","No")))
 						if("Yes")
 							var/mob/living/carbon/human/dummy/ai_dummy = new
-							var/mutable_appearance/appearance = usr.client.prefs.render_new_preview_appearance(ai_dummy)
+							var/mutable_appearance/appearance = usr.client.prefs.preferences_menu.render_new_preview_appearance(ai_dummy)
 							var/icon/character_icon = getHologramIcon(getFlatIcon(appearance))
 							if(character_icon)
 								qdel(holo_icon)

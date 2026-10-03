@@ -218,15 +218,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror, 28)
 			if(amazed_human.dna.species.use_skintones)
 				var/new_s_tone = tgui_input_list(user, "Choose your skin tone", "Race change", GLOB.skin_tones)
 				if(new_s_tone)
-					amazed_human.skin_tone = new_s_tone
+					amazed_human.skin_tone = skintone2hex(new_s_tone)
 					amazed_human.dna.update_ui_block(DNA_SKIN_TONE_BLOCK)
 
 			if(MUTCOLORS in amazed_human.dna.species.species_traits)
-				var/mutcolor2change = input(user, "Choose which mutant color to change", "Color Change", amazed_human.dna.mutant_colors) as text|null
-				if(!mutcolor2change)
-					return TRUE
-
-				var/new_mutantcolor = input(user, "Choose your primary color:", "Race change", amazed_human.dna.mutant_colors[mutcolor2change]) as color|null
+				var/new_mutantcolor = input(user, "Choose your primary color:", "Race change", amazed_human.skin_tone) as color|null
 				if(!user.canUseTopic(src, USE_CLOSE|USE_IGNORE_TK))
 					return TRUE
 
@@ -234,8 +230,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/mirror, 28)
 					var/list/temp_hsv = rgb2hsv(new_mutantcolor)
 
 					if(temp_hsv[3] >= 50) // mutantcolors must be bright
-						amazed_human.dna.features[mutcolor2change] = sanitize_hexcolor(new_mutantcolor)
-						amazed_human.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
+						amazed_human.skin_tone = sanitize_hexcolor(new_mutantcolor)
+						amazed_human.dna.update_uf_block(DNA_SKIN_TONE_BLOCK)
 
 					else
 						to_chat(amazed_human, span_notice("Invalid color. Your color is not bright enough."))

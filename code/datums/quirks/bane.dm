@@ -2,7 +2,7 @@
 /datum/quirk/item_quirk/blindness
 	name = "Blind"
 	desc = "You have completely lost your sight."
-	icon = "eye-slash"
+	icon = FA_ICON_EYE_SLASH
 	quirk_genre = QUIRK_GENRE_BANE
 	gain_text = "<span class='obviousnotice'>You can't see anything.</span>"
 	lose_text = "<span class='obviousnotice'>You miraculously gain back your vision.</span>"
@@ -21,7 +21,7 @@
 /datum/quirk/deafness
 	name = "Deaf"
 	desc = "You have completely lost your hearing."
-	icon = "deaf"
+	icon = FA_ICON_DEAF
 	quirk_genre = QUIRK_GENRE_BANE
 	mob_trait = TRAIT_DEAF
 	gain_text = "<span class='obviousnotice'>You can't hear anything.</span>"
@@ -31,7 +31,7 @@
 /datum/quirk/light_drinker
 	name = "Alcohol Intolerance"
 	desc = "You just can't handle your drinks and get drunk very quickly."
-	icon = "cocktail"
+	icon = FA_ICON_COCKTAIL
 	quirk_genre = QUIRK_GENRE_BANE
 	mob_trait = TRAIT_LIGHT_DRINKER
 	gain_text = "<span class='obviousnotice'>Just the thought of drinking alcohol makes your head spin.</span>"
@@ -40,7 +40,7 @@
 /datum/quirk/item_quirk/nearsighted
 	name = "Nearsighted"
 	desc = "You are nearsighted without prescription glasses, which you carry on your person."
-	icon = "glasses"
+	icon = FA_ICON_GLASSES
 	quirk_genre = QUIRK_GENRE_BANE
 	gain_text = "<span class='obviousnotice'>Things far away from you start looking blurry.</span>"
 	lose_text = "<span class='obviousnotice'>You start seeing faraway things normally again.</span>"
@@ -71,7 +71,7 @@
 /datum/quirk/paraplegic
 	name = "Paraplegic"
 	desc = "You suffer from paralysis from the waist down."
-	icon = "wheelchair"
+	icon = FA_ICON_WHEELCHAIR
 	quirk_genre = QUIRK_GENRE_BANE
 	quirk_flags = QUIRK_HUMAN_ONLY
 	gain_text = null // Handled by trauma.
@@ -112,7 +112,7 @@
 /datum/quirk/item_quirk/junkie
 	name = "Drug Addict"
 	desc = "You have an addiction to a hard drug."
-	icon = "pills"
+	icon = FA_ICON_PILLS
 	quirk_genre = QUIRK_GENRE_BANE
 	gain_text = "<span class='obviousnotice'>You suddenly feel the craving for drugs.</span>"
 	medical_record_text = "Patient has an addiction."
@@ -206,7 +206,7 @@
 /datum/quirk/item_quirk/junkie/smoker
 	name = "Nicotine Addict"
 	desc = "You have an addiction to nicotine."
-	icon = "smoking"
+	icon = FA_ICON_SMOKING
 	quirk_genre = QUIRK_GENRE_BANE
 	gain_text = "<span class='obviousnotice'>You could really go for a smoke right about now.</span>"
 	reagent_type = /datum/reagent/drug/nicotine
@@ -237,7 +237,7 @@
 /datum/quirk/item_quirk/allergic
 	name = "Medicine Allergy"
 	desc = "You are highly allergic to a medical drug."
-	icon = "prescription-bottle"
+	icon = FA_ICON_PRESCRIPTION_BOTTLE
 	quirk_genre = QUIRK_GENRE_BANE
 	gain_text = "<span class='obviousnotice'>You feel your immune system shift.</span>"
 	lose_text = "<span class='obviousnotice'>You feel your immune system phase back into perfect shape.</span>"
@@ -292,7 +292,7 @@
 /datum/quirk/insanity
 	name = "Schizophrenia"
 	desc = "You suffer from a severe disorder that causes vivid audio-visual hallucinations. Mindbreaker Toxin can be used to suppress the effects temporarily."
-	icon = "grin-tongue-wink"
+	icon = FA_ICON_GRIN_TONGUE_WINK
 	quirk_genre = QUIRK_GENRE_BANE
 	mob_trait = TRAIT_INSANITY
 	medical_record_text = "Patient suffers from schizophrenia and experiences vivid audio-visual hallucinations."
@@ -308,7 +308,7 @@
 /datum/quirk/monochromatic
 	name = "Monochromacy"
 	desc = "You are unable to perceive color."
-	icon = "adjust"
+	icon = FA_ICON_ADJUST
 	quirk_genre = QUIRK_GENRE_BANE
 	medical_record_text = "Patient is afflicted with almost complete color blindness."
 
@@ -326,7 +326,7 @@
 /datum/quirk/no_taste
 	name = "Ageusia"
 	desc = "You have no sense of taste."
-	icon = "meh-blank"
+	icon = FA_ICON_MEH_BLANK
 	quirk_genre = QUIRK_GENRE_BANE
 	mob_trait = TRAIT_AGEUSIA
 	gain_text = "<span class='obviousnotice'>You can't taste anything!</span>"
@@ -336,7 +336,7 @@
 /datum/quirk/vegetarian
 	name = "Vegetarian"
 	desc = "You are physically repulsed by consuming meat."
-	icon = "carrot"
+	icon = FA_ICON_CARROT
 	quirk_genre = QUIRK_GENRE_BANE
 	gain_text = "<span class='obviousnotice'>You feel repulsion at the idea of eating meat.</span>"
 	lose_text = "<span class='obviousnotice'>You feel like eating meat isn't that bad.</span>"
@@ -366,7 +366,7 @@
 /datum/quirk/shifty_eyes
 	name = "Shifty Eyes"
 	desc = "Your eyes tend to wander all over the place, whether you mean to or not, causing people to sometimes think you're looking directly at them when you aren't."
-	icon = "far fa-eye"
+	icon = FA_ICON_EYE
 	quirk_genre = QUIRK_GENRE_BANE
 	medical_record_text = "Fucking creep kept staring at me the whole damn checkup. I'm only diagnosing this because it's less awkward than thinking it was on purpose."
 	mob_trait = TRAIT_SHIFTY_EYES

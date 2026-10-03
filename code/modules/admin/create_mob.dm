@@ -17,7 +17,7 @@
 	H.name = H.real_name
 	H.underwear = random_underwear(H.gender)
 	H.underwear_color = "#[random_color()]"
-	H.skin_tone = random_skin_tone()
+	H.skin_tone = skintone2hex(random_skin_tone())
 
 	var/obj/item/bodypart/head/myhead = H.get_bodypart(BODY_ZONE_HEAD)
 	if(!myhead)
@@ -38,7 +38,6 @@
 	H.dna.blood_type = H.dna.species.get_random_blood_type()
 
 	// Mutant randomizing, doesn't affect the mob appearance unless it's the specific mutant.
-	H.dna.mutant_colors = random_mutant_colors()
 	H.dna.features = random_features()
 
 	H.update_body(is_creating = TRUE)

@@ -198,7 +198,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	for (var/preference_type in GLOB.preference_entries)
 		var/datum/preference/preference = GLOB.preference_entries[preference_type]
-		if (preference.savefile_identifier != PREFERENCE_PLAYER)
+		if (preference.savefile_identifier != PREFERENCE_SAVEFILE_PLAYER)
 			continue
 
 		if (!(preference.type in recently_updated_keys))
@@ -242,7 +242,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	// Read everything into cache
 	for (var/preference_type in GLOB.preference_entries)
 		var/datum/preference/preference = GLOB.preference_entries[preference_type]
-		if (preference.savefile_identifier != PREFERENCE_CHARACTER)
+		if (preference.savefile_identifier != PREFERENCE_SAVEFILE_CHARACTER)
 			continue
 
 		value_cache -= preference_type
@@ -265,7 +265,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	var/save_data = savefile.get_entry(tree_key)
 
 	for (var/datum/preference/preference as anything in get_preferences_in_priority_order())
-		if (preference.savefile_identifier != PREFERENCE_CHARACTER)
+		if (preference.savefile_identifier != PREFERENCE_SAVEFILE_CHARACTER)
 			continue
 
 		if (!(preference.type in recently_updated_keys))

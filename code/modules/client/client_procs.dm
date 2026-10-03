@@ -292,7 +292,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		prefs.load_savefile() // just to make sure we have the latest data
 		prefs.apply_all_client_preferences()
 	else
-		prefs = new /datum/preferences(src)
+		new /datum/preferences(src) // Set by the prefs object itself
 		GLOB.preferences_datums[ckey] = prefs
 	prefs.last_ip = address //these are gonna be used for banning
 	prefs.last_id = computer_id //these are gonna be used for banning

@@ -96,8 +96,8 @@
 				SET_OVERLAY_VALUE(facial_overlay, color, fixed_hair_color)
 				SET_OVERLAY_VALUE(hair_overlay, color, fixed_hair_color)
 			else
-				SET_OVERLAY_VALUE(facial_overlay, color, mutcolors[hair_color_source])
-				SET_OVERLAY_VALUE(hair_overlay, color, mutcolors[hair_color_source])
+				SET_OVERLAY_VALUE(facial_overlay, color, facial_hair_color)
+				SET_OVERLAY_VALUE(hair_overlay, color, hair_color)
 		else
 			SET_OVERLAY_VALUE(facial_overlay, color, facial_hair_color)
 			SET_OVERLAY_VALUE(hair_overlay, color, hair_color)

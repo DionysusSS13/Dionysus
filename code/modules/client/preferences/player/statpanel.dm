@@ -1,0 +1,13 @@
+/datum/preference/toggle/fast_mc_refresh
+	explanation = "Enable fast MC stat panel refreshes"
+	category = PREFERENCE_CATEGORY_GAME_ADMIN
+	description = "Whether or not the MC tab of the Stat Panel refreshes fast. This is expensive so make sure you need it."
+	savefile_key = "fast_mc_refresh"
+	savefile_identifier = PREFERENCE_SAVEFILE_PLAYER
+	default_value = FALSE
+
+/datum/preference/toggle/fast_mc_refresh/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+
+	return is_admin(preferences.parent)

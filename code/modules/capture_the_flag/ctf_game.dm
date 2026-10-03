@@ -406,7 +406,7 @@
 		chosen_class = ctf_gear[choice]
 
 	var/mob/living/carbon/human/M = new /mob/living/carbon/human(get_turf(src))
-	new_team_member.prefs.safe_transfer_prefs_to(M, is_antag = TRUE)
+	new_team_member.prefs.apply_prefs_to(M)
 	if(M.dna.species.outfit_important_for_life)
 		M.set_species(/datum/species/human)
 	M.PossessByPlayer(new_team_member.key)

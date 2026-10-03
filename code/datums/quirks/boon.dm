@@ -4,7 +4,7 @@
 /datum/quirk/alcohol_tolerance
 	name = "Alcohol Tolerance"
 	desc = "You have a high alcohol tolerance."
-	icon = "beer"
+	icon = FA_ICON_BEER
 	quirk_genre = QUIRK_GENRE_BOON
 	mob_trait = TRAIT_ALCOHOL_TOLERANCE
 	gain_text = "<span class='obviousnotice'>You feel like you could drink a whole keg!</span>"
@@ -13,7 +13,7 @@
 /datum/quirk/item_quirk/musician
 	name = "Musician"
 	desc = "You can tune handheld musical instruments to play melodies that soothe the soul."
-	icon = "guitar"
+	icon = FA_ICON_GUITAR
 	quirk_genre = QUIRK_GENRE_BOON
 	mob_trait = TRAIT_MUSICIAN
 	gain_text = "<span class='obviousnotice'>You know everything about musical instruments.</span>"
@@ -25,14 +25,14 @@
 /datum/quirk/skittish
 	name = "Skittish"
 	desc = "You're easy to startle, and hide frequently."
-	icon = "trash"
+	icon = FA_ICON_TRASH
 	quirk_genre = QUIRK_GENRE_BOON
 	mob_trait = TRAIT_SKITTISH
 
 /datum/quirk/item_quirk/spiritual
 	name = "Spiritual"
 	desc = "You gain comfort from the presence of holy people."
-	icon = "bible"
+	icon = FA_ICON_BIBLE
 	quirk_genre = QUIRK_GENRE_BOON
 	mob_trait = TRAIT_SPIRITUAL
 	gain_text = "<span class='obviousnotice'>You have faith in a higher power.</span>"
@@ -45,7 +45,7 @@
 /datum/quirk/item_quirk/tagger
 	name = "Graffiti Writer"
 	desc = "You are an experienced writer and know how to get the most out of a spraycan."
-	icon = "spray-can"
+	icon = FA_ICON_SPRAY_CAN
 	quirk_genre = QUIRK_GENRE_BOON
 	mob_trait = TRAIT_TAGGER
 	gain_text = "<span class='obviousnotice'>You know how to tag walls efficiently.</span>"
@@ -53,4 +53,3 @@
 
 /datum/quirk/item_quirk/tagger/add_unique(client/client_source)
 	give_item_to_holder(/obj/item/toy/crayon/spraycan, list(LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS))
-

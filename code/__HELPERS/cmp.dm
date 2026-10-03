@@ -21,6 +21,10 @@
 	var/comp_b = b.name || "[b.type]"
 	return sorttext(comp_b, comp_a)
 
+/// Sorts "None" first, and other values follow standard alphabetical order. Intended for preferences.
+/proc/cmp_text_none_first_asc(name1, name2)
+	return name1 == "None" ? -1 : name2 == "None" ? 1 : sorttext(name2, name1)
+
 GLOBAL_VAR_INIT(cmp_field, "name")
 /proc/cmp_records_asc(datum/data/record/a, datum/data/record/b)
 	return sorttext(b.fields[GLOB.cmp_field], a.fields[GLOB.cmp_field])
@@ -183,10 +187,6 @@ GLOBAL_VAR_INIT(cmp_field, "name")
 /// Sort by plane, then by layer. Approximately BYOND rendering order.
 /proc/cmp_zm_render_order(atom/A, atom/B)
 	return (B.plane - A.plane) || (B.layer - A.layer)
-
-/// Sort modules by priority
-/proc/cmp_pref_modules(datum/preference_group/A, datum/preference_group/B)
-	return B.priority - A.priority
 
 /proc/cmp_pref_name(datum/preference/A, datum/preference/B)
 	return sorttext(B.explanation, A.explanation)

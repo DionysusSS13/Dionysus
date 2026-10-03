@@ -39,8 +39,6 @@
 /// This number needs to equal the total number of DNA blocks
 #define DNA_FEATURE_BLOCKS 32
 
-#define DNA_MUTANT_COLOR_BLOCK 1
-#define DNA_ETHEREAL_COLOR_BLOCK 2
 #define DNA_LIZARD_MARKINGS_BLOCK 3
 #define DNA_TAIL_BLOCK 4
 #define DNA_LIZARD_TAIL_BLOCK 5
@@ -55,8 +53,6 @@
 #define DNA_MUSHROOM_CAPS_BLOCK 14
 #define DNA_MONKEY_TAIL_BLOCK 15
 #define DNA_POD_HAIR_BLOCK 16
-#define DNA_MUTANT_COLOR_BLOCK_2 17
-#define DNA_MUTANT_COLOR_BLOCK_3 18
 #define DNA_TESHARI_FEATHERS_BLOCK 19
 #define DNA_TESHARI_EARS_BLOCK 20
 #define DNA_TESHARI_BODY_FEATHERS_BLOCK 21
@@ -145,6 +141,8 @@
 #define ORGAN_SLOT_ZOMBIE "zombie_infection"
 
 /// Organ slot external
+#define ORGAN_SLOT_EXTERNAL_HAIR "hair"
+#define ORGAN_SLOT_EXTERNAL_FACIAL_HAIR "facial_hair"
 #define ORGAN_SLOT_EXTERNAL_TAIL "tail"
 #define ORGAN_SLOT_EXTERNAL_SPINES "spines"
 #define ORGAN_SLOT_EXTERNAL_SNOUT "snout"

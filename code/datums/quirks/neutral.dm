@@ -1,7 +1,7 @@
 /datum/quirk/deviant_tastes
 	name = "Deviant Tastes"
 	desc = "You dislike food that most people enjoy, and find delicious what they don't."
-	icon = "grin-tongue-squint"
+	icon = FA_ICON_GRIN_TONGUE_SQUINT
 	quirk_genre = QUIRK_GENRE_NEUTRAL
 	gain_text = "<span class='obviousnotice'>You start craving something that tastes strange.</span>"
 	lose_text = "<span class='obviousnotice'>You feel like eating normal food again.</span>"
@@ -31,7 +31,7 @@
 /datum/quirk/heterochromatic
 	name = "Heterochromia Iridum"
 	desc = "One of your eyes is a different color than the other."
-	icon = "eye-low-vision" // Ignore the icon name, its actually a fairly good representation of different color eyes
+	icon = FA_ICON_EYE_LOW_VISION // Ignore the icon name, its actually a fairly good representation of different color eyes
 	medical_record_text = "Patient posesses dichromatic irises."
 	quirk_genre = QUIRK_GENRE_NEUTRAL
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_CHANGES_APPEARANCE
@@ -87,7 +87,7 @@
 /datum/quirk/item_quirk/photographer
 	name = "Photographer"
 	desc = "You carry your camera and personal photo album everywhere you go."
-	icon = "camera"
+	icon = FA_ICON_CAMERA
 	quirk_genre = QUIRK_GENRE_NEUTRAL
 	mob_trait = TRAIT_PHOTOGRAPHER
 	gain_text = "<span class='obviousnotice'>You know everything about photography.</span>"
@@ -116,7 +116,7 @@
 /datum/quirk/item_quirk/colorist
 	name = "Colorist"
 	desc = "You like carrying around a hair dye spray to quickly apply color patterns to your hair."
-	icon = "fill-drip"
+	icon = FA_ICON_FILL_DRIP
 	quirk_genre = QUIRK_GENRE_NEUTRAL
 	medical_record_text = "Patient enjoys dyeing their hair with pretty colors."
 
