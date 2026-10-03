@@ -60,10 +60,16 @@ window "inventory-pane"
 		size = 640x480
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		drop-zone = true
 		saved-params = "pos;size;is-minimized;is-maximized"
 		title = "Inventory"
 		is-pane = true
+		outer-size = 648x532
+		outer-pos = 281,39
+		inner-pos = 4,30
+		screen-size = 1920x1048
+		screen-pos = 0,32
 	elem "inventory_map"
 		type = MAP
 		pos = 0,0
@@ -72,6 +78,8 @@ window "inventory-pane"
 		anchor2 = 100,100
 		right-click = true
 		saved-params = "zoom;letterbox;zoom-mode"
+		on-size = ".inventory_map_resize [[*]]"
+		on-show = ".inventory_map_show"
 
 window "mainwindow"
 	elem "mainwindow"
@@ -116,12 +124,18 @@ window "mainwindow"
 window "mapwindow"
 	elem "mapwindow"
 		type = MAIN
-		pos = 281,0
+		pos = 281,39
 		size = 640x480
 		anchor1 = -1,-1
 		anchor2 = -1,-1
+		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
+		outer-size = 648x532
+		outer-pos = 281,39
+		inner-pos = 4,30
+		screen-size = 1920x1048
+		screen-pos = 0,32
 		on-status = ".winset \"status_bar.text=[[*]]\" "
 	elem "map"
 		type = MAP
@@ -441,22 +455,14 @@ window "output_browser"
 		size = 640x456
 		anchor1 = -1,-1
 		anchor2 = -1,-1
-		background-color = none
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
-		outer-size = 648x508
-		outer-pos = 281,39
-		inner-size = 640x456
-		inner-pos = 4,30
-		screen-size = 1920x1048
-		screen-pos = 0,32
 	elem "browseroutput"
 		type = BROWSER
 		pos = 0,0
 		size = 640x456
 		anchor1 = 0,0
 		anchor2 = 100,100
-		background-color = none
 		saved-params = ""
 		auto-format = true
 

@@ -1,22 +1,3 @@
-/atom/movable/screen/map_view/inventory
-	var/atom/movable/screen/background/cam_background
-
-/atom/movable/screen/map_view/inventory/Initialize(mapload)
-	. = ..()
-	generate_view("inventory_map")
-	cam_background = new
-	cam_background.del_on_map_removal = FALSE
-	cam_background.assigned_map = "inventory_map"
-	cam_background.icon_state = "scanline2"
-	cam_background.fill_rect(1, 1, 15, 15)
-
-/atom/movable/screen/map_view/inventory/Destroy()
-	QDEL_NULL(cam_background)
-	return ..()
-
-/atom/movable/screen/map_view/inventory/display_to_client(client/show_to)
-	. = ..()
-	show_to.register_map_obj(cam_background)
 
 /**
  * A generic background object.
