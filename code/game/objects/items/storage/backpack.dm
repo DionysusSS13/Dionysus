@@ -366,6 +366,16 @@ TYPEINFO_DEF(/obj/item/storage/backpack/holding)
 	icon_state = "satchel-cap"
 	inhand_icon_state = "satchel-cap"
 
+/obj/item/storage/backpack/satchel/crusader	//Not very special, really just a satchel texture
+	//MISSING SPRITE icon = 'modular_pariah/master_files/icons/obj/clothing/storage.dmi'
+	//MISSING SPRITE worn_icon = 'modular_pariah/master_files/icons/mob/clothing/back.dmi'
+	name = "crusader bandolier"
+	desc = "A bandolier-satchel combination for holding all your dungeon loot."
+	icon_state = "crusader_bandolier"
+	inhand_icon_state = "explorerpack"
+	w_class = WEIGHT_CLASS_BULKY
+	supports_variations_flags = NONE
+
 /obj/item/storage/backpack/satchel/flat
 	name = "smuggler's satchel"
 	desc = "A very slim satchel that can easily fit into tight spaces."
